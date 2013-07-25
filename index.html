@@ -79,9 +79,45 @@ title: University of Wisconsin Oshkosh
 
 <!-- News Feed -->
 <div class="row">
-  <div id="campus-news-feed"></div>
-  <div id="research-news-feed"></div>
-  <div id="powering-community-feed"></div>
+
+  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/campus-news %}
+  {% for post in feed.posts %}
+    <div class="large-4 columns">
+      <div class="panel panel-weekly campus-news">
+        <h6 class="subheader">{{ feed.category.title }}</h6>
+        <h5>{{ post.title }}</h5>
+        <img src="{{ post.attachments[0].url }}" />
+        <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <span>{{ post.date | date: "%a %b %d, %H:%M" }}</span>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/research %}
+  {% for post in feed.posts %}
+    <div class="large-4 columns">
+      <div class="panel panel-weekly research-news">
+        <h6 class="subheader">{{ feed.category.title }}</h6>
+        <h5>{{ post.title }}</h5>
+        <img src="{{ post.attachments[0].url }}" />
+        <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <span>{{ post.date | date: "%a %b %d, %H:%M" }}</span>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/community-2 %}
+  {% for post in feed.posts %}
+    <div class="large-4 columns">
+      <div class="panel panel-weekly powering-community">
+        <h6 class="subheader">{{ feed.category.title }}</h6>
+        <h5>{{ post.title }}</h5>
+        <img src="{{ post.attachments[0].url }}" />
+        <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <span>{{ post.date | date: "%a %b %d, %H:%M" }}</span>
+      </div>
+    </div>
+  {% endfor %}
 </div><br>
 <!-- End News Feed -->
 
@@ -93,45 +129,90 @@ title: University of Wisconsin Oshkosh
 
 <!-- Weekly Feed -->
 <div class="row">
-  <div id="uwotw-feed"></div>
-  <div id="meet-uwo-feed"></div>
-  <div id="twif-feed"></div>
+  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/uwotw %}
+  {% for post in feed.posts %}
+    <div class="large-4 columns">
+      <div class="panel panel-weekly uwotw">
+        <h6 class="subheader">{{ feed.category.title }}</h6>
+        <h5>{{ post.title }}</h5>
+        <img src="{{ post.attachments[0].url }}" />
+        <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <span>{{ post.date | date: "%a %b %d, %H:%M" }}</span>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/meet-uwo %}
+  {% for post in feed.posts %}
+    <div class="large-4 columns">
+      <div class="panel panel-weekly meet-uwo">
+        <h6 class="subheader">{{ feed.category.title }}</h6>
+        <h5>{{ post.title }}</h5>
+        <img src="{{ post.attachments[0].url }}" />
+        <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <span>{{ post.date | date: "%a %b %d, %H:%M" }}</span>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/this-week-in-focus %}
+  {% for post in feed.posts %}
+    <div class="large-4 columns">
+      <div class="panel panel-weekly twif">
+        <h6 class="subheader">{{ feed.category.title }}</h6>
+        <h5>{{ post.title }}</h5>
+        <img src="{{ post.attachments[0].url }}" />
+        <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <span>{{ post.date | date: "%a %b %d, %H:%M" }}</span>
+      </div>
+    </div>
+  {% endfor %}
 </div><br>
 <!-- End Weekly Feed -->
 
 <!-- Chancellor Row -->
-<!--<div class="row">
+<div class="row">
 
+  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/uwotw %}
+  {% for post in feed.posts %}
     <div class="large-4 columns">
       <div class="panel panel-weekly uwotw">
-        <h6 class="subheader">Chancellor Wells -></h6>
-        <h5>What's happening around the UWO campus this week</h5>
-        <div class="flex-video widescreen">
-          <iframe width="560" height="315" src="http://www.youtube.com/embed/g2DiB-iTNEM" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <span>4 hours ago</span>
+        <h6 class="subheader">{{ feed.category.title }}</h6>
+        <h5>{{ post.title }}</h5>
+        <img src="{{ post.attachments[0].url }}" />
+        <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <span>{{ post.date | date: "%a %b %d, %H:%M" }}</span>
       </div>
     </div>
+  {% endfor %}
+
+  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/meet-uwo %}
+  {% for post in feed.posts %}
     <div class="large-4 columns">
       <div class="panel panel-weekly meet-uwo">
-        <h6 class="subheader">Programs -></h6>
-        <h5>Meet Dave Krause, Director of Alumni Relations and Development for COB</h5>
-        <img src="img/dev/krause.jpg" /><br><br>
-        <span>4 hours ago</span>
+        <h6 class="subheader">{{ feed.category.title }}</h6>
+        <h5>{{ post.title }}</h5>
+        <img src="{{ post.attachments[0].url }}" />
+        <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <span>{{ post.date | date: "%a %b %d, %H:%M" }}</span>
       </div>
     </div>
+  {% endfor %}
+
+  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/this-week-in-focus %}
+  {% for post in feed.posts %}
     <div class="large-4 columns">
       <div class="panel panel-weekly twif">
-        <h6 class="subheader">I Am a Titan -></h6>
-        <h5>A look back as we reach the end of the 2012-2013 academic year</h5>
-        <div class="flex-video widescreen">
-          <iframe width="560" height="315" src="http://www.youtube.com/embed/DbFw_-mC9ZU" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <span>4 hours ago</span>
+        <h6 class="subheader">{{ feed.category.title }}</h6>
+        <h5>{{ post.title }}</h5>
+        <img src="{{ post.attachments[0].url }}" />
+        <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <span>{{ post.date | date: "%a %b %d, %H:%M" }}</span>
       </div>
     </div>
+  {% endfor %}
 
-</div><br>-->
+</div><br>
 <!-- End Chancellor Row -->
 
 <!-- Twitter Feed -->
