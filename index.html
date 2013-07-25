@@ -137,7 +137,7 @@ title: University of Wisconsin Oshkosh
 <!-- Twitter Feed -->
 <div class="row">
   {% jsonball twitter from url http://feeds.uwosh.edu/api/v1/index.php/twitter/uwoshkosh %}
-  {% for tweet in twitter %}
+  {% for tweet in twitter limit: 4 %}
     <div class="twitter-article large-3 columns">
       <div class="panel panel-weekly uwotw">
         <div class="twitter-pic">
@@ -148,7 +148,7 @@ title: University of Wisconsin Oshkosh
             <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
           </span>
           <span class="tweet-time">
-            <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at }}</a>
+            <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at | date: "%a %b %d, %H:%M" }}</a>
           </span>
           <p>{{ tweet.text }}</p>
         </div>
@@ -160,19 +160,53 @@ title: University of Wisconsin Oshkosh
 
 <!-- Facebook Feed -->
 <div class="row">
-  <div id="facebook-feed"></div>
+  {% jsonball facebook from url http://feeds.uwosh.edu/api/v1/index.php/facebook/uwoshkosh %}
+  {% for fbpost in facebook.data limit: 4 %}
+    <div class="twitter-article large-3 columns">
+      <div class="panel panel-weekly uwotw">
+        <h6 class="subheader">Facebook - {{ fbpost.from.name }}</h6>
+        <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
+        <span>{{ fbpost.updated_time | date: "%a %b %d, %H:%M" }}
+      </div>
+    </div>
+  {% endfor %}
 </div>
 <!-- End Facebook Feed -->
 
 <!-- YouTube Feed -->
 <div class="row">
-  <div id="youtube-feed"></div>
+  {% jsonball youtube from url http://feeds.uwosh.edu/api/v1/index.php/youtube/uwosh %}
+  {% for video in youtube.data.items limit: 4 %}
+    <div class="twitter-article large-3 columns">
+      <div class="panel panel-weekly uwotw">
+        <h6 class="subheader">YouTube - {{ video.uploader }}</h6>
+        <h5>{{ video.title }}</h5>
+        <div class="flex-video widescreen">
+          <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p>{{ video.description }}</p>
+        <span>{{ video.updated | date: "%a %b %d, %H:%M" }}</span>
+      </div>
+    </div>
+  {% endfor %}
 </div>
 <!-- End YouTube Feed -->
 
 <!-- Flickr Feed -->
 <div class="row">
-  <div id="flickr-feed"></div>
+  {% jsonball flickr from url http://feeds.uwosh.edu/api/v1/index.php/flickr/uwoshkosh %}
+  {% for set in flickr.photosets.photoset limit: 4 %}
+    <div class="twitter-article large-3 columns">
+      <div class="panel panel-weekly uwotw">
+        <h6 class="subheader">Flickr - UW Oshkosh</h6>
+        <h5>{{ set.title._content }}</h5>
+        <a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg"></a>
+        <p>{{ set.photos }} photos, viewed {{ set.count_views }} times.</p>
+        <p>{{ set.description._content }}</p>
+        <span>{{ set.date_update | date: "%a %b %d, %H:%M" }}</span>
+      </div>
+    </div>
+  {% endfor %}
 </div>
 <!-- End Flickr Feed -->
 
