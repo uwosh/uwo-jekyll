@@ -7219,61 +7219,61 @@ a.th {
 
 /* Custom Variables */
 /* Custom Styles */
-/* line 66, ../_sass/app.scss */
+/* line 69, ../_sass/app.scss */
 body {
   background-image: url("../img/bg-gradient.jpg");
   background-repeat: repeat-x;
   background-position-y: 12px;
 }
 
-/* line 72, ../_sass/app.scss */
+/* line 75, ../_sass/app.scss */
 .top-bar {
   margin-bottom: 6px;
 }
 
-/* line 76, ../_sass/app.scss */
+/* line 79, ../_sass/app.scss */
 .panel {
   box-shadow: 1px 1px 5px #999;
   border-top: 3px solid;
   background: #fff;
 }
 
-/* line 81, ../_sass/app.scss */
+/* line 84, ../_sass/app.scss */
 .panel-news {
   min-height: 500px;
 }
 
-/* line 84, ../_sass/app.scss */
+/* line 87, ../_sass/app.scss */
 .panel-weekly {
   min-height: 475px;
 }
 
-/* line 87, ../_sass/app.scss */
+/* line 90, ../_sass/app.scss */
 .panel.campus-news {
   border-top-color: #d19b31;
 }
 
-/* line 90, ../_sass/app.scss */
+/* line 93, ../_sass/app.scss */
 .panel.research-news {
   border-top-color: #5f9864;
 }
 
-/* line 93, ../_sass/app.scss */
+/* line 96, ../_sass/app.scss */
 .panel.powering-community {
   border-top-color: #75b8d8;
 }
 
-/* line 96, ../_sass/app.scss */
+/* line 99, ../_sass/app.scss */
 .panel.uwotw {
   border-top-color: #2b75ae;
 }
 
-/* line 99, ../_sass/app.scss */
+/* line 102, ../_sass/app.scss */
 .panel.meet-uwo {
   border-top-color: #b95414;
 }
 
-/* line 102, ../_sass/app.scss */
+/* line 105, ../_sass/app.scss */
 .panel.twif {
   border-top-color: #f8c636;
 }
