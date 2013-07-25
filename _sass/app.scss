@@ -54,3 +54,51 @@
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
 
+/* Custom Variables */
+$campus-news: #d19b31;
+$research-news: #5f9864;
+$powering-community: #75b8d8;
+$uwotw: #2b75ae;
+$meet-uwo: #b95414;
+$twif: #f8c636;
+
+/* Custom Styles */
+body {
+  background-image: url('../img/bg-gradient.jpg');
+  background-repeat: repeat-x;
+  background-position-y: 12px;
+}
+
+.top-bar {
+  margin-bottom: 6px;
+}
+
+.panel {
+  box-shadow: 1px 1px 5px #999;
+  border-top: 3px solid;
+  background: #fff;
+}
+.panel-news {
+  min-height: 500px;
+}
+.panel-weekly {
+  min-height: 475px;
+}
+.panel.campus-news {
+  border-top-color: $campus-news;
+}
+.panel.research-news {
+  border-top-color: $research-news;
+}
+.panel.powering-community {
+  border-top-color: $powering-community;
+}
+.panel.uwotw {
+  border-top-color: $uwotw;
+}
+.panel.meet-uwo {
+  border-top-color: $meet-uwo;
+}
+.panel.twif {
+  border-top-color: $twif;
+}

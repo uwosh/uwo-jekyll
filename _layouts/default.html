@@ -7,106 +7,315 @@
     <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width">
 
-    <!-- Pure CSS -->
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+    <!-- Foundation CSS -->
+    <link rel="stylesheet" href="/css/app.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/custom.css">
+    <script src="js/vendor/custom.modernizr.js"></script>
+
+    <link type="text/plain" rel="author" href="humans.txt" />
 
   </head>
   <body>
 
-    <div class="content">
+    <nav class="top-bar">
+      <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name">
+          <h1><a href="#">UW Oshkosh</a></h1>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
 
-      <div class="header">
-        <div class="pure-menu pure-menu-open pure-menu-horizontal">
-          <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Academics</a></li>
-            <li><a href="#">Admissions</a></li>
-            <li><a href="#">Athletics</a></li>
-            <li><a href="#">Alumni</a></li>
-            <li><a href="#">Administration</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">Calendars</a></li>
-            <li><a href="#">Titan Services</a></li>
+      <section class="top-bar-section">
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li class="divider"></li>
+          <li class="active"><a href="#">About</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Academics</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Athletics</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Alumni</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Admissions</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Administration</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Resources</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Calendar</a></li>
+          <li class="divider"></li>
+          <li class="has-dropdown"><a href="#">Titan Services</a>
+
+            <ul class="dropdown">
+              <li><label>Dropdown Level 1 Label</label></li>
+              <li class="has-dropdown"><a href="#" class="">Dropdown Level 1a</a>
+
+                <ul class="dropdown">
+                  <li><a href="#">Dropdown Level 2a</a></li>
+                  <li><a href="#">Dropdown Level 2b</a></li>
+                  <li class="has-dropdown"><a href="#">Dropdown Level 2c</a>
+
+                    <ul class="dropdown">
+                      <li><a href="#">Dropdown Level 3a</a></li>
+                      <li><a href="#">Dropdown Level 3b</a></li>
+                      <li><a href="#">Dropdown Level 3c</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Dropdown Level 2d</a></li>
+                  <li><a href="#">Dropdown Level 2e</a></li>
+                  <li><a href="#">Dropdown Level 2f</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown Level 1b</a></li>
+              <li><a href="#">Dropdown Level 1c</a></li>
+              <li class="divider"></li>
+              <li><label>Dropdown Level 1 Label</label></li>
+              <li><a href="#">Dropdown Level 1d</a></li>
+              <li><a href="#">Dropdown Level 1e</a></li>
+              <li><a href="#">Dropdown Level 1f</a></li>
+              <li class="divider"></li>
+              <li><a href="#">See all &rarr;</a></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="row">
+      <div class="large-3 columns">
+        <img src="img/wordmark.png" />
+      </div>
+      <div class="large-9 columns">
+        <ul class="inline-list">
+          <li><a href="#">Future Students</a></li>
+          <li><a href="#">Parents</a></li>
+          <li><a href="#">Faculty and Staff</a></li>
+          <li><a href="#">Current Students</a></li>
+          <li><a href="#">Community and Visitors</a></li>
+        </ul>
+        <ul class="inline-list">
+          <li class="has-form">
+            <form>
+                  <input type="text">
+                  <a href="#" class="alert button">Search</a>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+
+      <!-- Desktop Slider -->
+
+        <div id="featured">
+          <ul data-orbit data-options="bullets:false;">
+            <li>
+              <img src="img/pillar1.jpg" alt="University of Wisconsin Oshkosh">
+              <div class="orbit-caption">University of Wisconsin Oshkosh</div>
+            </li>
+            <li>
+              <img src="img/pillar2.jpg" alt="Oviatt House">
+              <div class="orbit-caption">Oviatt House</div>
+            </li>
+            <li>
+              <img src="img/pillar3.jpg" alt="University of Wisconsin Oshkosh">
+              <div class="orbit-caption">Tulips are red, Oshkosh Rocks!</div>
+            </li>
+            <li>
+              <img src="img/pillar4.jpg" alt="University of Wisconsin Oshkosh">
+              <div class="orbit-caption">You&rsquo;ll Like it Here</div>
+            </li>
           </ul>
         </div>
       </div>
+    </div><br>
+      <!-- End Desktop Slider -->
 
-      <div class="audience pure-g-r">
-        <div class="pure-u-1-6">Wordmark</div>
-        <div class="pure-u-1-2">
-          <div class="pure-menu pure-menu-open pure-menu-horizontal">
-            <ul>
-              <li><a href="#">Future Students</a></li>
-              <li><a href="#">Parents</a></li>
-              <li><a href="#">Faculty and Staff</a></li>
-              <li><a href="#">Current Students</a></li>
-              <li><a href="#">Community and Visitors</a></li>
-            </ul>
+    <div class="row">
+
+      <!-- Call to Actions -->
+      <div class="large-3 columns">
+        <div class="row">
+          <div class="large-12 columns">
+            <img src="http://placehold.it/272x49&text=Visit" />
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="large-12 columns">
+            <img src="http://placehold.it/272x49&text=Take a Virtual Tour" />
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="large-12 columns">
+            <img src="http://placehold.it/272x49&text=Apply Now" />
+          </div>
+        </div><br>
+      </div>
+      <!-- End Call to Actions -->
+
+      <!-- Events -->
+      <div class="large-9 columns">
+        <div class="row">
+          <div class="large-12 columns">
+            <h3>Events <small>UWO Events Calendar -></small></h3>
           </div>
         </div>
-        <div class="pure-u-1-3">
-          <div class="pure-menu pure-menu-open pure-menu-horizontal">
-            <ul>
-              <li><a href="#">TitanApps</a></li>
-              <li><a href="#">TitanWeb</a></li>
-              <li><a href="#">Directory</a></li>
-              <li><a href="#">D2L</a></li>
-              <li><a href="#">My UW System</a></li>
-            </ul>
-            <form class="pure-form">
-              <input type="text" class="pure-input-rounded">
-              <button type="submit" class="pure-button">Search</button>
-            </form>
+        <div class="row">
+          <div class="large-4 columns">
+            <p>Stuff happens here! Check out this event! I'm totally serious, why aren't you checking out my events?</p>
           </div>
-        </div>
-      </div>
-
-      <div class="pillar">
-        <img src="http://placehold.it/1136x400" alt="Pillar Image">
-      </div>
-
-      <div class="cta-events pure-g-r">
-        <div class="pure-u-1-4">
-          <img src="http://placehold.it/272x48/75b8d8/ffffff&text=Visit+Campus" alt="Visit Campus">
-          <img src="http://placehold.it/272x48/e68600/ffffff&text=Take+a+Virtual+Tour" alt="Take a Virtual Tour">
-          <img src="http://placehold.it/272x48/c05600/ffffff&text=Apply+Now" alt="Apply Now">
-        </div>
-        <div class="pure-u-3-4">
-          <p>Events <a href="#">View More Events -></a></p>
-          <div class="pure-g-r">
-            <div class="pure-u-1-3">
-              <p>Spring Commencement</p>
-            </div>
-            <div class="pure-u-1-3">
-              <p>Admissions: Titan Preview</p>
-            </div>
-            <div class="pure-u-1-3">
-              <p>Mobile App Development Class</p>
-            </div>
+          <div class="large-4 columns">
+            <p>More Stuff happens here! Check out this event! I'm totally serious, why aren't you checking out my events?</p>
+          </div>
+          <div class="large-4 columns">
+            <p>Even more Stuff happens here! Check out this event! I'm totally serious, why aren't you checking out my events?</p>
           </div>
         </div>
       </div>
+      <!-- End Events -->
 
-      <div class="news-feed pure-g-r">
-        <div class="pure-u-1-3">
-          <img src="http://placehold.it/368x416" alt="Campus News">
+    </div><br>
+
+    <!-- News Feed -->
+    <div class="row">
+      <div id="campus-news-feed"></div>
+      <div id="research-news-feed"></div>
+      <div id="powering-community-feed"></div>
+    </div><br>
+    <!-- End News Feed -->
+
+    <div class="row">
+      <div class="large-12 columns">
+        <img src="http://placehold.it/1920x80&text=View More Stories" alt="View More Stories">
+      </div>
+    </div><br>
+
+    <!-- Weekly Feed -->
+    <div class="row">
+      <div id="uwotw-feed"></div>
+      <div id="meet-uwo-feed"></div>
+      <div id="twif-feed"></div>
+    </div><br>
+    <!-- End Weekly Feed -->
+
+    <!-- Chancellor Row -->
+    <!--<div class="row">
+
+        <div class="large-4 columns">
+          <div class="panel panel-weekly uwotw">
+            <h6 class="subheader">Chancellor Wells -></h6>
+            <h5>What's happening around the UWO campus this week</h5>
+            <div class="flex-video widescreen">
+              <iframe width="560" height="315" src="http://www.youtube.com/embed/g2DiB-iTNEM" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <span>4 hours ago</span>
+          </div>
         </div>
-        <div class="pure-u-1-3">
-          <img src="http://placehold.it/368x416" alt="Research News">
+        <div class="large-4 columns">
+          <div class="panel panel-weekly meet-uwo">
+            <h6 class="subheader">Programs -></h6>
+            <h5>Meet Dave Krause, Director of Alumni Relations and Development for COB</h5>
+            <img src="img/dev/krause.jpg" /><br><br>
+            <span>4 hours ago</span>
+          </div>
         </div>
-        <div class="pure-u-1-3">
-          <img src="http://placehold.it/368x416" alt="Powering Community">
+        <div class="large-4 columns">
+          <div class="panel panel-weekly twif">
+            <h6 class="subheader">I Am a Titan -></h6>
+            <h5>A look back as we reach the end of the 2012-2013 academic year</h5>
+            <div class="flex-video widescreen">
+              <iframe width="560" height="315" src="http://www.youtube.com/embed/DbFw_-mC9ZU" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <span>4 hours ago</span>
+          </div>
+        </div>
+
+    </div><br>-->
+    <!-- End Chancellor Row -->
+
+    <!-- Twitter Feed -->
+    <div class="row">
+      <div id="twitter-feed"></div>
+    </div><br>
+    <!-- End Twitter Feed -->
+
+    <!-- Facebook Feed -->
+    <div class="row">
+      <div id="facebook-feed"></div>
+    </div>
+    <!-- End Facebook Feed -->
+
+    <!-- YouTube Feed -->
+    <div class="row">
+      <div id="youtube-feed"></div>
+    </div>
+    <!-- End YouTube Feed -->
+
+    <!-- Flickr Feed -->
+    <div class="row">
+      <div id="flickr-feed"></div>
+    </div>
+    <!-- End Flickr Feed -->
+
+    <!-- Footer -->
+    <footer class="row">
+      <div class="large-12 columns">
+        <div class="row">
+          <div class="large-12 columns">
+            <img src="http://placehold.it/1890x450&text=Fat Footer" alt="footer">
+          </div>
         </div>
       </div>
+    </footer>
+    <!-- End Footer -->
 
-      <div class="view-more">
-        <a href="#"><img src="http://placehold.it/1136x32" alt="View More"></a>
-      </div>
+    <script>
+    document.write('<script src=' +
+    ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+    '.js><\/script>')
+    </script>
 
-    </div> <!-- /content -->
+    <script src="js/foundation/foundation.js"></script>
+
+    <script src="js/foundation/foundation.abide.js"></script>
+
+    <script src="js/foundation/foundation.alerts.js"></script>
+
+    <script src="js/foundation/foundation.clearing.js"></script>
+
+    <script src="js/foundation/foundation.cookie.js"></script>
+
+    <script src="js/foundation/foundation.dropdown.js"></script>
+
+    <script src="js/foundation/foundation.forms.js"></script>
+
+    <script src="js/foundation/foundation.interchange.js"></script>
+
+    <script src="js/foundation/foundation.joyride.js"></script>
+
+    <script src="js/foundation/foundation.magellan.js"></script>
+
+    <script src="js/foundation/foundation.orbit.js"></script>
+
+    <script src="js/foundation/foundation.placeholder.js"></script>
+
+    <script src="js/foundation/foundation.reveal.js"></script>
+
+    <script src="js/foundation/foundation.section.js"></script>
+
+    <script src="js/foundation/foundation.tooltips.js"></script>
+
+    <script src="js/foundation/foundation.topbar.js"></script>
+
+
+    <script>
+      $(document).foundation();
+    </script>
 
   </body>
 </html>
