@@ -38,17 +38,17 @@ title: University of Wisconsin Oshkosh
   <div class="large-3 columns">
     <div class="row">
       <div class="large-12 columns">
-        <img src="http://placehold.it/272x49&text=Visit" />
+        <img src="http://placehold.it/272x49/75b8d8/ffffff&text=Visit" />
       </div>
     </div><br>
     <div class="row">
       <div class="large-12 columns">
-        <img src="http://placehold.it/272x49&text=Take a Virtual Tour" />
+        <img src="http://placehold.it/272x49/e68600/ffffff&text=Take a Virtual Tour" />
       </div>
     </div><br>
     <div class="row">
       <div class="large-12 columns">
-        <img src="http://placehold.it/272x49&text=Apply Now" />
+        <img src="http://placehold.it/272x49/c05600/ffffff&text=Apply Now" />
       </div>
     </div><br>
   </div>
@@ -87,7 +87,7 @@ title: University of Wisconsin Oshkosh
 
 <div class="row">
   <div class="large-12 columns">
-    <img src="http://placehold.it/1920x80&text=View More Stories" alt="View More Stories">
+    <img src="http://placehold.it/1920x80/75b8d8/ffffff&text=View More Stories" alt="View More Stories">
   </div>
 </div><br>
 
@@ -136,7 +136,25 @@ title: University of Wisconsin Oshkosh
 
 <!-- Twitter Feed -->
 <div class="row">
-  <div id="twitter-feed"></div>
+  {% jsonball twitter from url http://feeds.uwosh.edu/api/v1/index.php/twitter/uwoshkosh %}
+  {% for tweet in twitter %}
+    <div class="twitter-article large-3 columns">
+      <div class="panel panel-weekly uwotw">
+        <div class="twitter-pic">
+          <a href="https://twitter.com/{{ tweet.user.screen_name }}"><img src="{{ tweet.user.profile_image_url_https }}"></a>
+        </div>
+        <div class="twitter-text">
+          <span class="tweetprofilelink">
+            <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
+          </span>
+          <span class="tweet-time">
+            <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at }}</a>
+          </span>
+          <p>{{ tweet.text }}</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
 </div><br>
 <!-- End Twitter Feed -->
 
@@ -157,3 +175,4 @@ title: University of Wisconsin Oshkosh
   <div id="flickr-feed"></div>
 </div>
 <!-- End Flickr Feed -->
+
