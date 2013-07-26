@@ -115,6 +115,12 @@ body {
   border-top-color: $yellow;
 }
 
+.social-container {
+  height: 320px;
+  background-color: $light-gray;
+  font-size: emCalc(14);
+}
+
 .tagline {
   height: 32px;
   background-color: $dark-gray;
@@ -124,6 +130,7 @@ body {
   text-align: center;
 }
 .footer-container {
+  height: 208px;
   background-color: $medium-gray;
   color: $medium-dark-gray;
   font-size: emCalc(13);

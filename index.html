@@ -216,81 +216,83 @@ title: University of Wisconsin Oshkosh
 <!-- End Chancellor Row -->
 
 <!-- Social Feed -->
-<div class="row">
-  <div class="section-container vertical-tabs" data-section="vertical-tabs">
+<div class="social-container">
+  <div class="row">
+    <div class="section-container vertical-tabs large-12 columns" data-section="vertical-tabs">
 
-    <section>
-      <p class="title" data-section-title><a href="#panel1">Twitter</a></p>
-      <div class="content" data-section-content>
-        {% jsonball twitter from url http://feeds.uwosh.edu/api/v1/index.php/twitter/uwoshkosh %}
-        {% for tweet in twitter limit: 3 %}
-          <div class="twitter-article large-4 columns">
-            <div class="twitter-pic">
-              <a href="https://twitter.com/{{ tweet.user.screen_name }}"><img src="{{ tweet.user.profile_image_url_https }}"></a>
+      <section>
+        <p class="title" data-section-title><a href="#panel1">Twitter</a></p>
+        <div class="content" data-section-content>
+          {% jsonball twitter from url http://feeds.uwosh.edu/api/v1/index.php/twitter/uwoshkosh %}
+          {% for tweet in twitter limit: 3 %}
+            <div class="twitter-article large-4 columns">
+              <div class="twitter-pic">
+                <a href="https://twitter.com/{{ tweet.user.screen_name }}"><img src="{{ tweet.user.profile_image_url_https }}"></a>
+              </div>
+              <div class="twitter-text">
+                <span class="tweetprofilelink">
+                  <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
+                </span>
+                <span class="tweet-time">
+                  <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at | date: "%A %B %d, %I:%M %p" }}</a>
+                </span>
+                <p>{{ tweet.text }}</p>
+              </div>
             </div>
-            <div class="twitter-text">
-              <span class="tweetprofilelink">
-                <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
-              </span>
-              <span class="tweet-time">
-                <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at | date: "%A %B %d, %I:%M %p" }}</a>
-              </span>
-              <p>{{ tweet.text }}</p>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section>
+        <p class="title" data-section-title><a href="#panel2">Facebook</a></p>
+        <div class="content" data-section-content>
+          {% jsonball facebook from url http://feeds.uwosh.edu/api/v1/index.php/facebook/uwoshkosh %}
+          {% for fbpost in facebook.data limit: 3 %}
+            <div class="twitter-article large-4 columns">
+              <h6 class="subheader">Facebook - {{ fbpost.from.name }}</h6>
+              <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
+              <span>{{ fbpost.updated_time | date: "%A %B %d, %I:%M %p" }}
             </div>
-          </div>
-        {% endfor %}
-      </div>
-    </section>
+          {% endfor %}
+        </div>
+      </section>
 
-    <section>
-      <p class="title" data-section-title><a href="#panel2">Facebook</a></p>
-      <div class="content" data-section-content>
-        {% jsonball facebook from url http://feeds.uwosh.edu/api/v1/index.php/facebook/uwoshkosh %}
-        {% for fbpost in facebook.data limit: 3 %}
-          <div class="twitter-article large-4 columns">
-            <h6 class="subheader">Facebook - {{ fbpost.from.name }}</h6>
-            <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
-            <span>{{ fbpost.updated_time | date: "%A %B %d, %I:%M %p" }}
-          </div>
-        {% endfor %}
-      </div>
-    </section>
-
-    <section>
-      <p class="title" data-section-title><a href="#panel3">YouTube</a></p>
-      <div class="content" data-section-content>
-        {% jsonball youtube from url http://feeds.uwosh.edu/api/v1/index.php/youtube/uwosh %}
-        {% for video in youtube.data.items limit: 3 %}
-          <div class="twitter-article large-4 columns">
-            <h6 class="subheader">YouTube - {{ video.uploader }}</h6>
-            <h5>{{ video.title }}</h5>
-            <div class="flex-video widescreen">
-              <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
+      <section>
+        <p class="title" data-section-title><a href="#panel3">YouTube</a></p>
+        <div class="content" data-section-content>
+          {% jsonball youtube from url http://feeds.uwosh.edu/api/v1/index.php/youtube/uwosh %}
+          {% for video in youtube.data.items limit: 3 %}
+            <div class="twitter-article large-4 columns">
+              <h6 class="subheader">YouTube - {{ video.uploader }}</h6>
+              <h5>{{ video.title }}</h5>
+              <div class="flex-video widescreen">
+                <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <p>{{ video.description }}</p>
+              <span>{{ video.updated | date: "%A %B %d, %I:%M %p" }}</span>
             </div>
-            <p>{{ video.description }}</p>
-            <span>{{ video.updated | date: "%A %B %d, %I:%M %p" }}</span>
-          </div>
-        {% endfor %}
-      </div>
-    </section>
+          {% endfor %}
+        </div>
+      </section>
 
-    <section>
-      <p class="title" data-section-title><a href="#panel4">Flickr</a></p>
-      <div class="content" data-section-content>
-        {% jsonball flickr from url http://feeds.uwosh.edu/api/v1/index.php/flickr/uwoshkosh %}
-        {% for set in flickr.photosets.photoset limit: 3 %}
-          <div class="twitter-article large-4 columns">
-            <h6 class="subheader">Flickr - UW Oshkosh</h6>
-            <h5>{{ set.title._content }}</h5>
-            <a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg"></a>
-            <p>{{ set.photos }} photos, viewed {{ set.count_views }} times.</p>
-            <p>{{ set.description._content }}</p>
-            <span>{{ set.date_update | date: "%A %B %d, %I:%M %p" }}</span>
-          </div>
-        {% endfor %}
-      </div>
-    </section>
+      <section>
+        <p class="title" data-section-title><a href="#panel4">Flickr</a></p>
+        <div class="content" data-section-content>
+          {% jsonball flickr from url http://feeds.uwosh.edu/api/v1/index.php/flickr/uwoshkosh %}
+          {% for set in flickr.photosets.photoset limit: 3 %}
+            <div class="twitter-article large-4 columns">
+              <h6 class="subheader">Flickr - UW Oshkosh</h6>
+              <h5>{{ set.title._content }}</h5>
+              <a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg"></a>
+              <p>{{ set.photos }} photos, viewed {{ set.count_views }} times.</p>
+              <p>{{ set.description._content }}</p>
+              <span>{{ set.date_update | date: "%A %B %d, %I:%M %p" }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
 
-  </div><!-- End section-container -->
-</div><br>
+    </div><!-- End section-container -->
+  </div><br>
+</div>
 <!-- End Social Feed -->
