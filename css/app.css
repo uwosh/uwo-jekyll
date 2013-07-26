@@ -7238,16 +7238,6 @@ body {
   background: #fff;
 }
 
-/* line 93, ../_sass/app.scss */
-.panel-news {
-  min-height: 500px;
-}
-
-/* line 96, ../_sass/app.scss */
-.panel-weekly {
-  min-height: 475px;
-}
-
 /* line 99, ../_sass/app.scss */
 .panel.campus-news {
   border-top-color: #d79a27;
