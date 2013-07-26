@@ -86,7 +86,7 @@ title: University of Wisconsin Oshkosh
       <div class="panel panel-weekly campus-news">
         <h6 class="subheader">{{ feed.category.title }}</h6>
         <h5>{{ post.title }}</h5>
-        <img src="{{ post.attachments[0].url }}" />
+        <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
       </div>
@@ -99,7 +99,7 @@ title: University of Wisconsin Oshkosh
       <div class="panel panel-weekly research-news">
         <h6 class="subheader">{{ feed.category.title }}</h6>
         <h5>{{ post.title }}</h5>
-        <img src="{{ post.attachments[0].url }}" />
+        <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
       </div>
@@ -112,7 +112,7 @@ title: University of Wisconsin Oshkosh
       <div class="panel panel-weekly powering-community">
         <h6 class="subheader">{{ feed.category.title }}</h6>
         <h5>{{ post.title }}</h5>
-        <img src="{{ post.attachments[0].url }}" />
+        <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
       </div>
@@ -135,7 +135,7 @@ title: University of Wisconsin Oshkosh
       <div class="panel panel-weekly uwotw">
         <h6 class="subheader">{{ feed.category.title }}</h6>
         <h5>{{ post.title }}</h5>
-        <img src="{{ post.attachments[0].url }}" />
+        <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
       </div>
@@ -148,7 +148,7 @@ title: University of Wisconsin Oshkosh
       <div class="panel panel-weekly meet-uwo">
         <h6 class="subheader">{{ feed.category.title }}</h6>
         <h5>{{ post.title }}</h5>
-        <img src="{{ post.attachments[0].url }}" />
+        <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
       </div>
@@ -161,7 +161,7 @@ title: University of Wisconsin Oshkosh
       <div class="panel panel-weekly twif">
         <h6 class="subheader">{{ feed.category.title }}</h6>
         <h5>{{ post.title }}</h5>
-        <img src="{{ post.attachments[0].url }}" />
+        <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
       </div>
@@ -179,7 +179,7 @@ title: University of Wisconsin Oshkosh
       <div class="panel panel-weekly uwotw">
         <h6 class="subheader">{{ feed.category.title }}</h6>
         <h5>{{ post.title }}</h5>
-        <img src="{{ post.attachments[0].url }}" />
+        <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
       </div>
@@ -192,7 +192,7 @@ title: University of Wisconsin Oshkosh
       <div class="panel panel-weekly meet-uwo">
         <h6 class="subheader">{{ feed.category.title }}</h6>
         <h5>{{ post.title }}</h5>
-        <img src="{{ post.attachments[0].url }}" />
+        <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
       </div>
@@ -205,7 +205,7 @@ title: University of Wisconsin Oshkosh
       <div class="panel panel-weekly twif">
         <h6 class="subheader">{{ feed.category.title }}</h6>
         <h5>{{ post.title }}</h5>
-        <img src="{{ post.attachments[0].url }}" />
+        <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
       </div>
@@ -222,7 +222,7 @@ title: University of Wisconsin Oshkosh
 
       <section>
         <p class="title" data-section-title><a href="#panel1">Twitter</a></p>
-        <div class="content" data-section-content>
+        <div class="content" data-section-content style="height:238px;">
           {% jsonball twitter from url http://feeds.uwosh.edu/api/v1/index.php/twitter/uwoshkosh %}
           {% for tweet in twitter limit: 3 %}
             <div class="twitter-article large-4 columns">

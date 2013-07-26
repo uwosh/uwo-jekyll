@@ -81,14 +81,23 @@ body {
   background-position-y: 51px;
 }
 
+.wordmark {
+  margin-left: -18px;
+}
+
 .top-bar {
   margin-bottom: 6px;
 }
 
 .panel {
+  width: 368px;
+  height: 410px;
   box-shadow: 1px 1px 5px #999;
   border-top: 3px solid;
   background: #fff;
+}
+.panel-image {
+  height: 189px;
 }
 .panel-news {
   //min-height: 500px;
@@ -118,7 +127,6 @@ body {
 .social-container {
   height: 320px;
   background-color: $light-gray;
-  font-size: emCalc(14);
 }
 
 .tagline {
@@ -133,7 +141,6 @@ body {
   height: 208px;
   background-color: $medium-gray;
   color: $medium-dark-gray;
-  font-size: emCalc(13);
   a {
     color: $medium-dark-gray;
   }
