@@ -7289,6 +7289,7 @@ body {
 /* line 132, ../_sass/app.scss */
 .tagline {
   height: 32px;
+  font-size: 1.23077em;
   background-color: #444444;
   color: #fff;
   text-transform: uppercase;
@@ -7296,24 +7297,24 @@ body {
   text-align: center;
 }
 
-/* line 140, ../_sass/app.scss */
+/* line 141, ../_sass/app.scss */
 .footer-container {
   height: 208px;
   background-color: #b0b0b0;
   color: #666666;
 }
-/* line 144, ../_sass/app.scss */
+/* line 145, ../_sass/app.scss */
 .footer-container a {
   color: #666666;
 }
 
-/* line 148, ../_sass/app.scss */
+/* line 149, ../_sass/app.scss */
 .app-icon {
   width: 32px;
   height: 32px;
 }
 
-/* line 152, ../_sass/app.scss */
+/* line 153, ../_sass/app.scss */
 .wismap {
   width: 124px;
 }
