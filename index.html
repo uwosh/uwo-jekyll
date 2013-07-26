@@ -88,7 +88,7 @@ title: University of Wisconsin Oshkosh
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
-        <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
+        <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
   {% endfor %}
@@ -101,7 +101,7 @@ title: University of Wisconsin Oshkosh
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
-        <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
+        <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
   {% endfor %}
@@ -114,7 +114,7 @@ title: University of Wisconsin Oshkosh
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
-        <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
+        <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
   {% endfor %}
@@ -137,7 +137,7 @@ title: University of Wisconsin Oshkosh
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
-        <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
+        <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
   {% endfor %}
@@ -150,7 +150,7 @@ title: University of Wisconsin Oshkosh
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
-        <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
+        <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
   {% endfor %}
@@ -163,7 +163,7 @@ title: University of Wisconsin Oshkosh
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
-        <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
+        <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
   {% endfor %}
@@ -181,7 +181,7 @@ title: University of Wisconsin Oshkosh
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
-        <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
+        <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
   {% endfor %}
@@ -194,7 +194,7 @@ title: University of Wisconsin Oshkosh
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
-        <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
+        <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
   {% endfor %}
@@ -207,7 +207,7 @@ title: University of Wisconsin Oshkosh
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
         <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
-        <span>{{ post.date | date: "%A %B %d, %I:%M %p" }}</span>
+        <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
   {% endfor %}
@@ -234,7 +234,7 @@ title: University of Wisconsin Oshkosh
                   <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
                 </span>
                 <span class="tweet-time">
-                  <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at | date: "%A %B %d, %I:%M %p" }}</a>
+                  <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at | date: "%B %d, %Y" }}</a>
                 </span>
                 <p>{{ tweet.text }}</p>
               </div>
@@ -250,7 +250,7 @@ title: University of Wisconsin Oshkosh
           {% for fbpost in facebook.data limit: 3 %}
             <div class="twitter-article large-4 columns">
               <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
-              <span>{{ fbpost.updated_time | date: "%A %B %d, %I:%M %p" }}
+              <span>{{ fbpost.updated_time | date: "%B %d, %Y" }}
             </div>
           {% endfor %}
         </div>
@@ -267,7 +267,7 @@ title: University of Wisconsin Oshkosh
                 <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
               </div>
               <p>{{ video.description }}</p>
-              <span>{{ video.updated | date: "%A %B %d, %I:%M %p" }}</span>
+              <span>{{ video.updated | date: "%B %d, %Y" }}</span>
             </div>
           {% endfor %}
         </div>
@@ -283,7 +283,7 @@ title: University of Wisconsin Oshkosh
               <a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg"></a>
               <p>{{ set.photos }} photos, viewed {{ set.count_views }} times.</p>
               <p>{{ set.description._content }}</p>
-              <span>{{ set.date_update | date: "%A %B %d, %I:%M %p" }}</span>
+              <span>{{ set.date_update | date: "%B %d, %Y" }}</span>
             </div>
           {% endfor %}
         </div>
