@@ -7221,9 +7221,9 @@ a.th {
 /* Custom Styles */
 /* line 78, ../_sass/app.scss */
 body {
-  background-image: url("../img/bg-gradient.jpg");
+  background-image: url("../img/parts/gradientyellow.png");
   background-repeat: repeat-x;
-  background-position-y: 12px;
+  background-position-y: 51px;
 }
 
 /* line 84, ../_sass/app.scss */
@@ -7266,4 +7266,36 @@ body {
 /* line 114, ../_sass/app.scss */
 .panel.twif {
   border-top-color: #fec425;
+}
+
+/* line 118, ../_sass/app.scss */
+.tagline {
+  height: 32px;
+  background-color: #444444;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 9px 0;
+  text-align: center;
+}
+
+/* line 126, ../_sass/app.scss */
+.footer-container {
+  background-color: #b0b0b0;
+  color: #666666;
+  font-size: 0.8125em;
+}
+/* line 130, ../_sass/app.scss */
+.footer-container a {
+  color: #666666;
+}
+
+/* line 134, ../_sass/app.scss */
+.app-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* line 138, ../_sass/app.scss */
+.wismap {
+  width: 124px;
 }

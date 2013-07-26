@@ -76,9 +76,9 @@ $twif: #f8c636;
 
 /* Custom Styles */
 body {
-  background-image: url('../img/bg-gradient.jpg');
+  background-image: url('../img/parts/gradientyellow.png');
   background-repeat: repeat-x;
-  background-position-y: 12px;
+  background-position-y: 51px;
 }
 
 .top-bar {
@@ -113,4 +113,28 @@ body {
 }
 .panel.twif {
   border-top-color: $yellow;
+}
+
+.tagline {
+  height: 32px;
+  background-color: $dark-gray;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 9px 0;
+  text-align: center;
+}
+.footer-container {
+  background-color: $medium-gray;
+  color: $medium-dark-gray;
+  font-size: emCalc(13);
+  a {
+    color: $medium-dark-gray;
+  }
+}
+.app-icon {
+  width: 32px;
+  height: 32px;
+}
+.wismap {
+  width: 124px;
 }
