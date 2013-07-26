@@ -249,7 +249,6 @@ title: University of Wisconsin Oshkosh
           {% jsonball facebook from url http://feeds.uwosh.edu/api/v1/index.php/facebook/uwoshkosh %}
           {% for fbpost in facebook.data limit: 3 %}
             <div class="twitter-article large-4 columns">
-              <h6 class="subheader">Facebook - {{ fbpost.from.name }}</h6>
               <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
               <span>{{ fbpost.updated_time | date: "%A %B %d, %I:%M %p" }}
             </div>
@@ -263,7 +262,6 @@ title: University of Wisconsin Oshkosh
           {% jsonball youtube from url http://feeds.uwosh.edu/api/v1/index.php/youtube/uwosh %}
           {% for video in youtube.data.items limit: 3 %}
             <div class="twitter-article large-4 columns">
-              <h6 class="subheader">YouTube - {{ video.uploader }}</h6>
               <h5>{{ video.title }}</h5>
               <div class="flex-video widescreen">
                 <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
@@ -281,7 +279,6 @@ title: University of Wisconsin Oshkosh
           {% jsonball flickr from url http://feeds.uwosh.edu/api/v1/index.php/flickr/uwoshkosh %}
           {% for set in flickr.photosets.photoset limit: 3 %}
             <div class="twitter-article large-4 columns">
-              <h6 class="subheader">Flickr - UW Oshkosh</h6>
               <h5>{{ set.title._content }}</h5>
               <a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg"></a>
               <p>{{ set.photos }} photos, viewed {{ set.count_views }} times.</p>
