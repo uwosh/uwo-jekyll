@@ -100,10 +100,10 @@ title: University of Wisconsin Oshkosh
   {% for post in feed.posts %}
     <div class="col-lg-4">
       <div class="panel panel-weekly campus-news">
-        <h6 class="subheader">{{ feed.category.title | upcase }}</h6>
+        <h6 class="subheader">CAMPUS NEWS</h6>
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
-        <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
@@ -113,10 +113,10 @@ title: University of Wisconsin Oshkosh
   {% for post in feed.posts %}
     <div class="col-lg-4">
       <div class="panel panel-weekly research-news">
-        <h6 class="subheader">{{ feed.category.title | upcase }}</h6>
+        <h6 class="subheader">RESEARCH NEWS</h6>
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
-        <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
@@ -126,10 +126,10 @@ title: University of Wisconsin Oshkosh
   {% for post in feed.posts %}
     <div class="col-lg-4">
       <div class="panel panel-weekly powering-community">
-        <h6 class="subheader">{{ feed.category.title | upcase }}</h6>
+        <h6 class="subheader">POWERING COMMUNITY</h6>
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
-        <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
@@ -149,10 +149,10 @@ title: University of Wisconsin Oshkosh
   {% for post in feed.posts %}
     <div class="col-lg-4">
       <div class="panel panel-weekly uwotw">
-        <h6 class="subheader">{{ feed.category.title | upcase }}</h6>
+        <h6 class="subheader">UW OSHKOSH THIS WEEK</h6>
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
-        <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
@@ -162,10 +162,10 @@ title: University of Wisconsin Oshkosh
   {% for post in feed.posts %}
     <div class="col-lg-4">
       <div class="panel panel-weekly meet-uwo">
-        <h6 class="subheader">{{ feed.category.title | upcase }}</h6>
+        <h6 class="subheader">MEET UW OSHKOSH</h6>
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
-        <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
@@ -175,10 +175,10 @@ title: University of Wisconsin Oshkosh
   {% for post in feed.posts %}
     <div class="col-lg-4">
       <div class="panel panel-weekly twif">
-        <h6 class="subheader">{{ feed.category.title | upcase }}</h6>
+        <h6 class="subheader">THIS WEEK IN FOCUS</h6>
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
-        <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
@@ -193,10 +193,10 @@ title: University of Wisconsin Oshkosh
   {% for post in feed.posts %}
     <div class="col-lg-4">
       <div class="panel panel-weekly uwotw">
-        <h6 class="subheader">{{ feed.category.title | upcase }}</h6>
+        <h6 class="subheader">FROM THE CHANCELLOR</h6>
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
-        <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
@@ -206,10 +206,10 @@ title: University of Wisconsin Oshkosh
   {% for post in feed.posts %}
     <div class="col-lg-4">
       <div class="panel panel-weekly meet-uwo">
-        <h6 class="subheader">{{ feed.category.title | upcase }}</h6>
+        <h6 class="subheader">PROGRAMS</h6>
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
-        <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
@@ -219,10 +219,10 @@ title: University of Wisconsin Oshkosh
   {% for post in feed.posts %}
     <div class="col-lg-4">
       <div class="panel panel-weekly twif">
-        <h6 class="subheader">{{ feed.category.title | upcase }}</h6>
+        <h6 class="subheader">I AM A TITAN</h6>
         <h5>{{ post.title }}</h5>
         <img src="{{ post.attachments[0].url }}" class="panel-image" />
-        <p>{{ post.excerpt | strip_html }} &hellip; <a href="{{ post.url }}">Read more &hellip;</a></p>
+        <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
         <span>{{ post.date | date: "%B %d, %Y" }}</span>
       </div>
     </div>
@@ -235,78 +235,68 @@ title: University of Wisconsin Oshkosh
 <div class="social-container">
   <div class="row">
 
-    <ul class="nav nav-tabs" id="myTab">
-      <li class="active"><a href="#twitter">Twitter</a></li>
-      <li><a href="#facebook">Facebook</a></li>
-      <li><a href="#youtube">YouTube</a></li>
-      <li><a href="#flickr">Flickr</a></li>
+    <ul class="nav nav-tabs col-lg-2" id="myTab">
+      <li class="active"><a href="#twitter"><img src="img/parts/twitter-bird-light-bgs.png" class="pull-left social-icon" />Twitter</a></li>
+      <li><a href="#facebook"><img src="img/parts/FB-f-Logo__blue_29.png" class="pull-left social-icon" />Facebook</a></li>
+      <li><a href="#youtube"><img src="img/parts/youtube-logo.png" class="pull-left social-icon" />YouTube</a></li>
+      <li><a href="#flickr"><img src="img/parts/white-large-chiclet.png" class="pull-left social-icon" />Flickr</a></li>
     </ul>
 
-    <div class="tab-content">
+    <div class="tab-content col-lg-10">
       <div class="tab-pane active fade" id="twitter">
-        <p class="title" data-section-title><a href="#panel1">Twitter</a></p>
-        <div class="content" data-section-content style="height:238px;">
-          {% jsonball twitter from url http://feeds.uwosh.edu/api/v1/index.php/twitter/uwoshkosh %}
-          {% for tweet in twitter limit: 3 %}
-            <div class="twitter-article col-lg-4">
-              <div class="twitter-pic">
-                <a href="https://twitter.com/{{ tweet.user.screen_name }}"><img src="{{ tweet.user.profile_image_url_https }}"></a>
-              </div>
-              <div class="twitter-text">
-                <span class="tweetprofilelink">
-                  <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
-                </span>
-                <span class="tweet-time">
-                  <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at | date: "%B %d, %Y" }}</a>
-                </span>
+        {% jsonball twitter from url http://feeds.uwosh.edu/api/v1/index.php/twitter/uwoshkosh %}
+        {% for tweet in twitter limit: 3 %}
+          <div class="twitter-article col-lg-4">
+            <div class="media">
+              <a class="pull-left" href="https://twitter.com/{{ tweet.user.screen_name }}"><img class="media-object" src="{{ tweet.user.profile_image_url_https }}"></a>
+              <div class="media-body">
+                <div class="media-heading">
+                  <span class="tweetprofilelink">
+                    <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
+                  </span>
+                  <span class="tweet-time">
+                    <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at | date: "%B %d, %Y" }}</a>
+                  </span>
+                </div>
                 <p>{{ tweet.text }}</p>
               </div>
             </div>
-          {% endfor %}
-        </div>
+          </div>
+        {% endfor %}
       </div>
       <div class="tab-pane fade" id="facebook">
-        <p class="title" data-section-title><a href="#panel2">Facebook</a></p>
-        <div class="content" data-section-content>
-          {% jsonball facebook from url http://feeds.uwosh.edu/api/v1/index.php/facebook/uwoshkosh %}
-          {% for fbpost in facebook.data limit: 3 %}
-            <div class="twitter-article col-lg-4">
-              <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
-              <span>{{ fbpost.updated_time | date: "%B %d, %Y" }}
-            </div>
-          {% endfor %}
-        </div>
+        {% jsonball facebook from url http://feeds.uwosh.edu/api/v1/index.php/facebook/uwoshkosh %}
+        {% for fbpost in facebook.data limit: 3 %}
+          <div class="twitter-article col-lg-4">
+            <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
+            <span>{{ fbpost.updated_time | date: "%B %d, %Y" }}
+          </div>
+        {% endfor %}
       </div>
       <div class="tab-pane fade" id="youtube">
-        <p class="title" data-section-title><a href="#panel3">YouTube</a></p>
-        <div class="content" data-section-content>
-          {% jsonball youtube from url http://feeds.uwosh.edu/api/v1/index.php/youtube/uwosh %}
-          {% for video in youtube.data.items limit: 3 %}
-            <div class="twitter-article col-lg-4">
-              <h5>{{ video.title }}</h5>
-              <div class="flex-video widescreen">
-                <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
-              </div>
-              <p>{{ video.description }}</p>
-              <span>{{ video.updated | date: "%B %d, %Y" }}</span>
+        {% jsonball youtube from url http://feeds.uwosh.edu/api/v1/index.php/youtube/uwosh %}
+        {% for video in youtube.data.items limit: 3 %}
+          <div class="twitter-article col-lg-4">
+            <h5>{{ video.title }}</h5>
+            <div class="flex-video widescreen">
+              <iframe width="560" height="315" src="http://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
             </div>
-          {% endfor %}
-        </div>
+            <p>{{ video.description }}</p>
+            <span>{{ video.updated | date: "%B %d, %Y" }}</span>
+          </div>
+        {% endfor %}
       </div>
       <div class="tab-pane fade" id="flickr">
-        <p class="title" data-section-title><a href="#panel4">Flickr</a></p>
-        <div class="content" data-section-content>
-          {% jsonball flickr from url http://feeds.uwosh.edu/api/v1/index.php/flickr/uwoshkosh %}
-          {% for set in flickr.photosets.photoset limit: 3 %}
-            <div class="twitter-article col-lg-4">
-              <h5>{{ set.title._content }}</h5>
-              <a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg"></a>
-              <p>{{ set.photos }} photos, viewed {{ set.count_views }} times.</p>
-              <p>{{ set.description._content }}</p>
-              <span>{{ set.date_update | date: "%B %d, %Y" }}</span>
-            </div>
-          {% endfor %}
-        </div>
+        {% jsonball flickr from url http://feeds.uwosh.edu/api/v1/index.php/flickr/uwoshkosh %}
+        {% for set in flickr.photosets.photoset limit: 3 %}
+          <div class="twitter-article col-lg-4">
+            <h5>{{ set.title._content }}</h5>
+            <a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg"></a>
+            <p>{{ set.photos }} photos, viewed {{ set.count_views }} times.</p>
+            <p>{{ set.description._content }}</p>
+            <span>{{ set.date_update | date: "%B %d, %Y" }}</span>
+          </div>
+        {% endfor %}
       </div>
     </div>
 

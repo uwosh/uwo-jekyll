@@ -68,7 +68,13 @@ body {
   background-color: #ededed;
 }
 
-/* line 77, ../_sass/custom.scss */
+/* line 76, ../_sass/custom.scss */
+.social-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* line 81, ../_sass/custom.scss */
 .tagline {
   height: 32px;
   font-size: emCalc(16);
@@ -79,24 +85,24 @@ body {
   text-align: center;
 }
 
-/* line 86, ../_sass/custom.scss */
+/* line 90, ../_sass/custom.scss */
 .footer-container {
   height: 208px;
   background-color: #b0b0b0;
   color: #666666;
 }
-/* line 90, ../_sass/custom.scss */
+/* line 94, ../_sass/custom.scss */
 .footer-container a {
   color: #666666;
 }
 
-/* line 94, ../_sass/custom.scss */
+/* line 98, ../_sass/custom.scss */
 .app-icon {
   width: 32px;
   height: 32px;
 }
 
-/* line 98, ../_sass/custom.scss */
+/* line 102, ../_sass/custom.scss */
 .wismap {
   width: 124px;
 }
