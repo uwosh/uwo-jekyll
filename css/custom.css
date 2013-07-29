@@ -1,0 +1,102 @@
+/* Custom Variables */
+/* Custom Styles */
+/* line 22, ../_sass/custom.scss */
+body {
+  background-image: url("../img/parts/gradientyellow.png");
+  background-repeat: repeat-x;
+  background-position-y: 51px;
+}
+
+/* line 28, ../_sass/custom.scss */
+.wordmark {
+  margin-left: -18px;
+}
+
+/* line 32, ../_sass/custom.scss */
+.top-bar {
+  margin-bottom: 6px;
+}
+
+/* line 36, ../_sass/custom.scss */
+.panel {
+  width: 368px;
+  height: 410px;
+  box-shadow: 1px 1px 5px #999;
+  border-top: 3px solid;
+  background: #fff;
+}
+
+/* line 43, ../_sass/custom.scss */
+.panel-image {
+  height: 189px;
+}
+
+/* line 52, ../_sass/custom.scss */
+.panel.campus-news {
+  border-top-color: #d79a27;
+}
+
+/* line 55, ../_sass/custom.scss */
+.panel.research-news {
+  border-top-color: #5a9664;
+}
+
+/* line 58, ../_sass/custom.scss */
+.panel.powering-community {
+  border-top-color: #69bad9;
+}
+
+/* line 61, ../_sass/custom.scss */
+.panel.uwotw {
+  border-top-color: #0077ad;
+}
+
+/* line 64, ../_sass/custom.scss */
+.panel.meet-uwo {
+  border-top-color: #c05600;
+}
+
+/* line 67, ../_sass/custom.scss */
+.panel.twif {
+  border-top-color: #fec425;
+}
+
+/* line 71, ../_sass/custom.scss */
+.social-container {
+  height: 320px;
+  padding-top: 15px;
+  background-color: #ededed;
+}
+
+/* line 77, ../_sass/custom.scss */
+.tagline {
+  height: 32px;
+  font-size: emCalc(16);
+  background-color: #444444;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 9px 0;
+  text-align: center;
+}
+
+/* line 86, ../_sass/custom.scss */
+.footer-container {
+  height: 208px;
+  background-color: #b0b0b0;
+  color: #666666;
+}
+/* line 90, ../_sass/custom.scss */
+.footer-container a {
+  color: #666666;
+}
+
+/* line 94, ../_sass/custom.scss */
+.app-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* line 98, ../_sass/custom.scss */
+.wismap {
+  width: 124px;
+}
