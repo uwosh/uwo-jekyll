@@ -137,25 +137,23 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   height: 32px;
   background-color: #69bad9;
   text-align: center;
-}
-/* line 135, ../_sass/custom.scss */
-.visit-uwot a {
+  padding-top: 7px;
   color: #fff;
 }
 
-/* line 140, ../_sass/custom.scss */
+/* line 139, ../_sass/custom.scss */
 .social-container {
   height: 320px;
   padding-top: 15px;
   background-color: #ededed;
 }
 
-/* line 145, ../_sass/custom.scss */
+/* line 144, ../_sass/custom.scss */
 .social-icon {
   height: 24px;
 }
 
-/* line 149, ../_sass/custom.scss */
+/* line 148, ../_sass/custom.scss */
 .tagline {
   height: 32px;
   font-size: emCalc(16);
@@ -166,24 +164,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-align: center;
 }
 
-/* line 158, ../_sass/custom.scss */
+/* line 157, ../_sass/custom.scss */
 .footer-container {
   height: 208px;
   background-color: #b0b0b0;
   color: #666666;
 }
-/* line 162, ../_sass/custom.scss */
+/* line 161, ../_sass/custom.scss */
 .footer-container a {
   color: #666666;
 }
 
-/* line 166, ../_sass/custom.scss */
+/* line 165, ../_sass/custom.scss */
 .app-icon {
   width: 32px;
   height: 32px;
 }
 
-/* line 170, ../_sass/custom.scss */
+/* line 169, ../_sass/custom.scss */
 .wismap {
   width: 124px;
 }
