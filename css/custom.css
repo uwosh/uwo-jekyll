@@ -5,19 +5,72 @@ body {
   background-image: url("../img/parts/gradientyellow.png");
   background-repeat: repeat-x;
   background-position-y: 51px;
+  font-size: 13px;
+  color: #444444;
+  font-family: "Open Sans", arial, sans-serif;
 }
 
-/* line 28, ../_sass/custom.scss */
+/* line 31, ../_sass/custom.scss */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Open Sans", arial, sans-serif;
+}
+
+/* line 35, ../_sass/custom.scss */
+.university-nav .navbar-nav > li > a {
+  font-size: 13px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* line 41, ../_sass/custom.scss */
 .wordmark {
   margin-left: -18px;
 }
 
-/* line 32, ../_sass/custom.scss */
-.top-bar {
-  margin-bottom: 6px;
+/* line 46, ../_sass/custom.scss */
+.audience-nav a {
+  color: #444444;
 }
 
-/* line 36, ../_sass/custom.scss */
+/* line 51, ../_sass/custom.scss */
+.event-calendar {
+  border: 1px solid #b0b0b0;
+}
+
+/* line 54, ../_sass/custom.scss */
+.event-month {
+  width: 64px;
+  height: 24px;
+  background-color: #0077ad;
+  color: #fff;
+  text-align: center;
+}
+
+/* line 61, ../_sass/custom.scss */
+.event-day {
+  width: 64px;
+  height: 40px;
+  color: #444444;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* line 70, ../_sass/custom.scss */
+.category {
+  font-size: 13px;
+  color: #b0b0b0;
+  font-weight: 600;
+}
+
+/* line 76, ../_sass/custom.scss */
+.news-heading {
+  font-size: 18px;
+  color: #444444;
+  font-weight: 600;
+}
+
+/* line 82, ../_sass/custom.scss */
 .panel {
   height: 410px;
   box-shadow: 1px 1px 5px #999;
@@ -25,52 +78,51 @@ body {
   background: #fff;
 }
 
-/* line 42, ../_sass/custom.scss */
+/* line 88, ../_sass/custom.scss */
 .panel-image {
   height: 189px;
 }
 
-/* line 51, ../_sass/custom.scss */
+/* line 97, ../_sass/custom.scss */
 .panel.campus-news {
   border-top-color: #d79a27;
 }
 
-/* line 54, ../_sass/custom.scss */
+/* line 100, ../_sass/custom.scss */
 .panel.research-news {
   border-top-color: #5a9664;
 }
 
-/* line 57, ../_sass/custom.scss */
+/* line 103, ../_sass/custom.scss */
 .panel.powering-community {
   border-top-color: #69bad9;
 }
 
-/* line 60, ../_sass/custom.scss */
+/* line 106, ../_sass/custom.scss */
 .panel.uwotw {
   border-top-color: #0077ad;
 }
 
-/* line 63, ../_sass/custom.scss */
+/* line 109, ../_sass/custom.scss */
 .panel.meet-uwo {
   border-top-color: #c05600;
 }
 
-/* line 66, ../_sass/custom.scss */
+/* line 112, ../_sass/custom.scss */
 .panel.twif {
   border-top-color: #fec425;
 }
 
-/* line 70, ../_sass/custom.scss */
+/* line 116, ../_sass/custom.scss */
 .videoWrapper {
   position: relative;
   padding-bottom: 56.25%;
   /* 16:9 */
-  padding-top: 25px;
   height: 0;
   overflow: hidden;
 }
 
-/* line 77, ../_sass/custom.scss */
+/* line 122, ../_sass/custom.scss */
 .videoWrapper iframe {
   position: absolute;
   top: 0;
@@ -79,19 +131,19 @@ body {
   height: 100%;
 }
 
-/* line 85, ../_sass/custom.scss */
+/* line 130, ../_sass/custom.scss */
 .social-container {
   height: 320px;
   padding-top: 15px;
   background-color: #ededed;
 }
 
-/* line 90, ../_sass/custom.scss */
+/* line 135, ../_sass/custom.scss */
 .social-icon {
   height: 24px;
 }
 
-/* line 94, ../_sass/custom.scss */
+/* line 139, ../_sass/custom.scss */
 .tagline {
   height: 32px;
   font-size: emCalc(16);
@@ -102,24 +154,24 @@ body {
   text-align: center;
 }
 
-/* line 103, ../_sass/custom.scss */
+/* line 148, ../_sass/custom.scss */
 .footer-container {
   height: 208px;
   background-color: #b0b0b0;
   color: #666666;
 }
-/* line 107, ../_sass/custom.scss */
+/* line 152, ../_sass/custom.scss */
 .footer-container a {
   color: #666666;
 }
 
-/* line 111, ../_sass/custom.scss */
+/* line 156, ../_sass/custom.scss */
 .app-icon {
   width: 32px;
   height: 32px;
 }
 
-/* line 115, ../_sass/custom.scss */
+/* line 160, ../_sass/custom.scss */
 .wismap {
   width: 124px;
 }

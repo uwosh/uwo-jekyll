@@ -75,18 +75,54 @@ title: University of Wisconsin Oshkosh
     <div class="col-lg-9">
       <div class="row">
         <div class="col-lg-12">
-          <h3>Events <small>UWO Events Calendar -></small></h3>
+          <h3>Events <small>View More Events -></small></h3>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-4">
-          <p>Stuff happens here! Check out this event! I'm totally serious, why aren't you checking out my events?</p>
+          <div class="media">
+            <a class="pull-left" href="#">
+              <div class="event-calendar">
+                <div class="media-object event-month">May</div>
+                <div class="media-object event-day">11</div>
+              </div>
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Spring Commencement</h4>
+              <div class="event-time">9 a.m. and 2 p.m.</div>
+              <div class="event-location">Kolf Sports Center</div>
+            </div>
+          </div>
         </div>
         <div class="col-lg-4">
-          <p>More Stuff happens here! Check out this event! I'm totally serious, why aren't you checking out my events?</p>
+          <div class="media">
+            <a class="pull-left" href="#">
+              <div class="event-calendar">
+                <div class="media-object event-month">May</div>
+                <div class="media-object event-day">11</div>
+              </div>
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Spring Commencement</h4>
+              <div class="event-time">9 a.m. and 2 p.m.</div>
+              <div class="event-location">Kolf Sports Center</div>
+            </div>
+          </div>
         </div>
         <div class="col-lg-4">
-          <p>Even more Stuff happens here! Check out this event! I'm totally serious, why aren't you checking out my events?</p>
+          <div class="media">
+            <a class="pull-left" href="#">
+              <div class="event-calendar">
+                <div class="media-object event-month">May</div>
+                <div class="media-object event-day">11</div>
+              </div>
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Spring Commencement</h4>
+              <div class="event-time">9 a.m. and 2 p.m.</div>
+              <div class="event-location">Kolf Sports Center</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -101,8 +137,8 @@ title: University of Wisconsin Oshkosh
     {% for post in feed.posts %}
       <div class="col-lg-4 col-sm-4">
         <div class="panel panel-weekly campus-news">
-          <h6 class="subheader">CAMPUS NEWS</h6>
-          <h5>{{ post.title }}</h5>
+          <span class="category">CAMPUS NEWS</span>
+          <h2 class="news-heading">{{ post.title }}</h2>
           <img src="{{ post.attachments[0].url }}" class="panel-image" />
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span>{{ post.date | date: "%B %d, %Y" }}</span>
@@ -114,8 +150,8 @@ title: University of Wisconsin Oshkosh
     {% for post in feed.posts %}
       <div class="col-lg-4 col-sm-4">
         <div class="panel panel-weekly research-news">
-          <h6 class="subheader">RESEARCH NEWS</h6>
-          <h5>{{ post.title }}</h5>
+          <span class="category">RESEARCH NEWS</span>
+          <h2 class="news-heading">{{ post.title }}</h2>
           <img src="{{ post.attachments[0].url }}" class="panel-image" />
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span>{{ post.date | date: "%B %d, %Y" }}</span>
@@ -127,9 +163,11 @@ title: University of Wisconsin Oshkosh
     {% for post in feed.posts %}
       <div class="col-lg-4 col-sm-4">
         <div class="panel panel-weekly powering-community">
-          <h6 class="subheader">POWERING COMMUNITY</h6>
-          <h5>{{ post.title }}</h5>
-          <img src="{{ post.attachments[0].url }}" class="panel-image" />
+          <span class="category">POWERING COMMUNITY</span>
+          <h2 class="news-heading">{{ post.title }}</h2>
+          <div class="videoWrapper">
+            <img src="{{ post.attachments[0].url }}" class="panel-image" />
+          </div>
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span>{{ post.date | date: "%B %d, %Y" }}</span>
         </div>
@@ -150,8 +188,8 @@ title: University of Wisconsin Oshkosh
     {% for post in feed.posts %}
       <div class="col-lg-4">
         <div class="panel panel-weekly uwotw">
-          <h6 class="subheader">UW OSHKOSH THIS WEEK</h6>
-          <h5>{{ post.title }}</h5>
+          <span class="category">UW OSHKOSH THIS WEEK</span>
+          <h2 class="news-heading">{{ post.title }}</h2>
           <div class="videoWrapper">
             {{ post.content | videophoto }}
           </div>
@@ -165,8 +203,8 @@ title: University of Wisconsin Oshkosh
     {% for post in feed.posts %}
       <div class="col-lg-4">
         <div class="panel panel-weekly meet-uwo">
-          <h6 class="subheader">MEET UW OSHKOSH</h6>
-          <h5>{{ post.title }}</h5>
+          <span class="category">MEET UW OSHKOSH</span>
+          <h2 class="news-heading">{{ post.title }}</h2>
           <img src="{{ post.attachments[0].url }}" class="panel-image" />
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span>{{ post.date | date: "%B %d, %Y" }}</span>
@@ -178,8 +216,8 @@ title: University of Wisconsin Oshkosh
     {% for post in feed.posts %}
       <div class="col-lg-4">
         <div class="panel panel-weekly twif">
-          <h6 class="subheader">THIS WEEK IN FOCUS</h6>
-          <h5>{{ post.title }}</h5>
+          <span class="category">THIS WEEK IN FOCUS</span>
+          <h2 class="news-heading">{{ post.title }}</h2>
           <div class="videoWrapper">
             {{ post.content | videophoto }}
           </div>
@@ -198,8 +236,8 @@ title: University of Wisconsin Oshkosh
     {% for post in feed.posts %}
       <div class="col-lg-4">
         <div class="panel panel-weekly uwotw">
-          <h6 class="subheader">FROM THE CHANCELLOR</h6>
-          <h5>{{ post.title }}</h5>
+          <span class="category">FROM THE CHANCELLOR</span>
+          <h2 class="news-heading">{{ post.title }}</h2>
           <div class="videoWrapper">
             {{ post.content | videophoto }}
           </div>
@@ -213,8 +251,8 @@ title: University of Wisconsin Oshkosh
     {% for post in feed.posts %}
       <div class="col-lg-4">
         <div class="panel panel-weekly meet-uwo">
-          <h6 class="subheader">PROGRAMS</h6>
-          <h5>{{ post.title }}</h5>
+          <span class="category">PROGRAMS</span>
+          <h2 class="news-heading">{{ post.title }}</h2>
           <img src="{{ post.attachments[0].url }}" class="panel-image" />
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span>{{ post.date | date: "%B %d, %Y" }}</span>
@@ -226,8 +264,8 @@ title: University of Wisconsin Oshkosh
     {% for post in feed.posts %}
       <div class="col-lg-4">
         <div class="panel panel-weekly twif">
-          <h6 class="subheader">I AM A TITAN</h6>
-          <h5>{{ post.title }}</h5>
+          <span class="category">I AM A TITAN</span>
+          <h2 class="news-heading">{{ post.title }}</h2>
           <div class="videoWrapper">
             {{ post.content | videophoto }}
           </div>

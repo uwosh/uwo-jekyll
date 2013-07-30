@@ -23,14 +23,60 @@ body {
   background-image: url('../img/parts/gradientyellow.png');
   background-repeat: repeat-x;
   background-position-y: 51px;
+  font-size: 13px;
+  color: $dark-gray;
+  font-family: "Open Sans", arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Open Sans", arial, sans-serif;
+}
+
+.university-nav .navbar-nav>li>a {
+  font-size: 13px;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 .wordmark {
   margin-left: -18px;
 }
 
-.top-bar {
-  margin-bottom: 6px;
+.audience-nav {
+  a {
+    color: $dark-gray;
+  }
+}
+
+.event-calendar {
+  border: 1px solid $medium-gray;
+}
+.event-month {
+  width: 64px;
+  height: 24px;
+  background-color: $dark-blue;
+  color: #fff;
+  text-align: center;
+}
+.event-day {
+  width: 64px;
+  height: 40px;
+  color: $dark-gray;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.category {
+  font-size: 13px;
+  color: $medium-gray;
+  font-weight: 600;
+}
+
+.news-heading {
+  font-size: 18px;
+  color: $dark-gray;
+  font-weight: 600;
 }
 
 .panel {
@@ -70,7 +116,6 @@ body {
 .videoWrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
-  padding-top: 25px;
   height: 0;
   overflow: hidden;
 }
