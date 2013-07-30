@@ -22,7 +22,7 @@ $twif: #f8c636;
 body {
   background-image: url('../img/parts/gradientyellow.png');
   background-repeat: repeat-x;
-  background-position-y: 51px;
+  background-position-y: 56px;
   font-size: 13px;
   color: $dark-gray;
   font-family: "Open Sans", arial, sans-serif;
@@ -40,6 +40,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .wordmark {
   margin-left: -18px;
+  margin-top: -14px;
 }
 
 .audience-nav {

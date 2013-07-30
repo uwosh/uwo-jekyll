@@ -89,27 +89,23 @@
               <li><a href="#">D2L</a></li>
               <li><a href="#">My UW System</a></li>
             </ul>
-            <form>
-              <div class="row">
-                <div class="col-lg-7">
-                  <input type="text" placeholder="Search UW Oshkosh">
-                </div>
-                <div class="col-lg-3">
-                  <select>
+            <div class="row">
+              <div class="col-lg-12">
+                <form class="form-inline">
+                  <input class="form-control input-small" type="text" placeholder="Search UW Oshkosh" style="width: 55%;">
+                  <select class="form-control input-small" style="width: 25%;">
                     <option>This site</option>
                     <option>Entire Campus</option>
                   </select>
-                </div>
-                <div class="col-lg-2">
-                  <button type="button" class="btn btn-primary btn-small"><a href="#">Button</a></button>
-                </div>
+                  <button type="button" class="btn btn-primary btn-small" style="width: 10%;"><a href="#">Button</a></button>
+                </form>
               </div>
-            </form>
+            </div>
           </div>
         </div><!-- /.row -->
       </div><!-- /.audience-nav -->
 
-    </div><!-- /.container -->
+    </div><br><!-- /.container -->
 
     {{ content }}
 

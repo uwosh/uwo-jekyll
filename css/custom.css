@@ -4,7 +4,7 @@
 body {
   background-image: url("../img/parts/gradientyellow.png");
   background-repeat: repeat-x;
-  background-position-y: 51px;
+  background-position-y: 56px;
   font-size: 13px;
   color: #444444;
   font-family: "Open Sans", arial, sans-serif;
@@ -25,20 +25,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 /* line 41, ../_sass/custom.scss */
 .wordmark {
   margin-left: -18px;
+  margin-top: -14px;
 }
 
-/* line 46, ../_sass/custom.scss */
+/* line 47, ../_sass/custom.scss */
 .audience-nav a {
   color: #444444;
 }
 
-/* line 51, ../_sass/custom.scss */
+/* line 52, ../_sass/custom.scss */
 .event-calendar {
   border: 1px solid #b0b0b0;
   box-shadow: 1px 1px 5px #999;
 }
 
-/* line 55, ../_sass/custom.scss */
+/* line 56, ../_sass/custom.scss */
 .event-month {
   width: 64px;
   height: 24px;
@@ -47,7 +48,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-align: center;
 }
 
-/* line 62, ../_sass/custom.scss */
+/* line 63, ../_sass/custom.scss */
 .event-day {
   width: 64px;
   height: 40px;
@@ -57,21 +58,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 600;
 }
 
-/* line 71, ../_sass/custom.scss */
+/* line 72, ../_sass/custom.scss */
 .category {
   font-size: 13px;
   color: #b0b0b0;
   font-weight: 600;
 }
 
-/* line 77, ../_sass/custom.scss */
+/* line 78, ../_sass/custom.scss */
 .news-heading {
   font-size: 18px;
   color: #444444;
   font-weight: 600;
 }
 
-/* line 83, ../_sass/custom.scss */
+/* line 84, ../_sass/custom.scss */
 .panel {
   height: 410px;
   box-shadow: 1px 1px 5px #999;
@@ -79,42 +80,42 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   background: #fff;
 }
 
-/* line 89, ../_sass/custom.scss */
+/* line 90, ../_sass/custom.scss */
 .panel-image {
   height: 189px;
 }
 
-/* line 98, ../_sass/custom.scss */
+/* line 99, ../_sass/custom.scss */
 .panel.campus-news {
   border-top-color: #d79a27;
 }
 
-/* line 101, ../_sass/custom.scss */
+/* line 102, ../_sass/custom.scss */
 .panel.research-news {
   border-top-color: #5a9664;
 }
 
-/* line 104, ../_sass/custom.scss */
+/* line 105, ../_sass/custom.scss */
 .panel.powering-community {
   border-top-color: #69bad9;
 }
 
-/* line 107, ../_sass/custom.scss */
+/* line 108, ../_sass/custom.scss */
 .panel.uwotw {
   border-top-color: #0077ad;
 }
 
-/* line 110, ../_sass/custom.scss */
+/* line 111, ../_sass/custom.scss */
 .panel.meet-uwo {
   border-top-color: #c05600;
 }
 
-/* line 113, ../_sass/custom.scss */
+/* line 114, ../_sass/custom.scss */
 .panel.twif {
   border-top-color: #fec425;
 }
 
-/* line 117, ../_sass/custom.scss */
+/* line 118, ../_sass/custom.scss */
 .videoWrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -123,7 +124,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   overflow: hidden;
 }
 
-/* line 123, ../_sass/custom.scss */
+/* line 124, ../_sass/custom.scss */
 .videoWrapper iframe {
   position: absolute;
   top: 0;
@@ -132,7 +133,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   height: 100%;
 }
 
-/* line 131, ../_sass/custom.scss */
+/* line 132, ../_sass/custom.scss */
 .visit-uwot {
   height: 32px;
   background-color: #69bad9;
@@ -141,19 +142,19 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #fff;
 }
 
-/* line 139, ../_sass/custom.scss */
+/* line 140, ../_sass/custom.scss */
 .social-container {
   height: 320px;
   padding-top: 15px;
   background-color: #ededed;
 }
 
-/* line 144, ../_sass/custom.scss */
+/* line 145, ../_sass/custom.scss */
 .social-icon {
   height: 24px;
 }
 
-/* line 148, ../_sass/custom.scss */
+/* line 149, ../_sass/custom.scss */
 .tagline {
   height: 32px;
   font-size: emCalc(16);
@@ -164,24 +165,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-align: center;
 }
 
-/* line 157, ../_sass/custom.scss */
+/* line 158, ../_sass/custom.scss */
 .footer-container {
   height: 208px;
   background-color: #b0b0b0;
   color: #666666;
 }
-/* line 161, ../_sass/custom.scss */
+/* line 162, ../_sass/custom.scss */
 .footer-container a {
   color: #666666;
 }
 
-/* line 165, ../_sass/custom.scss */
+/* line 166, ../_sass/custom.scss */
 .app-icon {
   width: 32px;
   height: 32px;
 }
 
-/* line 169, ../_sass/custom.scss */
+/* line 170, ../_sass/custom.scss */
 .wismap {
   width: 124px;
 }
