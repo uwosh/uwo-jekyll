@@ -19,62 +19,79 @@ body {
 
 /* line 36, ../_sass/custom.scss */
 .panel {
-  width: 368px;
   height: 410px;
   box-shadow: 1px 1px 5px #999;
   border-top: 3px solid;
   background: #fff;
 }
 
-/* line 43, ../_sass/custom.scss */
+/* line 42, ../_sass/custom.scss */
 .panel-image {
   height: 189px;
 }
 
-/* line 52, ../_sass/custom.scss */
+/* line 51, ../_sass/custom.scss */
 .panel.campus-news {
   border-top-color: #d79a27;
 }
 
-/* line 55, ../_sass/custom.scss */
+/* line 54, ../_sass/custom.scss */
 .panel.research-news {
   border-top-color: #5a9664;
 }
 
-/* line 58, ../_sass/custom.scss */
+/* line 57, ../_sass/custom.scss */
 .panel.powering-community {
   border-top-color: #69bad9;
 }
 
-/* line 61, ../_sass/custom.scss */
+/* line 60, ../_sass/custom.scss */
 .panel.uwotw {
   border-top-color: #0077ad;
 }
 
-/* line 64, ../_sass/custom.scss */
+/* line 63, ../_sass/custom.scss */
 .panel.meet-uwo {
   border-top-color: #c05600;
 }
 
-/* line 67, ../_sass/custom.scss */
+/* line 66, ../_sass/custom.scss */
 .panel.twif {
   border-top-color: #fec425;
 }
 
-/* line 71, ../_sass/custom.scss */
+/* line 70, ../_sass/custom.scss */
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+  overflow: hidden;
+}
+
+/* line 77, ../_sass/custom.scss */
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 85, ../_sass/custom.scss */
 .social-container {
   height: 320px;
   padding-top: 15px;
   background-color: #ededed;
 }
 
-/* line 76, ../_sass/custom.scss */
+/* line 90, ../_sass/custom.scss */
 .social-icon {
-  width: 24px;
   height: 24px;
 }
 
-/* line 81, ../_sass/custom.scss */
+/* line 94, ../_sass/custom.scss */
 .tagline {
   height: 32px;
   font-size: emCalc(16);
@@ -85,24 +102,24 @@ body {
   text-align: center;
 }
 
-/* line 90, ../_sass/custom.scss */
+/* line 103, ../_sass/custom.scss */
 .footer-container {
   height: 208px;
   background-color: #b0b0b0;
   color: #666666;
 }
-/* line 94, ../_sass/custom.scss */
+/* line 107, ../_sass/custom.scss */
 .footer-container a {
   color: #666666;
 }
 
-/* line 98, ../_sass/custom.scss */
+/* line 111, ../_sass/custom.scss */
 .app-icon {
   width: 32px;
   height: 32px;
 }
 
-/* line 102, ../_sass/custom.scss */
+/* line 115, ../_sass/custom.scss */
 .wismap {
   width: 124px;
 }
