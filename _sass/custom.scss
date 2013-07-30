@@ -49,6 +49,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   }
 }
 
+.cta {
+  height: 48px;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 500;
+  padding-top: 3px;
+  padding-left: 10px;
+}
+.cta-visit {
+  background-color: $blue;
+}
+.cta-tour {
+  background-color: $orange;
+}
+.cta-apply {
+  background-color: $dark-orange;
+}
+
 .event-calendar {
   border: 1px solid $medium-gray;
   box-shadow: 1px 1px 5px #999;
