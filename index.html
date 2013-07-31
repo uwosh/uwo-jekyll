@@ -350,21 +350,21 @@ title: University of Wisconsin Oshkosh
 
 <!-- Social Feed -->
 <div class="social-container">
-  <div class="container">
+  <div class="container container-overflow">
     <div class="row">
       <div class="col-lg-12">
 
-        <ul class="nav nav-tabs col-lg-2" id="myTab">
+        <ul class="nav nav-tabs pull-left" id="socialTabs">
           <li class="active"><a href="#twitter"><img src="img/parts/twitter-logo.png" class="pull-left social-icon" />Twitter</a></li>
           <li><a href="#facebook"><img src="img/parts/facebook-logo.png" class="pull-left social-icon" />Facebook</a></li>
           <li><a href="#youtube"><img src="img/parts/youtube-logo.png" class="pull-left social-icon" />YouTube</a></li>
           <li><a href="#flickr"><img src="img/parts/flickr-logo.png" class="pull-left social-icon" />Flickr</a></li>
         </ul>
 
-        <div class="tab-content col-lg-10">
+        <div class="tab-content">
           <div class="tab-pane active fade" id="twitter">
             {% jsonball twitter from url http://feeds.uwosh.edu/api/v1/index.php/twitter/uwoshkosh %}
-            <div id="deck-container">
+            <div class="deck-container">
               <deck id="deck-twitter">
                 {% for tweet in twitter limit: 12 %}
                   <slide>
@@ -387,11 +387,17 @@ title: University of Wisconsin Oshkosh
                   </slide>
                 {% endfor %}
               </deck>
+            </div><!-- /.deck-container -->
+            <div class="social-controls">
+              <ul class="list-unstyled">
+                <li onClick="bespoke.prev()">Prev</li>
+                <li onClick="bespoke.next()">Next</li>
+              </ul>
             </div>
-          </div>
+          </div><!-- /#twitter -->
           <div class="tab-pane fade" id="facebook">
             {% jsonball facebook from url http://feeds.uwosh.edu/api/v1/index.php/facebook/uwoshkosh %}
-            <div id="deck-container">
+            <div class="deck-container">
               <deck id="deck-facebook">
                 {% for fbpost in facebook.data limit: 12 %}
                   <slide>
@@ -402,11 +408,17 @@ title: University of Wisconsin Oshkosh
                   </slide>
                 {% endfor %}
               </deck>
+            </div><!-- /.deck-container -->
+            <div class="social-controls">
+              <ul class="list-unstyled">
+                <li onClick="bespoke.prev()">Prev</li>
+                <li onClick="bespoke.next()">Next</li>
+              </ul>
             </div>
           </div>
           <div class="tab-pane fade" id="youtube">
             {% jsonball youtube from url http://feeds.uwosh.edu/api/v1/index.php/youtube/uwosh %}
-            <div id="deck-container">
+            <div class="deck-container">
               <deck id="deck-youtube">
                 {% for video in youtube.data.items limit: 12 %}
                   <slide>
@@ -421,11 +433,17 @@ title: University of Wisconsin Oshkosh
                   </slide>
                 {% endfor %}
               </deck>
+            </div><!-- /.deck-container -->
+            <div class="social-controls">
+              <ul class="list-unstyled">
+                <li onClick="bespoke.prev()">Prev</li>
+                <li onClick="bespoke.next()">Next</li>
+              </ul>
             </div>
           </div>
           <div class="tab-pane fade" id="flickr">
             {% jsonball flickr from url http://feeds.uwosh.edu/api/v1/index.php/flickr/uwoshkosh %}
-            <div id="deck-container">
+            <div class="deck-container">
               <deck id="deck-flickr">
                 {% for set in flickr.photosets.photoset limit: 12 %}
                   <slide>
@@ -439,12 +457,18 @@ title: University of Wisconsin Oshkosh
                   </slide>
                 {% endfor %}
               </deck>
+            </div><!-- /.deck-container -->
+            <div class="social-controls">
+              <ul class="list-unstyled">
+                <li onClick="bespoke.prev()">Prev</li>
+                <li onClick="bespoke.next()">Next</li>
+              </ul>
             </div>
           </div>
         </div>
 
         <script>
-          $('#myTab a').click(function (e) {
+          $('#socialTabs a').click(function (e) {
             e.preventDefault();
             $(this).tab('show');
           })

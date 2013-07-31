@@ -207,8 +207,25 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 /******************************************************************
 BESPOKE SLIDER STYLES
 ******************************************************************/
-#deck-container { position: relative; }
+.deck-container { position: relative; }
 deck { position: relative; }
+.container-overflow { overflow: hidden; }
+#socialTabs {
+  width: 184px;
+  height: 238px;
+  border: none;
+  background-color: #fff;
+}
+.social-controls {
+  position: absolute;
+  left: 1065px;
+  width: 118px;
+  height: 238px;
+  background-color: #fff;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  border: none;
+}
 slide {
     position: absolute;
     top: 0;
@@ -229,6 +246,9 @@ slide.bespoke-active {
 /* Classic Theme */
 .social-article {
   width: 288px;
+  height: 238px;
+  border: 1px solid $light-gray;
+  background-color: #fff;
 }
 
 slide.bespoke-before {
