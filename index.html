@@ -151,9 +151,16 @@ title: University of Wisconsin Oshkosh
         <div class="panel panel-weekly campus-news">
           <span class="category">CAMPUS NEWS</span>
           <h2 class="news-heading">{{ post.title }}</h2>
-          <img src="{{ post.attachments[0].url }}" class="panel-image" /><br><br>
+          <div class="videoWrapper">
+            {% capture video %}{{ post.content | videophoto }}{% endcapture %}
+            {% if video != "" %}
+              {{ video }}
+            {% else %}
+              <img src="{{ post.attachments[0].url }}" class="panel-image" />
+            {% endif %}
+          </div><br>
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-          <span class="posted-date">{{ post.date | timeago }}</span>
+          <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
         </div>
       </div>
     {% endfor %}
@@ -164,7 +171,14 @@ title: University of Wisconsin Oshkosh
         <div class="panel panel-weekly research-news">
           <span class="category">RESEARCH NEWS</span>
           <h2 class="news-heading">{{ post.title }}</h2>
-          <img src="{{ post.attachments[0].url }}" class="panel-image" /><br><br>
+          <div class="videoWrapper">
+            {% capture video %}{{ post.content | videophoto }}{% endcapture %}
+            {% if video != "" %}
+              {{ video }}
+            {% else %}
+              <img src="{{ post.attachments[0].url }}" class="panel-image" />
+            {% endif %}
+          </div><br>
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
         </div>
@@ -178,8 +192,13 @@ title: University of Wisconsin Oshkosh
           <span class="category">POWERING COMMUNITY</span>
           <h2 class="news-heading">{{ post.title }}</h2>
           <div class="videoWrapper">
-            <img src="{{ post.attachments[0].url }}" class="panel-image" /><br><br>
-          </div>
+            {% capture video %}{{ post.content | videophoto }}{% endcapture %}
+            {% if video != "" %}
+              {{ video }}
+            {% else %}
+              <img src="{{ post.attachments[0].url }}" class="panel-image" />
+            {% endif %}
+          </div><br>
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
         </div>
@@ -207,8 +226,13 @@ title: University of Wisconsin Oshkosh
           <span class="category">UW OSHKOSH THIS WEEK</span>
           <h2 class="news-heading">{{ post.title }}</h2>
           <div class="videoWrapper">
-            {{ post.content | videophoto }}<br><br>
-          </div>
+            {% capture video %}{{ post.content | videophoto }}{% endcapture %}
+            {% if video != "" %}
+              {{ video }}
+            {% else %}
+              <img src="{{ post.attachments[0].url }}" class="panel-image" />
+            {% endif %}
+          </div><br>
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
         </div>
@@ -221,7 +245,14 @@ title: University of Wisconsin Oshkosh
         <div class="panel panel-weekly meet-uwo">
           <span class="category">MEET UW OSHKOSH</span>
           <h2 class="news-heading">{{ post.title }}</h2>
-          <img src="{{ post.attachments[0].url }}" class="panel-image" /><br><br>
+          <div class="videoWrapper">
+            {% capture video %}{{ post.content | videophoto }}{% endcapture %}
+            {% if video != "" %}
+              {{ video }}
+            {% else %}
+              <img src="{{ post.attachments[0].url }}" class="panel-image" />
+            {% endif %}
+          </div><br>
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
         </div>
@@ -235,8 +266,13 @@ title: University of Wisconsin Oshkosh
           <span class="category">THIS WEEK IN FOCUS</span>
           <h2 class="news-heading">{{ post.title }}</h2>
           <div class="videoWrapper">
-            {{ post.content | videophoto }}<br><br>
-          </div>
+            {% capture video %}{{ post.content | videophoto }}{% endcapture %}
+            {% if video != "" %}
+              {{ video }}
+            {% else %}
+              <img src="{{ post.attachments[0].url }}" class="panel-image" />
+            {% endif %}
+          </div><br>
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
         </div>
@@ -255,8 +291,13 @@ title: University of Wisconsin Oshkosh
           <span class="category">FROM THE CHANCELLOR</span>
           <h2 class="news-heading">{{ post.title }}</h2>
           <div class="videoWrapper">
-            {{ post.content | videophoto }}<br><br>
-          </div>
+            {% capture video %}{{ post.content | videophoto }}{% endcapture %}
+            {% if video != "" %}
+              {{ video }}
+            {% else %}
+              <img src="{{ post.attachments[0].url }}" class="panel-image" />
+            {% endif %}
+          </div><br>
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
         </div>
@@ -269,7 +310,14 @@ title: University of Wisconsin Oshkosh
         <div class="panel panel-weekly meet-uwo">
           <span class="category">PROGRAMS</span>
           <h2 class="news-heading">{{ post.title }}</h2>
-          <img src="{{ post.attachments[0].url }}" class="panel-image" /><br><br>
+          <div class="videoWrapper">
+            {% capture video %}{{ post.content | videophoto }}{% endcapture %}
+            {% if video != "" %}
+              {{ video }}
+            {% else %}
+              <img src="{{ post.attachments[0].url }}" class="panel-image" />
+            {% endif %}
+          </div><br>
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
         </div>
@@ -283,8 +331,13 @@ title: University of Wisconsin Oshkosh
           <span class="category">I AM A TITAN</span>
           <h2 class="news-heading">{{ post.title }}</h2>
           <div class="videoWrapper">
-            {{ post.content | videophoto }}<br><br>
-          </div>
+            {% capture video %}{{ post.content | videophoto }}{% endcapture %}
+            {% if video != "" %}
+              {{ video }}
+            {% else %}
+              <img src="{{ post.attachments[0].url }}" class="panel-image" />
+            {% endif %}
+          </div><br>
           <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
           <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
         </div>

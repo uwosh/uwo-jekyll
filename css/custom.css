@@ -165,9 +165,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   /* 16:9 */
   height: 0;
   overflow: hidden;
+  text-align: center;
 }
 
-/* line 156, ../_sass/custom.scss */
+/* line 157, ../_sass/custom.scss */
 .videoWrapper iframe {
   position: absolute;
   top: 0;
@@ -176,7 +177,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   height: 100%;
 }
 
-/* line 164, ../_sass/custom.scss */
+/* line 165, ../_sass/custom.scss */
 .visit-uwot {
   height: 32px;
   background-color: #69bad9;
@@ -185,19 +186,19 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #fff;
 }
 
-/* line 172, ../_sass/custom.scss */
+/* line 173, ../_sass/custom.scss */
 .social-container {
   height: 320px;
   padding-top: 15px;
   background-color: #ededed;
 }
 
-/* line 177, ../_sass/custom.scss */
+/* line 178, ../_sass/custom.scss */
 .social-icon {
   height: 24px;
 }
 
-/* line 181, ../_sass/custom.scss */
+/* line 182, ../_sass/custom.scss */
 .tagline {
   height: 32px;
   font-size: emCalc(16);
@@ -208,24 +209,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-align: center;
 }
 
-/* line 190, ../_sass/custom.scss */
+/* line 191, ../_sass/custom.scss */
 .footer-container {
   height: 208px;
   background-color: #b0b0b0;
   color: #666666;
 }
-/* line 194, ../_sass/custom.scss */
+/* line 195, ../_sass/custom.scss */
 .footer-container a {
   color: #666666;
 }
 
-/* line 198, ../_sass/custom.scss */
+/* line 199, ../_sass/custom.scss */
 .app-icon {
   width: 32px;
   height: 32px;
 }
 
-/* line 202, ../_sass/custom.scss */
+/* line 203, ../_sass/custom.scss */
 .wismap {
   width: 124px;
 }

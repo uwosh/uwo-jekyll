@@ -152,6 +152,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   padding-bottom: 56.25%; /* 16:9 */
   height: 0;
   overflow: hidden;
+  text-align: center;
 }
 .videoWrapper iframe {
   position: absolute;
