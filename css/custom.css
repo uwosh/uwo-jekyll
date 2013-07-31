@@ -230,3 +230,107 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .wismap {
   width: 124px;
 }
+
+/******************************************************************
+BESPOKE SLIDER STYLES
+******************************************************************/
+/* line 210, ../_sass/custom.scss */
+#deck-container {
+  position: relative;
+}
+
+/* line 211, ../_sass/custom.scss */
+deck {
+  position: relative;
+}
+
+/* line 212, ../_sass/custom.scss */
+slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+/* line 218, ../_sass/custom.scss */
+slide.bespoke-slide {
+  -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
+  -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
+  -ms-transition: -ms-transform .7s ease, opacity .7s ease, background-color .7s ease;
+  -o-transition: -o-transform .7s ease, opacity .7s ease, background-color .7s ease;
+  transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
+}
+
+/* line 225, ../_sass/custom.scss */
+slide.bespoke-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Classic Theme */
+/* line 230, ../_sass/custom.scss */
+.social-article {
+  width: 288px;
+}
+
+/* line 234, ../_sass/custom.scss */
+slide.bespoke-before {
+  -webkit-transform: translate3d(-1920px, 0, 0);
+  -moz-transform: translate3d(-1920px, 0, 0);
+  -ms-transform: translate3d(-1920px, 0, 0);
+  -o-transform: translate3d(-1920px, 0, 0);
+  transform: translate3d(-1920px, 0, 0);
+}
+
+/* line 241, ../_sass/custom.scss */
+slide.bespoke-before-2 {
+  -webkit-transform: translate3d(-1280px, 0, 0);
+  -moz-transform: translate3d(-1280px, 0, 0);
+  -ms-transform: translate3d(-1280px, 0, 0);
+  -o-transform: translate3d(-1280px, 0, 0);
+  transform: translate3d(-1280px, 0, 0);
+  opacity: 0.1;
+}
+
+/* line 249, ../_sass/custom.scss */
+slide.bespoke-before-1 {
+  -webkit-transform: translate3d(-640px, 0, 0);
+  -moz-transform: translate3d(-640px, 0, 0);
+  -ms-transform: translate3d(-640px, 0, 0);
+  -o-transform: translate3d(-640px, 0, 0);
+  transform: translate3d(-640px, 0, 0);
+  opacity: 0.3;
+}
+
+/* line 257, ../_sass/custom.scss */
+slide.bespoke-after {
+  -webkit-transform: translate3d(1920px, 0, 0);
+  -moz-transform: translate3d(1920px, 0, 0);
+  -ms-transform: translate3d(1920px, 0, 0);
+  -o-transform: translate3d(1920px, 0, 0);
+  transform: translate3d(1920px, 0, 0);
+}
+
+/* line 264, ../_sass/custom.scss */
+slide.bespoke-after-2 {
+  -webkit-transform: translate3d(576px, 0, 0);
+  -moz-transform: translate3d(576px, 0, 0);
+  -ms-transform: translate3d(576px, 0, 0);
+  -o-transform: translate3d(576px, 0, 0);
+  transform: translate3d(576px, 0, 0);
+  opacity: 0.4;
+}
+
+/* line 272, ../_sass/custom.scss */
+slide.bespoke-after-1 {
+  -webkit-transform: translate3d(288px, 0, 0);
+  -moz-transform: translate3d(288px, 0, 0);
+  -ms-transform: translate3d(288px, 0, 0);
+  -o-transform: translate3d(288px, 0, 0);
+  transform: translate3d(288px, 0, 0);
+  opacity: 1.0;
+}
+
+/******************************************************************
+END BESPOKE SLIDER STYLES
+******************************************************************/

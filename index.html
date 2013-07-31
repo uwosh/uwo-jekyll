@@ -364,58 +364,82 @@ title: University of Wisconsin Oshkosh
         <div class="tab-content col-lg-10">
           <div class="tab-pane active fade" id="twitter">
             {% jsonball twitter from url http://feeds.uwosh.edu/api/v1/index.php/twitter/uwoshkosh %}
-            {% for tweet in twitter limit: 3 %}
-              <div class="twitter-article col-lg-4">
-                <div class="media">
-                  <a class="pull-left" href="https://twitter.com/{{ tweet.user.screen_name }}"><img class="media-object" src="{{ tweet.user.profile_image_url_https }}"></a>
-                  <div class="media-body">
-                    <div class="media-heading">
-                      <span class="tweetprofilelink">
-                        <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
-                      </span>
-                      <span class="tweet-time">
-                        <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at | date: "%B %d, %Y" }}</a>
-                      </span>
+            <div id="deck-container">
+              <deck id="deck-twitter">
+                {% for tweet in twitter limit: 12 %}
+                  <slide>
+                    <div class="twitter-article social-article">
+                      <div class="media">
+                        <a class="pull-left" href="https://twitter.com/{{ tweet.user.screen_name }}"><img class="media-object" src="{{ tweet.user.profile_image_url_https }}"></a>
+                        <div class="media-body">
+                          <div class="media-heading">
+                            <span class="tweetprofilelink">
+                              <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
+                            </span>
+                            <span class="tweet-time">
+                              <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at | date: "%B %d, %Y" }}</a>
+                            </span>
+                          </div>
+                          <p>{{ tweet.text }}</p>
+                        </div>
+                      </div>
                     </div>
-                    <p>{{ tweet.text }}</p>
-                  </div>
-                </div>
-              </div>
-            {% endfor %}
+                  </slide>
+                {% endfor %}
+              </deck>
+            </div>
           </div>
           <div class="tab-pane fade" id="facebook">
             {% jsonball facebook from url http://feeds.uwosh.edu/api/v1/index.php/facebook/uwoshkosh %}
-            {% for fbpost in facebook.data limit: 3 %}
-              <div class="twitter-article col-lg-4">
-                <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
-                <span>{{ fbpost.updated_time | date: "%B %d, %Y" }}
-              </div>
-            {% endfor %}
+            <div id="deck-container">
+              <deck id="deck-facebook">
+                {% for fbpost in facebook.data limit: 12 %}
+                  <slide>
+                    <div class="twitter-article social-article">
+                      <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
+                      <span>{{ fbpost.updated_time | date: "%B %d, %Y" }}
+                    </div>
+                  </slide>
+                {% endfor %}
+              </deck>
+            </div>
           </div>
           <div class="tab-pane fade" id="youtube">
             {% jsonball youtube from url http://feeds.uwosh.edu/api/v1/index.php/youtube/uwosh %}
-            {% for video in youtube.data.items limit: 3 %}
-              <div class="twitter-article col-lg-4">
-                <h5>{{ video.title }}</h5>
-                <div class="videoWrapper">
-                  <iframe width="336" height="189" src="http://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <p>{{ video.description }}</p>
-                <span>{{ video.updated | date: "%B %d, %Y" }}</span>
-              </div>
-            {% endfor %}
+            <div id="deck-container">
+              <deck id="deck-youtube">
+                {% for video in youtube.data.items limit: 12 %}
+                  <slide>
+                    <div class="twitter-article social-article">
+                      <h5>{{ video.title }}</h5>
+                      <div class="videoWrapper">
+                        <iframe width="336" height="189" src="http://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
+                      </div>
+                      <p>{{ video.description }}</p>
+                      <span>{{ video.updated | date: "%B %d, %Y" }}</span>
+                    </div>
+                  </slide>
+                {% endfor %}
+              </deck>
+            </div>
           </div>
           <div class="tab-pane fade" id="flickr">
             {% jsonball flickr from url http://feeds.uwosh.edu/api/v1/index.php/flickr/uwoshkosh %}
-            {% for set in flickr.photosets.photoset limit: 3 %}
-              <div class="twitter-article col-lg-4">
-                <h5>{{ set.title._content }}</h5>
-                <a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg"></a>
-                <p>{{ set.photos }} photos, viewed {{ set.count_views }} times.</p>
-                <p>{{ set.description._content }}</p>
-                <span>{{ set.date_update | date: "%B %d, %Y" }}</span>
-              </div>
-            {% endfor %}
+            <div id="deck-container">
+              <deck id="deck-flickr">
+                {% for set in flickr.photosets.photoset limit: 12 %}
+                  <slide>
+                    <div class="twitter-article social-article">
+                      <h5>{{ set.title._content }}</h5>
+                      <a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg"></a>
+                      <p>{{ set.photos }} photos, viewed {{ set.count_views }} times.</p>
+                      <p>{{ set.description._content }}</p>
+                      <span>{{ set.date_update | date: "%B %d, %Y" }}</span>
+                    </div>
+                  </slide>
+                {% endfor %}
+              </deck>
+            </div>
           </div>
         </div>
 

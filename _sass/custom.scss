@@ -203,3 +203,80 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .wismap {
   width: 124px;
 }
+
+/******************************************************************
+BESPOKE SLIDER STYLES
+******************************************************************/
+#deck-container { position: relative; }
+deck { position: relative; }
+slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+slide.bespoke-slide {
+    -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
+    -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
+    -ms-transition: -ms-transform .7s ease, opacity .7s ease, background-color .7s ease;
+    -o-transition: -o-transform .7s ease, opacity .7s ease, background-color .7s ease;
+    transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
+}
+slide.bespoke-active {
+    opacity: 1;
+    z-index: 1;
+}
+/* Classic Theme */
+.social-article {
+  width: 288px;
+}
+
+slide.bespoke-before {
+    -webkit-transform: translate3d(-1920px, 0, 0);
+    -moz-transform: translate3d(-1920px, 0, 0);
+    -ms-transform: translate3d(-1920px, 0, 0);
+    -o-transform: translate3d(-1920px, 0, 0);
+    transform: translate3d(-1920px, 0, 0);
+}
+slide.bespoke-before-2 {
+    -webkit-transform: translate3d(-1280px, 0, 0);
+    -moz-transform: translate3d(-1280px, 0, 0);
+    -ms-transform: translate3d(-1280px, 0, 0);
+    -o-transform: translate3d(-1280px, 0, 0);
+    transform: translate3d(-1280px, 0, 0);
+    opacity: 0.1;
+}
+slide.bespoke-before-1 {
+    -webkit-transform: translate3d(-640px, 0, 0);
+    -moz-transform: translate3d(-640px, 0, 0);
+    -ms-transform: translate3d(-640px, 0, 0);
+    -o-transform: translate3d(-640px, 0, 0);
+    transform: translate3d(-640px, 0, 0);
+    opacity: 0.3;
+}
+slide.bespoke-after {
+    -webkit-transform: translate3d(1920px, 0, 0);
+    -moz-transform: translate3d(1920px, 0, 0);
+    -ms-transform: translate3d(1920px, 0, 0);
+    -o-transform: translate3d(1920px, 0, 0);
+    transform: translate3d(1920px, 0, 0);
+}
+slide.bespoke-after-2 {
+    -webkit-transform: translate3d(576px, 0, 0);
+    -moz-transform: translate3d(576px, 0, 0);
+    -ms-transform: translate3d(576px, 0, 0);
+    -o-transform: translate3d(576px, 0, 0);
+    transform: translate3d(576px, 0, 0);
+    opacity: 0.4;
+}
+slide.bespoke-after-1 {
+    -webkit-transform: translate3d(288px, 0, 0);
+    -moz-transform: translate3d(288px, 0, 0);
+    -ms-transform: translate3d(288px, 0, 0);
+    -o-transform: translate3d(288px, 0, 0);
+    transform: translate3d(288px, 0, 0);
+    opacity: 1.0;
+}
+/******************************************************************
+END BESPOKE SLIDER STYLES
+******************************************************************/
