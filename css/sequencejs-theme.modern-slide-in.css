@@ -1,0 +1,472 @@
+/*
+Theme created for use with Sequence.js (http://www.sequencejs.com/)
+
+Theme: Modern Slide In
+Version: 1.3
+Theme Author: Ian Lunn @IanLunn
+Author URL: http://www.ianlunn.co.uk/
+Theme URL: http://www.sequencejs.com/themes/modern-slide-in/
+
+This is a FREE theme and is available under a MIT License:
+http://www.opensource.org/licenses/mit-license.php
+
+Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless otherwise stated.
+*/
+/* prefix declarations */
+/* THEME STYLES */
+/* line 33, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-theme {
+  /* this container is just to ensure the background color stretches all the way across on bigger screens */
+  background: #D9D9D9;
+}
+
+/* line 37, ../_sass/sequencejs-theme.modern-slide-in.scss */
+#sequence {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1280px;
+  background-color: #D9D9D9;
+  background-image: url("../img/bg-sequence.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  color: white;
+  font-size: 0.625em;
+  margin: 0 auto;
+  position: relative;
+  height: 600px;
+}
+/* line 55, ../_sass/sequencejs-theme.modern-slide-in.scss */
+#sequence > .sequence-canvas {
+  height: 100%;
+  width: 100%;
+}
+/* line 59, ../_sass/sequencejs-theme.modern-slide-in.scss */
+#sequence > .sequence-canvas > li {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: -50%;
+}
+/* line 66, ../_sass/sequencejs-theme.modern-slide-in.scss */
+#sequence > .sequence-canvas > li img {
+  height: 96%;
+}
+/* line 71, ../_sass/sequencejs-theme.modern-slide-in.scss */
+#sequence > .sequence-canvas li > * {
+  position: absolute;
+  /* only cause the left and opacity properties to transition */
+  -webkit-transition-property: left, opacity;
+  -moz-transition-property: left, opacity;
+  -ms-transition-property: left, opacity;
+  -o-transition-property: left, opacity;
+  transition-property: left, opacity;
+}
+
+/* line 80, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-next,
+.sequence-prev {
+  color: white;
+  cursor: pointer;
+  display: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  position: absolute;
+  top: 50%;
+  z-index: 1000;
+  height: 75px;
+  margin-top: -47.5px;
+}
+
+/* line 93, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-pause {
+  bottom: 0;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1000;
+}
+
+/* line 100, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-paused {
+  opacity: 0.3;
+}
+
+/* line 104, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-prev {
+  left: 3%;
+}
+
+/* line 108, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-next {
+  right: 3%;
+}
+
+/* line 113, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-prev img,
+.sequence-next img {
+  height: 100%;
+  width: auto;
+}
+
+/* line 118, ../_sass/sequencejs-theme.modern-slide-in.scss */
+#sequence-preloader {
+  background: #d9d9d9;
+}
+
+/* line 122, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-pagination {
+  bottom: 1%;
+  display: none;
+  right: 6%;
+  position: absolute;
+  z-index: 10;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+/* line 130, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-pagination li {
+  display: inline-block;
+  *display: inline;
+  /* Hack for IE7 and below as they don't support inline-block */
+  height: 140px;
+}
+/* line 135, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-pagination li img {
+  cursor: pointer;
+  opacity: 0.5;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -ms-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: margin-bottom, opacity;
+  -moz-transition-property: margin-bottom, opacity;
+  -ms-transition-property: margin-bottom, opacity;
+  -o-transition-property: margin-bottom, opacity;
+  transition-property: margin-bottom, opacity;
+}
+/* line 143, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-pagination li img:hover {
+  margin-bottom: 4px;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+/* line 149, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-pagination li.current img {
+  opacity: 1;
+}
+
+/* line 154, ../_sass/sequencejs-theme.modern-slide-in.scss */
+h2 {
+  color: white;
+  font-family: 'Sirin Stencil', serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* line 161, ../_sass/sequencejs-theme.modern-slide-in.scss */
+h3 {
+  font-family: 'Ruluko', serif;
+}
+
+/* line 166, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-next,
+.sequence-prev {
+  position: absolute;
+  opacity: 0.6;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -ms-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+/* line 173, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.sequence-next:hover,
+.sequence-prev:hover {
+  opacity: 1;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -ms-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+/* line 178, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.title {
+  font-size: 3.4em;
+  left: 65%;
+  width: 35%;
+  opacity: 0;
+  bottom: 1%;
+  z-index: 50;
+}
+
+/* line 187, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.animate-in .title {
+  left: 50%;
+  opacity: 1;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+/* line 193, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.animate-out .title {
+  left: 35%;
+  opacity: 0;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+/* line 199, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.subtitle {
+  color: black;
+  font-size: 2em;
+  left: 35%;
+  width: 35%;
+  opacity: 0;
+  top: 101%;
+}
+
+/* line 208, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.animate-in .subtitle {
+  left: 50%;
+  opacity: 1;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+/* line 214, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.animate-out .subtitle {
+  left: 65%;
+  opacity: 0;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+/* line 220, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.pillar {
+  left: 30%;
+  bottom: -48%;
+  opacity: 0;
+  position: relative;
+  height: auto !important;
+  max-height: 568px !important;
+  width: 30%;
+  min-width: 225px;
+  /* prevents the model from shrinking when the browser is resized */
+  max-width: 266px;
+}
+
+/* line 232, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.animate-in .pillar {
+  left: 15%;
+  opacity: 1;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -ms-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+/* line 238, ../_sass/sequencejs-theme.modern-slide-in.scss */
+.animate-out .pillar {
+  left: 15%;
+  opacity: 0;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+@media only screen and (min-width: 992px) {
+  /* line 246, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .title {
+    width: 42%;
+  }
+}
+@media only screen and (max-width: 838px) {
+  /* line 253, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence {
+    height: 550px;
+  }
+  /* line 256, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .pillar {
+    max-height: 530px !important;
+    width: auto;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* line 264, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence {
+    height: 500px;
+  }
+  /* line 267, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .title {
+    font-size: 2.8em;
+  }
+  /* line 271, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .subtitle {
+    font-size: 1.6em;
+  }
+  /* line 276, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .sequence-next,
+  #sequence .sequence-prev {
+    height: 60px;
+    margin-top: -40px;
+  }
+  /* line 281, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .pillar {
+    max-height: 480px !important;
+    width: auto;
+  }
+}
+@media only screen and (max-width: 568px) {
+  /* line 290, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .pillar {
+    left: 50%;
+    min-width: 40%;
+    /*prevents the model from shrinking when the browser is resized*/
+    width: 40%;
+  }
+  /* line 296, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .animate-in .pillar {
+    left: 50%;
+    margin-left: -20%;
+  }
+  /* line 301, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .animate-out .pillar {
+    left: 50%;
+    margin-left: -20%;
+  }
+  /* line 306, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .title {
+    background: #a1a1a1;
+    background: rgba(0, 0, 0, 0.3);
+    bottom: 0;
+    left: 100%;
+    padding: 4%;
+    bottom: -50%;
+    width: 100%;
+    z-index: 10;
+  }
+  /* line 317, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .animate-in .title {
+    left: 0%;
+  }
+  /* line 321, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .animate-out .title {
+    left: -100%;
+  }
+  /* line 325, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .subtitle {
+    visibility: hidden;
+  }
+  /* line 329, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .sequence-pagination {
+    bottom: 40px;
+  }
+  /* line 332, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .sequence-pagination li img {
+    height: 100px;
+  }
+}
+@media only screen and (max-width: 518px) {
+  /* line 340, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence {
+    height: 450px;
+  }
+}
+@media only screen and (max-width: 468px) {
+  /* line 346, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence {
+    height: 415px;
+  }
+  /* line 349, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .sequence-pagination {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@media only screen and (max-width: 418px) {
+  /* line 357, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence {
+    height: 375px;
+  }
+}
+@media only screen and (max-width: 368px) {
+  /* line 363, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence {
+    height: 325px;
+  }
+  /* line 366, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .title {
+    font-size: 2.2em;
+  }
+}
+@media only screen and (max-width: 320px) and (orientation: portrait) {
+  /*iphone portrait*/
+  /* line 375, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence {
+    height: 320px;
+  }
+  /* line 378, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .pillar {
+    min-width: 45%;
+    width: 45%;
+  }
+  /* line 383, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .animate-in .pillar {
+    margin-left: -22.5%;
+  }
+  /* line 387, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .animate-out .pillar {
+    margin-left: -22.5%;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) and (orientation: landscape) {
+  /* line 397, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence {
+    height: 260px;
+  }
+  /* line 400, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .pillar {
+    min-width: 24%;
+    width: 24%;
+  }
+  /* line 405, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .animate-in .pillar {
+    left: 17.5%;
+    margin-left: 0;
+  }
+  /* line 410, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .animate-out .pillar {
+    left: 17.5%;
+    margin-left: 0;
+  }
+  /* line 415, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  #sequence .sequence-pagination {
+    right: 17.5%;
+  }
+}

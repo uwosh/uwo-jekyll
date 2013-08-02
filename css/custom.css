@@ -232,24 +232,30 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 /******************************************************************
+SEQUENCE SLIDER STYLES
+******************************************************************/
+/******************************************************************
+END SEQUENCE SLIDER STYLES
+******************************************************************/
+/******************************************************************
 BESPOKE SLIDER STYLES
 ******************************************************************/
-/* line 210, ../_sass/custom.scss */
+/* line 218, ../_sass/custom.scss */
 .deck-container {
   position: relative;
 }
 
-/* line 211, ../_sass/custom.scss */
+/* line 219, ../_sass/custom.scss */
 deck {
   position: relative;
 }
 
-/* line 212, ../_sass/custom.scss */
+/* line 220, ../_sass/custom.scss */
 .container-overflow {
   overflow: hidden;
 }
 
-/* line 213, ../_sass/custom.scss */
+/* line 221, ../_sass/custom.scss */
 #socialTabs {
   width: 184px;
   height: 238px;
@@ -257,7 +263,7 @@ deck {
   background-color: #fff;
 }
 
-/* line 219, ../_sass/custom.scss */
+/* line 227, ../_sass/custom.scss */
 .social-controls {
   position: absolute;
   left: 1065px;
@@ -266,12 +272,12 @@ deck {
   background-color: #fff;
 }
 
-/* line 226, ../_sass/custom.scss */
+/* line 234, ../_sass/custom.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   border: none;
 }
 
-/* line 229, ../_sass/custom.scss */
+/* line 237, ../_sass/custom.scss */
 slide {
   position: absolute;
   top: 0;
@@ -279,7 +285,7 @@ slide {
   opacity: 0;
 }
 
-/* line 235, ../_sass/custom.scss */
+/* line 243, ../_sass/custom.scss */
 slide.bespoke-slide {
   -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
   -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
@@ -288,14 +294,14 @@ slide.bespoke-slide {
   transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
 }
 
-/* line 242, ../_sass/custom.scss */
+/* line 250, ../_sass/custom.scss */
 slide.bespoke-active {
   opacity: 1;
   z-index: 1;
 }
 
 /* Classic Theme */
-/* line 247, ../_sass/custom.scss */
+/* line 255, ../_sass/custom.scss */
 .social-article {
   width: 288px;
   height: 238px;
@@ -303,7 +309,7 @@ slide.bespoke-active {
   background-color: #fff;
 }
 
-/* line 254, ../_sass/custom.scss */
+/* line 262, ../_sass/custom.scss */
 slide.bespoke-before {
   -webkit-transform: translate3d(-1920px, 0, 0);
   -moz-transform: translate3d(-1920px, 0, 0);
@@ -312,7 +318,7 @@ slide.bespoke-before {
   transform: translate3d(-1920px, 0, 0);
 }
 
-/* line 261, ../_sass/custom.scss */
+/* line 269, ../_sass/custom.scss */
 slide.bespoke-before-2 {
   -webkit-transform: translate3d(-1280px, 0, 0);
   -moz-transform: translate3d(-1280px, 0, 0);
@@ -322,7 +328,7 @@ slide.bespoke-before-2 {
   opacity: 0.1;
 }
 
-/* line 269, ../_sass/custom.scss */
+/* line 277, ../_sass/custom.scss */
 slide.bespoke-before-1 {
   -webkit-transform: translate3d(-640px, 0, 0);
   -moz-transform: translate3d(-640px, 0, 0);
@@ -332,7 +338,7 @@ slide.bespoke-before-1 {
   opacity: 0.3;
 }
 
-/* line 277, ../_sass/custom.scss */
+/* line 285, ../_sass/custom.scss */
 slide.bespoke-after {
   -webkit-transform: translate3d(1920px, 0, 0);
   -moz-transform: translate3d(1920px, 0, 0);
@@ -341,7 +347,7 @@ slide.bespoke-after {
   transform: translate3d(1920px, 0, 0);
 }
 
-/* line 284, ../_sass/custom.scss */
+/* line 292, ../_sass/custom.scss */
 slide.bespoke-after-2 {
   -webkit-transform: translate3d(576px, 0, 0);
   -moz-transform: translate3d(576px, 0, 0);
@@ -351,7 +357,7 @@ slide.bespoke-after-2 {
   opacity: 1.0;
 }
 
-/* line 292, ../_sass/custom.scss */
+/* line 300, ../_sass/custom.scss */
 slide.bespoke-after-1 {
   -webkit-transform: translate3d(288px, 0, 0);
   -moz-transform: translate3d(288px, 0, 0);

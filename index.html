@@ -7,47 +7,66 @@ title: University of Wisconsin Oshkosh
   <div class="row">
     <div class="col-lg-12">
 
-      <div id="carousel-pillar" class="carousel slide">
+      <div id="sequence">
 
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-pillar" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-pillar" data-slide-to="1"></li>
-          <li data-target="#carousel-pillar" data-slide-to="2"></li>
-          <li data-target="#carousel-pillar" data-slide-to="3"></li>
-        </ol>
+        <script>
+          $(document).ready(function(){
+            var options = {
+              nextButton: true,
+              prevButton: true,
+              pagination: true,
+              animateStartingFrameIn: true,
+              autoPlay: true,
+              autoPlayDelay: 3000,
+              preloader: true,
+              preloadTheseFrames: [1],
+              preloadTheseImages: [
+                  "img/parts/hlc.png"
+              ]
+            };
+            var mySequence = $("#sequence").sequence(options).data("sequence");
+          });
+        </script>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="item active">
-            <img src="img/pillar1.jpg" alt="University of Wisconsin Oshkosh">
-            <div class="carousel-caption"><h3>University of Wisconsin Oshkosh</h3></div>
-          </div>
-          <div class="item">
-            <img src="img/pillar2.jpg" alt="University of Wisconsin Oshkosh">
-            <div class="carousel-caption"><h3>Oviatt House</h3></div>
-          </div>
-          <div class="item">
-            <img src="img/pillar3.jpg" alt="University of Wisconsin Oshkosh">
-            <div class="carousel-caption"><h3>Tulips are red, Oshkosh Rocks!</h3></div>
-          </div>
-          <div class="item">
-            <img src="img/pillar4.jpg" alt="University of Wisconsin Oshkosh">
-            <div class="carousel-caption"><h3>You&rsquo;ll Like it Here</h3></div>
-          </div>
-        </div><!-- /.carousel-inner -->
+        <img class="sequence-prev" src="img/bt-prev.png" alt="Previous Frame" />
+        <img class="sequence-next" src="img/bt-next.png" alt="Next Frame" />
 
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-pillar" data-slide="prev">
-          <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-pillar" data-slide="next">
-          <span class="icon-next"></span>
-        </a>
+        <ul class="sequence-canvas">
+          <li class="animate-in">
+            <h2 class="title">University of Wisconsin Oshkosh</h2>
+            <h3 class="subtitle">WHERE EXCELLENCE AND OPPORTUNITY MEET.</h3>
+            <img class="pillar" src="img/pillar1.jpg" alt="Pillar 1" />
+          </li>
+          <li>
+            <h2 class="title">UW Oshkosh</h2>
+            <h3 class="subtitle">Creating unique educational opportunities</h3>
+            <img class="pillar" src="img/pillar2.jpg" alt="Pillar 2" />
+          </li>
+          <li>
+            <h2 class="title">Cutting Edge Education</h2>
+            <h3 class="subtitle">That's what we're all about</h3>
+            <img class="pillar" src="img/pillar3.jpg" alt="Pillar 3" />
+          </li>
+          <li>
+            <h2 class="title">UW Oshkosh</h2>
+            <h3 class="subtitle">Don't go anywhere else, just sayin'.</h3>
+            <img class="pillar" src="img/pillar4.jpg" alt="Pillar 4" />
+          </li>
+        </ul>
 
-      </div><!-- /.carousel.slide -->
+        <ul class="sequence-pagination">
+          <li><img src="img/parts/hlc.png" alt="Pillar 1" /></li>
+          <li><img src="img/parts/hlc.png" alt="Pillar 2" /></li>
+          <li><img src="img/parts/hlc.png" alt="Pillar 3" /></li>
+          <li><img src="img/parts/hlc.png" alt="Pillar 4" /></li>
+        </ul>
+
+      </div>
+
     </div>
   </div><br>
+
+
 
   <div class="row">
 
@@ -354,6 +373,13 @@ title: University of Wisconsin Oshkosh
     <div class="row">
       <div class="col-lg-12">
 
+        <script>
+          $('#socialTabs a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+          })
+        </script>
+
         <ul class="nav nav-tabs pull-left" id="socialTabs">
           <li class="active"><a href="#twitter"><img src="img/parts/twitter-logo.png" class="pull-left social-icon" />Twitter</a></li>
           <li><a href="#facebook"><img src="img/parts/facebook-logo.png" class="pull-left social-icon" />Facebook</a></li>
@@ -466,13 +492,6 @@ title: University of Wisconsin Oshkosh
             </div>
           </div>
         </div>
-
-        <script>
-          $('#socialTabs a').click(function (e) {
-            e.preventDefault();
-            $(this).tab('show');
-          })
-        </script>
 
       </div><!-- /.col-lg-12 -->
     </div><br><!-- /.row -->
