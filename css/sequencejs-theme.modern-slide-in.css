@@ -167,17 +167,10 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
 /* line 154, ../_sass/sequencejs-theme.modern-slide-in.scss */
 h2 {
   color: white;
-  font-family: 'Sirin Stencil', serif;
   font-weight: bold;
-  text-transform: uppercase;
 }
 
-/* line 161, ../_sass/sequencejs-theme.modern-slide-in.scss */
-h3 {
-  font-family: 'Ruluko', serif;
-}
-
-/* line 166, ../_sass/sequencejs-theme.modern-slide-in.scss */
+/* line 160, ../_sass/sequencejs-theme.modern-slide-in.scss */
 .sequence-next,
 .sequence-prev {
   position: absolute;
@@ -189,7 +182,7 @@ h3 {
   transition-duration: 1s;
 }
 
-/* line 173, ../_sass/sequencejs-theme.modern-slide-in.scss */
+/* line 167, ../_sass/sequencejs-theme.modern-slide-in.scss */
 .sequence-next:hover,
 .sequence-prev:hover {
   opacity: 1;
@@ -200,7 +193,7 @@ h3 {
   transition-duration: 1s;
 }
 
-/* line 178, ../_sass/sequencejs-theme.modern-slide-in.scss */
+/* line 172, ../_sass/sequencejs-theme.modern-slide-in.scss */
 .title {
   font-size: 3.4em;
   left: 65%;
@@ -210,7 +203,7 @@ h3 {
   z-index: 50;
 }
 
-/* line 187, ../_sass/sequencejs-theme.modern-slide-in.scss */
+/* line 181, ../_sass/sequencejs-theme.modern-slide-in.scss */
 .animate-in .title {
   left: 50%;
   opacity: 1;
@@ -221,7 +214,7 @@ h3 {
   transition-duration: 0.5s;
 }
 
-/* line 193, ../_sass/sequencejs-theme.modern-slide-in.scss */
+/* line 187, ../_sass/sequencejs-theme.modern-slide-in.scss */
 .animate-out .title {
   left: 35%;
   opacity: 0;
@@ -232,7 +225,7 @@ h3 {
   transition-duration: 0.5s;
 }
 
-/* line 199, ../_sass/sequencejs-theme.modern-slide-in.scss */
+/* line 193, ../_sass/sequencejs-theme.modern-slide-in.scss */
 .subtitle {
   color: black;
   font-size: 2em;
@@ -242,7 +235,7 @@ h3 {
   top: 101%;
 }
 
-/* line 208, ../_sass/sequencejs-theme.modern-slide-in.scss */
+/* line 202, ../_sass/sequencejs-theme.modern-slide-in.scss */
 .animate-in .subtitle {
   left: 50%;
   opacity: 1;
@@ -253,7 +246,7 @@ h3 {
   transition-duration: 0.5s;
 }
 
-/* line 214, ../_sass/sequencejs-theme.modern-slide-in.scss */
+/* line 208, ../_sass/sequencejs-theme.modern-slide-in.scss */
 .animate-out .subtitle {
   left: 65%;
   opacity: 0;
@@ -264,7 +257,7 @@ h3 {
   transition-duration: 0.5s;
 }
 
-/* line 220, ../_sass/sequencejs-theme.modern-slide-in.scss */
+/* line 214, ../_sass/sequencejs-theme.modern-slide-in.scss */
 .pillar {
   left: 30%;
   bottom: -48%;
@@ -278,7 +271,7 @@ h3 {
   max-width: 266px;
 }
 
-/* line 232, ../_sass/sequencejs-theme.modern-slide-in.scss */
+/* line 226, ../_sass/sequencejs-theme.modern-slide-in.scss */
 .animate-in .pillar {
   left: 15%;
   opacity: 1;
@@ -289,7 +282,7 @@ h3 {
   transition-duration: 1s;
 }
 
-/* line 238, ../_sass/sequencejs-theme.modern-slide-in.scss */
+/* line 232, ../_sass/sequencejs-theme.modern-slide-in.scss */
 .animate-out .pillar {
   left: 15%;
   opacity: 0;
@@ -301,66 +294,66 @@ h3 {
 }
 
 @media only screen and (min-width: 992px) {
-  /* line 246, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 240, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .title {
     width: 42%;
   }
 }
 @media only screen and (max-width: 838px) {
-  /* line 253, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 247, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence {
     height: 550px;
   }
-  /* line 256, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 250, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .pillar {
     max-height: 530px !important;
     width: auto;
   }
 }
 @media only screen and (max-width: 768px) {
-  /* line 264, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 258, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence {
     height: 500px;
   }
-  /* line 267, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 261, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .title {
     font-size: 2.8em;
   }
-  /* line 271, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 265, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .subtitle {
     font-size: 1.6em;
   }
-  /* line 276, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 270, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .sequence-next,
   #sequence .sequence-prev {
     height: 60px;
     margin-top: -40px;
   }
-  /* line 281, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 275, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .pillar {
     max-height: 480px !important;
     width: auto;
   }
 }
 @media only screen and (max-width: 568px) {
-  /* line 290, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 284, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .pillar {
     left: 50%;
     min-width: 40%;
     /*prevents the model from shrinking when the browser is resized*/
     width: 40%;
   }
-  /* line 296, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 290, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .animate-in .pillar {
     left: 50%;
     margin-left: -20%;
   }
-  /* line 301, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 295, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .animate-out .pillar {
     left: 50%;
     margin-left: -20%;
   }
-  /* line 306, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 300, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .title {
     background: #a1a1a1;
     background: rgba(0, 0, 0, 0.3);
@@ -371,101 +364,101 @@ h3 {
     width: 100%;
     z-index: 10;
   }
-  /* line 317, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 311, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .animate-in .title {
     left: 0%;
   }
-  /* line 321, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 315, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .animate-out .title {
     left: -100%;
   }
-  /* line 325, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 319, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .subtitle {
     visibility: hidden;
   }
-  /* line 329, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 323, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .sequence-pagination {
     bottom: 40px;
   }
-  /* line 332, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 326, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .sequence-pagination li img {
     height: 100px;
   }
 }
 @media only screen and (max-width: 518px) {
-  /* line 340, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 334, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence {
     height: 450px;
   }
 }
 @media only screen and (max-width: 468px) {
-  /* line 346, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 340, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence {
     height: 415px;
   }
-  /* line 349, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 343, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .sequence-pagination {
     opacity: 0;
     visibility: hidden;
   }
 }
 @media only screen and (max-width: 418px) {
-  /* line 357, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 351, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence {
     height: 375px;
   }
 }
 @media only screen and (max-width: 368px) {
-  /* line 363, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 357, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence {
     height: 325px;
   }
-  /* line 366, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 360, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .title {
     font-size: 2.2em;
   }
 }
 @media only screen and (max-width: 320px) and (orientation: portrait) {
   /*iphone portrait*/
-  /* line 375, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 369, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence {
     height: 320px;
   }
-  /* line 378, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 372, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .pillar {
     min-width: 45%;
     width: 45%;
   }
-  /* line 383, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 377, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .animate-in .pillar {
     margin-left: -22.5%;
   }
-  /* line 387, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 381, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .animate-out .pillar {
     margin-left: -22.5%;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) and (orientation: landscape) {
-  /* line 397, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 391, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence {
     height: 260px;
   }
-  /* line 400, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 394, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .pillar {
     min-width: 24%;
     width: 24%;
   }
-  /* line 405, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 399, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .animate-in .pillar {
     left: 17.5%;
     margin-left: 0;
   }
-  /* line 410, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 404, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .animate-out .pillar {
     left: 17.5%;
     margin-left: 0;
   }
-  /* line 415, ../_sass/sequencejs-theme.modern-slide-in.scss */
+  /* line 409, ../_sass/sequencejs-theme.modern-slide-in.scss */
   #sequence .sequence-pagination {
     right: 17.5%;
   }
