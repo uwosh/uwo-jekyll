@@ -16,34 +16,50 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 /* line 35, ../_sass/custom.scss */
+.content {
+  background-color: #fff;
+}
+
+/* line 39, ../_sass/custom.scss */
 .university-nav .navbar-nav > li > a {
   font-size: 13px;
   color: #fff;
   text-transform: uppercase;
 }
 
-/* line 41, ../_sass/custom.scss */
+/* line 45, ../_sass/custom.scss */
 .wordmark {
   margin-left: -18px;
   margin-top: -14px;
 }
 
-/* line 47, ../_sass/custom.scss */
+/* line 51, ../_sass/custom.scss */
 .audience-row a {
   color: #444444;
 }
 
-/* line 52, ../_sass/custom.scss */
+/* line 56, ../_sass/custom.scss */
 .audience-nav {
   margin-top: 62px;
 }
 
-/* line 56, ../_sass/custom.scss */
+/* line 60, ../_sass/custom.scss */
 .uwo-search {
   margin-top: 18px;
 }
 
-/* line 60, ../_sass/custom.scss */
+/* line 64, ../_sass/custom.scss */
+.page-title-row {
+  height: 48px;
+  color: #fff;
+}
+
+/* line 68, ../_sass/custom.scss */
+.page-title-current-students {
+  background-color: #69bad9;
+}
+
+/* line 72, ../_sass/custom.scss */
 .cta {
   height: 48px;
   color: #fff;
@@ -53,28 +69,28 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   padding-left: 10px;
 }
 
-/* line 68, ../_sass/custom.scss */
+/* line 80, ../_sass/custom.scss */
 .cta-visit {
   background-color: #69bad9;
 }
 
-/* line 71, ../_sass/custom.scss */
+/* line 83, ../_sass/custom.scss */
 .cta-tour {
   background-color: #e68600;
 }
 
-/* line 74, ../_sass/custom.scss */
+/* line 86, ../_sass/custom.scss */
 .cta-apply {
   background-color: #c05600;
 }
 
-/* line 78, ../_sass/custom.scss */
+/* line 90, ../_sass/custom.scss */
 .event-calendar {
   border: 1px solid #b0b0b0;
   box-shadow: 1px 1px 5px #999;
 }
 
-/* line 82, ../_sass/custom.scss */
+/* line 94, ../_sass/custom.scss */
 .event-month {
   width: 64px;
   height: 24px;
@@ -83,7 +99,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-align: center;
 }
 
-/* line 89, ../_sass/custom.scss */
+/* line 101, ../_sass/custom.scss */
 .event-day {
   width: 64px;
   height: 40px;
@@ -93,21 +109,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 600;
 }
 
-/* line 98, ../_sass/custom.scss */
+/* line 110, ../_sass/custom.scss */
 .category {
   font-size: 13px;
   color: #b0b0b0;
   font-weight: 600;
 }
 
-/* line 104, ../_sass/custom.scss */
+/* line 116, ../_sass/custom.scss */
 .news-heading {
   font-size: 18px;
   color: #444444;
   font-weight: 600;
 }
 
-/* line 110, ../_sass/custom.scss */
+/* line 122, ../_sass/custom.scss */
 .panel {
   height: 410px;
   box-shadow: 1px 1px 5px #999;
@@ -115,42 +131,42 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   background: #fff;
 }
 
-/* line 116, ../_sass/custom.scss */
+/* line 128, ../_sass/custom.scss */
 .panel-image {
   height: 189px;
 }
 
-/* line 125, ../_sass/custom.scss */
+/* line 137, ../_sass/custom.scss */
 .panel.campus-news {
   border-top-color: #d79a27;
 }
 
-/* line 128, ../_sass/custom.scss */
+/* line 140, ../_sass/custom.scss */
 .panel.research-news {
   border-top-color: #5a9664;
 }
 
-/* line 131, ../_sass/custom.scss */
+/* line 143, ../_sass/custom.scss */
 .panel.powering-community {
   border-top-color: #69bad9;
 }
 
-/* line 134, ../_sass/custom.scss */
+/* line 146, ../_sass/custom.scss */
 .panel.uwotw {
   border-top-color: #0077ad;
 }
 
-/* line 137, ../_sass/custom.scss */
+/* line 149, ../_sass/custom.scss */
 .panel.meet-uwo {
   border-top-color: #c05600;
 }
 
-/* line 140, ../_sass/custom.scss */
+/* line 152, ../_sass/custom.scss */
 .panel.twif {
   border-top-color: #fec425;
 }
 
-/* line 143, ../_sass/custom.scss */
+/* line 155, ../_sass/custom.scss */
 .posted-date {
   font-size: 11px;
   color: #b0b0b0;
@@ -158,7 +174,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-transform: uppercase;
 }
 
-/* line 150, ../_sass/custom.scss */
+/* line 162, ../_sass/custom.scss */
 .videoWrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -168,7 +184,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-align: center;
 }
 
-/* line 157, ../_sass/custom.scss */
+/* line 169, ../_sass/custom.scss */
 .videoWrapper iframe {
   position: absolute;
   top: 0;
@@ -177,7 +193,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   height: 100%;
 }
 
-/* line 165, ../_sass/custom.scss */
+/* line 177, ../_sass/custom.scss */
 .visit-uwot {
   height: 32px;
   background-color: #69bad9;
@@ -186,19 +202,19 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #fff;
 }
 
-/* line 173, ../_sass/custom.scss */
+/* line 185, ../_sass/custom.scss */
 .social-container {
   height: 320px;
   padding-top: 15px;
   background-color: #ededed;
 }
 
-/* line 178, ../_sass/custom.scss */
+/* line 190, ../_sass/custom.scss */
 .social-icon {
   height: 24px;
 }
 
-/* line 182, ../_sass/custom.scss */
+/* line 194, ../_sass/custom.scss */
 .tagline {
   height: 32px;
   font-size: emCalc(16);
@@ -209,24 +225,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-align: center;
 }
 
-/* line 191, ../_sass/custom.scss */
+/* line 203, ../_sass/custom.scss */
 .footer-container {
   height: 208px;
   background-color: #b0b0b0;
   color: #666666;
 }
-/* line 195, ../_sass/custom.scss */
+/* line 207, ../_sass/custom.scss */
 .footer-container a {
   color: #666666;
 }
 
-/* line 199, ../_sass/custom.scss */
+/* line 211, ../_sass/custom.scss */
 .app-icon {
   width: 32px;
   height: 32px;
 }
 
-/* line 203, ../_sass/custom.scss */
+/* line 215, ../_sass/custom.scss */
 .wismap {
   width: 124px;
 }
@@ -234,22 +250,22 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 /******************************************************************
 BESPOKE SLIDER STYLES
 ******************************************************************/
-/* line 210, ../_sass/custom.scss */
+/* line 222, ../_sass/custom.scss */
 .deck-container {
   position: relative;
 }
 
-/* line 211, ../_sass/custom.scss */
+/* line 223, ../_sass/custom.scss */
 deck {
   position: relative;
 }
 
-/* line 212, ../_sass/custom.scss */
+/* line 224, ../_sass/custom.scss */
 .container-overflow {
   overflow: hidden;
 }
 
-/* line 213, ../_sass/custom.scss */
+/* line 225, ../_sass/custom.scss */
 #socialTabs {
   width: 184px;
   height: 238px;
@@ -257,7 +273,7 @@ deck {
   background-color: #fff;
 }
 
-/* line 219, ../_sass/custom.scss */
+/* line 231, ../_sass/custom.scss */
 .social-controls {
   position: absolute;
   left: 1065px;
@@ -266,12 +282,12 @@ deck {
   background-color: #fff;
 }
 
-/* line 226, ../_sass/custom.scss */
+/* line 238, ../_sass/custom.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   border: none;
 }
 
-/* line 229, ../_sass/custom.scss */
+/* line 241, ../_sass/custom.scss */
 slide {
   position: absolute;
   top: 0;
@@ -279,7 +295,7 @@ slide {
   opacity: 0;
 }
 
-/* line 235, ../_sass/custom.scss */
+/* line 247, ../_sass/custom.scss */
 slide.bespoke-slide {
   -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
   -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
@@ -288,14 +304,14 @@ slide.bespoke-slide {
   transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
 }
 
-/* line 242, ../_sass/custom.scss */
+/* line 254, ../_sass/custom.scss */
 slide.bespoke-active {
   opacity: 1;
   z-index: 1;
 }
 
 /* Classic Theme */
-/* line 247, ../_sass/custom.scss */
+/* line 259, ../_sass/custom.scss */
 .social-article {
   width: 288px;
   height: 238px;
@@ -303,7 +319,7 @@ slide.bespoke-active {
   background-color: #fff;
 }
 
-/* line 254, ../_sass/custom.scss */
+/* line 266, ../_sass/custom.scss */
 slide.bespoke-before {
   -webkit-transform: translate3d(-1920px, 0, 0);
   -moz-transform: translate3d(-1920px, 0, 0);
@@ -312,7 +328,7 @@ slide.bespoke-before {
   transform: translate3d(-1920px, 0, 0);
 }
 
-/* line 261, ../_sass/custom.scss */
+/* line 273, ../_sass/custom.scss */
 slide.bespoke-before-2 {
   -webkit-transform: translate3d(-1280px, 0, 0);
   -moz-transform: translate3d(-1280px, 0, 0);
@@ -322,7 +338,7 @@ slide.bespoke-before-2 {
   opacity: 0.1;
 }
 
-/* line 269, ../_sass/custom.scss */
+/* line 281, ../_sass/custom.scss */
 slide.bespoke-before-1 {
   -webkit-transform: translate3d(-640px, 0, 0);
   -moz-transform: translate3d(-640px, 0, 0);
@@ -332,7 +348,7 @@ slide.bespoke-before-1 {
   opacity: 0.3;
 }
 
-/* line 277, ../_sass/custom.scss */
+/* line 289, ../_sass/custom.scss */
 slide.bespoke-after {
   -webkit-transform: translate3d(1920px, 0, 0);
   -moz-transform: translate3d(1920px, 0, 0);
@@ -341,7 +357,7 @@ slide.bespoke-after {
   transform: translate3d(1920px, 0, 0);
 }
 
-/* line 284, ../_sass/custom.scss */
+/* line 296, ../_sass/custom.scss */
 slide.bespoke-after-2 {
   -webkit-transform: translate3d(576px, 0, 0);
   -moz-transform: translate3d(576px, 0, 0);
@@ -351,7 +367,7 @@ slide.bespoke-after-2 {
   opacity: 1.0;
 }
 
-/* line 292, ../_sass/custom.scss */
+/* line 304, ../_sass/custom.scss */
 slide.bespoke-after-1 {
   -webkit-transform: translate3d(288px, 0, 0);
   -moz-transform: translate3d(288px, 0, 0);

@@ -32,6 +32,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Open Sans", arial, sans-serif;
 }
 
+.content {
+  background-color: #fff;
+}
+
 .university-nav .navbar-nav>li>a {
   font-size: 13px;
   color: #fff;
@@ -55,6 +59,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .uwo-search {
   margin-top: 18px;
+}
+
+.page-title-row {
+  height: 48px;
+  color: #fff;
+}
+.page-title-current-students {
+  background-color: $blue;
 }
 
 .cta {
