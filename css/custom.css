@@ -59,7 +59,17 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   background-color: #69bad9;
 }
 
-/* line 72, ../_sass/custom.scss */
+/* line 71, ../_sass/custom.scss */
+.page-title-faculty-and-staff {
+  background-color: #c05600;
+}
+
+/* line 74, ../_sass/custom.scss */
+.page-title-parents {
+  background-color: #0077ad;
+}
+
+/* line 78, ../_sass/custom.scss */
 .cta {
   height: 48px;
   color: #fff;
@@ -69,28 +79,58 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   padding-left: 10px;
 }
 
-/* line 80, ../_sass/custom.scss */
+/* line 86, ../_sass/custom.scss */
 .cta-visit {
   background-color: #69bad9;
 }
 
-/* line 83, ../_sass/custom.scss */
+/* line 89, ../_sass/custom.scss */
 .cta-tour {
   background-color: #e68600;
 }
 
-/* line 86, ../_sass/custom.scss */
+/* line 92, ../_sass/custom.scss */
 .cta-apply {
   background-color: #c05600;
 }
 
-/* line 90, ../_sass/custom.scss */
+/* line 95, ../_sass/custom.scss */
+.cta-openings {
+  background-color: #69bad9;
+  font-size: 22px;
+}
+
+/* line 99, ../_sass/custom.scss */
+.cta-directory {
+  background-color: #5a9664;
+  font-size: 22px;
+}
+
+/* line 103, ../_sass/custom.scss */
+.cta-directions {
+  background-color: #e68600;
+  font-size: 22px;
+}
+
+/* line 107, ../_sass/custom.scss */
+.cta-resources {
+  background-color: #69bad9;
+  font-size: 22px;
+}
+
+/* line 111, ../_sass/custom.scss */
+.cta-faq {
+  background-color: #c05600;
+  font-size: 22px;
+}
+
+/* line 116, ../_sass/custom.scss */
 .event-calendar {
   border: 1px solid #b0b0b0;
   box-shadow: 1px 1px 5px #999;
 }
 
-/* line 94, ../_sass/custom.scss */
+/* line 120, ../_sass/custom.scss */
 .event-month {
   width: 64px;
   height: 24px;
@@ -99,7 +139,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-align: center;
 }
 
-/* line 101, ../_sass/custom.scss */
+/* line 127, ../_sass/custom.scss */
 .event-day {
   width: 64px;
   height: 40px;
@@ -109,64 +149,64 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 600;
 }
 
-/* line 110, ../_sass/custom.scss */
+/* line 136, ../_sass/custom.scss */
 .category {
   font-size: 13px;
   color: #b0b0b0;
   font-weight: 600;
 }
 
-/* line 116, ../_sass/custom.scss */
+/* line 142, ../_sass/custom.scss */
 .news-heading {
   font-size: 18px;
   color: #444444;
   font-weight: 600;
 }
 
-/* line 122, ../_sass/custom.scss */
-.panel {
+/* line 148, ../_sass/custom.scss */
+.panel-home {
   height: 410px;
   box-shadow: 1px 1px 5px #999;
   border-top: 3px solid;
   background: #fff;
 }
 
-/* line 128, ../_sass/custom.scss */
+/* line 154, ../_sass/custom.scss */
 .panel-image {
   height: 189px;
 }
 
-/* line 137, ../_sass/custom.scss */
+/* line 163, ../_sass/custom.scss */
 .panel.campus-news {
   border-top-color: #d79a27;
 }
 
-/* line 140, ../_sass/custom.scss */
+/* line 166, ../_sass/custom.scss */
 .panel.research-news {
   border-top-color: #5a9664;
 }
 
-/* line 143, ../_sass/custom.scss */
+/* line 169, ../_sass/custom.scss */
 .panel.powering-community {
   border-top-color: #69bad9;
 }
 
-/* line 146, ../_sass/custom.scss */
+/* line 172, ../_sass/custom.scss */
 .panel.uwotw {
   border-top-color: #0077ad;
 }
 
-/* line 149, ../_sass/custom.scss */
+/* line 175, ../_sass/custom.scss */
 .panel.meet-uwo {
   border-top-color: #c05600;
 }
 
-/* line 152, ../_sass/custom.scss */
+/* line 178, ../_sass/custom.scss */
 .panel.twif {
   border-top-color: #fec425;
 }
 
-/* line 155, ../_sass/custom.scss */
+/* line 181, ../_sass/custom.scss */
 .posted-date {
   font-size: 11px;
   color: #b0b0b0;
@@ -174,7 +214,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-transform: uppercase;
 }
 
-/* line 162, ../_sass/custom.scss */
+/* line 188, ../_sass/custom.scss */
 .videoWrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -184,7 +224,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-align: center;
 }
 
-/* line 169, ../_sass/custom.scss */
+/* line 195, ../_sass/custom.scss */
 .videoWrapper iframe {
   position: absolute;
   top: 0;
@@ -193,7 +233,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   height: 100%;
 }
 
-/* line 177, ../_sass/custom.scss */
+/* line 203, ../_sass/custom.scss */
 .visit-uwot {
   height: 32px;
   background-color: #69bad9;
@@ -202,19 +242,19 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #fff;
 }
 
-/* line 185, ../_sass/custom.scss */
+/* line 211, ../_sass/custom.scss */
 .social-container {
   height: 320px;
   padding-top: 15px;
   background-color: #ededed;
 }
 
-/* line 190, ../_sass/custom.scss */
+/* line 216, ../_sass/custom.scss */
 .social-icon {
   height: 24px;
 }
 
-/* line 194, ../_sass/custom.scss */
+/* line 220, ../_sass/custom.scss */
 .tagline {
   height: 32px;
   font-size: emCalc(16);
@@ -225,24 +265,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   text-align: center;
 }
 
-/* line 203, ../_sass/custom.scss */
+/* line 229, ../_sass/custom.scss */
 .footer-container {
   height: 208px;
   background-color: #b0b0b0;
   color: #666666;
 }
-/* line 207, ../_sass/custom.scss */
+/* line 233, ../_sass/custom.scss */
 .footer-container a {
   color: #666666;
 }
 
-/* line 211, ../_sass/custom.scss */
+/* line 237, ../_sass/custom.scss */
 .app-icon {
   width: 32px;
   height: 32px;
 }
 
-/* line 215, ../_sass/custom.scss */
+/* line 241, ../_sass/custom.scss */
 .wismap {
   width: 124px;
 }
@@ -250,22 +290,22 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 /******************************************************************
 BESPOKE SLIDER STYLES
 ******************************************************************/
-/* line 222, ../_sass/custom.scss */
+/* line 248, ../_sass/custom.scss */
 .deck-container {
   position: relative;
 }
 
-/* line 223, ../_sass/custom.scss */
+/* line 249, ../_sass/custom.scss */
 deck {
   position: relative;
 }
 
-/* line 224, ../_sass/custom.scss */
+/* line 250, ../_sass/custom.scss */
 .container-overflow {
   overflow: hidden;
 }
 
-/* line 225, ../_sass/custom.scss */
+/* line 251, ../_sass/custom.scss */
 #socialTabs {
   width: 184px;
   height: 238px;
@@ -273,7 +313,7 @@ deck {
   background-color: #fff;
 }
 
-/* line 231, ../_sass/custom.scss */
+/* line 257, ../_sass/custom.scss */
 .social-controls {
   position: absolute;
   left: 1065px;
@@ -282,12 +322,12 @@ deck {
   background-color: #fff;
 }
 
-/* line 238, ../_sass/custom.scss */
+/* line 264, ../_sass/custom.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   border: none;
 }
 
-/* line 241, ../_sass/custom.scss */
+/* line 267, ../_sass/custom.scss */
 slide {
   position: absolute;
   top: 0;
@@ -295,7 +335,7 @@ slide {
   opacity: 0;
 }
 
-/* line 247, ../_sass/custom.scss */
+/* line 273, ../_sass/custom.scss */
 slide.bespoke-slide {
   -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
   -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
@@ -304,14 +344,14 @@ slide.bespoke-slide {
   transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
 }
 
-/* line 254, ../_sass/custom.scss */
+/* line 280, ../_sass/custom.scss */
 slide.bespoke-active {
   opacity: 1;
   z-index: 1;
 }
 
 /* Classic Theme */
-/* line 259, ../_sass/custom.scss */
+/* line 285, ../_sass/custom.scss */
 .social-article {
   width: 288px;
   height: 238px;
@@ -319,7 +359,7 @@ slide.bespoke-active {
   background-color: #fff;
 }
 
-/* line 266, ../_sass/custom.scss */
+/* line 292, ../_sass/custom.scss */
 slide.bespoke-before {
   -webkit-transform: translate3d(-1920px, 0, 0);
   -moz-transform: translate3d(-1920px, 0, 0);
@@ -328,7 +368,7 @@ slide.bespoke-before {
   transform: translate3d(-1920px, 0, 0);
 }
 
-/* line 273, ../_sass/custom.scss */
+/* line 299, ../_sass/custom.scss */
 slide.bespoke-before-2 {
   -webkit-transform: translate3d(-1280px, 0, 0);
   -moz-transform: translate3d(-1280px, 0, 0);
@@ -338,7 +378,7 @@ slide.bespoke-before-2 {
   opacity: 0.1;
 }
 
-/* line 281, ../_sass/custom.scss */
+/* line 307, ../_sass/custom.scss */
 slide.bespoke-before-1 {
   -webkit-transform: translate3d(-640px, 0, 0);
   -moz-transform: translate3d(-640px, 0, 0);
@@ -348,7 +388,7 @@ slide.bespoke-before-1 {
   opacity: 0.3;
 }
 
-/* line 289, ../_sass/custom.scss */
+/* line 315, ../_sass/custom.scss */
 slide.bespoke-after {
   -webkit-transform: translate3d(1920px, 0, 0);
   -moz-transform: translate3d(1920px, 0, 0);
@@ -357,7 +397,7 @@ slide.bespoke-after {
   transform: translate3d(1920px, 0, 0);
 }
 
-/* line 296, ../_sass/custom.scss */
+/* line 322, ../_sass/custom.scss */
 slide.bespoke-after-2 {
   -webkit-transform: translate3d(576px, 0, 0);
   -moz-transform: translate3d(576px, 0, 0);
@@ -367,7 +407,7 @@ slide.bespoke-after-2 {
   opacity: 1.0;
 }
 
-/* line 304, ../_sass/custom.scss */
+/* line 330, ../_sass/custom.scss */
 slide.bespoke-after-1 {
   -webkit-transform: translate3d(288px, 0, 0);
   -moz-transform: translate3d(288px, 0, 0);

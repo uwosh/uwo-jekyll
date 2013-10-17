@@ -68,6 +68,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .page-title-current-students {
   background-color: $blue;
 }
+.page-title-faculty-and-staff {
+  background-color: $dark-orange;
+}
+.page-title-parents {
+  background-color: $dark-blue;
+}
 
 .cta {
   height: 48px;
@@ -85,6 +91,26 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 .cta-apply {
   background-color: $dark-orange;
+}
+.cta-openings {
+  background-color: $blue;
+  font-size: 22px;
+}
+.cta-directory {
+  background-color: $dark-green;
+  font-size: 22px;
+}
+.cta-directions {
+  background-color: $orange;
+  font-size: 22px;
+}
+.cta-resources {
+  background-color: $blue;
+  font-size: 22px;
+}
+.cta-faq {
+  background-color: $dark-orange;
+  font-size: 22px;
 }
 
 .event-calendar {
@@ -119,7 +145,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 600;
 }
 
-.panel {
+.panel-home {
   height: 410px;
   box-shadow: 1px 1px 5px #999;
   border-top: 3px solid;
