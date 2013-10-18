@@ -41,6 +41,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #fff;
   text-transform: uppercase;
 }
+.nav-info {
+  display: none;
+  margin-top: -15px;
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+}
 
 .wordmark {
   margin-left: -18px;
