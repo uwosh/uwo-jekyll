@@ -21,7 +21,7 @@ title: University of Wisconsin Oshkosh
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
-            <img class="pillar" src="http://lorempixel.com/1136/420/transport" alt="Pillar 1" />
+            <img class="pillar" src="{{site.baseurl}}/img/pillar1.jpg" alt="Pillar 1" />
             <div class="carousel-caption">
               <h2 class="title">University of Wisconsin Oshkosh</h2>
               <h3 class="subtitle">WHERE EXCELLENCE AND OPPORTUNITY MEET.</h3>
@@ -29,7 +29,7 @@ title: University of Wisconsin Oshkosh
           </div>
 
           <div class="item">
-            <img class="pillar" src="http://lorempixel.com/1136/420/city" alt="Pillar 2" />
+            <img class="pillar" src="{{site.baseurl}}/img/pillar2.jpg" alt="Pillar 2" />
             <div class="carousel-caption">
               <h2 class="title">University of Wisconsin Oshkosh</h2>
               <h3 class="subtitle">WHERE EXCELLENCE AND OPPORTUNITY MEET.</h3>
@@ -37,7 +37,7 @@ title: University of Wisconsin Oshkosh
           </div>
 
           <div class="item">
-            <img class="pillar" src="http://lorempixel.com/1136/420/business" alt="Pillar 3" />
+            <img class="pillar" src="{{site.baseurl}}/img/pillar3.jpg" alt="Pillar 3" />
             <div class="carousel-caption">
               <h2 class="title">University of Wisconsin Oshkosh</h2>
               <h3 class="subtitle">WHERE EXCELLENCE AND OPPORTUNITY MEET.</h3>
@@ -45,15 +45,7 @@ title: University of Wisconsin Oshkosh
           </div>
 
           <div class="item">
-            <img class="pillar" src="http://lorempixel.com/1136/420/people" alt="Pillar 4" />
-            <div class="carousel-caption">
-              <h2 class="title">University of Wisconsin Oshkosh</h2>
-              <h3 class="subtitle">WHERE EXCELLENCE AND OPPORTUNITY MEET.</h3>
-            </div>
-          </div>
-
-          <div class="item">
-            <img class="pillar" src="http://lorempixel.com/1136/420/nature" alt="Pillar 5" />
+            <img class="pillar" src="{{site.baseurl}}/img/pillar4.jpg" alt="Pillar 4" />
             <div class="carousel-caption">
               <h2 class="title">University of Wisconsin Oshkosh</h2>
               <h3 class="subtitle">WHERE EXCELLENCE AND OPPORTUNITY MEET.</h3>
@@ -178,7 +170,7 @@ title: University of Wisconsin Oshkosh
       <div class="col-lg-4 col-sm-4">
         <div class="panel panel-default panel-home panel-weekly campus-news">
           <div class="panel-body">
-            <span class="category"><a href="http://www.uwosh.edu/today/campus-news/">CAMPUS NEWS</a></span>
+            <span class="category"><a href="http://www.uwosh.edu/today/campus-news/">CAMPUS NEWS <i class="fa fa-arrow-right"></i></a></span>
             <h2 class="news-heading">{{ post.title }}</h2>
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
@@ -189,7 +181,7 @@ title: University of Wisconsin Oshkosh
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
           </div>
         </div>
       </div>
@@ -200,7 +192,7 @@ title: University of Wisconsin Oshkosh
       <div class="col-lg-4 col-sm-4">
         <div class="panel panel-home panel-weekly research-news">
           <div class="panel-body">
-            <span class="category"><a href="http://www.uwosh.edu/today/research/">RESEARCH NEWS</a></span>
+            <span class="category"><a href="http://www.uwosh.edu/today/research/">RESEARCH NEWS <i class="fa fa-arrow-right"></i></a></span>
             <h2 class="news-heading">{{ post.title }}</h2>
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
@@ -211,7 +203,7 @@ title: University of Wisconsin Oshkosh
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
           </div>
         </div>
       </div>
@@ -222,7 +214,7 @@ title: University of Wisconsin Oshkosh
       <div class="col-lg-4 col-sm-4">
         <div class="panel panel-home panel-weekly powering-community">
           <div class="panel-body">
-            <span class="category"><a href="http://www.uwosh.edu/today/knowledge-powers-community">POWERING COMMUNITY</a></span>
+            <span class="category"><a href="http://www.uwosh.edu/today/knowledge-powers-community">POWERING COMMUNITY <i class="fa fa-arrow-right"></i></a></span>
             <h2 class="news-heading">{{ post.title }}</h2>
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
@@ -233,7 +225,7 @@ title: University of Wisconsin Oshkosh
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
           </div>
         </div>
       </div>
@@ -245,7 +237,7 @@ title: University of Wisconsin Oshkosh
     <div class="col-lg-12">
       <a href="http://www.uwosh.edu/today">
         <div class="visit-uwot">
-          Visit UW Oshkosh Today for more ->
+          Visit UW Oshkosh Today for more <i class="fa fa-arrow-right"></i>
         </div>
       </a>
     </div>
@@ -258,7 +250,7 @@ title: University of Wisconsin Oshkosh
       <div class="col-lg-4">
         <div class="panel panel-home panel-weekly uwotw">
           <div class="panel-body">
-            <span class="category"><a href="http://www.uwosh.edu/today/category/uwotw/">UW OSHKOSH THIS WEEK</a></span>
+            <span class="category"><a href="http://www.uwosh.edu/today/category/uwotw/">UW OSHKOSH THIS WEEK <i class="fa fa-arrow-right"></i></a></span>
             <h2 class="news-heading">{{ post.title }}</h2>
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
@@ -269,7 +261,7 @@ title: University of Wisconsin Oshkosh
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
           </div>
         </div>
       </div>
@@ -280,7 +272,7 @@ title: University of Wisconsin Oshkosh
       <div class="col-lg-4">
         <div class="panel panel-home panel-weekly meet-uwo">
           <div class="panel-body">
-            <span class="category"><a href="http://www.uwosh.edu/faces/2013/jerry-klein/">MEET UW OSHKOSH</a></span>
+            <span class="category"><a href="http://www.uwosh.edu/faces/2013/jerry-klein/">MEET UW OSHKOSH <i class="fa fa-arrow-right"></i></a></span>
             <h2 class="news-heading">{{ post.title }}</h2>
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
@@ -291,7 +283,7 @@ title: University of Wisconsin Oshkosh
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
           </div>
         </div>
       </div>
@@ -302,7 +294,7 @@ title: University of Wisconsin Oshkosh
       <div class="col-lg-4">
         <div class="panel panel-home panel-weekly twif">
           <div class="panel-body">
-            <span class="category"><a href="http://www.uwosh.edu/today/category/this-week-in-focus/">THIS WEEK IN FOCUS</a></span>
+            <span class="category"><a href="http://www.uwosh.edu/today/category/this-week-in-focus/">THIS WEEK IN FOCUS <i class="fa fa-arrow-right"></i></a></span>
             <h2 class="news-heading">{{ post.title }}</h2>
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
@@ -313,7 +305,7 @@ title: University of Wisconsin Oshkosh
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
           </div>
         </div>
       </div>
@@ -329,7 +321,7 @@ title: University of Wisconsin Oshkosh
       <div class="col-lg-4">
         <div class="panel panel-home panel-weekly uwotw">
           <div class="panel-body">
-            <span class="category">FROM THE CHANCELLOR</span>
+            <span class="category">FROM THE CHANCELLOR <i class="fa fa-arrow-right"></i></span>
             <h2 class="news-heading">{{ post.title }}</h2>
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
@@ -340,7 +332,7 @@ title: University of Wisconsin Oshkosh
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
           </div>
         </div>
       </div>
@@ -351,7 +343,7 @@ title: University of Wisconsin Oshkosh
       <div class="col-lg-4">
         <div class="panel panel-home panel-weekly meet-uwo">
           <div class="panel-body">
-            <span class="category">PROGRAMS</span>
+            <span class="category">PROGRAMS <i class="fa fa-arrow-right"></i></span>
             <h2 class="news-heading">{{ post.title }}</h2>
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
@@ -362,7 +354,7 @@ title: University of Wisconsin Oshkosh
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
           </div>
         </div>
       </div>
@@ -373,7 +365,7 @@ title: University of Wisconsin Oshkosh
       <div class="col-lg-4">
         <div class="panel panel-home panel-weekly twif">
           <div class="panel-body">
-            <span class="category">I AM A TITAN</span>
+            <span class="category">I AM A TITAN <i class="fa fa-arrow-right"></i></span>
             <h2 class="news-heading">{{ post.title }}</h2>
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
@@ -384,7 +376,7 @@ title: University of Wisconsin Oshkosh
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date">{{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
           </div>
         </div>
       </div>
@@ -526,13 +518,19 @@ title: University of Wisconsin Oshkosh
     <div class="row">
       <div class="col-lg-12">
         <ul class="list-inline list-unstyled pull-right">
-          <li><span>UW Oshkosh Social Media <img src="img/parts/arrowblue.png" style="height: 10px;" /></span></li>
-          <li><img src="{{site.baseurl}}/img/parts/facebook-logo.png" class="social-icon" /></li>
+          <li><span>UW Oshkosh Social Media <i class="fa fa-arrow-right"></i></span></li>
+          <li><i class="fa fa-2x fa-facebook"></i></li>
+          <li><i class="fa fa-2x fa-twitter"></i></li>
+          <li><i class="fa fa-2x fa-youtube"></i></li>
+          <li><i class="fa fa-2x fa-google-plus"></i></li>
+          <li><i class="fa fa-2x fa-pinterest"></i></li>
+          <li><i class="fa fa-2x fa-flickr"></i></li>
+          <!--<li><img src="{{site.baseurl}}/img/parts/facebook-logo.png" class="social-icon" /></li>
           <li><img src="{{site.baseurl}}/img/parts/twitter-logo.png" class="social-icon" /></li>
           <li><img src="{{site.baseurl}}/img/parts/youtube-logo.png" class="social-icon" /></li>
           <li><img src="{{site.baseurl}}/img/parts/googleplus-logo.png" class="social-icon" /></li>
           <li><img src="{{site.baseurl}}/img/parts/pinterest-logo.png" class="social-icon" /></li>
-          <li><img src="{{site.baseurl}}/img/parts/flickr-logo.png" class="social-icon" /></li>
+          <li><img src="{{site.baseurl}}/img/parts/flickr-logo.png" class="social-icon" /></li>-->
         </ul>
       </div>
     </div>

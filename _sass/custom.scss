@@ -32,6 +32,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   //font-family: "Open Sans", arial, sans-serif;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .content {
   background-color: #fff;
   padding-left: 0;
@@ -77,6 +81,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .page-title-row {
   height: 48px;
   color: #fff;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 .page-title-current-students {
   background-color: $blue;
@@ -107,23 +113,18 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 .cta-openings {
   background-color: $blue;
-  font-size: 22px;
 }
 .cta-directory {
   background-color: $dark-green;
-  font-size: 22px;
 }
 .cta-directions {
   background-color: $orange;
-  font-size: 22px;
 }
 .cta-resources {
   background-color: $blue;
-  font-size: 22px;
 }
 .cta-faq {
   background-color: $dark-orange;
-  font-size: 22px;
 }
 
 .event-calendar {
@@ -150,6 +151,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-size: 13px;
   color: $medium-gray;
   font-weight: 600;
+  a {
+    color: $medium-gray;
+  }
 }
 
 .news-heading {
@@ -196,6 +200,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: $medium-gray;
   font-weight: 600;
   text-transform: uppercase;
+  position: absolute;
+  bottom: 25px;
 }
 
 .videoWrapper {
