@@ -4,15 +4,8 @@
 body {
   background-image: url("../img/parts/gradientyellow.png");
   background-repeat: repeat-x;
-  background-position-y: 56px;
-  font-size: 13px;
+  background-position-y: 38px;
   color: #444444;
-  font-family: "Open Sans", arial, sans-serif;
-}
-
-/* line 31, ../_sass/custom.scss */
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Open Sans", arial, sans-serif;
 }
 
 /* line 35, ../_sass/custom.scss */
