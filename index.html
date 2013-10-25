@@ -73,25 +73,21 @@ title: University of Wisconsin Oshkosh
     <!-- Call to Actions -->
     <div class="col-lg-3">
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 col-sm-4">
           <a href="http://www.uwosh.edu/today">
             <div class="cta cta-visit">
               Visit Campus
             </div>
           </a>
         </div>
-      </div><br>
-      <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 col-sm-4">
           <a href="http://www.uwosh.edu/today">
             <div class="cta cta-tour">
               Take a Virtual Tour
             </div>
           </a>
         </div>
-      </div><br>
-      <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 col-sm-4">
           <a href="http://www.uwosh.edu/today">
             <div class="cta cta-apply">
               Apply Now
@@ -110,7 +106,7 @@ title: University of Wisconsin Oshkosh
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-sm-4">
           <div class="media">
             <a class="pull-left" href="#">
               <div class="event-calendar">
@@ -125,7 +121,7 @@ title: University of Wisconsin Oshkosh
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-sm-4">
           <div class="media">
             <a class="pull-left" href="#">
               <div class="event-calendar">
@@ -141,7 +137,7 @@ title: University of Wisconsin Oshkosh
             </div>
           </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-sm-4">
           <div class="media">
             <a class="pull-left" href="#">
               <div class="event-calendar">
@@ -247,7 +243,7 @@ title: University of Wisconsin Oshkosh
   <div class="row">
     {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/uwotw %}
     {% for post in feed.posts %}
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-sm-4">
         <div class="panel panel-home panel-weekly uwotw">
           <div class="panel-body">
             <span class="category"><a href="http://www.uwosh.edu/today/category/uwotw/">UW OSHKOSH THIS WEEK <i class="fa fa-arrow-right"></i></a></span>
@@ -269,7 +265,7 @@ title: University of Wisconsin Oshkosh
 
     {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/meet-uwo %}
     {% for post in feed.posts %}
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-sm-4">
         <div class="panel panel-home panel-weekly meet-uwo">
           <div class="panel-body">
             <span class="category"><a href="http://www.uwosh.edu/faces/2013/jerry-klein/">MEET UW OSHKOSH <i class="fa fa-arrow-right"></i></a></span>
@@ -291,7 +287,7 @@ title: University of Wisconsin Oshkosh
 
     {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/this-week-in-focus %}
     {% for post in feed.posts %}
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-sm-4">
         <div class="panel panel-home panel-weekly twif">
           <div class="panel-body">
             <span class="category"><a href="http://www.uwosh.edu/today/category/this-week-in-focus/">THIS WEEK IN FOCUS <i class="fa fa-arrow-right"></i></a></span>
@@ -318,7 +314,7 @@ title: University of Wisconsin Oshkosh
 
     {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/uwotw %}
     {% for post in feed.posts %}
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-sm-4">
         <div class="panel panel-home panel-weekly uwotw">
           <div class="panel-body">
             <span class="category">FROM THE CHANCELLOR <i class="fa fa-arrow-right"></i></span>
@@ -340,7 +336,7 @@ title: University of Wisconsin Oshkosh
 
     {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/meet-uwo %}
     {% for post in feed.posts %}
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-sm-4">
         <div class="panel panel-home panel-weekly meet-uwo">
           <div class="panel-body">
             <span class="category">PROGRAMS <i class="fa fa-arrow-right"></i></span>
@@ -362,7 +358,7 @@ title: University of Wisconsin Oshkosh
 
     {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/this-week-in-focus %}
     {% for post in feed.posts %}
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-sm-4">
         <div class="panel panel-home panel-weekly twif">
           <div class="panel-body">
             <span class="category">I AM A TITAN <i class="fa fa-arrow-right"></i></span>

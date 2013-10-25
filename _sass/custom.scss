@@ -23,19 +23,19 @@ body {
   background-image: url('../img/parts/gradientyellow.png');
   background-repeat: repeat-x;
   background-position-y: 38px;
-  //font-size: 13px;
   color: $dark-gray;
-  //font-family: "Open Sans", arial, sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  //font-family: "Open Sans", arial, sans-serif;
 }
 
 a:hover {
   text-decoration: none;
 }
 
+.social-icons {
+  color: #666;
+  a {
+    color: #666;
+  }
+}
 .content {
   background-color: #fff;
   padding-left: 0;
@@ -47,7 +47,6 @@ a:hover {
 }
 
 .university-nav .navbar-nav>li>a {
-  font-size: 13px;
   color: #fff;
   text-transform: uppercase;
 }
