@@ -267,17 +267,57 @@ BESPOKE SLIDER STYLES
 deck { position: relative; }
 .container-overflow { overflow: hidden; }
 #socialTabs {
-  width: 184px;
+  width: 144px;
   height: 238px;
+  border: 1px solid $light-gray;
+  background-color: #fff;
+  font-size: 1.2em;
+  li {
+    width: 100%;
+  }
+}
+#socialTabs>li>a:hover {
   border: none;
   background-color: #fff;
 }
+#socialTabs>li {
+  background-color: #fff;
+  a {
+    color: $medium-gray;
+    border: none;
+    border-radius: 0;
+    margin-right: 0;
+  }
+}
+#socialTabs>li.active>a {
+  background-color: $dark-blue;
+  color: #fff;
+}
+
 .social-controls {
   position: absolute;
-  left: 1065px;
-  width: 118px;
+  left: 1074px;
+  width: 70px;
   height: 238px;
+  border: 1px solid $light-gray;
   background-color: #fff;
+  ul {
+    margin-top: 50px;
+  }
+  li {
+    color: #fff;
+    height: 24px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 2px;
+  }
+  .previous {
+    background-color: $blue;
+    margin-bottom: 5px;
+  }
+  .next {
+    background-color: $dark-blue;
+  }
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
   border: none;
@@ -285,7 +325,7 @@ deck { position: relative; }
 slide {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -1px;
     opacity: 0;
 }
 slide.bespoke-slide {
@@ -301,7 +341,7 @@ slide.bespoke-active {
 }
 /* Classic Theme */
 .social-article {
-  width: 288px;
+  width: 309px;
   height: 238px;
   border: 1px solid $light-gray;
   background-color: #fff;
@@ -338,19 +378,19 @@ slide.bespoke-after {
     transform: translate3d(1920px, 0, 0);
 }
 slide.bespoke-after-2 {
-    -webkit-transform: translate3d(576px, 0, 0);
-    -moz-transform: translate3d(576px, 0, 0);
-    -ms-transform: translate3d(576px, 0, 0);
-    -o-transform: translate3d(576px, 0, 0);
-    transform: translate3d(576px, 0, 0);
+    -webkit-transform: translate3d(615px, 0, 0);
+    -moz-transform: translate3d(615px, 0, 0);
+    -ms-transform: translate3d(615px, 0, 0);
+    -o-transform: translate3d(615px, 0, 0);
+    transform: translate3d(615px, 0, 0);
     opacity: 1.0;
 }
 slide.bespoke-after-1 {
-    -webkit-transform: translate3d(288px, 0, 0);
-    -moz-transform: translate3d(288px, 0, 0);
-    -ms-transform: translate3d(288px, 0, 0);
-    -o-transform: translate3d(288px, 0, 0);
-    transform: translate3d(288px, 0, 0);
+    -webkit-transform: translate3d(308px, 0, 0);
+    -moz-transform: translate3d(308px, 0, 0);
+    -ms-transform: translate3d(308px, 0, 0);
+    -o-transform: translate3d(308px, 0, 0);
+    transform: translate3d(308px, 0, 0);
     opacity: 1.0;
 }
 /******************************************************************

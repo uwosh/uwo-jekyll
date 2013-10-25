@@ -332,35 +332,86 @@ deck {
 
 /* line 269, ../_sass/custom.scss */
 #socialTabs {
-  width: 184px;
+  width: 144px;
   height: 238px;
+  border: 1px solid #ededed;
+  background-color: #fff;
+  font-size: 1.2em;
+}
+/* line 275, ../_sass/custom.scss */
+#socialTabs li {
+  width: 100%;
+}
+
+/* line 279, ../_sass/custom.scss */
+#socialTabs > li > a:hover {
   border: none;
   background-color: #fff;
 }
 
-/* line 275, ../_sass/custom.scss */
-.social-controls {
-  position: absolute;
-  left: 1065px;
-  width: 118px;
-  height: 238px;
+/* line 283, ../_sass/custom.scss */
+#socialTabs > li {
   background-color: #fff;
 }
+/* line 285, ../_sass/custom.scss */
+#socialTabs > li a {
+  color: #b0b0b0;
+  border: none;
+  border-radius: 0;
+  margin-right: 0;
+}
 
-/* line 282, ../_sass/custom.scss */
+/* line 292, ../_sass/custom.scss */
+#socialTabs > li.active > a {
+  background-color: #0077ad;
+  color: #fff;
+}
+
+/* line 297, ../_sass/custom.scss */
+.social-controls {
+  position: absolute;
+  left: 1074px;
+  width: 70px;
+  height: 238px;
+  border: 1px solid #ededed;
+  background-color: #fff;
+}
+/* line 304, ../_sass/custom.scss */
+.social-controls ul {
+  margin-top: 50px;
+}
+/* line 307, ../_sass/custom.scss */
+.social-controls li {
+  color: #fff;
+  height: 24px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 2px;
+}
+/* line 314, ../_sass/custom.scss */
+.social-controls .previous {
+  background-color: #69bad9;
+  margin-bottom: 5px;
+}
+/* line 318, ../_sass/custom.scss */
+.social-controls .next {
+  background-color: #0077ad;
+}
+
+/* line 322, ../_sass/custom.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   border: none;
 }
 
-/* line 285, ../_sass/custom.scss */
+/* line 325, ../_sass/custom.scss */
 slide {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -1px;
   opacity: 0;
 }
 
-/* line 291, ../_sass/custom.scss */
+/* line 331, ../_sass/custom.scss */
 slide.bespoke-slide {
   -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
   -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
@@ -369,22 +420,22 @@ slide.bespoke-slide {
   transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
 }
 
-/* line 298, ../_sass/custom.scss */
+/* line 338, ../_sass/custom.scss */
 slide.bespoke-active {
   opacity: 1;
   z-index: 1;
 }
 
 /* Classic Theme */
-/* line 303, ../_sass/custom.scss */
+/* line 343, ../_sass/custom.scss */
 .social-article {
-  width: 288px;
+  width: 309px;
   height: 238px;
   border: 1px solid #ededed;
   background-color: #fff;
 }
 
-/* line 310, ../_sass/custom.scss */
+/* line 350, ../_sass/custom.scss */
 slide.bespoke-before {
   -webkit-transform: translate3d(-1920px, 0, 0);
   -moz-transform: translate3d(-1920px, 0, 0);
@@ -393,7 +444,7 @@ slide.bespoke-before {
   transform: translate3d(-1920px, 0, 0);
 }
 
-/* line 317, ../_sass/custom.scss */
+/* line 357, ../_sass/custom.scss */
 slide.bespoke-before-2 {
   -webkit-transform: translate3d(-1280px, 0, 0);
   -moz-transform: translate3d(-1280px, 0, 0);
@@ -403,7 +454,7 @@ slide.bespoke-before-2 {
   opacity: 0.1;
 }
 
-/* line 325, ../_sass/custom.scss */
+/* line 365, ../_sass/custom.scss */
 slide.bespoke-before-1 {
   -webkit-transform: translate3d(-640px, 0, 0);
   -moz-transform: translate3d(-640px, 0, 0);
@@ -413,7 +464,7 @@ slide.bespoke-before-1 {
   opacity: 0.3;
 }
 
-/* line 333, ../_sass/custom.scss */
+/* line 373, ../_sass/custom.scss */
 slide.bespoke-after {
   -webkit-transform: translate3d(1920px, 0, 0);
   -moz-transform: translate3d(1920px, 0, 0);
@@ -422,23 +473,23 @@ slide.bespoke-after {
   transform: translate3d(1920px, 0, 0);
 }
 
-/* line 340, ../_sass/custom.scss */
+/* line 380, ../_sass/custom.scss */
 slide.bespoke-after-2 {
-  -webkit-transform: translate3d(576px, 0, 0);
-  -moz-transform: translate3d(576px, 0, 0);
-  -ms-transform: translate3d(576px, 0, 0);
-  -o-transform: translate3d(576px, 0, 0);
-  transform: translate3d(576px, 0, 0);
+  -webkit-transform: translate3d(615px, 0, 0);
+  -moz-transform: translate3d(615px, 0, 0);
+  -ms-transform: translate3d(615px, 0, 0);
+  -o-transform: translate3d(615px, 0, 0);
+  transform: translate3d(615px, 0, 0);
   opacity: 1.0;
 }
 
-/* line 348, ../_sass/custom.scss */
+/* line 388, ../_sass/custom.scss */
 slide.bespoke-after-1 {
-  -webkit-transform: translate3d(288px, 0, 0);
-  -moz-transform: translate3d(288px, 0, 0);
-  -ms-transform: translate3d(288px, 0, 0);
-  -o-transform: translate3d(288px, 0, 0);
-  transform: translate3d(288px, 0, 0);
+  -webkit-transform: translate3d(308px, 0, 0);
+  -moz-transform: translate3d(308px, 0, 0);
+  -ms-transform: translate3d(308px, 0, 0);
+  -o-transform: translate3d(308px, 0, 0);
+  transform: translate3d(308px, 0, 0);
   opacity: 1.0;
 }
 
