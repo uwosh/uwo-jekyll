@@ -234,6 +234,23 @@ a:hover {
 .social-icon {
   height: 24px;
 }
+.twitter-intents {
+  position: absolute;
+  bottom: 5px;
+  a {
+    color: $medium-gray;
+  }
+}
+.social-feed-image {
+  height: 90px;
+}
+.social-feed-date {
+  position: absolute;
+  bottom: 5px;
+}
+.social-feed-flickr-image {
+  height: 160px;
+}
 
 .tagline {
   height: 32px;

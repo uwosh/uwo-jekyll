@@ -279,7 +279,33 @@ a:hover {
   height: 24px;
 }
 
-/* line 238, ../_sass/custom.scss */
+/* line 237, ../_sass/custom.scss */
+.twitter-intents {
+  position: absolute;
+  bottom: 5px;
+}
+/* line 240, ../_sass/custom.scss */
+.twitter-intents a {
+  color: #b0b0b0;
+}
+
+/* line 244, ../_sass/custom.scss */
+.social-feed-image {
+  height: 90px;
+}
+
+/* line 247, ../_sass/custom.scss */
+.social-feed-date {
+  position: absolute;
+  bottom: 5px;
+}
+
+/* line 251, ../_sass/custom.scss */
+.social-feed-flickr-image {
+  height: 160px;
+}
+
+/* line 255, ../_sass/custom.scss */
 .tagline {
   height: 32px;
   font-size: emCalc(16);
@@ -290,24 +316,24 @@ a:hover {
   text-align: center;
 }
 
-/* line 247, ../_sass/custom.scss */
+/* line 264, ../_sass/custom.scss */
 .footer-container {
   height: 208px;
   background-color: #b0b0b0;
   color: #666666;
 }
-/* line 251, ../_sass/custom.scss */
+/* line 268, ../_sass/custom.scss */
 .footer-container a {
   color: #666666;
 }
 
-/* line 255, ../_sass/custom.scss */
+/* line 272, ../_sass/custom.scss */
 .app-icon {
   width: 32px;
   height: 32px;
 }
 
-/* line 259, ../_sass/custom.scss */
+/* line 276, ../_sass/custom.scss */
 .wismap {
   width: 124px;
 }
@@ -315,22 +341,22 @@ a:hover {
 /******************************************************************
 BESPOKE SLIDER STYLES
 ******************************************************************/
-/* line 266, ../_sass/custom.scss */
+/* line 283, ../_sass/custom.scss */
 .deck-container {
   position: relative;
 }
 
-/* line 267, ../_sass/custom.scss */
+/* line 284, ../_sass/custom.scss */
 deck {
   position: relative;
 }
 
-/* line 268, ../_sass/custom.scss */
+/* line 285, ../_sass/custom.scss */
 .container-overflow {
   overflow: hidden;
 }
 
-/* line 269, ../_sass/custom.scss */
+/* line 286, ../_sass/custom.scss */
 #socialTabs {
   width: 144px;
   height: 238px;
@@ -338,22 +364,22 @@ deck {
   background-color: #fff;
   font-size: 1.2em;
 }
-/* line 275, ../_sass/custom.scss */
+/* line 292, ../_sass/custom.scss */
 #socialTabs li {
   width: 100%;
 }
 
-/* line 279, ../_sass/custom.scss */
+/* line 296, ../_sass/custom.scss */
 #socialTabs > li > a:hover {
   border: none;
   background-color: #fff;
 }
 
-/* line 283, ../_sass/custom.scss */
+/* line 300, ../_sass/custom.scss */
 #socialTabs > li {
   background-color: #fff;
 }
-/* line 285, ../_sass/custom.scss */
+/* line 302, ../_sass/custom.scss */
 #socialTabs > li a {
   color: #b0b0b0;
   border: none;
@@ -361,13 +387,13 @@ deck {
   margin-right: 0;
 }
 
-/* line 292, ../_sass/custom.scss */
+/* line 309, ../_sass/custom.scss */
 #socialTabs > li.active > a {
   background-color: #0077ad;
   color: #fff;
 }
 
-/* line 297, ../_sass/custom.scss */
+/* line 314, ../_sass/custom.scss */
 .social-controls {
   position: absolute;
   left: 1074px;
@@ -376,11 +402,11 @@ deck {
   border: 1px solid #ededed;
   background-color: #fff;
 }
-/* line 304, ../_sass/custom.scss */
+/* line 321, ../_sass/custom.scss */
 .social-controls ul {
   margin-top: 50px;
 }
-/* line 307, ../_sass/custom.scss */
+/* line 324, ../_sass/custom.scss */
 .social-controls li {
   color: #fff;
   height: 24px;
@@ -388,22 +414,22 @@ deck {
   margin-right: 5px;
   padding-top: 2px;
 }
-/* line 314, ../_sass/custom.scss */
+/* line 331, ../_sass/custom.scss */
 .social-controls .previous {
   background-color: #69bad9;
   margin-bottom: 5px;
 }
-/* line 318, ../_sass/custom.scss */
+/* line 335, ../_sass/custom.scss */
 .social-controls .next {
   background-color: #0077ad;
 }
 
-/* line 322, ../_sass/custom.scss */
+/* line 339, ../_sass/custom.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   border: none;
 }
 
-/* line 325, ../_sass/custom.scss */
+/* line 342, ../_sass/custom.scss */
 slide {
   position: absolute;
   top: 0;
@@ -411,7 +437,7 @@ slide {
   opacity: 0;
 }
 
-/* line 331, ../_sass/custom.scss */
+/* line 348, ../_sass/custom.scss */
 slide.bespoke-slide {
   -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
   -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
@@ -420,14 +446,14 @@ slide.bespoke-slide {
   transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
 }
 
-/* line 338, ../_sass/custom.scss */
+/* line 355, ../_sass/custom.scss */
 slide.bespoke-active {
   opacity: 1;
   z-index: 1;
 }
 
 /* Classic Theme */
-/* line 343, ../_sass/custom.scss */
+/* line 360, ../_sass/custom.scss */
 .social-article {
   width: 309px;
   height: 238px;
@@ -435,7 +461,7 @@ slide.bespoke-active {
   background-color: #fff;
 }
 
-/* line 350, ../_sass/custom.scss */
+/* line 367, ../_sass/custom.scss */
 slide.bespoke-before {
   -webkit-transform: translate3d(-1920px, 0, 0);
   -moz-transform: translate3d(-1920px, 0, 0);
@@ -444,7 +470,7 @@ slide.bespoke-before {
   transform: translate3d(-1920px, 0, 0);
 }
 
-/* line 357, ../_sass/custom.scss */
+/* line 374, ../_sass/custom.scss */
 slide.bespoke-before-2 {
   -webkit-transform: translate3d(-1280px, 0, 0);
   -moz-transform: translate3d(-1280px, 0, 0);
@@ -454,7 +480,7 @@ slide.bespoke-before-2 {
   opacity: 0.1;
 }
 
-/* line 365, ../_sass/custom.scss */
+/* line 382, ../_sass/custom.scss */
 slide.bespoke-before-1 {
   -webkit-transform: translate3d(-640px, 0, 0);
   -moz-transform: translate3d(-640px, 0, 0);
@@ -464,7 +490,7 @@ slide.bespoke-before-1 {
   opacity: 0.3;
 }
 
-/* line 373, ../_sass/custom.scss */
+/* line 390, ../_sass/custom.scss */
 slide.bespoke-after {
   -webkit-transform: translate3d(1920px, 0, 0);
   -moz-transform: translate3d(1920px, 0, 0);
@@ -473,7 +499,7 @@ slide.bespoke-after {
   transform: translate3d(1920px, 0, 0);
 }
 
-/* line 380, ../_sass/custom.scss */
+/* line 397, ../_sass/custom.scss */
 slide.bespoke-after-2 {
   -webkit-transform: translate3d(615px, 0, 0);
   -moz-transform: translate3d(615px, 0, 0);
@@ -483,7 +509,7 @@ slide.bespoke-after-2 {
   opacity: 1.0;
 }
 
-/* line 388, ../_sass/custom.scss */
+/* line 405, ../_sass/custom.scss */
 slide.bespoke-after-1 {
   -webkit-transform: translate3d(308px, 0, 0);
   -moz-transform: translate3d(308px, 0, 0);
