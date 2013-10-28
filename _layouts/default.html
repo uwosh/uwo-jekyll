@@ -90,7 +90,7 @@
             <p>Since 1871, the University of Wisconsin Oshkosh has been providing residents of northeastern Wisconsin with high-quality, affordable education through 60 undergraduate majors, 30 master&rsquo;s degree programs and one doctoral degree for our more than 13,500 students.</p>
           </div>
           <div class="col-lg-4">
-            <img src="http://lorempixel.com/336/189/nature">
+            <img src="http://lorempixel.com/336/189/nature" >
           </div><br>
         </div>
       </div>
@@ -372,6 +372,24 @@
 
     <!-- Show/Hide plugin -->
     <script src="{{site.baseurl}}/js/showHide.js"></script>
+
+    <!-- Lazy Load plugin -->
+    <script src="{{site.baseurl}}/js/jquery.lazyload.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $("img.lazy").lazyload({
+          effect: "fadeIn"
+        });
+      });
+    </script>
+
+    <!-- Timeago Plugin -->
+    <script src="{{site.baseurl}}/js/jquery.timeago.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $('.timeago').timeago();
+      });
+    </script>
 
   </body>
 </html>

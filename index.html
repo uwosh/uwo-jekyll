@@ -15,13 +15,12 @@ title: University of Wisconsin Oshkosh
           <li data-target="#pillar-carousel" data-slide-to="1"></li>
           <li data-target="#pillar-carousel" data-slide-to="2"></li>
           <li data-target="#pillar-carousel" data-slide-to="3"></li>
-          <li data-target="#pillar-carousel" data-slide-to="4"></li>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
-            <img class="pillar" src="{{site.baseurl}}/img/pillar1.jpg" alt="Pillar 1" />
+            <img class="pillar-image" src="{{site.baseurl}}/img/pillar1.jpg" alt="Pillar 1" />
             <div class="carousel-caption">
               <h2 class="title">University of Wisconsin Oshkosh</h2>
               <h3 class="subtitle">WHERE EXCELLENCE AND OPPORTUNITY MEET.</h3>
@@ -29,7 +28,7 @@ title: University of Wisconsin Oshkosh
           </div>
 
           <div class="item">
-            <img class="pillar" src="{{site.baseurl}}/img/pillar2.jpg" alt="Pillar 2" />
+            <img class="pillar-image lazy" data-original="{{site.baseurl}}/img/pillar2.jpg" alt="Pillar 2" src="{{site.baseurl}}/img/grey.gif" />
             <div class="carousel-caption">
               <h2 class="title">University of Wisconsin Oshkosh</h2>
               <h3 class="subtitle">WHERE EXCELLENCE AND OPPORTUNITY MEET.</h3>
@@ -37,7 +36,7 @@ title: University of Wisconsin Oshkosh
           </div>
 
           <div class="item">
-            <img class="pillar" src="{{site.baseurl}}/img/pillar3.jpg" alt="Pillar 3" />
+            <img class="pillar-image lazy" data-original="{{site.baseurl}}/img/pillar3.jpg" alt="Pillar 3" src="{{site.baseurl}}/img/grey.gif" />
             <div class="carousel-caption">
               <h2 class="title">University of Wisconsin Oshkosh</h2>
               <h3 class="subtitle">WHERE EXCELLENCE AND OPPORTUNITY MEET.</h3>
@@ -45,7 +44,7 @@ title: University of Wisconsin Oshkosh
           </div>
 
           <div class="item">
-            <img class="pillar" src="{{site.baseurl}}/img/pillar4.jpg" alt="Pillar 4" />
+            <img class="pillar-image lazy" data-original="{{site.baseurl}}/img/pillar4.jpg" alt="Pillar 4" src="{{site.baseurl}}/img/grey.gif" />
             <div class="carousel-caption">
               <h2 class="title">University of Wisconsin Oshkosh</h2>
               <h3 class="subtitle">WHERE EXCELLENCE AND OPPORTUNITY MEET.</h3>
@@ -173,11 +172,11 @@ title: University of Wisconsin Oshkosh
               {% if video != "" %}
                 {{ video }}
               {% else %}
-                <img src="{{ post.attachments[0].url }}" class="panel-image" />
+                <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
           </div>
         </div>
       </div>
@@ -195,11 +194,11 @@ title: University of Wisconsin Oshkosh
               {% if video != "" %}
                 {{ video }}
               {% else %}
-                <img src="{{ post.attachments[0].url }}" class="panel-image" />
+                <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
           </div>
         </div>
       </div>
@@ -217,11 +216,11 @@ title: University of Wisconsin Oshkosh
               {% if video != "" %}
                 {{ video }}
               {% else %}
-                <img src="{{ post.attachments[0].url }}" class="panel-image" />
+                <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
           </div>
         </div>
       </div>
@@ -253,11 +252,11 @@ title: University of Wisconsin Oshkosh
               {% if video != "" %}
                 {{ video }}
               {% else %}
-                <img src="{{ post.attachments[0].url }}" class="panel-image" />
+                <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
           </div>
         </div>
       </div>
@@ -275,11 +274,11 @@ title: University of Wisconsin Oshkosh
               {% if video != "" %}
                 {{ video }}
               {% else %}
-                <img src="{{ post.attachments[0].url }}" class="panel-image" />
+                <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
           </div>
         </div>
       </div>
@@ -297,11 +296,11 @@ title: University of Wisconsin Oshkosh
               {% if video != "" %}
                 {{ video }}
               {% else %}
-                <img src="{{ post.attachments[0].url }}" class="panel-image" />
+                <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
           </div>
         </div>
       </div>
@@ -324,11 +323,11 @@ title: University of Wisconsin Oshkosh
               {% if video != "" %}
                 {{ video }}
               {% else %}
-                <img src="{{ post.attachments[0].url }}" class="panel-image" />
+                <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
           </div>
         </div>
       </div>
@@ -346,11 +345,11 @@ title: University of Wisconsin Oshkosh
               {% if video != "" %}
                 {{ video }}
               {% else %}
-                <img src="{{ post.attachments[0].url }}" class="panel-image" />
+                <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
           </div>
         </div>
       </div>
@@ -368,11 +367,11 @@ title: University of Wisconsin Oshkosh
               {% if video != "" %}
                 {{ video }}
               {% else %}
-                <img src="{{ post.attachments[0].url }}" class="panel-image" />
+                <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
             </div><br>
             <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-            <span class="posted-date"><i class="fa fa-clock-o"></i> {{ post.date | date: "%B %d, %Y" }}</span>
+            <span class="posted-date"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
           </div>
         </div>
       </div>
@@ -399,6 +398,7 @@ title: University of Wisconsin Oshkosh
           $('#socialTabs a').click(function (e) {
             e.preventDefault();
             $(this).tab('show');
+            $("img.lazy").show().lazyload();
           })
         </script>
 
@@ -418,7 +418,7 @@ title: University of Wisconsin Oshkosh
                               <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
                             </span><br>
                             <span class="tweet-time">
-                              <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}">{{ tweet.created_at | date: "%B %d, %Y" }}</a>
+                              <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}"><i class="fa fa-clock-o datetime"></i> <time class="timeago datetime" datetime="{{ tweet.created_at}}">{{ tweet.created_at | date: "%B %d, %Y" }}</time></a>
                             </span>
                           </div>
                           <p>{{ tweet.text }}</p>
@@ -448,7 +448,7 @@ title: University of Wisconsin Oshkosh
                   <slide>
                     <div class="twitter-article social-article">
                       <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
-                      <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> {{ fbpost.updated_time | date: "%B %d, %Y" }}
+                      <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ fbpost.updated_time}}">{{ fbpost.updated_time | date: "%B %d, %Y" }}</time>
                     </div>
                   </slide>
                 {% endfor %}
@@ -468,9 +468,9 @@ title: University of Wisconsin Oshkosh
                 {% for video in youtube.data.items limit: 12 %}
                   <slide>
                     <div class="twitter-article social-article">
-                      <p><a href="http://www.youtube.com/watch?v={{video.id}}" target="_blank"><img src="http://i.ytimg.com/vi/{{video.id}}/mqdefault.jpg" class="social-feed-flickr-image"></a></p>
+                      <p><a href="http://www.youtube.com/watch?v={{video.id}}" target="_blank"><img data-original="http://i.ytimg.com/vi/{{video.id}}/mqdefault.jpg" src="{{site.baseurl}}/img/grey.gif" class="social-feed-flickr-image lazy"></a></p>
                       <h5>{{ video.title }}</h5>
-                      <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> {{ video.updated | date: "%B %d, %Y" }}</span>
+                      <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ video.updated }}">{{ video.updated | date: "%B %d, %Y" }}</time></span>
                     </div>
                   </slide>
                 {% endfor %}
@@ -490,9 +490,9 @@ title: University of Wisconsin Oshkosh
                 {% for set in flickr.photosets.photoset limit: 12 %}
                   <slide>
                     <div class="twitter-article social-article">
-                      <p><a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg" class="social-feed-flickr-image"></a></p>
+                      <p><a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img data-original="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg" src="{{site.baseurl}}/img/grey.gif" class="social-feed-flickr-image lazy"></a></p>
                       <h5>{{ set.title._content }}</h5>
-                      <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> {{ set.date_update | date: "%B %d, %Y" }}</span>
+                      <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ set.date_update }}">{{ set.date_update | date: "%B %d, %Y" }}</time></span>
                     </div>
                   </slide>
                 {% endfor %}
