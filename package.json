@@ -1,0 +1,10 @@
+{
+    "name" : "UWO Jekyll Grunt",
+    "version" : "0.1.0",
+    "author" : "Shawn Hansen",
+    "private" : true,
+
+    "devDependencies" : {
+        "grunt" :                   "~0.4.0"
+    }
+}
