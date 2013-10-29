@@ -170,7 +170,7 @@ title: University of Wisconsin Oshkosh
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
               {% if video != "" %}
-                {{ video }}
+                <div class="youtube" id="{{video}}" style="height:189px;"></div>
               {% else %}
                 <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
@@ -192,7 +192,7 @@ title: University of Wisconsin Oshkosh
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
               {% if video != "" %}
-                {{ video }}
+                <div class="youtube" id="{{video}}" style="height:189px;"></div>
               {% else %}
                 <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
@@ -214,7 +214,7 @@ title: University of Wisconsin Oshkosh
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
               {% if video != "" %}
-                {{ video }}
+                <div class="youtube" id="{{video}}" style="height:189px;"></div>
               {% else %}
                 <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
@@ -250,7 +250,7 @@ title: University of Wisconsin Oshkosh
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
               {% if video != "" %}
-                {{ video }}
+                <div class="youtube" id="{{video}}" style="height:189px;"></div>
               {% else %}
                 <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
@@ -272,7 +272,7 @@ title: University of Wisconsin Oshkosh
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
               {% if video != "" %}
-                {{ video }}
+                <div class="youtube" id="{{video}}" style="height:189px;"></div>
               {% else %}
                 <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
@@ -294,7 +294,7 @@ title: University of Wisconsin Oshkosh
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
               {% if video != "" %}
-                {{ video }}
+                <div class="youtube" id="{{video}}" style="height:189px;"></div>
               {% else %}
                 <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
@@ -321,7 +321,7 @@ title: University of Wisconsin Oshkosh
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
               {% if video != "" %}
-                {{ video }}
+                <div class="youtube" id="{{video}}" style="height:189px;"></div>
               {% else %}
                 <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
@@ -343,7 +343,7 @@ title: University of Wisconsin Oshkosh
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
               {% if video != "" %}
-                {{ video }}
+                <div class="youtube" id="{{video}}" style="height:189px;"></div>
               {% else %}
                 <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
@@ -365,7 +365,7 @@ title: University of Wisconsin Oshkosh
             <div class="videoWrapper">
               {% capture video %}{{ post.content | videophoto }}{% endcapture %}
               {% if video != "" %}
-                {{ video }}
+                <div class="youtube" id="{{video}}" style="height:189px;"></div>
               {% else %}
                 <img data-original="{{ post.attachments[0].url }}" src="{{site.baseurl}}/img/grey.gif" class="panel-image lazy" />
               {% endif %}
@@ -468,7 +468,8 @@ title: University of Wisconsin Oshkosh
                 {% for video in youtube.data.items limit: 12 %}
                   <slide>
                     <div class="twitter-article social-article">
-                      <p><a href="http://www.youtube.com/watch?v={{video.id}}" target="_blank"><img data-original="http://i.ytimg.com/vi/{{video.id}}/mqdefault.jpg" src="{{site.baseurl}}/img/grey.gif" class="social-feed-flickr-image lazy"></a></p>
+                      <div class="youtube" id="{{video.id}}" style="height:160px;"></div>
+                      <!--<p><a href="http://www.youtube.com/watch?v={{video.id}}" target="_blank"><img data-original="http://i.ytimg.com/vi/{{video.id}}/mqdefault.jpg" src="{{site.baseurl}}/img/grey.gif" class="social-feed-flickr-image lazy"></a></p>-->
                       <h5>{{ video.title }}</h5>
                       <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ video.updated }}">{{ video.updated | date: "%B %d, %Y" }}</time></span>
                     </div>
@@ -481,6 +482,7 @@ title: University of Wisconsin Oshkosh
                 <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
                 <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
               </ul>
+              <script src="https://labnol.googlecode.com/files/youtube.js"></script>
             </div>
           </div>
           <div class="tab-pane" id="flickr">
