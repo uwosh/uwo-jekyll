@@ -1,10 +1,10 @@
 {
-    "name" : "UWOJekyllGrunt",
-    "version" : "0.1.0",
-    "author" : "Shawn Hansen",
-    "private" : true,
+  "name" : "UWOJekyllGrunt",
+  "version" : "0.1.0",
+  "author" : "Shawn Hansen",
+  "private" : true,
 
-    "devDependencies" : {
-        "grunt" :                   "~0.4.0"
-    }
+  "devDependencies" : {
+    "grunt" :                   "~0.4.0"
+  }
 }
