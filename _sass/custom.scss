@@ -161,6 +161,9 @@ a:hover {
   font-weight: 600;
 }
 
+.panel-body .category {
+  text-transform: uppercase;
+}
 .panel-home {
   height: 410px;
   box-shadow: 1px 1px 5px #999;
@@ -169,12 +172,6 @@ a:hover {
 }
 .panel-image {
   height: 189px;
-}
-.panel-news {
-  //min-height: 500px;
-}
-.panel-weekly {
-  //min-height: 475px;
 }
 .panel.campus-news {
   border-top-color: $dark-yellow;
@@ -194,6 +191,16 @@ a:hover {
 .panel.twif {
   border-top-color: $yellow;
 }
+.panel.admissions {
+  border-top-color: $green;
+}
+.panel.i-am-a-titan {
+  border-top-color: $dark-yellow;
+}
+.panel.chancellor {
+  border-top-color: $orange;
+}
+
 .posted-date {
   font-size: 11px;
   color: $medium-gray;
