@@ -88,7 +88,55 @@
           </div>
           <div class="col-lg-4">
             <p>Since 1871, the University of Wisconsin Oshkosh has been providing residents of northeastern Wisconsin with high-quality, affordable education through 60 undergraduate majors, 30 master&rsquo;s degree programs and one doctoral degree for our more than 13,500 students.</p>
+
+            {% jsonball weather from url http://feeds.uwosh.edu/api/v1/index.php/weather/uwo %}
+              <p>
+                <canvas id="weather1" width="42" height="42"></canvas> <span style="font-size:48px;">{{ weather.currently.temperature | number:0 }}&#176;</span><br>
+                  {{ weather.hourly.summary }}
+              </p>
+              <script>
+                $(function() {
+                  var icon = '{{ weather.currently.icon }}';
+                  var skycons = new Skycons({'color': '#444'});
+                  switch(icon) {
+                    case 'clear-day':
+                      skycons.add('weather1', Skycons.CLEAR_DAY);
+                      break;
+                    case 'clear-night':
+                      skycons.add('weather1', Skycons.CLEAR_NIGHT);
+                      break;
+                    case 'partly-cloudy-day':
+                      skycons.add('weather1', Skycons.PARTLY_CLOUDY_DAY);
+                      break;
+                    case 'partly-cloudy-night':
+                      skycons.add('weather1', Skycons.PARTLY_CLOUDY_NIGHT);
+                      break;
+                    case 'cloudy':
+                      skycons.add('weather1', Skycons.CLOUDY);
+                      break;
+                    case 'rain':
+                      skycons.add('weather1', Skycons.RAIN);
+                      break;
+                    case 'sleet':
+                      skycons.add('weather1', Skycons.SLEET);
+                      break;
+                    case 'snow':
+                      skycons.add('weather1', Skycons.SNOW);
+                      break;
+                    case 'wind':
+                      skycons.add('weather1', Skycons.WIND);
+                      break;
+                    case 'fog':
+                      skycons.add('weather1', Skycons.FOG);
+                      break;
+                    default:
+                      skycons.add('weather1', Skycons.CLEAR_DAY);
+                  }
+                  skycons.play();
+                });
+              </script>
           </div>
+
           <div class="col-lg-4">
             <img src="http://lorempixel.com/336/189/nature" >
           </div><br>
@@ -391,5 +439,6 @@
       });
     </script>
 
+    <script src="{{site.baseurl}}/js/skycons.js"></script>
   </body>
 </html>
