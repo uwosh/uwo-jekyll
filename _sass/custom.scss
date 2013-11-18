@@ -93,6 +93,7 @@ a:hover {
   background-color: $dark-blue;
 }
 
+
 .cta {
   height: 48px;
   color: #fff;
@@ -428,4 +429,39 @@ slide.bespoke-after-1 {
 }
 /******************************************************************
 END BESPOKE SLIDER STYLES
+******************************************************************/
+
+/******************************************************************
+ABOUT UW OSHKOSH STYLES
+******************************************************************/
+.page-title-about {
+  background-color: $orange;
+}
+.where-you-meet {
+  background-color: #000;
+  span {
+    color: $dark-yellow;
+  }
+}
+.about-pillar {
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+.about-pillar.education {
+  margin-left: 20px;
+}
+.about-pillar.leadership {
+  margin-left: 40px;
+}
+.about-pillar.responsiveness {
+  margin-left: 40px;
+}
+.about-pillar.service {
+  margin-left: 40px;
+}
+.about-pillar.sustainability {
+  margin-left: 40px;
+}
+/******************************************************************
+END ABOUT UW OSHKOSH
 ******************************************************************/
