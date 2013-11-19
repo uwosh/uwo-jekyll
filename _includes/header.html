@@ -11,36 +11,32 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{site.baseurl}}/css/app.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{site.baseurl}}/css/custom.css">
-
     <!-- Font Awesome CSS -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 
-    <script src="{{site.baseurl}}/js/vendor/custom.modernizr.js"></script>
-    <script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{{site.baseurl}}/bower_components/modernizr/modernizr.js"></script>
 
     <link type="text/plain" rel="author" href="{{site.baseurl}}/humans.txt" />
 
   </head>
   <body>
 
-    <nav class="top-bar" role="navigation">
+  <div class="contain-to-grid">
+    <nav class="top-bar" role="navigation" data-topbar>
       <ul class="title-area">
         <li class="name"></li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
 
-      <div class="top-bar-section">
+      <section class="top-bar-section">
         <ul class="left">
-          <li><a href="{{site.baseurl}}/about-uw-oshkosh" id="aboutToggle">About</a></li>
-          <li><a href="#" id="academicsToggle">Academics</a></li>
-          <li><a href="#" id="athleticsToggle">Athletics</a></li>
-          <li><a href="#" id="alumniToggle">Alumni</a></li>
-          <li><a href="#" id="admissionsToggle">Admissions</a></li>
-          <li><a href="{{site.baseurl}}/administration" id="administrationToggle">Administration</a></li>
-          <li><a href="#" id="resourcesToggle">Resources</a></li>
-          <li><a href="#" id="calendarsToggle">Calendars</a></li>
+          <li><a href="{{site.baseurl}}/about-uw-oshkosh" data-dropdown="aboutDrawer">About</a></li>
+          <li><a href="#" data-dropdown="academicsDrawer">Academics</a></li>
+          <li><a href="#" data-dropdown="athleticsDrawer">Athletics</a></li>
+          <li><a href="#" data-dropdown="alumniDrawer">Alumni</a></li>
+          <li><a href="#" data-dropdown="admissionsDrawer">Admissions</a></li>
+          <li><a href="{{site.baseurl}}/administration" data-dropdown="administrationDrawer">Administration</a></li>
+          <li><a href="#" data-dropdown="resourcesDrawer">Resources</a></li>
+          <li><a href="#" data-dropdown="calendarsDrawer">Calendars</a></li>
           <li class="has-dropdown"><a href="#">Titan Services</a>
             <ul class="dropdown">
               <li><a href="#">Site Index</a></li>
@@ -57,13 +53,14 @@
             </ul>
           </li>
         </ul>
-      </div><!-- /.top-bar-section -->
+      </section><!-- /.top-bar-section -->
     </nav><!-- /.navbar -->
+  </div>
 
 
-    <div id="aboutDrawer" class="nav-info">
-      <div class="row content">
-        <div class="container">
+    <div id="aboutDrawer" class="nav-info f-dropdown content" data-dropdown-content>
+      <div class="content">
+        <div class="row">
           <div class="large-4 columns">
             <ul class="no-bullet">
               <li>Welcome from Chancellor Wells</li>
@@ -83,47 +80,6 @@
                 <canvas id="weather1" width="42" height="42"></canvas> <span style="font-size:48px;">{{ weather.currently.temperature | number:0 }}&#176;</span><br>
                   {{ weather.hourly.summary }}
               </p>
-              <script>
-                $(function() {
-                  var icon = '{{ weather.currently.icon }}';
-                  var skycons = new Skycons({'color': '#444'});
-                  switch(icon) {
-                    case 'clear-day':
-                      skycons.add('weather1', Skycons.CLEAR_DAY);
-                      break;
-                    case 'clear-night':
-                      skycons.add('weather1', Skycons.CLEAR_NIGHT);
-                      break;
-                    case 'partly-cloudy-day':
-                      skycons.add('weather1', Skycons.PARTLY_CLOUDY_DAY);
-                      break;
-                    case 'partly-cloudy-night':
-                      skycons.add('weather1', Skycons.PARTLY_CLOUDY_NIGHT);
-                      break;
-                    case 'cloudy':
-                      skycons.add('weather1', Skycons.CLOUDY);
-                      break;
-                    case 'rain':
-                      skycons.add('weather1', Skycons.RAIN);
-                      break;
-                    case 'sleet':
-                      skycons.add('weather1', Skycons.SLEET);
-                      break;
-                    case 'snow':
-                      skycons.add('weather1', Skycons.SNOW);
-                      break;
-                    case 'wind':
-                      skycons.add('weather1', Skycons.WIND);
-                      break;
-                    case 'fog':
-                      skycons.add('weather1', Skycons.FOG);
-                      break;
-                    default:
-                      skycons.add('weather1', Skycons.CLEAR_DAY);
-                  }
-                  skycons.play();
-                });
-              </script>
           </div>
 
           <div class="large-4 columns">
@@ -133,9 +89,9 @@
       </div>
     </div>
 
-    <div id="academicsDrawer" class="nav-info">
-      <div class="row content">
-        <div class="container">
+    <div id="academicsDrawer" class="nav-info f-dropdown content" data-dropdown-content>
+      <div class="content">
+        <div class="row">
           <div class="large-4 columns">
             <ul class="no-bullet">
               <li>Majors and Minors</li>
@@ -158,9 +114,9 @@
       </div>
     </div>
 
-    <div id="athleticsDrawer" class="nav-info">
-      <div class="row content">
-        <div class="container">
+    <div id="athleticsDrawer" class="nav-info f-dropdown content" data-dropdown-content>
+      <div class="content">
+        <div class="row">
           <div class="large-4 columns">
             <ul class="no-bullet">
               <li>Division III Sports</li>
@@ -181,9 +137,9 @@
       </div>
     </div>
 
-    <div id="alumniDrawer" class="nav-info">
-      <div class="row content">
-        <div class="container">
+    <div id="alumniDrawer" class="nav-info f-dropdown content" data-dropdown-content>
+      <div class="content">
+        <div class="row">
           <div class="large-4 columns">
             <ul class="no-bullet">
               <li>Alumni Relations Office</li>
@@ -203,9 +159,9 @@
       </div>
     </div>
 
-    <div id="admissionsDrawer" class="nav-info">
-      <div class="row content">
-        <div class="container">
+    <div id="admissionsDrawer" class="nav-info f-dropdown content" data-dropdown-content>
+      <div class="content">
+        <div class="row">
           <div class="large-4 columns">
             <ul class="no-bullet">
               <li>Undergraduate Admissions</li>
@@ -228,9 +184,9 @@
       </div>
     </div>
 
-    <div id="administrationDrawer" class="nav-info">
-      <div class="row content">
-        <div class="container">
+    <div id="administrationDrawer" class="nav-info f-dropdown content" data-dropdown-content>
+      <div class="content">
+        <div class="row">
           <div class="large-4 columns">
             <ul class="no-bullet">
               <li>Administrative Services</li>
@@ -252,9 +208,9 @@
       </div>
     </div>
 
-    <div id="resourcesDrawer" class="nav-info">
-      <div class="row content">
-        <div class="container">
+    <div id="resourcesDrawer" class="nav-info f-dropdown content" data-dropdown-content>
+      <div class="content">
+        <div class="row">
           <div class="large-4 columns">
             <ul class="no-bullet">
               <li>Polk Library</li>
@@ -275,9 +231,9 @@
       </div>
     </div>
 
-    <div id="calendarsDrawer" class="nav-info">
-      <div class="row content">
-        <div class="container">
+    <div id="calendarsDrawer" class="nav-info f-dropdown content" data-dropdown-content>
+      <div class="content">
+        <div class="row">
           <div class="large-4 columns">
             <ul class="no-bullet">
               <li>Campus Events</li>
@@ -300,10 +256,10 @@
     <div class="container">
       <div class="audience-row">
         <div class="row">
-          <div class="large-2 columns">
+          <div class="large-3 columns">
             <a href="{{site.baseurl}}"><img src="{{site.baseurl}}/img/parts/wordmark.png" class="wordmark" /></a>
           </div>
-          <div class="large-6 columns audience-nav">
+          <div class="large-5 columns audience-nav">
             <ul class="inline-list">
               <li><a href="{{site.baseurl}}/future-students/">Future Students</a></li>
               <li><a href="{{site.baseurl}}/parents-family-friends/">Parents</a></li>
@@ -320,21 +276,16 @@
               <li><a href="#">D2L</a></li>
               <li><a href="#">My UW System</a></li>
             </ul>
-            <div class="row">
-              <div class="large-12 columns">
-                <div class="input-group">
-                  <input class="form-control" type="text" placeholder="Search UW Oshkosh">
-                  <div class="input-group-btn">
-                    <button type="button" class="btn btn-primary"><i class="fa fa-large fa-search"></i></button>
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-                    <ul class="dropdown-menu pull-right">
-                      <li><a href="#">This Site</a></li>
-                      <li><a href="#">Campus Wide</a></li>
-                    </ul>
-                  </div>
+            <form>
+              <div class="row collapse">
+                <div class="large-10 columns">
+                  <input type="text" placeholder="Search UW Oshkosh">
+                </div>
+                <div class="large-2 columns">
+                  <a href="#" class="button postfix radius"><i class="fa fa-lg fa-search"></i></a>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div><!-- /.row -->
       </div><!-- /.audience-row -->

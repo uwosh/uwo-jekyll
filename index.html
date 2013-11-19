@@ -337,23 +337,15 @@ title: University of Wisconsin Oshkosh
     <div class="row">
       <div class="large-12 columns">
 
-        <ul class="nav nav-tabs pull-left" id="socialTabs">
-          <li class="active"><a href="#twitter"><i class="fa fa-fw fa-twitter"></i> Twitter</a></li>
-          <li><a href="#facebook"><i class="fa fa-fw fa-facebook"></i> Facebook</a></li>
-          <li><a href="#youtube"><i class="fa fa-fw fa-youtube"></i> YouTube</a></li>
-          <li><a href="#flickr"><i class="fa fa-fw fa-flickr"></i> Flickr</a></li>
-        </ul>
+        <dl class="tabs vertical" id="socialTabs" data-tab>
+          <dd class="active"><a href="#twitter"><i class="fa fa-fw fa-twitter"></i> Twitter</a></dd>
+          <dd><a href="#facebook"><i class="fa fa-fw fa-facebook"></i> Facebook</a></dd>
+          <dd><a href="#youtube"><i class="fa fa-fw fa-youtube"></i> YouTube</a></dd>
+          <dd><a href="#flickr"><i class="fa fa-fw fa-flickr"></i> Flickr</a></dd>
+        </dl>
 
-        <script>
-          $('#socialTabs a').click(function (e) {
-            e.preventDefault();
-            $(this).tab('show');
-            $("img.lazy").show().lazyload();
-          })
-        </script>
-
-        <div class="tab-content">
-          <div class="tab-pane active" id="twitter">
+        <div class="tabs-content vertical">
+          <div class="content active" id="twitter">
             {% jsonball twitter from url http://feeds.uwosh.edu/api/v1/index.php/twitter/uwoshkosh %}
             <div class="deck-container">
               <deck id="deck-twitter">
@@ -390,7 +382,7 @@ title: University of Wisconsin Oshkosh
               </ul>
             </div>
           </div><!-- /#twitter -->
-          <div class="tab-pane" id="facebook">
+          <div class="content" id="facebook">
             {% jsonball facebook from url http://feeds.uwosh.edu/api/v1/index.php/facebook/uwoshkosh %}
             <div class="deck-container">
               <deck id="deck-facebook">
@@ -411,7 +403,7 @@ title: University of Wisconsin Oshkosh
               </ul>
             </div>
           </div>
-          <div class="tab-pane" id="youtube">
+          <div class="content" id="youtube">
             {% jsonball youtube from url http://feeds.uwosh.edu/api/v1/index.php/youtube/uwosh %}
             <div class="deck-container">
               <deck id="deck-youtube">
@@ -434,14 +426,14 @@ title: University of Wisconsin Oshkosh
               <script src="https://labnol.googlecode.com/files/youtube.js"></script>
             </div>
           </div>
-          <div class="tab-pane" id="flickr">
+          <div class="content" id="flickr">
             {% jsonball flickr from url http://feeds.uwosh.edu/api/v1/index.php/flickr/uwoshkosh %}
             <div class="deck-container">
               <deck id="deck-flickr">
                 {% for set in flickr.photosets.photoset limit: 12 %}
                   <slide>
                     <div class="twitter-article social-article">
-                      <p><a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img data-original="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg" src="{{site.baseurl}}/img/grey.gif" class="social-feed-flickr-image lazy"></a></p>
+                      <p><a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg" class="social-feed-flickr-image"></a></p>
                       <h5>{{ set.title._content }}</h5>
                       <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ set.date_update }}">{{ set.date_update | date: "%B %d, %Y" }}</time></span>
                     </div>
