@@ -4,6 +4,7 @@
 /* Custom Variables */
 $yellow: #fec425;
 $dark-yellow: #d79a27;
+$rule-gray: #dcddde;
 $light-gray: #ededed;
 $medium-gray: #b0b0b0;
 $medium-dark-gray: #666;
@@ -22,6 +23,13 @@ $meet-uwo: #b95414;
 $twif: #f8c636;
 
 /* Custom Styles */
+.uppercase { text-transform: uppercase; }
+.media {margin:10px;}
+.media, .media__body {overflow:hidden; _overflow:visible; zoom:1;}
+.media .media__img {float:left; margin-right: 10px;}
+.media .media__img img{display:block;}
+.media .media__img--ext{float:right; margin-left: 10px;}
+
 body {
   background-image: url('../img/parts/gradientyellow.png');
   background-repeat: repeat-x;
@@ -148,90 +156,27 @@ a:hover {
   font-weight: 600;
 }
 
-.category {
-  font-size: 13px;
-  color: $medium-gray;
-  font-weight: 600;
-  a {
-    color: $medium-gray;
-  }
+
+.panel>dl>dd {
+  border: none;
+}
+.accordion dd>a {
+  padding: 0;
+}
+.accordion dd {
+  background-color: transparent;
+}
+.accordion .content {
+  padding: 0;
 }
 
-.news-heading {
-  font-size: 18px;
-  color: $dark-gray;
-  font-weight: 600;
-}
-
-.panel-body .category {
-  text-transform: uppercase;
-}
-.panel-home {
-  height: 410px;
-  box-shadow: 1px 1px 5px #999;
-  border-top: 3px solid;
-  background: #fff;
-}
-.panel-image {
-  height: 189px;
-}
-.panel.campus-news {
-  border-top-color: $dark-yellow;
-}
-.panel.research-news {
-  border-top-color: $dark-green;
-}
-.panel.powering-community {
-  border-top-color: $blue;
-}
-.panel.uwotw {
-  border-top-color: $dark-blue;
-}
-.panel.meet-uwo {
-  border-top-color: $dark-orange;
-}
-.panel.twif {
-  border-top-color: $yellow;
-}
-.panel.admissions {
-  border-top-color: $green;
-}
-.panel.i-am-a-titan {
-  border-top-color: $dark-yellow;
-}
-.panel.chancellor {
-  border-top-color: $orange;
-}
-
-.posted-date {
-  font-size: 11px;
-  color: $medium-gray;
-  font-weight: 600;
-  text-transform: uppercase;
-  position: absolute;
-  bottom: 25px;
-}
 .datetime {
   font-size: 11px;
   color: $medium-gray;
   font-weight: 600;
-  text-transform: uppercase;
 }
 
-.videoWrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-  text-align: center;
-}
-.videoWrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+
 
 .visit-uwot {
   height: 32px;
@@ -465,4 +410,104 @@ ABOUT UW OSHKOSH STYLES
 }
 /******************************************************************
 END ABOUT UW OSHKOSH
+******************************************************************/
+
+/******************************************************************
+NAV DRAWERS
+******************************************************************/
+.nav-drawer-dropdown {
+  @include dropdown-container(
+    // Sets if dropdown has triangle. Default:true.
+    $triangle:false,
+    // Sets max-width. Default: $f-dropdown-max-width
+    $max-width: 100%
+  );
+}
+.nav-drawer-dropdown.open {
+  left: 0 !important;
+}
+/******************************************************************
+END NAV DRAWERS
+******************************************************************/
+
+/******************************************************************
+PANELS
+******************************************************************/
+.panel {
+  box-shadow: 1px 1px 5px #999;
+  background: #fff;
+}
+.panel__category {
+  font-size: 13px;
+  color: $medium-gray;
+  font-weight: 600;
+  a {
+    color: $medium-gray;
+  }
+}
+.panel__news-heading {
+  font-size: 18px;
+  color: $dark-gray;
+  font-weight: 600;
+}
+.panel__news-excerpt {
+
+}
+.panel__posted-date {
+  font-size: 11px;
+  color: $medium-gray;
+  font-weight: 600;
+  position: absolute;
+  bottom: 25px;
+}
+.panel__image {
+  height: 189px;
+}
+.panel--home {
+  height: 410px;
+  border-top: 3px solid;
+}
+.panel__video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  text-align: center;
+}
+.panel__video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.panel--campus-news {
+  border-top-color: $dark-yellow;
+}
+.panel--research-news {
+  border-top-color: $dark-green;
+}
+.panel--powering-community {
+  border-top-color: $blue;
+}
+.panel--uwotw {
+  border-top-color: $dark-blue;
+}
+.panel--meet-uwo {
+  border-top-color: $dark-orange;
+}
+.panel--twif {
+  border-top-color: $yellow;
+}
+.panel--admissions {
+  border-top-color: $green;
+}
+.panel--i-am-a-titan {
+  border-top-color: $dark-yellow;
+}
+.panel--chancellor {
+  border-top-color: $orange;
+}
+/******************************************************************
+END PANELS
 ******************************************************************/
