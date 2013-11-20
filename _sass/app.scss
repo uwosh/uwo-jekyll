@@ -162,6 +162,7 @@ a:hover {
 }
 .accordion dd>a {
   padding: 0;
+  background-color: transparent;
 }
 .accordion dd {
   background-color: transparent;
@@ -444,6 +445,11 @@ PANELS
   a {
     color: $medium-gray;
   }
+}
+.panel__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: $dark-gray !important;
 }
 .panel__news-heading {
   font-size: 18px;
