@@ -84,60 +84,6 @@ a:hover {
 
 
 
-.cta {
-  height: 48px;
-  color: #fff;
-  font-size: 28px;
-  font-weight: 500;
-  padding-top: 3px;
-  padding-left: 10px;
-}
-.cta-visit {
-  background-color: $blue;
-}
-.cta-tour {
-  background-color: $orange;
-}
-.cta-apply {
-  background-color: $dark-orange;
-}
-.cta-openings {
-  background-color: $blue;
-}
-.cta-directory {
-  background-color: $dark-green;
-}
-.cta-directions {
-  background-color: $orange;
-}
-.cta-resources {
-  background-color: $blue;
-}
-.cta-faq {
-  background-color: $dark-orange;
-}
-
-.event-calendar {
-  border: 1px solid $medium-gray;
-  box-shadow: 1px 1px 5px #999;
-}
-.event-month {
-  width: 64px;
-  height: 24px;
-  background-color: $dark-blue;
-  color: #fff;
-  text-align: center;
-}
-.event-day {
-  width: 64px;
-  height: 40px;
-  color: $dark-gray;
-  text-align: center;
-  font-size: 28px;
-  font-weight: 600;
-}
-
-
 .panel>dl>dd {
   border: none;
 }
@@ -503,23 +449,109 @@ PAGE BANNERS
   height: 48px;
   padding-left: 10px;
   margin-top: 0;
+  padding-top: 3px;
 }
 .page-banner__title {
   color: #fff;
   margin-top: 0;
 }
-.page-banner--current-students {
+.page-banner--blue {
   background-color: $blue;
 }
-.page-banner--faculty-and-staff {
-  background-color: $dark-orange;
-}
-.page-banner--parents {
+.page-banner--dark-blue {
   background-color: $dark-blue;
 }
-.page-banner--about {
+.page-banner--orange {
   background-color: $orange;
+}
+.page-banner--dark-orange {
+  background-color: $dark-orange;
+}
+.page-banner--dark-green {
+  background-color: $dark-green;
 }
 /******************************************************************
 END PAGE BANNERS
+******************************************************************/
+
+/******************************************************************
+CTAs
+******************************************************************/
+.cta {
+  height: 48px;
+  padding-left: 10px;
+  padding-top: 15px;
+}
+.cta--home {
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+.cta__icon {
+  color: #fff;
+  font-size: 18px;
+}
+.cta__text {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+.cta__text--home {
+  font-size: 28px;
+}
+.cta--blue {
+  background-color: $blue;
+}
+.cta--dark-blue {
+  background-color: $dark-blue;
+}
+.cta--orange {
+  background-color: $orange;
+}
+.cta--dark-orange {
+  background-color: $dark-orange;
+}
+.cta--dark-green {
+  background-color: $dark-green;
+}
+/******************************************************************
+END CTAs
+******************************************************************/
+
+/******************************************************************
+EVENTS
+******************************************************************/
+.event-item {
+
+}
+.event-item__title {
+  margin-top: -5px;
+}
+.event-item__time {
+
+}
+.event-item__location {
+
+}
+.event-item__calendar {
+  border: 1px solid $medium-gray;
+  box-shadow: 1px 1px 5px #999;
+  width: 64px;
+}
+.event-item__calendar--month {
+  height: 24px;
+  background-color: $dark-blue;
+  color: #fff;
+  text-align: center;
+  padding-top: 5px;
+}
+.event-item__calendar--day {
+  height: 40px;
+  color: $dark-gray;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  padding-top: 6px;
+}
+/******************************************************************
+END EVENTS
 ******************************************************************/
