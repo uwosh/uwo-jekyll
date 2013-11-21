@@ -51,22 +51,22 @@ title: University of Wisconsin Oshkosh
     <div class="row">
       <div class="large-12 small-4 columns">
         <a href="http://www.uwosh.edu/today">
-          <div class="cta cta-visit">
-            Visit Campus
+          <div class="cta cta--home cta--blue">
+            <span class="cta__text cta__text--home">Visit Campus</span>
+          </div>
+        </a>
+      </div>
+      <div class="large-12 small-4 columns">
+        <a href="http://www.uwosh.edu/map/main/">
+          <div class="cta cta--home cta--orange">
+            <span class="cta__text cta__text--home">Take a Virtual Tour</span>
           </div>
         </a>
       </div>
       <div class="large-12 small-4 columns">
         <a href="http://www.uwosh.edu/today">
-          <div class="cta cta-tour">
-            Take a Virtual Tour
-          </div>
-        </a>
-      </div>
-      <div class="large-12 small-4 columns">
-        <a href="http://www.uwosh.edu/today">
-          <div class="cta cta-apply">
-            Apply Now
+          <div class="cta cta--home cta--dark-orange">
+            <span class="cta__text cta__text--home">Apply Now</span>
           </div>
         </a>
       </div>
@@ -87,15 +87,15 @@ title: University of Wisconsin Oshkosh
       <div class="large-4 small-4 columns">
         <div class="media">
           <a class="media__img" href="#">
-            <div class="event-calendar">
-              <div class="media-object event-month">{{ event.pubDate | date: "%b"}}</div>
-              <div class="media-object event-day">{{ event.pubDate | date: "%d"}}</div>
+            <div class="event-item__calendar">
+              <div class="event-item__calendar--month">{{ event.pubDate | date: "%b"}}</div>
+              <div class="event-item__calendar--day">{{ event.pubDate | date: "%d"}}</div>
             </div>
           </a>
           <div class="media__body">
-            <h4 class="media-heading">{{ event.title }}</h4>
-            <div class="event-time">{{ event.pubDate | date: "%B %d, %Y"}}</div>
-            <div class="event-location"><a href="{{ event.link }}">{{ event.link }}</a></div>
+            <h4 class="event-item__title">{{ event.title }}</h4>
+            <div class="event-item__time">{{ event.pubDate | date: "%B %d, %Y"}}</div>
+            <div class="event-item__location"><a href="{{ event.link }}">{{ event.link }}</a></div>
           </div>
         </div>
       </div>
