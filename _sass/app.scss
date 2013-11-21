@@ -29,6 +29,16 @@ $twif: #f8c636;
 .media .media__img {float:left; margin-right: 10px;}
 .media .media__img img{display:block;}
 .media .media__img--ext{float:right; margin-left: 10px;}
+.desaturate {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+}
+.desaturate:hover {
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+}
 
 body {
   background-image: url('../img/parts/gradientyellow.png');
@@ -555,4 +565,16 @@ EVENTS
 }
 /******************************************************************
 END EVENTS
+******************************************************************/
+
+/******************************************************************
+CAMPUS FAST FACTS
+******************************************************************/
+.campus-fast-facts table {
+  border: none;
+  border-top: $yellow 2px solid;
+  width: 100%;
+}
+/******************************************************************
+END CAMPUS FAST FACTS
 ******************************************************************/
