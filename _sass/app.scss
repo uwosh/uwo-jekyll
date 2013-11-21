@@ -446,14 +446,15 @@ END PANELS
 PAGE BANNERS
 ******************************************************************/
 .page-banner {
-  height: 48px;
+  height: 64px;
   padding-left: 10px;
   margin-top: 0;
-  padding-top: 3px;
+  padding-top: 10px;
 }
 .page-banner__title {
   color: #fff;
   margin-top: 0;
+  font-size: 28px;
 }
 .page-banner--blue {
   background-color: $blue;
@@ -481,10 +482,10 @@ CTAs
   height: 48px;
   padding-left: 10px;
   padding-top: 15px;
+  margin-bottom: 10px;
 }
 .cta--home {
   padding-top: 10px;
-  margin-bottom: 10px;
 }
 .cta__icon {
   color: #fff;
