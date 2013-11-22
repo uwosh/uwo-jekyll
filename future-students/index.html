@@ -17,20 +17,14 @@ title: Future Students | University of Wisconsin Oshkosh
         <a href="{{site.baseurl}}">Home</a>
         <a href="#" class="current">Future Students</a>
       </nav>
-      <h3 class="news-heading">Future Student Resources</h3>
-      <p class="drop-down-nav">
-        Whether you have a clear vision for your future or you prefer to explore your options, the University of Wisconsin Oshkosh is the place where your aspirations and opportunities intersect. Across four exceptional colleges, we offer 74 educational programs for students of all ages, lifestyles and ambitions. As the third-largest institution in the University of Wisconsin System, you are taught by award-winning faculty with a noationally accredited curriculum.
-      </p>
-      <p class="drop-down-nav">
-        Our graduates belong to a network of 80,000-plus alumni who actively contribute to the quality of life in their communities and demonstrate an ability to succeed in today's progressive workforce.
-      </p>
+      {% include future-students/lead-content.html %}
     </div>
     <div class="large-4 columns">
       <div class="row">
         <div class="large-12 columns">
           <a href="#">
             <div class="cta cta--dark-orange">
-              <i class="fa fa-large fa-fw fa-map-marker cta__icon"></i> <span class="cta__text">Apply Online</span>
+              <i class="icon-laptop-open cta__icon"></i> <span class="cta__text">Apply Online</span>
             </div>
           </a>
         </div>
@@ -39,7 +33,7 @@ title: Future Students | University of Wisconsin Oshkosh
         <div class="large-12 columns">
           <a href="http://www.uwosh.edu/map/main">
             <div class="cta cta--orange">
-              <i class="fa fa-large fa-fw fa-gears cta__icon"></i> <span class="cta__text">Take an Online Tour</span>
+              <i class="icon-pointer-star2 cta__icon"></i> <span class="cta__text">Take an Online Tour</span>
             </div>
           </a>
         </div>
@@ -48,244 +42,39 @@ title: Future Students | University of Wisconsin Oshkosh
         <div class="large-12 columns">
           <a href="{{ site.baseurl }}/about-uw-oshkosh">
             <div class="cta cta--dark-blue">
-              <i class="fa fa-large fa-fw fa-question-circle cta__icon"></i> <span class="cta__text">Learn More about UWO</span>
+              <i class="icon-light-bulb cta__icon"></i> <span class="cta__text">Learn More about UWO</span>
             </div>
           </a>
         </div>
       </div>
-      <div class="row">
-        <div class="small-2 columns social-icons"><a href="{{site.facebook}}"><img src="{{site.baseurl}}/img/parts/facebook-logo.png" class="social-icon" /></a></div>
-        <div class="small-2 columns social-icons"><a href="{{site.twitter}}"><img src="{{site.baseurl}}/img/parts/twitter-logo.png" class="social-icon" /></a></div>
-        <div class="small-2 columns social-icons"><a href="{{site.youtube}}"><img src="{{site.baseurl}}/img/parts/youtube-logo.png" class="social-icon" /></a></div>
-        <div class="small-2 columns social-icons"><a href="{{site.google-plus}}"><img src="{{site.baseurl}}/img/parts/googleplus-logo.png" class="social-icon" /></a></div>
-        <div class="small-2 columns social-icons"><a href="{{site.pinterest}}"><img src="{{site.baseurl}}/img/parts/pinterest-logo.png" class="social-icon" /></a></div>
-        <div class="small-2 columns social-icons"><a href="{{site.flickr}}"><img src="{{site.baseurl}}/img/parts/flickr-logo.png" class="social-icon" /></a></div>
-      </div>
+      {% include social-icons.html %}
     </div>
   </div><br>
 
   <div class="row">
 
     <div class="large-4 columns">
-      <div class="panel">
-        <dl class="accordion" data-accordion>
-          <dd>
-            <a href="#panelUndergraduate"><h3 class="panel__title">Undergraduate</h3>
-            <img src="http://lorempixel.com/336/128/business" class="img-responsive panel__image"></a>
-            <div id="panelUndergraduate" class="content panel__content">
-              <ul>
-                <li><a href="http://www.uwosh.edu/advising/">Academic Advising</a></li>
-                <li><a href="http://www.uwosh.edu/acad-supp/">Academic Support and Diversity</a></li>
-                <li><a href="http://www.uwosh.edu/car/">Center for Academic Resources (tutoring)</a></li>
-                <li><a href="http://www.uwosh.edu/mathematics/resources/tutor-labs">Math Lab</a></li>
-                <li><a href="http://www.uwosh.edu/success/">Project Success</a></li>
-                <li><a href="http://www.uwosh.edu/readingstudycenter">Reading Study Center</a></li>
-                <li><a href="http://www.english.uwosh.edu/wcenter">Writing Center</a></li>
-              </ul>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="panel">
-        <dl class="accordion" data-accordion>
-          <dd>
-            <a href="#panelContinuingEducation"><h3 class="panel__title">Continuing Education</h3>
-            <img src="http://lorempixel.com/336/128/business" class="img-responsive panel__image"></a>
-            <div id="panelContinuingEducation" class="content panel__content">
-              <ul>
-                <li><a href="http://www.uwosh.edu/advising/">Academic Advising</a></li>
-                <li><a href="http://www.uwosh.edu/acad-supp/">Academic Support and Diversity</a></li>
-                <li><a href="http://www.uwosh.edu/car/">Center for Academic Resources (tutoring)</a></li>
-                <li><a href="http://www.uwosh.edu/mathematics/resources/tutor-labs">Math Lab</a></li>
-                <li><a href="http://www.uwosh.edu/success/">Project Success</a></li>
-                <li><a href="http://www.uwosh.edu/readingstudycenter">Reading Study Center</a></li>
-                <li><a href="http://www.english.uwosh.edu/wcenter">Writing Center</a></li>
-              </ul>
-            </div>
-          </dd>
-        </dl>
-      </div>
+      {% include future-students/panel-undergraduate.html %}
+      {% include future-students/panel-continuing-education.html %}
     </div>
 
     <div class="large-4 columns">
-      <div class="panel">
-        <dl class="accordion" data-accordion>
-          <dd>
-            <a href="#panelGraduate"><h3 class="panel__title">Graduate</h3>
-            <img src="http://lorempixel.com/336/128/business" class="img-responsive panel__image"></a>
-            <div id="panelGraduate" class="content panel__content">
-              <ul>
-                <li><a href="http://www.uwosh.edu/advising/">Academic Advising</a></li>
-                <li><a href="http://www.uwosh.edu/acad-supp/">Academic Support and Diversity</a></li>
-                <li><a href="http://www.uwosh.edu/car/">Center for Academic Resources (tutoring)</a></li>
-                <li><a href="http://www.uwosh.edu/mathematics/resources/tutor-labs">Math Lab</a></li>
-                <li><a href="http://www.uwosh.edu/success/">Project Success</a></li>
-                <li><a href="http://www.uwosh.edu/readingstudycenter">Reading Study Center</a></li>
-                <li><a href="http://www.english.uwosh.edu/wcenter">Writing Center</a></li>
-              </ul>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="panel">
-        <dl class="accordion" data-accordion>
-          <dd>
-            <a href="#panelYouthPrograms"><h3 class="panel__title">YouthPrograms</h3>
-            <img src="http://lorempixel.com/336/128/business" class="img-responsive panel__image"></a>
-            <div id="panelYouthPrograms" class="content panel__content">
-              <ul>
-                <li><a href="http://www.uwosh.edu/advising/">Academic Advising</a></li>
-                <li><a href="http://www.uwosh.edu/acad-supp/">Academic Support and Diversity</a></li>
-                <li><a href="http://www.uwosh.edu/car/">Center for Academic Resources (tutoring)</a></li>
-                <li><a href="http://www.uwosh.edu/mathematics/resources/tutor-labs">Math Lab</a></li>
-                <li><a href="http://www.uwosh.edu/success/">Project Success</a></li>
-                <li><a href="http://www.uwosh.edu/readingstudycenter">Reading Study Center</a></li>
-                <li><a href="http://www.english.uwosh.edu/wcenter">Writing Center</a></li>
-              </ul>
-            </div>
-          </dd>
-        </dl>
-      </div>
+      {% include future-students/panel-graduate.html %}
+      {% include future-students/panel-youth-programs.html %}
     </div>
 
     <div class="large-4 columns">
-      <div class="panel">
-        <dl class="accordion" data-accordion>
-          <dd>
-            <a href="#panelCertificatePrograms"><h3 class="panel__title">Certificate Programs</h3>
-            <img src="http://lorempixel.com/336/128/business" class="img-responsive panel__image"></a>
-            <div id="panelCertificatePrograms" class="content panel__content">
-              <ul>
-                <li><a href="http://www.uwosh.edu/advising/">Academic Advising</a></li>
-                <li><a href="http://www.uwosh.edu/acad-supp/">Academic Support and Diversity</a></li>
-                <li><a href="http://www.uwosh.edu/car/">Center for Academic Resources (tutoring)</a></li>
-                <li><a href="http://www.uwosh.edu/mathematics/resources/tutor-labs">Math Lab</a></li>
-                <li><a href="http://www.uwosh.edu/success/">Project Success</a></li>
-                <li><a href="http://www.uwosh.edu/readingstudycenter">Reading Study Center</a></li>
-                <li><a href="http://www.english.uwosh.edu/wcenter">Writing Center</a></li>
-              </ul>
-            </div>
-          </dd>
-        </dl>
-      </div>
-      <div class="panel">
-        <dl class="accordion" data-accordion>
-          <dd>
-            <a href="#panelOnlineDegreePrograms"><h3 class="panel__title">OnlineDegreePrograms</h3>
-            <img src="http://lorempixel.com/336/128/business" class="img-responsive panel__image"></a>
-            <div id="panelOnlineDegreePrograms" class="content panel__content">
-              <ul>
-                <li><a href="http://www.uwosh.edu/advising/">Academic Advising</a></li>
-                <li><a href="http://www.uwosh.edu/acad-supp/">Academic Support and Diversity</a></li>
-                <li><a href="http://www.uwosh.edu/car/">Center for Academic Resources (tutoring)</a></li>
-                <li><a href="http://www.uwosh.edu/mathematics/resources/tutor-labs">Math Lab</a></li>
-                <li><a href="http://www.uwosh.edu/success/">Project Success</a></li>
-                <li><a href="http://www.uwosh.edu/readingstudycenter">Reading Study Center</a></li>
-                <li><a href="http://www.english.uwosh.edu/wcenter">Writing Center</a></li>
-              </ul>
-            </div>
-          </dd>
-        </dl>
-      </div>
+      {% include future-students/panel-certificate-programs.html %}
+      {% include future-students/panel-online-degree-programs.html %}
     </div>
   </div>
 
   <div class="row">
     <div class="large-4 columns">
-      <strong>Related Links</strong>
-      <ul class="no-bullet">
-        <li><a href="#">Admissions</a></li>
-        <li><a href="#">Academics</a></li>
-        <li><a href="#">Campus Life</a></li>
-        <li><a href="#">Costs and Financial Aid</a></li>
-        <li><a href="#">Scholarships</a></li>
-        <li><a href="#">Health and Wellness</a></li>
-        <li><a href="#">Athletics</a></li>
-        <li><a href="#">Student Organizations</a></li>
-        <li><a href="#">High School Student Programs</a></li>
-      </ul>
+      {% include future-students/related-links.html %}
     </div>
     <div class="large-8 columns">
-      <ul class="campus-fast-facts" data-orbit data-options="bullets:false;timer:false;slide_number:false;">
-        <li data-orbit-slide="slide-1">
-          <table>
-            <thead>
-              <tr>
-                <th>Campus Fast Facts</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>52 buildings (including 10 academic buildings and 11 residence halls)</td>
-              </tr>
-              <tr>
-                <td>173.5 acres</td>
-              </tr>
-              <tr>
-                <td>470 general access computers</td>
-              </tr>
-              <tr>
-                <td>47 computer labs</td>
-              </tr>
-              <tr>
-                <td>10 minute walk across campus</td>
-              </tr>
-            </tbody>
-          </table>
-        </li>
-        <li data-orbit-slide="slide-2">
-          <table>
-            <thead>
-              <tr>
-                <th>Campus Fast Facts</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>52 buildings (including 10 academic buildings and 11 residence halls)</td>
-              </tr>
-              <tr>
-                <td>173.5 acres</td>
-              </tr>
-              <tr>
-                <td>470 general access computers</td>
-              </tr>
-              <tr>
-                <td>47 computer labs</td>
-              </tr>
-              <tr>
-                <td>10 minute walk across campus</td>
-              </tr>
-            </tbody>
-          </table>
-        </li>
-        <li data-orbit-slide="slide-3">
-          <table>
-            <thead>
-              <tr>
-                <th>Campus Fast Facts</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>52 buildings (including 10 academic buildings and 11 residence halls)</td>
-              </tr>
-              <tr>
-                <td>173.5 acres</td>
-              </tr>
-              <tr>
-                <td>470 general access computers</td>
-              </tr>
-              <tr>
-                <td>47 computer labs</td>
-              </tr>
-              <tr>
-                <td>10 minute walk across campus</td>
-              </tr>
-            </tbody>
-          </table>
-        </li>
-      </ul>
+      {% include future-students/campus-fast-facts.html %}
     </div>
   </div>
 
