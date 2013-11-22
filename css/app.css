@@ -8514,7 +8514,7 @@ CTAs
 .cta {
   height: 48px;
   padding-left: 10px;
-  padding-top: 15px;
+  padding-top: 7px;
   margin-bottom: 10px;
 }
 
@@ -8526,7 +8526,7 @@ CTAs
 /* line 600, ../_sass/app.scss */
 .cta__icon {
   color: #fff;
-  font-size: 18px;
+  font-size: 28px;
 }
 
 /* line 604, ../_sass/app.scss */
@@ -8618,4 +8618,168 @@ CAMPUS FAST FACTS
 
 /******************************************************************
 END CAMPUS FAST FACTS
+******************************************************************/
+/******************************************************************
+UWO ICON FONT
+******************************************************************/
+@font-face {
+  font-family: 'uwo-icons';
+  src: url("../fonts/uwo-icons.eot?25206943");
+  src: url("../fonts/uwo-icons.eot?25206943#iefix") format("embedded-opentype"), url("../fonts/uwo-icons.woff?25206943") format("woff"), url("../fonts/uwo-icons.ttf?25206943") format("truetype"), url("../fonts/uwo-icons.svg?25206943#uwo-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'uwo-icons';
+    src: url('../font/uwo-icons.svg?25206943#uwo-icons') format('svg');
+  }
+}
+*/
+/* line 706, ../_sass/app.scss */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "uwo-icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+/* line 737, ../_sass/app.scss */
+.icon-award-ribbon:before {
+  content: '\e800';
+}
+
+/* '' */
+/* line 738, ../_sass/app.scss */
+.icon-wind-turbine:before {
+  content: '\e812';
+}
+
+/* '' */
+/* line 739, ../_sass/app.scss */
+.icon-book-open:before {
+  content: '\e802';
+}
+
+/* '' */
+/* line 740, ../_sass/app.scss */
+.icon-clock:before {
+  content: '\e803';
+}
+
+/* '' */
+/* line 741, ../_sass/app.scss */
+.icon-diploma:before {
+  content: '\e804';
+}
+
+/* '' */
+/* line 742, ../_sass/app.scss */
+.icon-directory:before {
+  content: '\e805';
+}
+
+/* '' */
+/* line 743, ../_sass/app.scss */
+.icon-gear-person:before {
+  content: '\e806';
+}
+
+/* '' */
+/* line 744, ../_sass/app.scss */
+.icon-graph:before {
+  content: '\e807';
+}
+
+/* '' */
+/* line 745, ../_sass/app.scss */
+.icon-laptop-open:before {
+  content: '\e808';
+}
+
+/* '' */
+/* line 746, ../_sass/app.scss */
+.icon-book-closed:before {
+  content: '\e801';
+}
+
+/* '' */
+/* line 747, ../_sass/app.scss */
+.icon-pencil-w-notepaper:before {
+  content: '\e80a';
+}
+
+/* '' */
+/* line 748, ../_sass/app.scss */
+.icon-pencil:before {
+  content: '\e80b';
+}
+
+/* '' */
+/* line 749, ../_sass/app.scss */
+.icon-person-in-circle:before {
+  content: '\e80c';
+}
+
+/* '' */
+/* line 750, ../_sass/app.scss */
+.icon-pillar-top:before {
+  content: '\e80d';
+}
+
+/* '' */
+/* line 751, ../_sass/app.scss */
+.icon-pointer-p:before {
+  content: '\e80e';
+}
+
+/* '' */
+/* line 752, ../_sass/app.scss */
+.icon-pointer-star:before {
+  content: '\e80f';
+}
+
+/* '' */
+/* line 753, ../_sass/app.scss */
+.icon-pointer-star2:before {
+  content: '\e810';
+}
+
+/* '' */
+/* line 754, ../_sass/app.scss */
+.icon-question:before {
+  content: '\e811';
+}
+
+/* '' */
+/* line 755, ../_sass/app.scss */
+.icon-light-bulb:before {
+  content: '\e809';
+}
+
+/* '' */
+/******************************************************************
+END UWO ICON FONT
 ******************************************************************/

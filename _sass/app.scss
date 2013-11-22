@@ -591,7 +591,7 @@ CTAs
 .cta {
   height: 48px;
   padding-left: 10px;
-  padding-top: 15px;
+  padding-top: 7px;
   margin-bottom: 10px;
 }
 .cta--home {
@@ -599,7 +599,7 @@ CTAs
 }
 .cta__icon {
   color: #fff;
-  font-size: 18px;
+  font-size: 28px;
 }
 .cta__text {
   color: #fff;
@@ -677,4 +677,82 @@ CAMPUS FAST FACTS
 }
 /******************************************************************
 END CAMPUS FAST FACTS
+******************************************************************/
+
+/******************************************************************
+UWO ICON FONT
+******************************************************************/
+@font-face {
+  font-family: 'uwo-icons';
+  src: url('../fonts/uwo-icons.eot?25206943');
+  src: url('../fonts/uwo-icons.eot?25206943#iefix') format('embedded-opentype'),
+       url('../fonts/uwo-icons.woff?25206943') format('woff'),
+       url('../fonts/uwo-icons.ttf?25206943') format('truetype'),
+       url('../fonts/uwo-icons.svg?25206943#uwo-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'uwo-icons';
+    src: url('../font/uwo-icons.svg?25206943#uwo-icons') format('svg');
+  }
+}
+*/
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "uwo-icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-award-ribbon:before { content: '\e800'; } /* '' */
+.icon-wind-turbine:before { content: '\e812'; } /* '' */
+.icon-book-open:before { content: '\e802'; } /* '' */
+.icon-clock:before { content: '\e803'; } /* '' */
+.icon-diploma:before { content: '\e804'; } /* '' */
+.icon-directory:before { content: '\e805'; } /* '' */
+.icon-gear-person:before { content: '\e806'; } /* '' */
+.icon-graph:before { content: '\e807'; } /* '' */
+.icon-laptop-open:before { content: '\e808'; } /* '' */
+.icon-book-closed:before { content: '\e801'; } /* '' */
+.icon-pencil-w-notepaper:before { content: '\e80a'; } /* '' */
+.icon-pencil:before { content: '\e80b'; } /* '' */
+.icon-person-in-circle:before { content: '\e80c'; } /* '' */
+.icon-pillar-top:before { content: '\e80d'; } /* '' */
+.icon-pointer-p:before { content: '\e80e'; } /* '' */
+.icon-pointer-star:before { content: '\e80f'; } /* '' */
+.icon-pointer-star2:before { content: '\e810'; } /* '' */
+.icon-question:before { content: '\e811'; } /* '' */
+.icon-light-bulb:before { content: '\e809'; } /* '' */
+/******************************************************************
+END UWO ICON FONT
 ******************************************************************/
