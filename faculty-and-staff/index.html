@@ -12,7 +12,7 @@ title: Faculty and Staff | University of Wisconsin Oshkosh
       <br>
     </div>
     <div class="large-8 columns">
-      <img src="{{site.baseurl}}/img/faculty-and-staff/hero1.jpg" class="img-responsive">
+      <img src="{{site.baseurl}}/img/faculty-and-staff/top-banner.jpg" class="img-responsive">
     </div>
     <div class="large-4 columns">
       <div class="row">
@@ -43,247 +43,33 @@ title: Faculty and Staff | University of Wisconsin Oshkosh
     <div class="large-8 columns">
       <nav class="breadcrumbs">
         <a href="{{site.baseurl}}">Home</a>
-        <a href="#" class="active">Faculty and Staff</a>
+        <a href="#" class="current">Faculty and Staff</a>
       </nav>
-      <h3>Faculty and Staff Resources</h3>
-      <p>
+      <h3 class="news-heading">Faculty and Staff Resources</h3>
+      <p class="drop-down-nav">
         At UW Oshkosh, we are proud of our dedicated and knowledgeable faculty and staff. Whether you are a current or prospective faculty or staff member, we provide you with the resources you need for your career at the University.
       </p>
 
       <div class="row">
         <div class="large-4 columns">
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelProspectiveEmployees"><h3 class="panel__title">Prospective Employees</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive"></a>
-                <div id="panelProspectiveEmployees" class="content">
-                  <ul>
-                    <li><a href="http://www.uwosh.edu/hr/employment">Current Job Openings</a></li>
-                    <li><a href="http://www.uwosh.edu/map/main/">Virtual Campus Tour</a></li>
-                    <li><a href="{{site.baseurl}}/about-uw-oshkosh">About UW Oshkosh</a></li>
-                    <li><a href="http://www.uwosh.edu/ada-employees/">ADA for Employees</a></li>
-                    <li><a href="http://www.uwosh.edu/affirm-act/">Affirmative Action Office</a></li>
-                    <li><a href="http://www.uwosh.edu/childrens_center">Child Care</a></li>
-                    <li><a href="http://www.uwosh.edu/parking/">Parking</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelAboutUwOshkosh"><h3 class="panel__title">About UW Oshkosh</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive"></a>
-                <div id="panelAboutUwOshkosh" class="content">
-                  <ul>
-                    <li><a href="{{site.baseurl}}/administration">Administration</a></li>
-                    <li><a href="http://www.uwosh.edu/home/about-uw-oshkosh/about-uw-oshkosh/welcome-from-chancellor-wells">Welcome from the Chancellor</a></li>
-                    <li><a href="http://www.uwosh.edu/home/about-uw-oshkosh/about-uw-oshkosh/mission-vision-and-core-values">Mission, Vision and Core Values</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelGovernance"><h3 class="panel__title">Governance</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive"></a>
-                <div id="panelGovernance" class="content">
-                  <ul>
-                    <li><a href="http://www.acs.uwosh.edu/">Faculty Council</a></li>
-                    <li><a href="#">Academic Staff Council</a></li>
-                    <li><a href="http://www.uwosh.edu/csac/">University Staff Council (formerly Classified Staff Advisory Council)</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelHealthAndWellness"><h3 class="panel__title">Health and Wellness</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive"></a>
-                <div id="panelHealthAndWellness" class="content">
-                  <ul>
-                    <li><a href="http://www.uwosh.edu/hr/benefits/health-wellness/healthy-titans">Healthy Titans</a></li>
-                    <li><a href="http://www.uwosh.edu/hr/healthy-titans/weight-watchers-at-work-1">Weight Watchers at Work</a></li>
-                    <li><a href="http://www.uwosh.edu/eap">Employee Assistance Program</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
+          {% include faculty-and-staff/panel-prospective-faculty-and-staff.html %}
+          {% include faculty-and-staff/panel-about-uw-oshkosh.html %}
+          {% include faculty-and-staff/panel-governance.html %}
+          {% include faculty-and-staff/panel-health-and-wellness-programs.html %}
         </div>
 
         <div class="large-4 columns">
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelCampusAmenities"><h3 class="panel__title">CampusAmenities</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive"></a>
-                <div id="panelCampusAmenities" class="content">
-                  <ul>
-                    <li><a href="http://reeve.uwosh.edu/involvement">Banking</a></li>
-                    <li><a href="http://bookstore.uwosh.edu/home.aspx">Bookstore</a></li>
-                    <li><a href="http://www.uwosh.edu/childrens_center">Child Care</a></li>
-                    <li><a href="http://reeve.uwosh.edu/places-reeve/corner-convenience-store">Corner Convenience Store</a></li>
-                    <li><a href="http://reeve.uwosh.edu/dining">Dining</a></li>
-                    <li><a href="http://reeve.uwosh.edu/services/dry-cleaning">Dry Cleaning and Laundry Service</a></li>
-                    <li><a href="http://www.uwosh.edu/library">Library</a></li>
-                    <li><a href="http://www.uwosh.edu/admin_serv/postal-services">Mail</a></li>
-                    <li><a href="http://www.uwosh.edu/kinesiology/department-facilities/athletic-training-facilities/oshkosh-sports-complex-athletic-training-facility">Oshkosh Sports Complex</a></li>
-                    <li><a href="http://www.uwosh.edu/salon_shahnaz">Salon Shahnaz</a></li>
-                    <li><a href="http://www.uwosh.edu/lt">Technology Services</a></li>
-                    <li><a href="http://reeve.uwosh.edu/services/titan-card">Titan Card</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelActivitiesAndEvents"><h3 class="panel__title">Activities and Events</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive"></a>
-                <div id="panelActivitiesAndEvents" class="content">
-                  <ul>
-                    <li><a href="http://www.titans.uwosh.edu/">Athletics</a></li>
-                    <li><a href="http://www.uwosh.edu/commencement">Commencement</a></li>
-                    <li><a href="http://www.uwosh.edu/today/events">Campus Calendar of Events</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelToolsAndServices"><h3 class="panel__title">Tools and Services</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive"></a>
-                <div id="panelToolsAndServices" class="content">
-                  <ul>
-                    <li><a href="//www.uwosh.edu/gradstudies">Administrative Services</a></li>
-                    <li><a href="">Adult Nontraditional Student Resource Office</a></li>
-                    <li><a href="">Business Success Center</a></li>
-                    <li><a href="">Center for Excellence in Teaching and Learning</a></li>
-                    <li><a href="">Central Stores (Supplies)</a></li>
-                    <li><a href="http://www.uwosh.edu/directory">Campus Directory</a></li>
-                    <li><a href="">Counseling Center</a></li>
-                    <li><a href="">Disability Services</a></li>
-                    <li><a href="http://www.uwosh.edu/eap">Employee Assistance Program</a></li>
-                    <li><a href="">Information Technology</a></li>
-                    <li><a href="http://www.uwosh.edu/imc">Integrated Marketing and Communications</a></li>
-                    <li><a href="">Gender Equity Council</a></li>
-                    <li><a href="">Records Management</a></li>
-                    <li><a href="">Testing Services</a></li>
-                    <li><a href="">Travel Regulations</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelTechnology"><h3 class="panel__title">Technology</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive"></a>
-                <div id="panelTechnology" class="content">
-                  <ul>
-                    <li><a href="">Academic Computing</a></li>
-                    <li><a href="">Computer Hardware and Software Standards</a></li>
-                    <li><a href="">Desire2Learn</a></li>
-                    <li><a href="">Faculty/Staff Home Pages</a></li>
-                    <li><a href="">IDEA Lab</a></li>
-                    <li><a href="http://www.uwosh.edu/lt">The Learning Technologies</a></li>
-                    <li><a href="">Technology Training</a></li>
-                    <li><a href="">Titan Admin</a></li>
-                    <li><a href="">Titan Alert &mdash; Cell Phone Alerts</a></li>
-                    <li><a href="">Titan Apps (email)</a></li>
-                    <li><a href="">Titan Files</a></li>
-                    <li><a href="">Titan Web</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
+          {% include faculty-and-staff/panel-campus-amenities.html %}
+          {% include faculty-and-staff/panel-activities-and-events.html %}
+          {% include faculty-and-staff/panel-tools-and-services.html %}
+          {% include faculty-and-staff/panel-technology.html %}
         </div>
 
         <div class="large-4 columns">
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelAcademicsAndResearch"><h3 class="panel__title">Academics and Research</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive"></a>
-                <div id="panelAcademicsAndResearch" class="content">
-                  <ul>
-                    <li><a href="">Academic Calendars</a></li>
-                    <li><a href="http://www.uwosh.edu/library">Polk Library</a></li>
-                    <li><a href="">Course Evaluations (Student Opinion Surveys)</a></li>
-                    <li><a href="">Grants and Faculty Development</a></li>
-                    <li><a href="">Institutional Research</a></li>
-                    <li><a href="">Environmental Research and Innovation Center (ERIC)</a></li>
-                    <li><a href="http://www.uwosh.edu/bsc">Business Success Center</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelConnectToUwOshkosh"><h3 class="panel__title">Connect to UW Oshkosh</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive"></a>
-                <div id="panelConnectToUwOshkosh" class="content">
-                  <ul>
-                    <li><a href="http://www.uwosh.edu/today">Campus News and Announcements</a></li>
-                    <li><a href="https://www.facebook.com/uwoshkosh">Join UW Oshkosh on Facebook</a></li>
-                    <li><a href="https://www.twitter.com/uwoshkosh">Follow UWO on Twitter</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelWorkingAtUwOshkosh"><h3 class="panel__title">Working at UW Oshkosh</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive"></a>
-                <div id="panelWorkingAtUwOshkosh" class="content">
-                  <ul>
-                    <li><a href="http://www.uwosh.edu/hr">Human Resources Website</a></li>
-                    <li><a href="">Payroll</a></li>
-                    <li><a href="">Fringe Benefits</a></li>
-                    <li><a href="">ACES Mentoring (Academic and Classified Employee Support)</a></li>
-                    <li><a href="">ADA for Employees</a></li>
-                    <li><a href="">Affirmative Action Office</a></li>
-                    <li><a href="">My UW System</a></li>
-                    <li><a href="">Campus Safety Resources</a></li>
-                    <li><a href="">Parking</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelCampusSafety"><h3 class="panel__title">CampusSafety</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive"></a>
-                <div id="panelCampusSafety" class="content">
-                  <ul>
-                    <li><a href="http://emergency.uwosh.edu">Emergency Information</a></li>
-                    <li><a href="">Titan Alert</a></li>
-                    <li><a href="">Safewalk Program</a></li>
-                    <li><a href="">Safety Committee</a></li>
-                    <li><a href="">University Police</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
+          {% include faculty-and-staff/panel-academics-and-research.html %}
+          {% include faculty-and-staff/panel-stay-connected-to-uw-oshkosh.html %}
+          {% include faculty-and-staff/panel-working-at-uw-oshkosh.html %}
+          {% include faculty-and-staff/panel-campus-safety.html %}
         </div>
       </div>
     </div>
@@ -291,14 +77,7 @@ title: Faculty and Staff | University of Wisconsin Oshkosh
     <div class="large-4 columns">
       <div class="row">
         <div class="large-12 columns">
-          <div class="row">
-            <div class="small-2 columns social-icons"><a href="{{site.facebook}}"><img src="{{site.baseurl}}/img/parts/facebook-logo.png" class="social-icon" /></a></div>
-            <div class="small-2 columns social-icons"><a href="{{site.twitter}}"><img src="{{site.baseurl}}/img/parts/twitter-logo.png" class="social-icon" /></a></div>
-            <div class="small-2 columns social-icons"><a href="{{site.youtube}}"><img src="{{site.baseurl}}/img/parts/youtube-logo.png" class="social-icon" /></a></div>
-            <div class="small-2 columns social-icons"><a href="{{site.google-plus}}"><img src="{{site.baseurl}}/img/parts/googleplus-logo.png" class="social-icon" /></a></div>
-            <div class="small-2 columns social-icons"><a href="{{site.pinterest}}"><img src="{{site.baseurl}}/img/parts/pinterest-logo.png" class="social-icon" /></a></div>
-            <div class="small-2 columns social-icons"><a href="{{site.flickr}}"><img src="{{site.baseurl}}/img/parts/flickr-logo.png" class="social-icon" /></a></div><br>
-          </div>
+          {% include social-icons.html %}<br>
           <ul class="no-bullet">
             <li><img src="http://placehold.it/368x288" class="img-responsive"></li><br>
             <li><img src="http://placehold.it/368x288" class="img-responsive"></li><br>
