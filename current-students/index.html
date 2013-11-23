@@ -51,10 +51,7 @@ title: Current Students | University of Wisconsin Oshkosh
         <a href="{{site.baseurl}}">Home</a>
         <a href="#" class="current">Current Students</a>
       </nav>
-      <h3 class="news-heading">Current Student Resources</h3>
-      <p class="drop-down-nav">
-        Whether you want to register for classes, communicate with classmates or professors, or discover news and events that occur on campus, the following resources will help you make the most of your experience at UW Oshkosh.
-      </p>
+			{% include current-students/lead-content.html %}
 
       <div class="row">
         <div class="large-6 columns">
@@ -66,75 +63,10 @@ title: Current Students | University of Wisconsin Oshkosh
         </div>
 
         <div class="large-6 columns">
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelCampusLife"><h3 class="panel__title">Campus Life</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive panel__image"></a>
-                <div id="panelCampusLife" class="content panel__content">
-                  <ul>
-                    <li><a href="http://reeve.uwosh.edu/involvement">Get Involved!</a></li>
-                    <li><a href="http://www.uwosh.edu/home/administration">Administrative Offices</a></li>
-                    <li><a href="http://www.advancetitan.com/">Advance-Titan</a></li>
-                    <li><a href="http://bookstore.uwosh.edu/home.aspx">Bookstore</a></li>
-                    <li><a href="http://www.uwosh.edu/home/current-students/safety">Campus Safety</a></li>
-                    <li><a href="http://www.uwosh.edu/student_financial/cashiers-office">Cashier's Office</a></li>
-                    <li><a href="http://www.uwosh.edu/childrens_center/">Children's Learning and Care Center</a></li>
-                    <li><a href="http://www.uwosh.edu/commencement/">Commencement</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelHealthAndWellness"><h3 class="panel__title">Health and Wellness</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive panel__image"></a>
-                <div id="panelHealthAndWellness" class="content panel__content">
-                  <ul>
-                    <li><a href="http://www.uwosh.edu/couns_center/">Counseling Center</a></li>
-                    <li><a href="http://www.uwosh.edu/health_center/">Health Center</a></li>
-                    <li><a href="http://recreation.uwosh.edu/">Student Recreation and Wellness Center</a></li>
-                    <li><a href="http://recreation.uwosh.edu/intramural-sports">Intramural Sports</a></li>
-                    <li><a href="">Pet Therapy</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelGraduateStudents"><h3 class="panel__title">Graduate Students</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive panel__image"></a>
-                <div id="panelGraduateStudents" class="content panel__content">
-                  <ul>
-                    <li><a href="//www.uwosh.edu/gradstudies">Graduate Studies</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
-          <div class="panel">
-            <dl class="accordion" data-accordion>
-              <dd>
-                <a href="#panelAdultNontraditionalStudents"><h3 class="panel__title">Adult Nontraditional Students</h3>
-                <img src="http://lorempixel.com/336/128/business" class="img-responsive panel__image"></a>
-                <div id="panelAdultNontraditionalStudents" class="content panel__content">
-                  <ul>
-                    <li><a href="http://www.uwosh.edu/llce">Lifelong Learning and Community Engagement (LLCE)</a></li>
-                    <li><a href="">LLCE adult student resources</a></li>
-                    <li><a href="">LLCE online degree and certificate programs</a></li>
-                    <li><a href="">LLCE program advising</a></li>
-                    <li><a href="">LLCE personal and professional development programs</a></li>
-                    <li><a href="http://www.uwosh.edu/llce/graduationproject">The Graduation Project</a></li>
-                    <li><a href="">Credit for Prior Learning</a></li>
-                  </ul>
-                </div>
-              </dd>
-            </dl>
-          </div>
+					{% include current-students/panel-campus-life.html %}
+					{% include current-students/panel-health-and-wellness.html %}
+					{% include current-students/panel-graduate-students.html %}
+					{% include current-students/panel-adult-nontraditional-students.html %}
         </div>
       </div>
     </div>
