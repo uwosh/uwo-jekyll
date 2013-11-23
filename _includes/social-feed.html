@@ -1,0 +1,127 @@
+<!-- Social Feed -->
+<div class="social-container">
+  <div class="row">
+    <div class="large-12 columns">
+
+      <dl class="tabs vertical" id="socialTabs" data-tab>
+        <dd class="active"><a href="#twitter"><i class="fa fa-fw fa-twitter"></i> Twitter</a></dd>
+        <dd><a href="#facebook"><i class="fa fa-fw fa-facebook"></i> Facebook</a></dd>
+        <dd><a href="#youtube"><i class="fa fa-fw fa-youtube"></i> YouTube</a></dd>
+        <dd><a href="#flickr"><i class="fa fa-fw fa-flickr"></i> Flickr</a></dd>
+      </dl>
+
+      <div class="tabs-content vertical">
+        <div class="content active" id="twitter">
+          {% jsonball twitter from url http://feeds.uwosh.edu/api/v1/index.php/twitter/uwoshkosh %}
+          <div class="deck-container">
+            <deck id="deck-twitter">
+              {% for tweet in twitter limit: 12 %}
+                <slide>
+                  <div class="twitter-article social-article">
+                    <div class="media">
+                      <a class="media__img" href="https://twitter.com/{{ tweet.user.screen_name }}"><img class="media-object" src="{{ tweet.user.profile_image_url_https }}"></a>
+                      <div class="media__body">
+                        <div class="media-heading">
+                          <span class="tweetprofilelink">
+                            <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
+                          </span><br>
+                          <span class="tweet-time">
+                            <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}"><i class="fa fa-clock-o datetime"></i> <time class="timeago datetime" datetime="{{ tweet.created_at}}">{{ tweet.created_at | date: "%B %d, %Y" }}</time></a>
+                          </span>
+                        </div>
+                        <p>{{ tweet.text }}</p>
+                        <p class="twitter-intents">
+                          <a href="https://twitter.com/intent/tweet?in_reply_to={{ tweet.id }}" target="_blank"><i class="fa fa-fw fa-reply"></i> Reply &nbsp;</a>
+                          <a href="https://twitter.com/intent/retweet?tweet_id={{ tweet.id }}" target="_blank"><i class="fa fa-fw fa-retweet"></i> Retweet &nbsp;</a>
+                          <a href="https://twitter.com/intent/favorite?tweet_id={{ tweet.id }}" target="_blank"><i class="fa fa-fw fa-star"></i> Favorite</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </slide>
+              {% endfor %}
+            </deck>
+          </div><!-- /.deck-container -->
+          <div class="social-controls">
+            <ul class="list-unstyled">
+              <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
+              <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
+            </ul>
+          </div>
+        </div><!-- /#twitter -->
+        <div class="content" id="facebook">
+          {% jsonball facebook from url http://feeds.uwosh.edu/api/v1/index.php/facebook/uwoshkosh %}
+          <div class="deck-container">
+            <deck id="deck-facebook">
+              {% for fbpost in facebook.data limit: 12 %}
+                <slide>
+                  <div class="twitter-article social-article">
+                    <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
+                    <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ fbpost.updated_time}}">{{ fbpost.updated_time | date: "%B %d, %Y" }}</time>
+                  </div>
+                </slide>
+              {% endfor %}
+            </deck>
+          </div><!-- /.deck-container -->
+          <div class="social-controls">
+            <ul class="list-unstyled">
+              <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
+              <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content" id="youtube">
+          {% jsonball youtube from url http://feeds.uwosh.edu/api/v1/index.php/youtube/uwosh %}
+          <div class="deck-container">
+            <deck id="deck-youtube">
+              {% for video in youtube.data.items limit: 12 %}
+                <slide>
+                  <div class="twitter-article social-article">
+                    <div class="youtube" id="{{video.id}}" style="height:160px;"></div>
+                    <h5>{{ video.title }}</h5>
+                    <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ video.updated }}">{{ video.updated | date: "%B %d, %Y" }}</time></span>
+                  </div>
+                </slide>
+              {% endfor %}
+            </deck>
+          </div><!-- /.deck-container -->
+          <div class="social-controls">
+            <ul class="list-unstyled">
+              <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
+              <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
+            </ul>
+            <script src="https://labnol.googlecode.com/files/youtube.js"></script>
+          </div>
+        </div>
+        <div class="content" id="flickr">
+          {% jsonball flickr from url http://feeds.uwosh.edu/api/v1/index.php/flickr/uwoshkosh %}
+          <div class="deck-container">
+            <deck id="deck-flickr">
+              {% for set in flickr.photosets.photoset limit: 12 %}
+                <slide>
+                  <div class="twitter-article social-article">
+                    <p><a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg" class="social-feed-flickr-image"></a></p>
+                    <h5>{{ set.title._content }}</h5>
+                    <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ set.date_update }}">{{ set.date_update | date: "%B %d, %Y" }}</time></span>
+                  </div>
+                </slide>
+              {% endfor %}
+            </deck>
+          </div><!-- /.deck-container -->
+          <div class="social-controls">
+            <ul class="list-unstyled">
+              <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
+              <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.col-lg-12 -->
+  </div><br><!-- /.row -->
+
+</div><!-- /.social-container -->
+
+<!-- Bespoke scripts -->
+<script src="{{site.baseurl}}/js/bespoke/bespoke.min.js"></script>
+<script src="{{site.baseurl}}/js/bespoke/bespoke-loop.min.js"></script>
+<script src="{{site.baseurl}}/js/bespoke/bespoke-social.js"></script>
