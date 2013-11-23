@@ -76,106 +76,17 @@ title: University of Wisconsin Oshkosh
 
   <!-- Events -->
   <div class="large-9 columns">
-    <div class="row">
-      <div class="large-12 columns">
-        <h4>Events <small>View More Events -></small></h4>
-      </div>
-    </div>
-    <div class="row">
-    {% jsonball events from url http://feeds.uwosh.edu/api/v1/index.php/events/public %}
-    {% for event in events.value.items limit: 3 %}
-      <div class="large-4 small-4 columns">
-        <div class="media">
-          <a class="media__img" href="#">
-            <div class="event-item__calendar">
-              <div class="event-item__calendar--month">{{ event.pubDate | date: "%b"}}</div>
-              <div class="event-item__calendar--day">{{ event.pubDate | date: "%d"}}</div>
-            </div>
-          </a>
-          <div class="media__body">
-            <h4 class="event-item__title">{{ event.title }}</h4>
-            <div class="event-item__time">{{ event.pubDate | date: "%B %d, %Y"}}</div>
-            <div class="event-item__location"><a href="{{ event.link }}">{{ event.link }}</a></div>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
+		{% include home/events.html %}
   </div>
   <!-- End Events -->
 
 </div><br>
 
-<!-- News Feed -->
 <div class="row">
-
-{% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/campus-news %}
-  {% for post in feed.posts %}
-    <div class="large-4 small-12 columns">
-      <div class="panel panel--home panel--dark-yellow">
-        <span class="panel__category uppercase"><a href="http://www.uwosh.edu/today/campus-news/">Campus News <i class="fa fa-arrow-right"></i></a></span>
-        <h2 class="panel__news-heading">{{ post.title }}</h2>
-        <div class="panel__video-wrapper">
-          {% capture video %}{{ post.content | videophoto }}{% endcapture %}
-          {% if video != "" %}
-            <div class="youtube" id="{{video}}" style="height:189px;"></div>
-          {% else %}
-            <img data-original="{{ post.thumbnail_images.medium.url }}" src="{{site.baseurl}}/img/grey.gif" class="panel__image--home lazy" />
-          {% endif %}
-        </div><br>
-        <div class="panel__excerpt">
-          <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-        </div>
-        <span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
-      </div>
-    </div>
-  {% endfor %}
-
-  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/research %}
-  {% for post in feed.posts %}
-    <div class="large-4 small-12 columns">
-      <div class="panel panel--home panel--dark-green">
-        <span class="panel__category uppercase"><a href="http://www.uwosh.edu/today/research/">Research News <i class="fa fa-arrow-right"></i></a></span>
-        <h2 class="panel__news-heading">{{ post.title }}</h2>
-        <div class="panel__video-wrapper">
-          {% capture video %}{{ post.content | videophoto }}{% endcapture %}
-          {% if video != "" %}
-            <div class="youtube" id="{{video}}" style="height:189px;"></div>
-          {% else %}
-            <img data-original="{{ post.thumbnail_images.medium.url }}" src="{{site.baseurl}}/img/grey.gif" class="panel__image--home lazy" />
-          {% endif %}
-        </div><br>
-        <div class="panel__excerpt">
-          <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-        </div>
-        <span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
-      </div>
-    </div>
-  {% endfor %}
-
-  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/powering-community %}
-  {% for post in feed.posts %}
-    <div class="large-4 small-12 columns">
-      <div class="panel panel--home panel--blue">
-        <span class="panel__category uppercase"><a href="http://www.uwosh.edu/today/knowledge-powers-community">Powering Community <i class="fa fa-arrow-right"></i></a></span>
-        <h2 class="panel__news-heading">{{ post.title }}</h2>
-        <div class="panel__video-wrapper">
-          {% capture video %}{{ post.content | videophoto }}{% endcapture %}
-          {% if video != "" %}
-            <div class="youtube" id="{{video}}" style="height:189px;"></div>
-          {% else %}
-            <img data-original="{{ post.thumbnail_images.medium.url }}" src="{{site.baseurl}}/img/grey.gif" class="panel__image--home lazy" />
-          {% endif %}
-        </div><br>
-        <div class="panel__excerpt">
-          <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-        </div>
-        <span class="panel__osted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
-      </div>
-    </div>
-  {% endfor %}
-</div><br>
-<!-- End News Feed -->
+	{% include home/panel-campus-news.html %}
+	{% include home/panel-research-news.html %}
+	{% include home/panel-powering-community.html %}
+</div>
 
 <div class="row">
   <div class="large-12 columns">
@@ -187,122 +98,21 @@ title: University of Wisconsin Oshkosh
   </div>
 </div><br>
 
-<!-- Weekly Feed -->
 <div class="row">
-  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/uwotw %}
-  {% for post in feed.posts %}
-    <div class="large-4 small-12 columns">
-      <div class="panel panel--home panel--dark-blue">
-        <span class="panel__category uppercase"><a href="http://www.uwosh.edu/today/category/uwotw/">UW Oshkosh This Week <i class="fa fa-arrow-right"></i></a></span>
-        <h2 class="panel__news-heading">{{ post.title }}</h2>
-        <div class="panel__video-wrapper">
-          {% capture video %}{{ post.content | videophoto }}{% endcapture %}
-          {% if video != "" %}
-            <div class="youtube" id="{{video}}" style="height:189px;"></div>
-          {% else %}
-            <img data-original="{{ post.thumbnail_images.medium.url }}" src="{{site.baseurl}}/img/grey.gif" class="panel__image--home lazy" />
-          {% endif %}
-        </div><br>
-        <div class="panel__excerpt">
-          <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-        </div>
-        <span class="posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
-      </div>
-    </div>
-  {% endfor %}
-
-  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/sustainability %}
-  {% for post in feed.posts %}
-    <div class="large-4 small-12 columns">
-      <div class="panel panel--home panel--green">
-        <span class="panel__category uppercase"><a href="http://www.uwosh.edu/faces/2013/jerry-klein/">Admissions <i class="fa fa-arrow-right"></i></a></span>
-        <h2 class="panel__news-heading">{{ post.title }}</h2>
-        <div class="panel__video-wrapper">
-          {% capture video %}{{ post.content | videophoto }}{% endcapture %}
-          {% if video != "" %}
-            <div class="youtube" id="{{video}}" style="height:189px;"></div>
-          {% else %}
-            <img data-original="{{ post.thumbnail_images.medium.url }}" src="{{site.baseurl}}/img/grey.gif" class="panel__image--home lazy" />
-          {% endif %}
-        </div><br>
-        <div class="panel__excerpt">
-          <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-        </div>
-        <span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
-      </div>
-    </div>
-  {% endfor %}
-
-  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/snapshots %}
-  {% for post in feed.posts %}
-    <div class="large-4 small-12 columns">
-      <div class="panel panel--home panel--dark-yellow">
-        <span class="panel__category uppercase"><a href="http://www.uwosh.edu/today/category/this-week-in-focus/">I am a Titan <i class="fa fa-arrow-right"></i></a></span>
-        <h2 class="panel__news-heading">{{ post.title }}</h2>
-        <div class="panel__video-wrapper">
-          {% capture video %}{{ post.content | videophoto }}{% endcapture %}
-          {% if video != "" %}
-            <div class="youtube" id="{{video}}" style="height:189px;"></div>
-          {% else %}
-            <img data-original="{{ post.thumbnail_images.medium.url }}" src="{{site.baseurl}}/img/grey.gif" class="panel__image--home lazy" />
-          {% endif %}
-        </div><br>
-        <div class="panel__excerpt">
-          <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-        </div>
-        <span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
-      </div>
-    </div>
-  {% endfor %}
+	{% include home/panel-uwotw.html %}
+	{% include home/panel-admissions.html %}
+	{% include home/panel-i-am-a-titan.html %}
 </div><br>
-<!-- End Weekly Feed -->
 
 <!-- Chancellor Row -->
 <div class="row">
+	{% include home/panel-from-the-chancellor.html %}
+	{% include home/panel-meet-uw-oshkosh.html %}
+	{% include home/panel-i-am-a-titan.html %}
+	
 
-  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/alumni-news %}
-  {% for post in feed.posts %}
-    <div class="large-4 small-12 columns">
-      <div class="panel panel--home panel--orange">
-        <span class="panel__category uppercase">From the Chancellor <i class="fa fa-arrow-right"></i></span>
-        <h2 class="panel__news-heading">{{ post.title }}</h2>
-        <div class="panel__videoWrapper">
-          {% capture video %}{{ post.content | videophoto }}{% endcapture %}
-          {% if video != "" %}
-            <div class="youtube" id="{{video}}" style="height:189px;"></div>
-          {% else %}
-            <img data-original="{{ post.thumbnail_images.medium.url }}" src="{{site.baseurl}}/img/grey.gif" class="panel__image--home lazy" />
-          {% endif %}
-        </div><br>
-        <div class="panel__excerpt">
-          <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-        </div>
-        <span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
-      </div>
-    </div>
-  {% endfor %}
 
-  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/meet-uwo %}
-  {% for post in feed.posts %}
-    <div class="large-4 small-12 columns">
-      <div class="panel panel--home panel--dark-orange">
-        <span class="panel__category uppercase">Meet UW Oshkosh <i class="fa fa-arrow-right"></i></span>
-        <h2 class="panel__news-heading">{{ post.title }}</h2>
-        <div class="panel__video-wrapper">
-          {% capture video %}{{ post.content | videophoto }}{% endcapture %}
-          {% if video != "" %}
-            <div class="youtube" id="{{video}}" style="height:189px;"></div>
-          {% else %}
-            <img data-original="{{ post.thumbnail_images.medium.url }}" src="{{site.baseurl}}/img/grey.gif" class="panel__image--home lazy" />
-          {% endif %}
-        </div><br>
-        <div class="panel__excerpt">
-          <p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
-        </div>
-        <span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
-      </div>
-    </div>
-  {% endfor %}
+
 
   {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/this-week-in-focus %}
   {% for post in feed.posts %}

@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="large-12 columns">
+		<h4>Events <small>View More Events -></small></h4>
+	</div>
+</div>
+<div class="row">
+{% jsonball events from url http://feeds.uwosh.edu/api/v1/index.php/events/public %}
+{% for event in events.value.items limit: 3 %}
+	<div class="large-4 small-4 columns">
+		<div class="media">
+			<a class="media__img" href="#">
+				<div class="event-item__calendar">
+					<div class="event-item__calendar--month">{{ event.pubDate | date: "%b"}}</div>
+					<div class="event-item__calendar--day">{{ event.pubDate | date: "%d"}}</div>
+				</div>
+			</a>
+			<div class="media__body">
+				<h4 class="event-item__title">{{ event.title }}</h4>
+				<div class="event-item__time">{{ event.pubDate | date: "%B %d, %Y"}}</div>
+				<div class="event-item__location"><a href="{{ event.link }}">{{ event.link }}</a></div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>

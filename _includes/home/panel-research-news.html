@@ -1,0 +1,21 @@
+{% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/research %}
+{% for post in feed.posts %}
+	<div class="large-4 small-12 columns">
+		<div class="panel panel--home panel--dark-green">
+			<span class="panel__category uppercase"><a href="http://www.uwosh.edu/today/research/">Research News <i class="fa fa-arrow-right"></i></a></span>
+			<h2 class="panel__news-heading">{{ post.title }}</h2>
+			<div class="panel__video-wrapper">
+				{% capture video %}{{ post.content | videophoto }}{% endcapture %}
+				{% if video != "" %}
+					<div class="youtube" id="{{video}}" style="height:189px;"></div>
+				{% else %}
+					<img data-original="{{ post.thumbnail_images.medium.url }}" src="{{site.baseurl}}/img/grey.gif" class="panel__image--home lazy" />
+				{% endif %}
+			</div><br>
+			<div class="panel__excerpt">
+				<p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
+			</div>
+			<span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
+		</div>
+	</div>
+{% endfor %}
