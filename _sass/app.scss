@@ -2,6 +2,7 @@
 @import "foundation";
 
 /* Custom Variables */
+$light-yellow: #fce192;
 $yellow: #fec425;
 $dark-yellow: #d79a27;
 $rule-gray: #dcddde;
@@ -617,6 +618,10 @@ CTAs
 .cta--home {
   padding-top: 10px;
 }
+.cta--parents {
+  padding-top: 15px;
+  margin-bottom: 16px;
+}
 .cta__icon {
   width: 48px;
   height: 48px;
@@ -645,6 +650,9 @@ CTAs
 }
 .cta--dark-green {
   background-color: $dark-green;
+}
+.cta--light-yellow {
+  background-color: $light-yellow;
 }
 /******************************************************************
 END CTAs
