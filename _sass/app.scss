@@ -68,6 +68,12 @@ a {
 a:hover {
   text-decoration: none;
 }
+abbr {
+  text-transform: inherit;
+  font-size: inherit;
+  border: none;
+  color: inherit;
+}
 .vcard {
   border: none;
 }
