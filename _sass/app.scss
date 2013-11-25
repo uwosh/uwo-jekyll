@@ -29,6 +29,10 @@ $twif: #f8c636;
 .media .media__img {float:left; margin-right: 10px;}
 .media .media__img img{display:block;}
 .media .media__img--ext{float:right; margin-left: 10px;}
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
 .news-heading {
   color: $dark-gray;
   font-weight: 700;
@@ -64,7 +68,9 @@ a {
 a:hover {
   text-decoration: none;
 }
-
+.vcard {
+  border: none;
+}
 .content {
   background-color: #fff;
 }
@@ -584,6 +590,9 @@ PAGE BANNERS
 .page-banner--dark-green {
   background-color: $dark-green;
 }
+.page-banner--dark-gray {
+  background-color: $dark-gray;
+}
 /******************************************************************
 END PAGE BANNERS
 ******************************************************************/
@@ -601,8 +610,10 @@ CTAs
   padding-top: 10px;
 }
 .cta__icon {
-  color: #fff;
-  font-size: 28px;
+  width: 48px;
+  height: 48px;
+  margin-top: -7px;
+  margin-right: 8px;
 }
 .cta__text {
   color: #fff;
@@ -690,8 +701,8 @@ UWO ICON FONT
   src: url('../fonts/uwo-icons.eot?25206943');
   src: url('../fonts/uwo-icons.eot?25206943#iefix') format('embedded-opentype'),
        url('../fonts/uwo-icons.woff?25206943') format('woff'),
-       url('../fonts/uwo-icons.ttf?25206943') format('truetype'),
-       url('../fonts/uwo-icons.svg?25206943#uwo-icons') format('svg');
+       url('../fonts/uwo-icons.svg?25206943#uwo-icons') format('svg'),
+       url('../fonts/uwo-icons.ttf?25206943') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
