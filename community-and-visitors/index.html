@@ -12,10 +12,14 @@ title: Community and Visitors | University of Wisconsin Oshkosh
 		<div class="row">
 			<div class="large-2 columns">
 				{% include community-and-visitors/side-nav.html %}
-        {% include titan-alert.html %}<br>
-				{% include ads.html %}
+        <a href="http://www.uwpowerswi.com/"><img src="{{ site.baseurl }}/img/community-and-visitors/knowledge-powers.jpg"></a>
 			</div>
 			<div class="large-10 columns">
+        <nav class="breadcrumbs">
+          <a href="{{site.baseurl}}">Home</a>
+          <a href="#" class="current">Community and Visitors</a>
+        </nav>
+        {% include community-and-visitors/lead-content.html %}
 				<div class="row">
 					<div class="large-6 columns">
 						{% include community-and-visitors/panel-building-better-communities.html %}
