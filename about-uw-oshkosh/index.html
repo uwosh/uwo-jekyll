@@ -52,24 +52,10 @@ title: About UW Oshkosh | University of Wisconsin Oshkosh
 
 <div class="row">
   <div class="large-2 columns">
-    <ul class="side-nav">
-      <li><a href="#">Link 1</a></li>
-      <li><a href="#">Link 2</a></li>
-      <li><a href="#">Link 3</a></li>
-      <li><a href="#">Link 4</a></li>
-    </ul>
+    {% include about-uw-oshkosh/side-nav.html %}
     <p>
-      <strong>Campus Address</strong><br>
-      <address class="vcard">
-        <div class="fn">University of Wisconsin Oshkosh</div>
-        <div class="adr">
-          <div class="street-address">800 Algoma Blvd.</div>
-          <span class="locality">Oshkosh</span>, <span class="region">WI</span> <span class="postal-code">54901</span>
-        </div>
-        <div class="tel">
-          <a href="tel:9204241234">(920) 424-1234</a>
-        </div>
-      </address>
+      Campus Address
+      {% include vcard.html %}
     </p>
   </div>
   <div class="large-10 columns">
@@ -79,7 +65,9 @@ title: About UW Oshkosh | University of Wisconsin Oshkosh
     </nav>
     <div class="row">
       <div class="large-6 columns">
-        <p>YouTube Video Here</p>
+        <div class="flex-video">
+          <iframe width="640" height="360" src="//www.youtube.com/embed/u_iOaXjkwP4?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
       <div class="large-6 columns">
         <h3 class="news-heading">The University of Wisconsin Oshkosh &#8212; Where Excellence and Opportunity Meet</h3>
