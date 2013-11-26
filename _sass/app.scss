@@ -465,7 +465,7 @@ END NAV DRAWERS
 PANELS
 ******************************************************************/
 .panel {
-  box-shadow: 0 0 5px #999;
+  box-shadow: 0 0 5px $medium-gray;
   background: #fff;
   padding: 0;
 }
@@ -485,7 +485,7 @@ PANELS
   font-weight: 600;
   color: $dark-gray !important;
   height: 48px;
-  padding: 8px 8px 0 8px;
+  padding: 8px 16px 0 16px;
   border-bottom: 1px solid $light-gray;
   background: #ffffff; /* Old browsers */
   background: -moz-linear-gradient(top,  #ffffff 0%, #eef0f0 100%); /* FF3.6+ */
@@ -512,16 +512,16 @@ PANELS
   bottom: 25px;
 }
 .panel__image {
-  padding: 8px;
+  padding: 16px;
 }
 .panel__image__caption {
-  padding: 8px;
+  padding: 8px 16px 8px 16px;
 }
 .panel__image--home {
   height: 189px;
 }
 .panel__content {
-  padding: 8px;
+  padding: 8px 16px 8px 16px;
 }
 .panel--home {
   height: 410px;

@@ -8347,7 +8347,7 @@ PANELS
 ******************************************************************/
 /* line 467, ../_sass/app.scss */
 .panel {
-  box-shadow: 0 0 5px #999;
+  box-shadow: 0 0 5px #b0b0b0;
   background: #fff;
   padding: 0;
 }
@@ -8374,7 +8374,7 @@ PANELS
   font-weight: 600;
   color: #444444 !important;
   height: 48px;
-  padding: 8px 8px 0 8px;
+  padding: 8px 16px 0 16px;
   border-bottom: 1px solid #ededed;
   background: #ffffff;
   /* Old browsers */
@@ -8412,12 +8412,12 @@ PANELS
 
 /* line 514, ../_sass/app.scss */
 .panel__image {
-  padding: 8px;
+  padding: 16px;
 }
 
 /* line 517, ../_sass/app.scss */
 .panel__image__caption {
-  padding: 8px;
+  padding: 8px 16px 8px 16px;
 }
 
 /* line 520, ../_sass/app.scss */
@@ -8427,7 +8427,7 @@ PANELS
 
 /* line 523, ../_sass/app.scss */
 .panel__content {
-  padding: 8px;
+  padding: 8px 16px 8px 16px;
 }
 
 /* line 526, ../_sass/app.scss */
