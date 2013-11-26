@@ -10817,64 +10817,50 @@ CTAs
 
 /* line 635, ../_sass/app.scss */
 .cta__icon {
-  width: 48px;
-  height: 48px;
-  margin-top: -7px;
+  width: 40px;
+  height: 40px;
+  margin-top: -3px;
   margin-right: 8px;
 }
 
 /* line 641, ../_sass/app.scss */
-.cta__icon--book-closed {
-  width: 40px;
-  height: 40px;
-  margin-top: -3px;
-}
-
-/* line 646, ../_sass/app.scss */
-.cta__icon--pencil {
-  width: 40px;
-  height: 40px;
-  margin-top: -3px;
-}
-
-/* line 651, ../_sass/app.scss */
 .cta__text {
   color: #fff;
   font-size: 18px;
   font-weight: 400;
 }
 
-/* line 656, ../_sass/app.scss */
+/* line 646, ../_sass/app.scss */
 .cta__text--home {
   font-size: 28px;
 }
 
-/* line 659, ../_sass/app.scss */
+/* line 649, ../_sass/app.scss */
 .cta--blue {
   background-color: #69bad9;
 }
 
-/* line 662, ../_sass/app.scss */
+/* line 652, ../_sass/app.scss */
 .cta--dark-blue {
   background-color: #0077ad;
 }
 
-/* line 665, ../_sass/app.scss */
+/* line 655, ../_sass/app.scss */
 .cta--orange {
   background-color: #e68600;
 }
 
-/* line 668, ../_sass/app.scss */
+/* line 658, ../_sass/app.scss */
 .cta--dark-orange {
   background-color: #c05600;
 }
 
-/* line 671, ../_sass/app.scss */
+/* line 661, ../_sass/app.scss */
 .cta--dark-green {
   background-color: #5a9664;
 }
 
-/* line 674, ../_sass/app.scss */
+/* line 664, ../_sass/app.scss */
 .cta--light-yellow {
   background-color: #fce192;
 }
@@ -10885,19 +10871,19 @@ END CTAs
 /******************************************************************
 EVENTS
 ******************************************************************/
-/* line 687, ../_sass/app.scss */
+/* line 677, ../_sass/app.scss */
 .event-item__title {
   margin-top: -5px;
 }
 
-/* line 696, ../_sass/app.scss */
+/* line 686, ../_sass/app.scss */
 .event-item__calendar {
   border: 1px solid #b0b0b0;
   box-shadow: 1px 1px 5px #999;
   width: 64px;
 }
 
-/* line 701, ../_sass/app.scss */
+/* line 691, ../_sass/app.scss */
 .event-item__calendar--month {
   height: 24px;
   background-color: #0077ad;
@@ -10906,7 +10892,7 @@ EVENTS
   padding-top: 5px;
 }
 
-/* line 708, ../_sass/app.scss */
+/* line 698, ../_sass/app.scss */
 .event-item__calendar--day {
   height: 40px;
   color: #444444;
@@ -10922,7 +10908,7 @@ END EVENTS
 /******************************************************************
 CAMPUS FAST FACTS
 ******************************************************************/
-/* line 723, ../_sass/app.scss */
+/* line 713, ../_sass/app.scss */
 .campus-fast-facts table {
   border: none;
   border-top: #fec425 2px solid;
@@ -10953,7 +10939,7 @@ UWO ICON FONT
   }
 }
 */
-/* line 756, ../_sass/app.scss */
+/* line 746, ../_sass/app.scss */
 [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "uwo-icons";
   font-style: normal;
@@ -10979,115 +10965,115 @@ UWO ICON FONT
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-/* line 787, ../_sass/app.scss */
+/* line 777, ../_sass/app.scss */
 .icon-award-ribbon:before {
   content: '\e800';
 }
 
 /* '' */
-/* line 788, ../_sass/app.scss */
+/* line 778, ../_sass/app.scss */
 .icon-wind-turbine:before {
   content: '\e812';
 }
 
 /* '' */
-/* line 789, ../_sass/app.scss */
+/* line 779, ../_sass/app.scss */
 .icon-book-open:before {
   content: '\e802';
 }
 
 /* '' */
-/* line 790, ../_sass/app.scss */
+/* line 780, ../_sass/app.scss */
 .icon-clock:before {
   content: '\e803';
 }
 
 /* '' */
-/* line 791, ../_sass/app.scss */
+/* line 781, ../_sass/app.scss */
 .icon-diploma:before {
   content: '\e804';
 }
 
 /* '' */
-/* line 792, ../_sass/app.scss */
+/* line 782, ../_sass/app.scss */
 .icon-directory:before {
   content: '\e805';
 }
 
 /* '' */
-/* line 793, ../_sass/app.scss */
+/* line 783, ../_sass/app.scss */
 .icon-gear-person:before {
   content: '\e806';
 }
 
 /* '' */
-/* line 794, ../_sass/app.scss */
+/* line 784, ../_sass/app.scss */
 .icon-graph:before {
   content: '\e807';
 }
 
 /* '' */
-/* line 795, ../_sass/app.scss */
+/* line 785, ../_sass/app.scss */
 .icon-laptop-open:before {
   content: '\e808';
 }
 
 /* '' */
-/* line 796, ../_sass/app.scss */
+/* line 786, ../_sass/app.scss */
 .icon-book-closed:before {
   content: '\e801';
 }
 
 /* '' */
-/* line 797, ../_sass/app.scss */
+/* line 787, ../_sass/app.scss */
 .icon-pencil-w-notepaper:before {
   content: '\e80a';
 }
 
 /* '' */
-/* line 798, ../_sass/app.scss */
+/* line 788, ../_sass/app.scss */
 .icon-pencil:before {
   content: '\e80b';
 }
 
 /* '' */
-/* line 799, ../_sass/app.scss */
+/* line 789, ../_sass/app.scss */
 .icon-person-in-circle:before {
   content: '\e80c';
 }
 
 /* '' */
-/* line 800, ../_sass/app.scss */
+/* line 790, ../_sass/app.scss */
 .icon-pillar-top:before {
   content: '\e80d';
 }
 
 /* '' */
-/* line 801, ../_sass/app.scss */
+/* line 791, ../_sass/app.scss */
 .icon-pointer-p:before {
   content: '\e80e';
 }
 
 /* '' */
-/* line 802, ../_sass/app.scss */
+/* line 792, ../_sass/app.scss */
 .icon-pointer-star:before {
   content: '\e80f';
 }
 
 /* '' */
-/* line 803, ../_sass/app.scss */
+/* line 793, ../_sass/app.scss */
 .icon-pointer-star2:before {
   content: '\e810';
 }
 
 /* '' */
-/* line 804, ../_sass/app.scss */
+/* line 794, ../_sass/app.scss */
 .icon-question:before {
   content: '\e811';
 }
 
 /* '' */
-/* line 805, ../_sass/app.scss */
+/* line 795, ../_sass/app.scss */
 .icon-light-bulb:before {
   content: '\e809';
 }
