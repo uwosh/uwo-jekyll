@@ -151,7 +151,7 @@ $body-font-family: ‘Open Sans’, Helvetica, Arial, sans-serif;
 
 $row-width: em-calc(1136);
 $column-gutter: em-calc(16);
-// $total-columns: 12;
+$total-columns: 24;
 
 //
 // Block Grid Variables
@@ -159,8 +159,8 @@ $column-gutter: em-calc(16);
 
 // We use this to control the maximum number of block grid elements per row
 
-// $block-grid-elements: 12;
-// $block-grid-default-spacing: em-calc(20);
+$block-grid-elements: 24;
+$block-grid-default-spacing: em-calc(16);
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
 
