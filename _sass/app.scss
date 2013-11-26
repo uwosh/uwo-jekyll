@@ -196,146 +196,6 @@ abbr {
 }
 
 /******************************************************************
-BESPOKE SLIDER STYLES
-******************************************************************/
-.deck-container { position: relative; }
-deck { position: relative; }
-.container-overflow { overflow: hidden; }
-#socialTabs {
-  width: 144px;
-  height: 238px;
-  border: 1px solid $light-gray;
-  background-color: #fff;
-  font-size: 1.2em;
-  li {
-    width: 100%;
-  }
-}
-#socialTabs>li>a:hover {
-  border: none;
-  background-color: #fff;
-}
-#socialTabs>li {
-  background-color: #fff;
-  a {
-    color: $medium-gray;
-    border: none;
-    border-radius: 0;
-    margin-right: 0;
-  }
-}
-#socialTabs>li.active>a {
-  background-color: $dark-blue;
-  color: #fff;
-}
-
-.social-controls {
-  position: absolute;
-  left: 1074px;
-  width: 70px;
-  height: 238px;
-  border: 1px solid $light-gray;
-  background-color: #fff;
-  ul {
-    margin-top: 50px;
-  }
-  li {
-    color: #fff;
-    height: 24px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding-top: 2px;
-  }
-  .previous {
-    background-color: $blue;
-    margin-bottom: 5px;
-  }
-  .next {
-    background-color: $dark-blue;
-  }
-}
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-  border: none;
-}
-slide {
-    position: absolute;
-    top: 0;
-    left: -1px;
-    opacity: 0;
-}
-slide.bespoke-slide {
-    -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
-    -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
-    -ms-transition: -ms-transform .7s ease, opacity .7s ease, background-color .7s ease;
-    -o-transition: -o-transform .7s ease, opacity .7s ease, background-color .7s ease;
-    transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
-}
-slide.bespoke-active {
-    opacity: 1;
-    z-index: 1;
-}
-/* Classic Theme */
-.social-article {
-  width: 309px;
-  height: 238px;
-  border: 1px solid $light-gray;
-  background-color: #fff;
-  padding-top: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-slide.bespoke-before {
-    -webkit-transform: translate3d(-1920px, 0, 0);
-    -moz-transform: translate3d(-1920px, 0, 0);
-    -ms-transform: translate3d(-1920px, 0, 0);
-    -o-transform: translate3d(-1920px, 0, 0);
-    transform: translate3d(-1920px, 0, 0);
-}
-slide.bespoke-before-2 {
-    -webkit-transform: translate3d(-1280px, 0, 0);
-    -moz-transform: translate3d(-1280px, 0, 0);
-    -ms-transform: translate3d(-1280px, 0, 0);
-    -o-transform: translate3d(-1280px, 0, 0);
-    transform: translate3d(-1280px, 0, 0);
-    opacity: 0.1;
-}
-slide.bespoke-before-1 {
-    -webkit-transform: translate3d(-640px, 0, 0);
-    -moz-transform: translate3d(-640px, 0, 0);
-    -ms-transform: translate3d(-640px, 0, 0);
-    -o-transform: translate3d(-640px, 0, 0);
-    transform: translate3d(-640px, 0, 0);
-    opacity: 0.3;
-}
-slide.bespoke-after {
-    -webkit-transform: translate3d(1920px, 0, 0);
-    -moz-transform: translate3d(1920px, 0, 0);
-    -ms-transform: translate3d(1920px, 0, 0);
-    -o-transform: translate3d(1920px, 0, 0);
-    transform: translate3d(1920px, 0, 0);
-}
-slide.bespoke-after-2 {
-    -webkit-transform: translate3d(615px, 0, 0);
-    -moz-transform: translate3d(615px, 0, 0);
-    -ms-transform: translate3d(615px, 0, 0);
-    -o-transform: translate3d(615px, 0, 0);
-    transform: translate3d(615px, 0, 0);
-    opacity: 1.0;
-}
-slide.bespoke-after-1 {
-    -webkit-transform: translate3d(308px, 0, 0);
-    -moz-transform: translate3d(308px, 0, 0);
-    -ms-transform: translate3d(308px, 0, 0);
-    -o-transform: translate3d(308px, 0, 0);
-    transform: translate3d(308px, 0, 0);
-    opacity: 1.0;
-}
-/******************************************************************
-END BESPOKE SLIDER STYLES
-******************************************************************/
-
-/******************************************************************
 ABOUT UW OSHKOSH STYLES
 ******************************************************************/
 .where-you-meet {
@@ -807,4 +667,144 @@ UWO ICON FONT
 .icon-light-bulb:before { content: '\e809'; } /* '' */
 /******************************************************************
 END UWO ICON FONT
+******************************************************************/
+
+/******************************************************************
+BESPOKE SLIDER STYLES
+******************************************************************/
+.deck-container { position: relative; }
+deck { position: relative; }
+.container-overflow { overflow: hidden; }
+#socialTabs {
+  width: 144px;
+  height: 238px;
+  border: 1px solid $light-gray;
+  background-color: #fff;
+  font-size: 1.2em;
+  li {
+    width: 100%;
+  }
+}
+#socialTabs>li>a:hover {
+  border: none;
+  background-color: #fff;
+}
+#socialTabs>li {
+  background-color: #fff;
+  a {
+    color: $medium-gray;
+    border: none;
+    border-radius: 0;
+    margin-right: 0;
+  }
+}
+#socialTabs>li.active>a {
+  background-color: $dark-blue;
+  color: #fff;
+}
+
+.social-controls {
+  position: absolute;
+  left: 1074px;
+  width: 70px;
+  height: 238px;
+  border: 1px solid $light-gray;
+  background-color: #fff;
+  ul {
+    margin-top: 50px;
+  }
+  li {
+    color: #fff;
+    height: 24px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 2px;
+  }
+  .previous {
+    background-color: $blue;
+    margin-bottom: 5px;
+  }
+  .next {
+    background-color: $dark-blue;
+  }
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  border: none;
+}
+slide {
+    position: absolute;
+    top: 0;
+    left: -1px;
+    opacity: 0;
+}
+slide.bespoke-slide {
+    -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
+    -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
+    -ms-transition: -ms-transform .7s ease, opacity .7s ease, background-color .7s ease;
+    -o-transition: -o-transform .7s ease, opacity .7s ease, background-color .7s ease;
+    transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
+}
+slide.bespoke-active {
+    opacity: 1;
+    z-index: 1;
+}
+/* Classic Theme */
+.social-article {
+  width: 309px;
+  height: 238px;
+  border: 1px solid $light-gray;
+  background-color: #fff;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+slide.bespoke-before {
+    -webkit-transform: translate3d(-1920px, 0, 0);
+    -moz-transform: translate3d(-1920px, 0, 0);
+    -ms-transform: translate3d(-1920px, 0, 0);
+    -o-transform: translate3d(-1920px, 0, 0);
+    transform: translate3d(-1920px, 0, 0);
+}
+slide.bespoke-before-2 {
+    -webkit-transform: translate3d(-1280px, 0, 0);
+    -moz-transform: translate3d(-1280px, 0, 0);
+    -ms-transform: translate3d(-1280px, 0, 0);
+    -o-transform: translate3d(-1280px, 0, 0);
+    transform: translate3d(-1280px, 0, 0);
+    opacity: 0.1;
+}
+slide.bespoke-before-1 {
+    -webkit-transform: translate3d(-640px, 0, 0);
+    -moz-transform: translate3d(-640px, 0, 0);
+    -ms-transform: translate3d(-640px, 0, 0);
+    -o-transform: translate3d(-640px, 0, 0);
+    transform: translate3d(-640px, 0, 0);
+    opacity: 0.3;
+}
+slide.bespoke-after {
+    -webkit-transform: translate3d(1920px, 0, 0);
+    -moz-transform: translate3d(1920px, 0, 0);
+    -ms-transform: translate3d(1920px, 0, 0);
+    -o-transform: translate3d(1920px, 0, 0);
+    transform: translate3d(1920px, 0, 0);
+}
+slide.bespoke-after-2 {
+    -webkit-transform: translate3d(615px, 0, 0);
+    -moz-transform: translate3d(615px, 0, 0);
+    -ms-transform: translate3d(615px, 0, 0);
+    -o-transform: translate3d(615px, 0, 0);
+    transform: translate3d(615px, 0, 0);
+    opacity: 1.0;
+}
+slide.bespoke-after-1 {
+    -webkit-transform: translate3d(308px, 0, 0);
+    -moz-transform: translate3d(308px, 0, 0);
+    -ms-transform: translate3d(308px, 0, 0);
+    -o-transform: translate3d(308px, 0, 0);
+    transform: translate3d(308px, 0, 0);
+    opacity: 1.0;
+}
+/******************************************************************
+END BESPOKE SLIDER STYLES
 ******************************************************************/
