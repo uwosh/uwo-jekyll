@@ -150,12 +150,6 @@
           </div>
           <div class="large-8 columns">
             <p>Since 1871, the University of Wisconsin Oshkosh has been providing residents of northeastern Wisconsin with high-quality, affordable education through 60 undergraduate majors, 30 master&rsquo;s degree programs and one doctoral degree for our more than 13,500 students.</p>
-
-            {% jsonball weather from url http://feeds.uwosh.edu/api/v1/index.php/weather/uwo %}
-              <p>
-                <canvas id="weather1" width="42" height="42"></canvas> <span style="font-size:48px;">{{ weather.currently.temperature }}&#176;</span><br>
-                  {{ weather.hourly.summary }}
-              </p>
           </div>
 
           <div class="large-8 columns">
