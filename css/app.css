@@ -10170,10 +10170,13 @@ abbr {
   height: 160px;
 }
 
-/* line 183, ../_sass/app.scss */
+/******************************************************************
+FOOTER
+******************************************************************/
+/* line 186, ../_sass/app.scss */
 .tagline {
   height: 32px;
-  font-size: 1rem;
+  font-size: 16px;
   background-color: #444444;
   color: #fff;
   text-transform: uppercase;
@@ -10181,32 +10184,35 @@ abbr {
   text-align: center;
 }
 
-/* line 192, ../_sass/app.scss */
+/* line 195, ../_sass/app.scss */
 .footer-container {
-  height: 208px;
+  padding-top: 20px;
   background-color: #b0b0b0;
   color: #666666;
 }
-/* line 196, ../_sass/app.scss */
+/* line 199, ../_sass/app.scss */
 .footer-container a {
   color: #666666;
 }
 
-/* line 200, ../_sass/app.scss */
+/* line 203, ../_sass/app.scss */
 .app-icon {
   width: 32px;
   height: 32px;
 }
 
-/* line 204, ../_sass/app.scss */
+/* line 207, ../_sass/app.scss */
 .wismap {
   width: 124px;
 }
 
 /******************************************************************
+END FOOTER
+******************************************************************/
+/******************************************************************
 ABOUT UW OSHKOSH STYLES
 ******************************************************************/
-/* line 211, ../_sass/app.scss */
+/* line 217, ../_sass/app.scss */
 .where-you-meet {
   background-color: #444444;
   font-size: 18px;
@@ -10214,32 +10220,32 @@ ABOUT UW OSHKOSH STYLES
   padding-left: 10px;
   padding-top: 4px;
 }
-/* line 217, ../_sass/app.scss */
+/* line 223, ../_sass/app.scss */
 .where-you-meet span {
   color: #d79a27;
 }
 
-/* line 221, ../_sass/app.scss */
+/* line 227, ../_sass/app.scss */
 .where-you-meet__container {
   margin-top: -6px;
 }
 
-/* line 224, ../_sass/app.scss */
+/* line 230, ../_sass/app.scss */
 .about-pillar {
   background-color: #fff;
   height: 54px;
 }
-/* line 227, ../_sass/app.scss */
+/* line 233, ../_sass/app.scss */
 .about-pillar li {
   margin-left: 0;
 }
 
-/* line 231, ../_sass/app.scss */
+/* line 237, ../_sass/app.scss */
 .about-pillar__container {
   height: 54px;
 }
 
-/* line 234, ../_sass/app.scss */
+/* line 240, ../_sass/app.scss */
 .about-pillar__title {
   font-size: 18px;
   font-weight: 600;
@@ -10248,109 +10254,109 @@ ABOUT UW OSHKOSH STYLES
   padding-top: 13px;
 }
 
-/* line 241, ../_sass/app.scss */
+/* line 247, ../_sass/app.scss */
 .about-pillar--education {
   width: 210px;
   padding-left: 36px;
   background-image: url("../img/about-uw-oshkosh/about-pillar--education.png");
 }
 
-/* line 246, ../_sass/app.scss */
+/* line 252, ../_sass/app.scss */
 .about-pillar--education:hover {
   background-position-y: 53px;
 }
 
-/* line 249, ../_sass/app.scss */
+/* line 255, ../_sass/app.scss */
 .about-pillar--leadership {
   width: 200px;
   padding-left: 11px;
   background-image: url("../img/about-uw-oshkosh/about-pillar--leadership.png");
 }
 
-/* line 254, ../_sass/app.scss */
+/* line 260, ../_sass/app.scss */
 .about-pillar--leadership:hover {
   background-position-y: 53px;
 }
 
-/* line 257, ../_sass/app.scss */
+/* line 263, ../_sass/app.scss */
 .about-pillar--responsiveness {
   width: 230px;
   padding-left: 11px;
   background-image: url("../img/about-uw-oshkosh/about-pillar--responsiveness.png");
 }
 
-/* line 262, ../_sass/app.scss */
+/* line 268, ../_sass/app.scss */
 .about-pillar--responsiveness:hover {
   background-position-y: 53px;
 }
 
-/* line 265, ../_sass/app.scss */
+/* line 271, ../_sass/app.scss */
 .about-pillar--service {
   width: 170px;
   padding-left: 11px;
   background-image: url("../img/about-uw-oshkosh/about-pillar--service.png");
 }
 
-/* line 270, ../_sass/app.scss */
+/* line 276, ../_sass/app.scss */
 .about-pillar--service:hover {
   background-position-y: 53px;
 }
 
-/* line 273, ../_sass/app.scss */
+/* line 279, ../_sass/app.scss */
 .about-pillar--sustainability {
   width: 220px;
   padding-left: 11px;
   background-image: url("../img/about-uw-oshkosh/about-pillar--sustainability.png");
 }
 
-/* line 278, ../_sass/app.scss */
+/* line 284, ../_sass/app.scss */
 .about-pillar--sustainability:hover {
   background-position-y: 53px;
 }
 
-/* line 281, ../_sass/app.scss */
+/* line 287, ../_sass/app.scss */
 .about-pillar__dropdown {
   color: #fff;
   border: none !important;
 }
-/* line 284, ../_sass/app.scss */
+/* line 290, ../_sass/app.scss */
 .about-pillar__dropdown h3 {
   color: #fff;
   font-weight: 600;
 }
 
-/* line 289, ../_sass/app.scss */
+/* line 295, ../_sass/app.scss */
 .about-pillar__dropdown.open {
   top: 54px !important;
   left: 8px !important;
 }
 
-/* line 293, ../_sass/app.scss */
+/* line 299, ../_sass/app.scss */
 .about-pillar__dropdown--education {
   background-color: #0077ad !important;
 }
 
-/* line 296, ../_sass/app.scss */
+/* line 302, ../_sass/app.scss */
 .about-pillar__dropdown--leadership {
   background-color: #c05600 !important;
 }
 
-/* line 299, ../_sass/app.scss */
+/* line 305, ../_sass/app.scss */
 .about-pillar__dropdown--responsiveness {
   background-color: #e68600 !important;
 }
 
-/* line 302, ../_sass/app.scss */
+/* line 308, ../_sass/app.scss */
 .about-pillar__dropdown--service {
   background-color: #69bad9 !important;
 }
 
-/* line 305, ../_sass/app.scss */
+/* line 311, ../_sass/app.scss */
 .about-pillar__dropdown--sustainability {
   background-color: #5a9664 !important;
 }
 
-/* line 308, ../_sass/app.scss */
+/* line 314, ../_sass/app.scss */
 .about-pillar__dropdown__container {
   position: absolute;
   top: -9999px;
@@ -10374,7 +10380,7 @@ ABOUT UW OSHKOSH STYLES
 .about-pillar__dropdown__container > *:last-child {
   margin-bottom: 0;
 }
-/* line 317, ../_sass/app.scss */
+/* line 323, ../_sass/app.scss */
 .about-pillar__dropdown__container li {
   font-size: 0.875rem;
   cursor: pointer;
@@ -10398,7 +10404,7 @@ END ABOUT UW OSHKOSH
 /******************************************************************
 CURRENT STUDENTS
 ******************************************************************/
-/* line 326, ../_sass/app.scss */
+/* line 332, ../_sass/app.scss */
 .my-uwo {
   padding-right: 10px;
 }
@@ -10409,7 +10415,7 @@ END CURRENT STUDENTS
 /******************************************************************
 NAV DRAWERS
 ******************************************************************/
-/* line 336, ../_sass/app.scss */
+/* line 342, ../_sass/app.scss */
 .nav-info {
   display: none;
   position: absolute;
@@ -10423,30 +10429,30 @@ END NAV DRAWERS
 /******************************************************************
 PANELS
 ******************************************************************/
-/* line 349, ../_sass/app.scss */
+/* line 355, ../_sass/app.scss */
 .panel {
   box-shadow: 0 0 5px #b0b0b0;
   background: #fff;
   padding: 0;
 }
 
-/* line 354, ../_sass/app.scss */
+/* line 360, ../_sass/app.scss */
 .panel:hover {
   box-shadow: 0 0 5px #69bad9;
 }
 
-/* line 357, ../_sass/app.scss */
+/* line 363, ../_sass/app.scss */
 .panel__category {
   font-size: 13px;
   color: #b0b0b0;
   font-weight: 600;
 }
-/* line 361, ../_sass/app.scss */
+/* line 367, ../_sass/app.scss */
 .panel__category a {
   color: #b0b0b0;
 }
 
-/* line 365, ../_sass/app.scss */
+/* line 371, ../_sass/app.scss */
 .panel__title {
   font-size: 18px;
   font-weight: 600;
@@ -10456,14 +10462,14 @@ PANELS
   border-bottom: 1px solid #ededed;
 }
 
-/* line 373, ../_sass/app.scss */
+/* line 379, ../_sass/app.scss */
 .panel__news-heading {
   font-size: 18px;
   color: #444444;
   font-weight: 600;
 }
 
-/* line 381, ../_sass/app.scss */
+/* line 387, ../_sass/app.scss */
 .panel__posted-date {
   font-size: 11px;
   color: #b0b0b0;
@@ -10472,34 +10478,34 @@ PANELS
   bottom: 25px;
 }
 
-/* line 388, ../_sass/app.scss */
+/* line 394, ../_sass/app.scss */
 .panel__image {
   padding: 16px;
 }
 
-/* line 391, ../_sass/app.scss */
+/* line 397, ../_sass/app.scss */
 .panel__image__caption {
   padding: 8px 16px 8px 16px;
 }
 
-/* line 394, ../_sass/app.scss */
+/* line 400, ../_sass/app.scss */
 .panel__image--home {
   height: 189px;
 }
 
-/* line 397, ../_sass/app.scss */
+/* line 403, ../_sass/app.scss */
 .panel__content {
   padding: 8px 16px 8px 16px;
 }
 
-/* line 400, ../_sass/app.scss */
+/* line 406, ../_sass/app.scss */
 .panel--home {
   height: 410px;
   border-top: 3px solid;
   padding: 1.25rem;
 }
 
-/* line 405, ../_sass/app.scss */
+/* line 411, ../_sass/app.scss */
 .panel__video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -10509,7 +10515,7 @@ PANELS
   text-align: center;
 }
 
-/* line 412, ../_sass/app.scss */
+/* line 418, ../_sass/app.scss */
 .panel__video-wrapper iframe {
   position: absolute;
   top: 0;
@@ -10518,42 +10524,42 @@ PANELS
   height: 100%;
 }
 
-/* line 419, ../_sass/app.scss */
+/* line 425, ../_sass/app.scss */
 .panel--green {
   border-top-color: #aab464;
 }
 
-/* line 422, ../_sass/app.scss */
+/* line 428, ../_sass/app.scss */
 .panel--dark-green {
   border-top-color: #5a9664;
 }
 
-/* line 425, ../_sass/app.scss */
+/* line 431, ../_sass/app.scss */
 .panel--blue {
   border-top-color: #69bad9;
 }
 
-/* line 428, ../_sass/app.scss */
+/* line 434, ../_sass/app.scss */
 .panel--dark-blue {
   border-top-color: #0077ad;
 }
 
-/* line 431, ../_sass/app.scss */
+/* line 437, ../_sass/app.scss */
 .panel--orange {
   border-top-color: #e68600;
 }
 
-/* line 434, ../_sass/app.scss */
+/* line 440, ../_sass/app.scss */
 .panel--dark-orange {
   border-top-color: #c05600;
 }
 
-/* line 437, ../_sass/app.scss */
+/* line 443, ../_sass/app.scss */
 .panel--yellow {
   border-top-color: #fec425;
 }
 
-/* line 440, ../_sass/app.scss */
+/* line 446, ../_sass/app.scss */
 .panel--dark-yellow {
   border-top-color: #d79a27;
 }
@@ -10564,7 +10570,7 @@ END PANELS
 /******************************************************************
 PAGE BANNERS
 ******************************************************************/
-/* line 450, ../_sass/app.scss */
+/* line 456, ../_sass/app.scss */
 .page-banner {
   min-height: 64px;
   padding-left: 10px;
@@ -10572,39 +10578,39 @@ PAGE BANNERS
   padding-top: 10px;
 }
 
-/* line 456, ../_sass/app.scss */
+/* line 462, ../_sass/app.scss */
 .page-banner__title {
   color: #fff;
   margin-top: 0;
   font-size: 28px;
 }
 
-/* line 461, ../_sass/app.scss */
+/* line 467, ../_sass/app.scss */
 .page-banner--blue {
   background-color: #69bad9;
 }
 
-/* line 464, ../_sass/app.scss */
+/* line 470, ../_sass/app.scss */
 .page-banner--dark-blue {
   background-color: #0077ad;
 }
 
-/* line 467, ../_sass/app.scss */
+/* line 473, ../_sass/app.scss */
 .page-banner--orange {
   background-color: #e68600;
 }
 
-/* line 470, ../_sass/app.scss */
+/* line 476, ../_sass/app.scss */
 .page-banner--dark-orange {
   background-color: #c05600;
 }
 
-/* line 473, ../_sass/app.scss */
+/* line 479, ../_sass/app.scss */
 .page-banner--dark-green {
   background-color: #5a9664;
 }
 
-/* line 476, ../_sass/app.scss */
+/* line 482, ../_sass/app.scss */
 .page-banner--dark-gray {
   background-color: #444444;
 }
@@ -10615,7 +10621,7 @@ END PAGE BANNERS
 /******************************************************************
 CTAs
 ******************************************************************/
-/* line 486, ../_sass/app.scss */
+/* line 492, ../_sass/app.scss */
 .cta {
   height: 48px;
   padding-left: 10px;
@@ -10623,18 +10629,18 @@ CTAs
   margin-bottom: 10px;
 }
 
-/* line 492, ../_sass/app.scss */
+/* line 498, ../_sass/app.scss */
 .cta--home {
   padding-top: 10px;
 }
 
-/* line 495, ../_sass/app.scss */
+/* line 501, ../_sass/app.scss */
 .cta--parents {
   padding-top: 15px;
   margin-bottom: 16px;
 }
 
-/* line 499, ../_sass/app.scss */
+/* line 505, ../_sass/app.scss */
 .cta__icon {
   width: 40px;
   height: 40px;
@@ -10642,58 +10648,58 @@ CTAs
   margin-right: 8px;
 }
 
-/* line 505, ../_sass/app.scss */
+/* line 511, ../_sass/app.scss */
 .cta__icon--book-closed {
   width: 40px;
   height: 40px;
   margin-top: -3px;
 }
 
-/* line 510, ../_sass/app.scss */
+/* line 516, ../_sass/app.scss */
 .cta__icon--pencil {
   width: 40px;
   height: 40px;
   margin-top: -3px;
 }
 
-/* line 515, ../_sass/app.scss */
+/* line 521, ../_sass/app.scss */
 .cta__text {
   color: #fff;
   font-size: 18px;
   font-weight: 400;
 }
 
-/* line 520, ../_sass/app.scss */
+/* line 526, ../_sass/app.scss */
 .cta__text--home {
   font-size: 28px;
 }
 
-/* line 523, ../_sass/app.scss */
+/* line 529, ../_sass/app.scss */
 .cta--blue {
   background-color: #69bad9;
 }
 
-/* line 526, ../_sass/app.scss */
+/* line 532, ../_sass/app.scss */
 .cta--dark-blue {
   background-color: #0077ad;
 }
 
-/* line 529, ../_sass/app.scss */
+/* line 535, ../_sass/app.scss */
 .cta--orange {
   background-color: #e68600;
 }
 
-/* line 532, ../_sass/app.scss */
+/* line 538, ../_sass/app.scss */
 .cta--dark-orange {
   background-color: #c05600;
 }
 
-/* line 535, ../_sass/app.scss */
+/* line 541, ../_sass/app.scss */
 .cta--dark-green {
   background-color: #5a9664;
 }
 
-/* line 538, ../_sass/app.scss */
+/* line 544, ../_sass/app.scss */
 .cta--light-yellow {
   background-color: #fce192;
 }
@@ -10704,19 +10710,19 @@ END CTAs
 /******************************************************************
 EVENTS
 ******************************************************************/
-/* line 551, ../_sass/app.scss */
+/* line 557, ../_sass/app.scss */
 .event-item__title {
   margin-top: -5px;
 }
 
-/* line 560, ../_sass/app.scss */
+/* line 566, ../_sass/app.scss */
 .event-item__calendar {
   border: 1px solid #b0b0b0;
   box-shadow: 1px 1px 5px #999;
   width: 64px;
 }
 
-/* line 565, ../_sass/app.scss */
+/* line 571, ../_sass/app.scss */
 .event-item__calendar--month {
   height: 24px;
   background-color: #0077ad;
@@ -10725,7 +10731,7 @@ EVENTS
   padding-top: 5px;
 }
 
-/* line 572, ../_sass/app.scss */
+/* line 578, ../_sass/app.scss */
 .event-item__calendar--day {
   height: 40px;
   color: #444444;
@@ -10741,14 +10747,14 @@ END EVENTS
 /******************************************************************
 CAMPUS FAST FACTS
 ******************************************************************/
-/* line 587, ../_sass/app.scss */
+/* line 593, ../_sass/app.scss */
 .fast-facts table {
   border: none;
   border-top: #fec425 2px solid;
   width: 100%;
 }
 
-/* line 592, ../_sass/app.scss */
+/* line 598, ../_sass/app.scss */
 .fast-facts__number {
   color: #0077ad;
 }
@@ -10759,7 +10765,7 @@ END CAMPUS FAST FACTS
 /******************************************************************
 UWO DRAWER STYLES
 ******************************************************************/
-/* line 602, ../_sass/app.scss */
+/* line 608, ../_sass/app.scss */
 .drawer__row {
   padding-top: 16px;
   padding-bottom: 16px;
@@ -10771,22 +10777,22 @@ END DRAWER STYLES
 /******************************************************************
 BESPOKE SLIDER STYLES
 ******************************************************************/
-/* line 613, ../_sass/app.scss */
+/* line 619, ../_sass/app.scss */
 .deck-container {
   position: relative;
 }
 
-/* line 614, ../_sass/app.scss */
+/* line 620, ../_sass/app.scss */
 deck {
   position: relative;
 }
 
-/* line 615, ../_sass/app.scss */
+/* line 621, ../_sass/app.scss */
 .container-overflow {
   overflow: hidden;
 }
 
-/* line 616, ../_sass/app.scss */
+/* line 622, ../_sass/app.scss */
 #socialTabs {
   width: 144px;
   height: 238px;
@@ -10794,22 +10800,22 @@ deck {
   background-color: #fff;
   font-size: 1.2em;
 }
-/* line 622, ../_sass/app.scss */
+/* line 628, ../_sass/app.scss */
 #socialTabs li {
   width: 100%;
 }
 
-/* line 626, ../_sass/app.scss */
+/* line 632, ../_sass/app.scss */
 #socialTabs > li > a:hover {
   border: none;
   background-color: #fff;
 }
 
-/* line 630, ../_sass/app.scss */
+/* line 636, ../_sass/app.scss */
 #socialTabs > li {
   background-color: #fff;
 }
-/* line 632, ../_sass/app.scss */
+/* line 638, ../_sass/app.scss */
 #socialTabs > li a {
   color: #b0b0b0;
   border: none;
@@ -10817,13 +10823,13 @@ deck {
   margin-right: 0;
 }
 
-/* line 639, ../_sass/app.scss */
+/* line 645, ../_sass/app.scss */
 #socialTabs > li.active > a {
   background-color: #0077ad;
   color: #fff;
 }
 
-/* line 644, ../_sass/app.scss */
+/* line 650, ../_sass/app.scss */
 .social-controls {
   position: absolute;
   left: 1074px;
@@ -10832,11 +10838,11 @@ deck {
   border: 1px solid #ededed;
   background-color: #fff;
 }
-/* line 651, ../_sass/app.scss */
+/* line 657, ../_sass/app.scss */
 .social-controls ul {
   margin-top: 50px;
 }
-/* line 654, ../_sass/app.scss */
+/* line 660, ../_sass/app.scss */
 .social-controls li {
   color: #fff;
   height: 24px;
@@ -10844,22 +10850,22 @@ deck {
   margin-right: 5px;
   padding-top: 2px;
 }
-/* line 661, ../_sass/app.scss */
+/* line 667, ../_sass/app.scss */
 .social-controls .previous {
   background-color: #69bad9;
   margin-bottom: 5px;
 }
-/* line 665, ../_sass/app.scss */
+/* line 671, ../_sass/app.scss */
 .social-controls .next {
   background-color: #0077ad;
 }
 
-/* line 669, ../_sass/app.scss */
+/* line 675, ../_sass/app.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   border: none;
 }
 
-/* line 672, ../_sass/app.scss */
+/* line 678, ../_sass/app.scss */
 slide {
   position: absolute;
   top: 0;
@@ -10867,7 +10873,7 @@ slide {
   opacity: 0;
 }
 
-/* line 678, ../_sass/app.scss */
+/* line 684, ../_sass/app.scss */
 slide.bespoke-slide {
   -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
   -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
@@ -10876,14 +10882,14 @@ slide.bespoke-slide {
   transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
 }
 
-/* line 685, ../_sass/app.scss */
+/* line 691, ../_sass/app.scss */
 slide.bespoke-active {
   opacity: 1;
   z-index: 1;
 }
 
 /* Classic Theme */
-/* line 690, ../_sass/app.scss */
+/* line 696, ../_sass/app.scss */
 .social-article {
   width: 309px;
   height: 238px;
@@ -10894,7 +10900,7 @@ slide.bespoke-active {
   padding-right: 5px;
 }
 
-/* line 700, ../_sass/app.scss */
+/* line 706, ../_sass/app.scss */
 slide.bespoke-before {
   -webkit-transform: translate3d(-1920px, 0, 0);
   -moz-transform: translate3d(-1920px, 0, 0);
@@ -10903,7 +10909,7 @@ slide.bespoke-before {
   transform: translate3d(-1920px, 0, 0);
 }
 
-/* line 707, ../_sass/app.scss */
+/* line 713, ../_sass/app.scss */
 slide.bespoke-before-2 {
   -webkit-transform: translate3d(-1280px, 0, 0);
   -moz-transform: translate3d(-1280px, 0, 0);
@@ -10913,7 +10919,7 @@ slide.bespoke-before-2 {
   opacity: 0.1;
 }
 
-/* line 715, ../_sass/app.scss */
+/* line 721, ../_sass/app.scss */
 slide.bespoke-before-1 {
   -webkit-transform: translate3d(-640px, 0, 0);
   -moz-transform: translate3d(-640px, 0, 0);
@@ -10923,7 +10929,7 @@ slide.bespoke-before-1 {
   opacity: 0.3;
 }
 
-/* line 723, ../_sass/app.scss */
+/* line 729, ../_sass/app.scss */
 slide.bespoke-after {
   -webkit-transform: translate3d(1920px, 0, 0);
   -moz-transform: translate3d(1920px, 0, 0);
@@ -10932,7 +10938,7 @@ slide.bespoke-after {
   transform: translate3d(1920px, 0, 0);
 }
 
-/* line 730, ../_sass/app.scss */
+/* line 736, ../_sass/app.scss */
 slide.bespoke-after-2 {
   -webkit-transform: translate3d(615px, 0, 0);
   -moz-transform: translate3d(615px, 0, 0);
@@ -10942,7 +10948,7 @@ slide.bespoke-after-2 {
   opacity: 1.0;
 }
 
-/* line 738, ../_sass/app.scss */
+/* line 744, ../_sass/app.scss */
 slide.bespoke-after-1 {
   -webkit-transform: translate3d(308px, 0, 0);
   -moz-transform: translate3d(308px, 0, 0);

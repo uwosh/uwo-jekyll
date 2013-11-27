@@ -180,9 +180,12 @@ abbr {
   height: 160px;
 }
 
+/******************************************************************
+FOOTER
+******************************************************************/
 .tagline {
   height: 32px;
-  font-size: emCalc(16);
+  font-size: 16px;
   background-color: $dark-gray;
   color: #fff;
   text-transform: uppercase;
@@ -190,7 +193,7 @@ abbr {
   text-align: center;
 }
 .footer-container {
-  height: 208px;
+  padding-top: 20px;
   background-color: $medium-gray;
   color: $medium-dark-gray;
   a {
@@ -204,6 +207,9 @@ abbr {
 .wismap {
   width: 124px;
 }
+/******************************************************************
+END FOOTER
+******************************************************************/
 
 /******************************************************************
 ABOUT UW OSHKOSH STYLES
