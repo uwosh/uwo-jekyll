@@ -584,10 +584,13 @@ END EVENTS
 /******************************************************************
 CAMPUS FAST FACTS
 ******************************************************************/
-.campus-fast-facts table {
+.fast-facts table {
   border: none;
   border-top: $yellow 2px solid;
   width: 100%;
+}
+.fast-facts__number {
+  color: $dark-blue;
 }
 /******************************************************************
 END CAMPUS FAST FACTS

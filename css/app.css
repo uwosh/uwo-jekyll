@@ -10742,10 +10742,15 @@ END EVENTS
 CAMPUS FAST FACTS
 ******************************************************************/
 /* line 587, ../_sass/app.scss */
-.campus-fast-facts table {
+.fast-facts table {
   border: none;
   border-top: #fec425 2px solid;
   width: 100%;
+}
+
+/* line 592, ../_sass/app.scss */
+.fast-facts__number {
+  color: #0077ad;
 }
 
 /******************************************************************
@@ -10754,7 +10759,7 @@ END CAMPUS FAST FACTS
 /******************************************************************
 UWO DRAWER STYLES
 ******************************************************************/
-/* line 599, ../_sass/app.scss */
+/* line 602, ../_sass/app.scss */
 .drawer__row {
   padding-top: 16px;
   padding-bottom: 16px;
@@ -10766,22 +10771,22 @@ END DRAWER STYLES
 /******************************************************************
 BESPOKE SLIDER STYLES
 ******************************************************************/
-/* line 610, ../_sass/app.scss */
+/* line 613, ../_sass/app.scss */
 .deck-container {
   position: relative;
 }
 
-/* line 611, ../_sass/app.scss */
+/* line 614, ../_sass/app.scss */
 deck {
   position: relative;
 }
 
-/* line 612, ../_sass/app.scss */
+/* line 615, ../_sass/app.scss */
 .container-overflow {
   overflow: hidden;
 }
 
-/* line 613, ../_sass/app.scss */
+/* line 616, ../_sass/app.scss */
 #socialTabs {
   width: 144px;
   height: 238px;
@@ -10789,22 +10794,22 @@ deck {
   background-color: #fff;
   font-size: 1.2em;
 }
-/* line 619, ../_sass/app.scss */
+/* line 622, ../_sass/app.scss */
 #socialTabs li {
   width: 100%;
 }
 
-/* line 623, ../_sass/app.scss */
+/* line 626, ../_sass/app.scss */
 #socialTabs > li > a:hover {
   border: none;
   background-color: #fff;
 }
 
-/* line 627, ../_sass/app.scss */
+/* line 630, ../_sass/app.scss */
 #socialTabs > li {
   background-color: #fff;
 }
-/* line 629, ../_sass/app.scss */
+/* line 632, ../_sass/app.scss */
 #socialTabs > li a {
   color: #b0b0b0;
   border: none;
@@ -10812,13 +10817,13 @@ deck {
   margin-right: 0;
 }
 
-/* line 636, ../_sass/app.scss */
+/* line 639, ../_sass/app.scss */
 #socialTabs > li.active > a {
   background-color: #0077ad;
   color: #fff;
 }
 
-/* line 641, ../_sass/app.scss */
+/* line 644, ../_sass/app.scss */
 .social-controls {
   position: absolute;
   left: 1074px;
@@ -10827,11 +10832,11 @@ deck {
   border: 1px solid #ededed;
   background-color: #fff;
 }
-/* line 648, ../_sass/app.scss */
+/* line 651, ../_sass/app.scss */
 .social-controls ul {
   margin-top: 50px;
 }
-/* line 651, ../_sass/app.scss */
+/* line 654, ../_sass/app.scss */
 .social-controls li {
   color: #fff;
   height: 24px;
@@ -10839,22 +10844,22 @@ deck {
   margin-right: 5px;
   padding-top: 2px;
 }
-/* line 658, ../_sass/app.scss */
+/* line 661, ../_sass/app.scss */
 .social-controls .previous {
   background-color: #69bad9;
   margin-bottom: 5px;
 }
-/* line 662, ../_sass/app.scss */
+/* line 665, ../_sass/app.scss */
 .social-controls .next {
   background-color: #0077ad;
 }
 
-/* line 666, ../_sass/app.scss */
+/* line 669, ../_sass/app.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   border: none;
 }
 
-/* line 669, ../_sass/app.scss */
+/* line 672, ../_sass/app.scss */
 slide {
   position: absolute;
   top: 0;
@@ -10862,7 +10867,7 @@ slide {
   opacity: 0;
 }
 
-/* line 675, ../_sass/app.scss */
+/* line 678, ../_sass/app.scss */
 slide.bespoke-slide {
   -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
   -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
@@ -10871,14 +10876,14 @@ slide.bespoke-slide {
   transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
 }
 
-/* line 682, ../_sass/app.scss */
+/* line 685, ../_sass/app.scss */
 slide.bespoke-active {
   opacity: 1;
   z-index: 1;
 }
 
 /* Classic Theme */
-/* line 687, ../_sass/app.scss */
+/* line 690, ../_sass/app.scss */
 .social-article {
   width: 309px;
   height: 238px;
@@ -10889,7 +10894,7 @@ slide.bespoke-active {
   padding-right: 5px;
 }
 
-/* line 697, ../_sass/app.scss */
+/* line 700, ../_sass/app.scss */
 slide.bespoke-before {
   -webkit-transform: translate3d(-1920px, 0, 0);
   -moz-transform: translate3d(-1920px, 0, 0);
@@ -10898,7 +10903,7 @@ slide.bespoke-before {
   transform: translate3d(-1920px, 0, 0);
 }
 
-/* line 704, ../_sass/app.scss */
+/* line 707, ../_sass/app.scss */
 slide.bespoke-before-2 {
   -webkit-transform: translate3d(-1280px, 0, 0);
   -moz-transform: translate3d(-1280px, 0, 0);
@@ -10908,7 +10913,7 @@ slide.bespoke-before-2 {
   opacity: 0.1;
 }
 
-/* line 712, ../_sass/app.scss */
+/* line 715, ../_sass/app.scss */
 slide.bespoke-before-1 {
   -webkit-transform: translate3d(-640px, 0, 0);
   -moz-transform: translate3d(-640px, 0, 0);
@@ -10918,7 +10923,7 @@ slide.bespoke-before-1 {
   opacity: 0.3;
 }
 
-/* line 720, ../_sass/app.scss */
+/* line 723, ../_sass/app.scss */
 slide.bespoke-after {
   -webkit-transform: translate3d(1920px, 0, 0);
   -moz-transform: translate3d(1920px, 0, 0);
@@ -10927,7 +10932,7 @@ slide.bespoke-after {
   transform: translate3d(1920px, 0, 0);
 }
 
-/* line 727, ../_sass/app.scss */
+/* line 730, ../_sass/app.scss */
 slide.bespoke-after-2 {
   -webkit-transform: translate3d(615px, 0, 0);
   -moz-transform: translate3d(615px, 0, 0);
@@ -10937,7 +10942,7 @@ slide.bespoke-after-2 {
   opacity: 1.0;
 }
 
-/* line 735, ../_sass/app.scss */
+/* line 738, ../_sass/app.scss */
 slide.bespoke-after-1 {
   -webkit-transform: translate3d(308px, 0, 0);
   -moz-transform: translate3d(308px, 0, 0);
