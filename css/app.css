@@ -8758,7 +8758,7 @@ meta.foundation-mq-topbar {
   width: 100%;
   height: auto;
   display: block;
-  background: white;
+  background: #333333;
   font-size: 16px;
   margin: 0;
 }
@@ -8780,7 +8780,7 @@ meta.foundation-mq-topbar {
   font-family: ‘Open Sans’, Helvetica, Arial, sans-serif;
   font-size: 0.8125rem;
   font-weight: normal;
-  background: white;
+  background: #333333;
 }
 /* line 293, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > a.button {
@@ -9037,7 +9037,7 @@ meta.foundation-mq-topbar {
   }
   /* line 514, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section .dropdown li a {
-    color: #444444;
+    color: white;
     line-height: 1;
     white-space: nowrap;
     padding: 12px 10.66667px;
