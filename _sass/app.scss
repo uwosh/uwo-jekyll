@@ -46,6 +46,17 @@ $twif: #f8c636;
   font-weight: 400;
   line-height: 24px;
 }
+.banner-headline {
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 34px;
+}
+.body-content {
+  font-size: 13px;
+  line-height: 19px;
+  color: $dark-gray;
+}
 .desaturate {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
@@ -347,6 +358,36 @@ NAV DRAWERS
 }
 /******************************************************************
 END NAV DRAWERS
+******************************************************************/
+
+/******************************************************************
+HOME
+******************************************************************/
+.home-slider__caption {
+  background-color: transparent !important;
+  bottom: 10px !important;
+  padding-left: 0 !important;
+}
+.home-slider__caption__content {
+  background-color: rgba(230, 134, 0, 0.9);
+  width: 50%;
+  padding: 8px 10px 8px 10px;
+}
+.home-slider__caption__title {
+  font-weight: 400;
+}
+.home-slider__caption__excerpt {
+  background-color: #fff;
+  padding: 8px 40px 8px 10px;
+  margin-left: -10px;
+}
+.home-slider__caption__read-more {
+  background-color: $dark-orange;
+  color: #fff;
+  padding: 8px 10px 8px 10px;
+}
+/******************************************************************
+END HOME
 ******************************************************************/
 
 /******************************************************************
