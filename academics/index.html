@@ -15,7 +15,7 @@ title: Academics | University of Wisconsin Oshkosh
       <div class="large-16 columns">
         <nav class="breadcrumbs">
           <a href="{{site.baseurl}}">Home</a>
-          <a href="#" class="current">Administration</a>
+          <a href="#" class="current">Academics</a>
         </nav>
         {% include academics/lead-content.html %}
       </div>
@@ -44,56 +44,7 @@ title: Academics | University of Wisconsin Oshkosh
   
   <div class="row">
     <div class="large-5 columns">
-      <dl class="accordion" data-accordion>
-        <dd>
-          <a href="#panelAcademics">Academics</a>
-          <div id="panelAcademics" class="content active">
-            <ul class="side-nav">
-              <li><a href="#">Accreditation</a></li>
-              <li><a href="#">Majors, Minors and Emphases</a></li>
-              <li><a href="#">Programs</a></li>
-              <li><a href="#">Colleges</a></li>
-              <li><a href="#">Departments</a></li>
-              <li><a href="#">Centers and Programs</a></li>
-              <li><a href="#">Undergraduate Research</a></li>
-              <li><a href="#">International Study</a></li>
-              <li><a href="#">Liberal Education</a></li>
-              <li><a href="#">Graduate Studies</a></li>
-              <li><a href="#">Continuing Education</a></li>
-            </ul>
-          </div>
-        </dd>
-      </dl>
-      <a href="http://www.uwosh.edu/admissions/visit">
-        <div class="cta cta--blue">
-          <span class="cta__text">Visit Campus</span>
-        </div>
-      </a>
-      <a href="https://apply.wisconsin.edu/">
-        <div class="cta cta--dark-orange">
-          <span class="cta__text">Apply Now</span>
-        </div>
-      </a>
-      <dl class="accordion" data-accordion>
-        <dd>
-          <a href="#panelRelatedLinks">Academics</a>
-          <div id="panelRelatedLinks" class="content">
-            <ul class="side-nav">
-              <li><a href="#">Accreditation</a></li>
-              <li><a href="#">Majors, Minors and Emphases</a></li>
-              <li><a href="#">Programs</a></li>
-              <li><a href="#">Colleges</a></li>
-              <li><a href="#">Departments</a></li>
-              <li><a href="#">Centers and Programs</a></li>
-              <li><a href="#">Undergraduate Research</a></li>
-              <li><a href="#">International Study</a></li>
-              <li><a href="#">Liberal Education</a></li>
-              <li><a href="#">Graduate Studies</a></li>
-              <li><a href="#">Continuing Education</a></li>
-            </ul>
-          </div>
-        </dd>
-      </dl>
+      {% include academics/side-nav.html %}
     </div>
     
     <div class="large-19 columns">
