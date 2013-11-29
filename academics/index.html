@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Administration | University of Wisconsin Oshkosh
+title: Academics | University of Wisconsin Oshkosh
 ---
 
 <div class="content">
@@ -23,7 +23,7 @@ title: Administration | University of Wisconsin Oshkosh
       <div class="large-8 columns">
         <a href="http://www.uwosh.edu/map/main">
           <div class="cta cta--orange">
-            <img src="{{ site.baseurl }}/img/icons/icon-book-closed.png" class="cta__icon cta__icon--file-folder"> <span class="cta__text">All Majors and Minors</span>
+            <img src="{{ site.baseurl }}/img/icons/icon-book-open.png" class="cta__icon cta__icon--file-folder"> <span class="cta__text">All Majors and Minors</span>
           </div>
         </a>
         <form>
@@ -44,12 +44,78 @@ title: Administration | University of Wisconsin Oshkosh
   
   <div class="row">
     <div class="large-5 columns">
-    
+      <dl class="accordion" data-accordion>
+        <dd>
+          <a href="#panelAcademics">Academics</a>
+          <div id="panelAcademics" class="content active">
+            <ul class="side-nav">
+              <li><a href="#">Accreditation</a></li>
+              <li><a href="#">Majors, Minors and Emphases</a></li>
+              <li><a href="#">Programs</a></li>
+              <li><a href="#">Colleges</a></li>
+              <li><a href="#">Departments</a></li>
+              <li><a href="#">Centers and Programs</a></li>
+              <li><a href="#">Undergraduate Research</a></li>
+              <li><a href="#">International Study</a></li>
+              <li><a href="#">Liberal Education</a></li>
+              <li><a href="#">Graduate Studies</a></li>
+              <li><a href="#">Continuing Education</a></li>
+            </ul>
+          </div>
+        </dd>
+      </dl>
+      <a href="http://www.uwosh.edu/admissions/visit">
+        <div class="cta cta--blue">
+          <span class="cta__text">Visit Campus</span>
+        </div>
+      </a>
+      <a href="https://apply.wisconsin.edu/">
+        <div class="cta cta--dark-orange">
+          <span class="cta__text">Apply Now</span>
+        </div>
+      </a>
+      <dl class="accordion" data-accordion>
+        <dd>
+          <a href="#panelRelatedLinks">Academics</a>
+          <div id="panelRelatedLinks" class="content">
+            <ul class="side-nav">
+              <li><a href="#">Accreditation</a></li>
+              <li><a href="#">Majors, Minors and Emphases</a></li>
+              <li><a href="#">Programs</a></li>
+              <li><a href="#">Colleges</a></li>
+              <li><a href="#">Departments</a></li>
+              <li><a href="#">Centers and Programs</a></li>
+              <li><a href="#">Undergraduate Research</a></li>
+              <li><a href="#">International Study</a></li>
+              <li><a href="#">Liberal Education</a></li>
+              <li><a href="#">Graduate Studies</a></li>
+              <li><a href="#">Continuing Education</a></li>
+            </ul>
+          </div>
+        </dd>
+      </dl>
     </div>
     
     <div class="large-19 columns">
       <div class="cta cta--dark-blue">
         <span class="cta__text">View free learning assistance opportunities available to UW&nbsp;Oshkosh students <i class="fa fa-caret-right"></i></span>
+      </div>
+      <div class="row">
+        
+        <div class="large-12 columns">
+          {% include academics/panel-cob.html %}
+          {% include academics/panel-cols.html %}
+          {% include academics/panel-llce.html %}
+          {% include academics/panel-undergraduate.html %}
+        </div>
+        
+        <div class="large-12 columns">
+          {% include academics/panel-coehs.html %}
+          {% include academics/panel-con.html %}
+          {% include academics/panel-continuing-education.html %}
+          {% include academics/panel-graduate.html %}
+        </div>
+        
       </div>
     </div>
   </div>
