@@ -442,6 +442,9 @@ PANELS
 .panel__image {
   padding: 16px;
 }
+.panel__image--non-accordion {
+  margin-bottom: 16px;
+}
 .panel__image__caption {
   padding: 8px 16px 8px 16px;
 }
