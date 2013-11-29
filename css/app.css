@@ -10665,6 +10665,11 @@ PAGE BANNERS
 }
 
 /* line 523, ../_sass/app.scss */
+.page-banner--medium-dark-gray {
+  background-color: #666666;
+}
+
+/* line 526, ../_sass/app.scss */
 .page-banner--dark-gray {
   background-color: #444444;
 }
@@ -10675,7 +10680,7 @@ END PAGE BANNERS
 /******************************************************************
 CTAs
 ******************************************************************/
-/* line 533, ../_sass/app.scss */
+/* line 536, ../_sass/app.scss */
 .cta {
   height: 48px;
   padding-left: 10px;
@@ -10683,18 +10688,18 @@ CTAs
   margin-bottom: 10px;
 }
 
-/* line 539, ../_sass/app.scss */
+/* line 542, ../_sass/app.scss */
 .cta--home {
   padding-top: 10px;
 }
 
-/* line 542, ../_sass/app.scss */
+/* line 545, ../_sass/app.scss */
 .cta--parents {
   padding-top: 15px;
   margin-bottom: 16px;
 }
 
-/* line 546, ../_sass/app.scss */
+/* line 549, ../_sass/app.scss */
 .cta__icon {
   width: 40px;
   height: 40px;
@@ -10702,58 +10707,58 @@ CTAs
   margin-right: 8px;
 }
 
-/* line 552, ../_sass/app.scss */
+/* line 555, ../_sass/app.scss */
 .cta__icon--book-closed {
   width: 40px;
   height: 40px;
   margin-top: -3px;
 }
 
-/* line 557, ../_sass/app.scss */
+/* line 560, ../_sass/app.scss */
 .cta__icon--pencil {
   width: 40px;
   height: 40px;
   margin-top: -3px;
 }
 
-/* line 562, ../_sass/app.scss */
+/* line 565, ../_sass/app.scss */
 .cta__text {
   color: #fff;
   font-size: 18px;
   font-weight: 400;
 }
 
-/* line 567, ../_sass/app.scss */
+/* line 570, ../_sass/app.scss */
 .cta__text--home {
   font-size: 28px;
 }
 
-/* line 570, ../_sass/app.scss */
+/* line 573, ../_sass/app.scss */
 .cta--blue {
   background-color: #69bad9;
 }
 
-/* line 573, ../_sass/app.scss */
+/* line 576, ../_sass/app.scss */
 .cta--dark-blue {
   background-color: #0077ad;
 }
 
-/* line 576, ../_sass/app.scss */
+/* line 579, ../_sass/app.scss */
 .cta--orange {
   background-color: #e68600;
 }
 
-/* line 579, ../_sass/app.scss */
+/* line 582, ../_sass/app.scss */
 .cta--dark-orange {
   background-color: #c05600;
 }
 
-/* line 582, ../_sass/app.scss */
+/* line 585, ../_sass/app.scss */
 .cta--dark-green {
   background-color: #5a9664;
 }
 
-/* line 585, ../_sass/app.scss */
+/* line 588, ../_sass/app.scss */
 .cta--light-yellow {
   background-color: #fce192;
 }
@@ -10764,19 +10769,19 @@ END CTAs
 /******************************************************************
 EVENTS
 ******************************************************************/
-/* line 598, ../_sass/app.scss */
+/* line 601, ../_sass/app.scss */
 .event-item__title {
   margin-top: -5px;
 }
 
-/* line 607, ../_sass/app.scss */
+/* line 610, ../_sass/app.scss */
 .event-item__calendar {
   border: 1px solid #b0b0b0;
   box-shadow: 1px 1px 5px #999;
   width: 64px;
 }
 
-/* line 612, ../_sass/app.scss */
+/* line 615, ../_sass/app.scss */
 .event-item__calendar--month {
   height: 24px;
   background-color: #0077ad;
@@ -10785,7 +10790,7 @@ EVENTS
   padding-top: 5px;
 }
 
-/* line 619, ../_sass/app.scss */
+/* line 622, ../_sass/app.scss */
 .event-item__calendar--day {
   height: 40px;
   color: #444444;
@@ -10801,14 +10806,14 @@ END EVENTS
 /******************************************************************
 CAMPUS FAST FACTS
 ******************************************************************/
-/* line 634, ../_sass/app.scss */
+/* line 637, ../_sass/app.scss */
 .fast-facts table {
   border: none;
   border-top: #fec425 2px solid;
   width: 100%;
 }
 
-/* line 639, ../_sass/app.scss */
+/* line 642, ../_sass/app.scss */
 .fast-facts__number {
   color: #0077ad;
 }
@@ -10819,7 +10824,7 @@ END CAMPUS FAST FACTS
 /******************************************************************
 UWO DRAWER STYLES
 ******************************************************************/
-/* line 649, ../_sass/app.scss */
+/* line 652, ../_sass/app.scss */
 .drawer__row {
   padding-top: 16px;
   padding-bottom: 16px;
@@ -10831,22 +10836,22 @@ END DRAWER STYLES
 /******************************************************************
 BESPOKE SLIDER STYLES
 ******************************************************************/
-/* line 660, ../_sass/app.scss */
+/* line 663, ../_sass/app.scss */
 .deck-container {
   position: relative;
 }
 
-/* line 661, ../_sass/app.scss */
+/* line 664, ../_sass/app.scss */
 deck {
   position: relative;
 }
 
-/* line 662, ../_sass/app.scss */
+/* line 665, ../_sass/app.scss */
 .container-overflow {
   overflow: hidden;
 }
 
-/* line 663, ../_sass/app.scss */
+/* line 666, ../_sass/app.scss */
 #socialTabs {
   width: 144px;
   height: 238px;
@@ -10854,22 +10859,22 @@ deck {
   background-color: #fff;
   font-size: 1.2em;
 }
-/* line 669, ../_sass/app.scss */
+/* line 672, ../_sass/app.scss */
 #socialTabs li {
   width: 100%;
 }
 
-/* line 673, ../_sass/app.scss */
+/* line 676, ../_sass/app.scss */
 #socialTabs > li > a:hover {
   border: none;
   background-color: #fff;
 }
 
-/* line 677, ../_sass/app.scss */
+/* line 680, ../_sass/app.scss */
 #socialTabs > li {
   background-color: #fff;
 }
-/* line 679, ../_sass/app.scss */
+/* line 682, ../_sass/app.scss */
 #socialTabs > li a {
   color: #b0b0b0;
   border: none;
@@ -10877,13 +10882,13 @@ deck {
   margin-right: 0;
 }
 
-/* line 686, ../_sass/app.scss */
+/* line 689, ../_sass/app.scss */
 #socialTabs > li.active > a {
   background-color: #0077ad;
   color: #fff;
 }
 
-/* line 691, ../_sass/app.scss */
+/* line 694, ../_sass/app.scss */
 .social-controls {
   position: absolute;
   left: 1074px;
@@ -10892,11 +10897,11 @@ deck {
   border: 1px solid #ededed;
   background-color: #fff;
 }
-/* line 698, ../_sass/app.scss */
+/* line 701, ../_sass/app.scss */
 .social-controls ul {
   margin-top: 50px;
 }
-/* line 701, ../_sass/app.scss */
+/* line 704, ../_sass/app.scss */
 .social-controls li {
   color: #fff;
   height: 24px;
@@ -10904,22 +10909,22 @@ deck {
   margin-right: 5px;
   padding-top: 2px;
 }
-/* line 708, ../_sass/app.scss */
+/* line 711, ../_sass/app.scss */
 .social-controls .previous {
   background-color: #69bad9;
   margin-bottom: 5px;
 }
-/* line 712, ../_sass/app.scss */
+/* line 715, ../_sass/app.scss */
 .social-controls .next {
   background-color: #0077ad;
 }
 
-/* line 716, ../_sass/app.scss */
+/* line 719, ../_sass/app.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   border: none;
 }
 
-/* line 719, ../_sass/app.scss */
+/* line 722, ../_sass/app.scss */
 slide {
   position: absolute;
   top: 0;
@@ -10927,7 +10932,7 @@ slide {
   opacity: 0;
 }
 
-/* line 725, ../_sass/app.scss */
+/* line 728, ../_sass/app.scss */
 slide.bespoke-slide {
   -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
   -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
@@ -10936,14 +10941,14 @@ slide.bespoke-slide {
   transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
 }
 
-/* line 732, ../_sass/app.scss */
+/* line 735, ../_sass/app.scss */
 slide.bespoke-active {
   opacity: 1;
   z-index: 1;
 }
 
 /* Classic Theme */
-/* line 737, ../_sass/app.scss */
+/* line 740, ../_sass/app.scss */
 .social-article {
   width: 309px;
   height: 238px;
@@ -10954,7 +10959,7 @@ slide.bespoke-active {
   padding-right: 5px;
 }
 
-/* line 747, ../_sass/app.scss */
+/* line 750, ../_sass/app.scss */
 slide.bespoke-before {
   -webkit-transform: translate3d(-1920px, 0, 0);
   -moz-transform: translate3d(-1920px, 0, 0);
@@ -10963,7 +10968,7 @@ slide.bespoke-before {
   transform: translate3d(-1920px, 0, 0);
 }
 
-/* line 754, ../_sass/app.scss */
+/* line 757, ../_sass/app.scss */
 slide.bespoke-before-2 {
   -webkit-transform: translate3d(-1280px, 0, 0);
   -moz-transform: translate3d(-1280px, 0, 0);
@@ -10973,7 +10978,7 @@ slide.bespoke-before-2 {
   opacity: 0.1;
 }
 
-/* line 762, ../_sass/app.scss */
+/* line 765, ../_sass/app.scss */
 slide.bespoke-before-1 {
   -webkit-transform: translate3d(-640px, 0, 0);
   -moz-transform: translate3d(-640px, 0, 0);
@@ -10983,7 +10988,7 @@ slide.bespoke-before-1 {
   opacity: 0.3;
 }
 
-/* line 770, ../_sass/app.scss */
+/* line 773, ../_sass/app.scss */
 slide.bespoke-after {
   -webkit-transform: translate3d(1920px, 0, 0);
   -moz-transform: translate3d(1920px, 0, 0);
@@ -10992,7 +10997,7 @@ slide.bespoke-after {
   transform: translate3d(1920px, 0, 0);
 }
 
-/* line 777, ../_sass/app.scss */
+/* line 780, ../_sass/app.scss */
 slide.bespoke-after-2 {
   -webkit-transform: translate3d(615px, 0, 0);
   -moz-transform: translate3d(615px, 0, 0);
@@ -11002,7 +11007,7 @@ slide.bespoke-after-2 {
   opacity: 1.0;
 }
 
-/* line 785, ../_sass/app.scss */
+/* line 788, ../_sass/app.scss */
 slide.bespoke-after-1 {
   -webkit-transform: translate3d(308px, 0, 0);
   -moz-transform: translate3d(308px, 0, 0);
