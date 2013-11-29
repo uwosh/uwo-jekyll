@@ -202,7 +202,7 @@ abbr {
 FOOTER
 ******************************************************************/
 .tagline {
-  height: 32px;
+  min-height: 32px;
   font-size: 16px;
   background-color: $dark-gray;
   color: #fff;

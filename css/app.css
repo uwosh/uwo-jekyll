@@ -10195,7 +10195,7 @@ FOOTER
 ******************************************************************/
 /* line 204, ../_sass/app.scss */
 .tagline {
-  height: 32px;
+  min-height: 32px;
   font-size: 16px;
   background-color: #444444;
   color: #fff;
