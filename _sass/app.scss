@@ -90,6 +90,13 @@ a {
 a:hover {
   text-decoration: none;
 }
+.side-nav {
+  li {
+    a {
+      color: $dark-gray;
+    }
+  }
+}
 abbr {
   text-transform: inherit;
   font-size: inherit;
