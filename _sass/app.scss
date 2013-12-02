@@ -135,11 +135,15 @@ abbr {
 .audience-nav {
   margin-top: 62px;
 }
-
+.audience-nav > ul > li > a {
+  font-size: 12px;
+}
 .uwo-search {
   margin-top: 18px;
 }
-
+.uwo-search > ul > li > a {
+  font-size: 12px;
+}
 
 
 .panel > dl > dd {
