@@ -5,9 +5,8 @@
 			<span class="panel__category uppercase">This Week in Focus <i class="fa fa-arrow-right"></i></span>
 			<h2 class="panel__news-heading">{{ post.title }}</h2>
 			<div class="panel__video-wrapper">
-				{% capture video %}{{ post.content | videophoto }}{% endcapture %}
-				{% if video != "" %}
-					<div class="youtube" id="{{video}}" style="height:189px;"></div>
+				{% if post.custom_fields.youtube_id != "" %}
+					<div class="youtube" id="{{post.custom_fields.youtube_id}}" style="height:189px;"></div>
 				{% else %}
 					<img data-original="{{ post.thumbnail_images.medium.url }}" src="{{site.baseurl}}/img/grey.gif" class="panel__image--home lazy" />
 				{% endif %}
