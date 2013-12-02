@@ -697,6 +697,9 @@ deck { position: relative; }
     width: 100%;
   }
 }
+#socialTabs dd > a {
+  font-size: 13px;
+}
 #socialTabs>li>a:hover {
   border: none;
   background-color: #fff;
