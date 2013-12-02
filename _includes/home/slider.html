@@ -1,33 +1,7 @@
 <div class="slideshow-wrapper">
 <div class="preloader"></div>
   <ul data-orbit data-options="slide_number:false;">
-    
-    {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/education-pillar %}
-    {% for post in feed.posts %}
-    <li>
-      <img class="pillar-image" src="{{ post.custom_fields.pillar_image }}" alt="Education Pillar" />
-      <div class="orbit-caption home-slider__caption">
-        <div class="home-slider__caption__content">
-          <p class="banner-headline home-slider__caption__title">{{ post.title }}</p>
-          <p class="body-content"><span class="home-slider__caption__excerpt">{{ post.excerpt | strip_html | truncate: 68 }}</span><a href="{{ post.url }}"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
-        </div>
-      </div>
-    </li>
-    {% endfor %}
-    
-    {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/leadership-pillar %}
-    {% for post in feed.posts %}
-    <li>
-      <img class="pillar-image" src="{{ post.custom_fields.pillar_image }}" alt="Leadership Pillar" />
-      <div class="orbit-caption home-slider__caption">
-        <div class="home-slider__caption__content">
-          <p class="banner-headline home-slider__caption__title">{{ post.title }}</p>
-          <p class="body-content"><span class="home-slider__caption__excerpt">{{ post.excerpt | strip_html | truncate: 68 }}</span><a href="{{ post.url }}"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
-        </div>
-      </div>
-    </li>
-    {% endfor %}
-    
+
     {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/responsiveness-pillar %}
     {% for post in feed.posts %}
     <li>
@@ -40,7 +14,7 @@
       </div>
     </li>
     {% endfor %}
-    
+
     {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/service-pillar %}
     {% for post in feed.posts %}
     <li>
@@ -53,19 +27,6 @@
       </div>
     </li>
     {% endfor %}
-    
-    {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/sustainability-pillar %}
-    {% for post in feed.posts %}
-    <li>
-      <img class="pillar-image" src="{{ post.custom_fields.pillar_image }}" alt="Sustainability Pillar" />
-      <div class="orbit-caption home-slider__caption">
-        <div class="home-slider__caption__content">
-          <p class="banner-headline home-slider__caption__title">{{ post.title }}</p>
-          <p class="body-content"><span class="home-slider__caption__excerpt">{{ post.excerpt | strip_html | truncate: 68 }}</span><a href="{{ post.url }}"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
-        </div>
-      </div>
-    </li>
-    {% endfor %}
-    
+
   </ul>
 </div>
