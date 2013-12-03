@@ -439,6 +439,10 @@ PANELS
   padding: 8px 16px 0 16px;
   border-bottom: 1px solid $light-gray;
 }
+.panel__title--small {
+  font-size: 13px;
+  line-height: 19px;
+}
 .panel__news-heading {
   font-size: 18px;
   color: $dark-gray;
@@ -464,7 +468,7 @@ PANELS
   margin-bottom: 16px;
 }
 .panel__image__caption {
-  padding: 8px 16px 8px 16px;
+  padding: 0 16px 8px 16px;
 }
 .panel__image--home {
   height: 189px;
