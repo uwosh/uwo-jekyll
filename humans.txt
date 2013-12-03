@@ -3,7 +3,20 @@
   Contact: hansens [at] uwosh.edu
   Twitter: @geekles
 
+  Designer: Sara Mikoulinskii
+  Contact: mikoulis [at] uwosh.edu
+
+  Designer: Donna Mleziva
+  Contact: mlezivad [at] uwosh.edu
+
+  Designer: Debra Pulvermacher
+  Contact: pulverma [at] uwosh.edu
+
+  Content Specialist: Kayde Kempen
+  Contact: kempenk [at] uwosh.edu
+  Twitter: @KaydeKempen
+
 /* SITE */
   Standards: HTML5, CSS3
-  Components: jQuery
+  Components: Foundation 5, jQuery, BespokeJS
   Software: Sublime Text 2, Git
