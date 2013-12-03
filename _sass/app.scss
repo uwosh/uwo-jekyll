@@ -1,8 +1,12 @@
 @import "settings";
 @import "foundation";
-@import "modules/colors";
 @import "partials/mixins";
-
+/*
+VARIABLES
+---------------
+Setting up variables. Bringing in Colors and Spacing.
+--------------- */
+@import "modules/bits";
 
 /* Custom Styles */
 .uppercase { text-transform: uppercase; }
@@ -17,19 +21,19 @@
 }
 .news-heading {
   color: $dark-gray;
-  font-weight: 700;
+  font-weight: $bold;
   font-size: 18px;
   line-height: 24px;
 }
 .drop-down-nav {
   color: $dark-gray;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: $normal;
   line-height: 24px;
 }
 .banner-headline {
   font-size: 28px;
-  font-weight: 600;
+  font-weight: $semibold;
   color: #fff;
   line-height: 34px;
 }
@@ -82,7 +86,14 @@ abbr {
 }
 .vcard {
   border: none;
+  font-style: normal;
+  font-size: 13px;
+  padding-left: 0;
 }
+.vcard .fn {
+  font-size: 13px;
+}
+
 .content {
   background-color: #fff;
 }
@@ -140,7 +151,7 @@ abbr {
 .datetime {
   font-size: 11px;
   color: $medium-gray;
-  font-weight: 600;
+  font-weight: $semibold;
 }
 
 
@@ -203,6 +214,9 @@ FOOTER
   width: 32px;
   height: 32px;
 }
+.app-icon--footer {
+  margin-bottom: 15px;
+}
 .wismap {
   width: 124px;
 }
@@ -238,7 +252,7 @@ ABOUT UW OSHKOSH STYLES
 }
 .about-pillar__title {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: $semibold;
   text-transform: uppercase;
   height: 53px;
   padding-top: 13px;
@@ -288,7 +302,7 @@ ABOUT UW OSHKOSH STYLES
   border: none !important;
   h3 {
     color: #fff;
-    font-weight: 600;
+    font-weight: $semibold;
   }
 }
 .about-pillar__dropdown.open {
@@ -373,7 +387,7 @@ HOME
   padding: 8px 10px 8px 10px;
 }
 .home-slider__caption__title {
-  font-weight: 400;
+  font-weight: $normal;
 }
 .home-slider__caption__excerpt {
   background-color: #fff;
@@ -403,14 +417,14 @@ PANELS
 .panel__category {
   font-size: 13px;
   color: $medium-gray;
-  font-weight: 600;
+  font-weight: $semibold;
   a {
     color: $medium-gray;
   }
 }
 .panel__title {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: $semibold;
   color: $dark-gray !important;
   height: 56px;
   padding: 8px 16px 0 16px;
@@ -423,7 +437,7 @@ PANELS
 .panel__news-heading {
   font-size: 18px;
   color: $dark-gray;
-  font-weight: 600;
+  font-weight: $semibold;
 }
 .panel__news-excerpt {
 
@@ -434,7 +448,7 @@ PANELS
 .panel__posted-date {
   font-size: 11px;
   color: $medium-gray;
-  font-weight: 600;
+  font-weight: $semibold;
   position: absolute;
   bottom: 25px;
 }
@@ -574,7 +588,7 @@ CTAs
 .cta__text {
   color: #fff;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: $normal;
 }
 .cta__text--home {
   font-size: 28px;
@@ -633,7 +647,7 @@ EVENTS
   color: $dark-gray;
   text-align: center;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: $semibold;
   padding-top: 6px;
 }
 /******************************************************************
