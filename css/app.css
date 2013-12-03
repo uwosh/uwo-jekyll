@@ -10718,7 +10718,7 @@ CTAs
 ******************************************************************/
 /* line 564, ../_sass/app.scss */
 .cta {
-  height: 48px;
+  min-height: 48px;
   padding-left: 10px;
   padding-top: 7px;
   margin-bottom: 10px;
