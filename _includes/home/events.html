@@ -10,13 +10,13 @@
 		<div class="media">
 			<a class="media__img" href="#">
 				<div class="event-item__calendar">
-					<div class="event-item__calendar--month">{{ event.pubDate | date: "%b"}}</div>
-					<div class="event-item__calendar--day">{{ event.pubDate | date: "%d"}}</div>
+					<div class="event-item__calendar--month">{{ event['ev:tribe_event_meta']['ev:startdate'] | date: "%b"}}</div>
+					<div class="event-item__calendar--day">{{ event['ev:tribe_event_meta']['ev:startdate'] | date: "%d"}}</div>
 				</div>
 			</a>
 			<div class="media__body">
 				<h4 class="event-item__title">{{ event.title }}</h4>
-				<div class="event-item__time">{{ event.pubDate | date: "%B %d, %Y"}}</div>
+				<div class="event-item__time">{{ event['ev:tribe_event_meta']['ev:startdate'] | date: "%B %d, %Y"}}</div>
 				<div class="event-item__location"><a href="{{ event.link }}">{{ event.link }}</a></div>
 			</div>
 		</div>
