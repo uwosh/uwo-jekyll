@@ -1,6 +1,6 @@
 $(function() {
   if (screen.width > 767) {
-    var allDrawers = $('#aboutDrawer,#academicsDrawer,#athleticsDrawer,#alumniDrawer,#admissionsDrawer,#administrationDrawer,#resourcesDrawer,#calendarsDrawer');
+    var allDrawers = $('#aboutDrawer,#academicsDrawer,#athleticsDrawer,#alumniDrawer,#admissionsDrawer,#administrationDrawer,#resourcesDrawer,#calendarsDrawer,#educationDrawer,#leadershipDrawer,#responsivenessDrawer,#serviceDrawer,#sustainabilityDrawer');
 
     // About
     $('#aboutToggle').hover(function() {
@@ -62,6 +62,46 @@ $(function() {
     $('#calendarsToggle').hover(function() {
       $('#calendarsDrawer').fadeIn(200);$('#aboutDrawer,#academicsDrawer,#athleticsDrawer,#alumniDrawer,#admissionsDrawer,#administrationDrawer,#resourcesDrawer').fadeOut(450);
       $('#calendarsDrawer').mouseleave(function() {
+        allDrawers.fadeOut(500);
+      });
+    });
+
+    // Education
+    $('#educationToggle').hover(function() {
+      $('#educationDrawer').fadeIn(200);$('#leadershipDrawer,#responsivenessDrawer,#serviceDrawer,#sustainabilityDrawer').fadeOut(450);
+      $('#educationDrawer').mouseleave(function() {
+        allDrawers.fadeOut(500);
+      });
+    });
+
+    // Leadership
+    $('#leadershipToggle').hover(function() {
+      $('#leadershipDrawer').fadeIn(200);$('#educationDrawer,#responsivenessDrawer,#serviceDrawer,#sustainabilityDrawer').fadeOut(450);
+      $('#leadershipDrawer').mouseleave(function() {
+        allDrawers.fadeOut(500);
+      });
+    });
+
+    // Responsiveness
+    $('#responsivenessToggle').hover(function() {
+      $('#responsivenessDrawer').fadeIn(200);$('#leadershipDrawer,#educationDrawer,#serviceDrawer,#sustainabilityDrawer').fadeOut(450);
+      $('#responsivenessDrawer').mouseleave(function() {
+        allDrawers.fadeOut(500);
+      });
+    });
+
+    // Service
+    $('#serviceToggle').hover(function() {
+      $('#serviceDrawer').fadeIn(200);$('#leadershipDrawer,#responsivenessDrawer,#educationDrawer,#sustainabilityDrawer').fadeOut(450);
+      $('#serviceDrawer').mouseleave(function() {
+        allDrawers.fadeOut(500);
+      });
+    });
+
+    // Sustainability
+    $('#sustainabilityToggle').hover(function() {
+      $('#sustainabilityDrawer').fadeIn(200);$('#leadershipDrawer,#responsivenessDrawer,#serviceDrawer,#educationDrawer').fadeOut(450);
+      $('#sustainabilityDrawer').mouseleave(function() {
         allDrawers.fadeOut(500);
       });
     });

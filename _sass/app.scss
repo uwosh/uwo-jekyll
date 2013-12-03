@@ -300,14 +300,17 @@ ABOUT UW OSHKOSH STYLES
 .about-pillar__dropdown {
   color: #fff;
   border: none !important;
+  display: none;
+  position: absolute;
+  top: 54px;
+  left: 8px;
+  z-index: 9999;
+  max-width: 810px;
+  padding-left: 16px;
   h3 {
     color: #fff;
     font-weight: $semibold;
   }
-}
-.about-pillar__dropdown.open {
-  top: 54px !important;
-  left: 8px !important;
 }
 .about-pillar__dropdown--education {
   background-color: $dark-blue !important;
@@ -323,17 +326,6 @@ ABOUT UW OSHKOSH STYLES
 }
 .about-pillar__dropdown--sustainability {
   background-color: $dark-green !important;
-}
-.about-pillar__dropdown__container {
-  @include dropdown-container(
-    // Sets list-style. Default: list. Options: [list, content]
-    $content:content,
-    // Sets if dropdown has triangle. Default:true.
-    $triangle:false,
-    $max-width: 810px
-  );
-
-  li { @include dropdown-style; }
 }
 /******************************************************************
 END ABOUT UW OSHKOSH
@@ -369,6 +361,7 @@ NAV DRAWERS
   z-index: 9999;
   width: 100%;
 }
+
 /******************************************************************
 END NAV DRAWERS
 ******************************************************************/
@@ -469,7 +462,7 @@ PANELS
 }
 .panel--home {
   height: 410px;
-  border-top: 3px solid;
+  border-top: 3px solid $dark-gray;
   padding: 1.25rem;
 }
 .panel__video-wrapper {
@@ -486,7 +479,7 @@ PANELS
   width: 100%;
   height: 100%;
 }
-.panel--green {
+/*.panel--green {
   border-top-color: $green;
 }
 .panel--dark-green {
@@ -509,7 +502,7 @@ PANELS
 }
 .panel--dark-yellow {
   border-top-color: $dark-yellow;
-}
+}*/
 /******************************************************************
 END PANELS
 ******************************************************************/

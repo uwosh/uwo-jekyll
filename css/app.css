@@ -10369,84 +10369,43 @@ ABOUT UW OSHKOSH STYLES
 .about-pillar__dropdown {
   color: #fff;
   border: none !important;
+  display: none;
+  position: absolute;
+  top: 54px;
+  left: 8px;
+  z-index: 9999;
+  max-width: 810px;
+  padding-left: 16px;
 }
-/* line 303, ../_sass/app.scss */
+/* line 310, ../_sass/app.scss */
 .about-pillar__dropdown h3 {
   color: #fff;
   font-weight: 600;
 }
 
-/* line 308, ../_sass/app.scss */
-.about-pillar__dropdown.open {
-  top: 54px !important;
-  left: 8px !important;
-}
-
-/* line 312, ../_sass/app.scss */
+/* line 315, ../_sass/app.scss */
 .about-pillar__dropdown--education {
   background-color: #0077ad !important;
 }
 
-/* line 315, ../_sass/app.scss */
+/* line 318, ../_sass/app.scss */
 .about-pillar__dropdown--leadership {
   background-color: #c05600 !important;
 }
 
-/* line 318, ../_sass/app.scss */
+/* line 321, ../_sass/app.scss */
 .about-pillar__dropdown--responsiveness {
   background-color: #e68600 !important;
 }
 
-/* line 321, ../_sass/app.scss */
+/* line 324, ../_sass/app.scss */
 .about-pillar__dropdown--service {
   background-color: #69bad9 !important;
 }
 
-/* line 324, ../_sass/app.scss */
+/* line 327, ../_sass/app.scss */
 .about-pillar__dropdown--sustainability {
   background-color: #5a9664 !important;
-}
-
-/* line 327, ../_sass/app.scss */
-.about-pillar__dropdown__container {
-  position: absolute;
-  top: -9999px;
-  list-style: none;
-  margin-left: 0;
-  padding: 1.53846rem;
-  width: 100%;
-  height: auto;
-  max-height: none;
-  background: white;
-  border: solid 1px #cccccc;
-  font-size: 13px;
-  z-index: 99;
-  max-width: 810px;
-}
-/* line 54, ../bower_components/foundation/scss/foundation/components/_dropdown.scss */
-.about-pillar__dropdown__container > *:first-child {
-  margin-top: 0;
-}
-/* line 55, ../bower_components/foundation/scss/foundation/components/_dropdown.scss */
-.about-pillar__dropdown__container > *:last-child {
-  margin-bottom: 0;
-}
-/* line 336, ../_sass/app.scss */
-.about-pillar__dropdown__container li {
-  font-size: 1.07692rem;
-  cursor: pointer;
-  line-height: 1.38462rem;
-  margin: 0;
-}
-/* line 122, ../bower_components/foundation/scss/foundation/components/_dropdown.scss */
-.about-pillar__dropdown__container li:hover, .about-pillar__dropdown__container li:focus {
-  background: #eeeeee;
-}
-/* line 124, ../bower_components/foundation/scss/foundation/components/_dropdown.scss */
-.about-pillar__dropdown__container li a {
-  display: block;
-  padding: 0.5rem;
-  color: #555555;
 }
 
 /******************************************************************
@@ -10455,7 +10414,7 @@ END ABOUT UW OSHKOSH
 /******************************************************************
 ACADEMICS
 ******************************************************************/
-/* line 345, ../_sass/app.scss */
+/* line 337, ../_sass/app.scss */
 .academics-row {
   padding-right: 32px;
   padding-left: 32px;
@@ -10467,7 +10426,7 @@ END ACADEMICS
 /******************************************************************
 CURRENT STUDENTS
 ******************************************************************/
-/* line 356, ../_sass/app.scss */
+/* line 348, ../_sass/app.scss */
 .my-uwo {
   padding-right: 10px;
 }
@@ -10478,7 +10437,7 @@ END CURRENT STUDENTS
 /******************************************************************
 NAV DRAWERS
 ******************************************************************/
-/* line 366, ../_sass/app.scss */
+/* line 358, ../_sass/app.scss */
 .nav-info {
   display: none;
   position: absolute;
@@ -10492,33 +10451,33 @@ END NAV DRAWERS
 /******************************************************************
 HOME
 ******************************************************************/
-/* line 379, ../_sass/app.scss */
+/* line 372, ../_sass/app.scss */
 .home-slider__caption {
   background-color: transparent !important;
   bottom: 10px !important;
   padding-left: 0 !important;
 }
 
-/* line 384, ../_sass/app.scss */
+/* line 377, ../_sass/app.scss */
 .home-slider__caption__content {
   background-color: rgba(230, 134, 0, 0.9);
   width: 50%;
   padding: 8px 10px 8px 10px;
 }
 
-/* line 389, ../_sass/app.scss */
+/* line 382, ../_sass/app.scss */
 .home-slider__caption__title {
   font-weight: 400;
 }
 
-/* line 392, ../_sass/app.scss */
+/* line 385, ../_sass/app.scss */
 .home-slider__caption__excerpt {
   background-color: #fff;
   padding: 8px 40px 8px 10px;
   margin-left: -10px;
 }
 
-/* line 397, ../_sass/app.scss */
+/* line 390, ../_sass/app.scss */
 .home-slider__caption__read-more {
   background-color: #c05600;
   color: #fff;
@@ -10531,30 +10490,30 @@ END HOME
 /******************************************************************
 PANELS
 ******************************************************************/
-/* line 409, ../_sass/app.scss */
+/* line 402, ../_sass/app.scss */
 .panel {
   box-shadow: 0 0 5px #b0b0b0;
   background: #fff;
   padding: 0;
 }
 
-/* line 414, ../_sass/app.scss */
+/* line 407, ../_sass/app.scss */
 .panel:hover {
   box-shadow: 0 0 5px #69bad9;
 }
 
-/* line 417, ../_sass/app.scss */
+/* line 410, ../_sass/app.scss */
 .panel__category {
   font-size: 13px;
   color: #b0b0b0;
   font-weight: 600;
 }
-/* line 421, ../_sass/app.scss */
+/* line 414, ../_sass/app.scss */
 .panel__category a {
   color: #b0b0b0;
 }
 
-/* line 425, ../_sass/app.scss */
+/* line 418, ../_sass/app.scss */
 .panel__title {
   font-size: 18px;
   font-weight: 600;
@@ -10564,25 +10523,25 @@ PANELS
   border-bottom: 1px solid #ededed;
 }
 
-/* line 433, ../_sass/app.scss */
+/* line 426, ../_sass/app.scss */
 .panel__title--small {
   font-size: 13px;
   line-height: 19px;
 }
 
-/* line 437, ../_sass/app.scss */
+/* line 430, ../_sass/app.scss */
 .panel__news-heading {
   font-size: 18px;
   color: #444444;
   font-weight: 600;
 }
 
-/* line 445, ../_sass/app.scss */
+/* line 438, ../_sass/app.scss */
 .panel__teaser {
   margin-bottom: 0;
 }
 
-/* line 448, ../_sass/app.scss */
+/* line 441, ../_sass/app.scss */
 .panel__posted-date {
   font-size: 11px;
   color: #b0b0b0;
@@ -10591,39 +10550,39 @@ PANELS
   bottom: 25px;
 }
 
-/* line 455, ../_sass/app.scss */
+/* line 448, ../_sass/app.scss */
 .panel__image {
   padding: 16px;
 }
 
-/* line 458, ../_sass/app.scss */
+/* line 451, ../_sass/app.scss */
 .panel__image--non-accordion {
   margin-bottom: 16px;
 }
 
-/* line 461, ../_sass/app.scss */
+/* line 454, ../_sass/app.scss */
 .panel__image__caption {
   padding: 0 16px 8px 16px;
 }
 
-/* line 464, ../_sass/app.scss */
+/* line 457, ../_sass/app.scss */
 .panel__image--home {
   height: 189px;
 }
 
-/* line 467, ../_sass/app.scss */
+/* line 460, ../_sass/app.scss */
 .panel__content {
   padding: 8px 16px 8px 16px;
 }
 
-/* line 470, ../_sass/app.scss */
+/* line 463, ../_sass/app.scss */
 .panel--home {
   height: 410px;
-  border-top: 3px solid;
+  border-top: 3px solid #444444;
   padding: 1.25rem;
 }
 
-/* line 475, ../_sass/app.scss */
+/* line 468, ../_sass/app.scss */
 .panel__video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -10633,7 +10592,7 @@ PANELS
   text-align: center;
 }
 
-/* line 482, ../_sass/app.scss */
+/* line 475, ../_sass/app.scss */
 .panel__video-wrapper iframe {
   position: absolute;
   top: 0;
@@ -10642,53 +10601,37 @@ PANELS
   height: 100%;
 }
 
-/* line 489, ../_sass/app.scss */
-.panel--green {
-  border-top-color: #aab464;
+/*.panel--green {
+  border-top-color: $green;
 }
-
-/* line 492, ../_sass/app.scss */
 .panel--dark-green {
-  border-top-color: #5a9664;
+  border-top-color: $dark-green;
 }
-
-/* line 495, ../_sass/app.scss */
 .panel--blue {
-  border-top-color: #69bad9;
+  border-top-color: $blue;
 }
-
-/* line 498, ../_sass/app.scss */
 .panel--dark-blue {
-  border-top-color: #0077ad;
+  border-top-color: $dark-blue;
 }
-
-/* line 501, ../_sass/app.scss */
 .panel--orange {
-  border-top-color: #e68600;
+  border-top-color: $orange;
 }
-
-/* line 504, ../_sass/app.scss */
 .panel--dark-orange {
-  border-top-color: #c05600;
+  border-top-color: $dark-orange;
 }
-
-/* line 507, ../_sass/app.scss */
 .panel--yellow {
-  border-top-color: #fec425;
+  border-top-color: $yellow;
 }
-
-/* line 510, ../_sass/app.scss */
 .panel--dark-yellow {
-  border-top-color: #d79a27;
-}
-
+  border-top-color: $dark-yellow;
+}*/
 /******************************************************************
 END PANELS
 ******************************************************************/
 /******************************************************************
 PAGE BANNERS
 ******************************************************************/
-/* line 520, ../_sass/app.scss */
+/* line 513, ../_sass/app.scss */
 .page-banner {
   min-height: 64px;
   padding-left: 10px;
@@ -10696,44 +10639,44 @@ PAGE BANNERS
   padding-top: 10px;
 }
 
-/* line 526, ../_sass/app.scss */
+/* line 519, ../_sass/app.scss */
 .page-banner__title {
   color: #fff;
   margin-top: 0;
   font-size: 28px;
 }
 
-/* line 531, ../_sass/app.scss */
+/* line 524, ../_sass/app.scss */
 .page-banner--blue {
   background-color: #69bad9;
 }
 
-/* line 534, ../_sass/app.scss */
+/* line 527, ../_sass/app.scss */
 .page-banner--dark-blue {
   background-color: #0077ad;
 }
 
-/* line 537, ../_sass/app.scss */
+/* line 530, ../_sass/app.scss */
 .page-banner--orange {
   background-color: #e68600;
 }
 
-/* line 540, ../_sass/app.scss */
+/* line 533, ../_sass/app.scss */
 .page-banner--dark-orange {
   background-color: #c05600;
 }
 
-/* line 543, ../_sass/app.scss */
+/* line 536, ../_sass/app.scss */
 .page-banner--dark-green {
   background-color: #5a9664;
 }
 
-/* line 546, ../_sass/app.scss */
+/* line 539, ../_sass/app.scss */
 .page-banner--medium-dark-gray {
   background-color: #666666;
 }
 
-/* line 549, ../_sass/app.scss */
+/* line 542, ../_sass/app.scss */
 .page-banner--dark-gray {
   background-color: #444444;
 }
@@ -10744,7 +10687,7 @@ END PAGE BANNERS
 /******************************************************************
 CTAs
 ******************************************************************/
-/* line 559, ../_sass/app.scss */
+/* line 552, ../_sass/app.scss */
 .cta {
   min-height: 48px;
   padding-left: 10px;
@@ -10752,18 +10695,18 @@ CTAs
   margin-bottom: 10px;
 }
 
-/* line 565, ../_sass/app.scss */
+/* line 558, ../_sass/app.scss */
 .cta--home {
   padding-top: 10px;
 }
 
-/* line 568, ../_sass/app.scss */
+/* line 561, ../_sass/app.scss */
 .cta--parents {
   padding-top: 15px;
   margin-bottom: 16px;
 }
 
-/* line 572, ../_sass/app.scss */
+/* line 565, ../_sass/app.scss */
 .cta__icon {
   width: 40px;
   height: 40px;
@@ -10771,58 +10714,58 @@ CTAs
   margin-right: 8px;
 }
 
-/* line 578, ../_sass/app.scss */
+/* line 571, ../_sass/app.scss */
 .cta__icon--book-closed {
   width: 40px;
   height: 40px;
   margin-top: -3px;
 }
 
-/* line 583, ../_sass/app.scss */
+/* line 576, ../_sass/app.scss */
 .cta__icon--pencil {
   width: 40px;
   height: 40px;
   margin-top: -3px;
 }
 
-/* line 588, ../_sass/app.scss */
+/* line 581, ../_sass/app.scss */
 .cta__text {
   color: #fff;
   font-size: 18px;
   font-weight: 400;
 }
 
-/* line 593, ../_sass/app.scss */
+/* line 586, ../_sass/app.scss */
 .cta__text--home {
   font-size: 28px;
 }
 
-/* line 596, ../_sass/app.scss */
+/* line 589, ../_sass/app.scss */
 .cta--blue {
   background-color: #69bad9;
 }
 
-/* line 599, ../_sass/app.scss */
+/* line 592, ../_sass/app.scss */
 .cta--dark-blue {
   background-color: #0077ad;
 }
 
-/* line 602, ../_sass/app.scss */
+/* line 595, ../_sass/app.scss */
 .cta--orange {
   background-color: #e68600;
 }
 
-/* line 605, ../_sass/app.scss */
+/* line 598, ../_sass/app.scss */
 .cta--dark-orange {
   background-color: #c05600;
 }
 
-/* line 608, ../_sass/app.scss */
+/* line 601, ../_sass/app.scss */
 .cta--dark-green {
   background-color: #5a9664;
 }
 
-/* line 611, ../_sass/app.scss */
+/* line 604, ../_sass/app.scss */
 .cta--light-yellow {
   background-color: #fce192;
 }
@@ -10833,19 +10776,19 @@ END CTAs
 /******************************************************************
 EVENTS
 ******************************************************************/
-/* line 624, ../_sass/app.scss */
+/* line 617, ../_sass/app.scss */
 .event-item__title {
   margin-top: -5px;
 }
 
-/* line 633, ../_sass/app.scss */
+/* line 626, ../_sass/app.scss */
 .event-item__calendar {
   border: 1px solid #b0b0b0;
   box-shadow: 1px 1px 5px #999;
   width: 64px;
 }
 
-/* line 638, ../_sass/app.scss */
+/* line 631, ../_sass/app.scss */
 .event-item__calendar--month {
   height: 24px;
   background-color: #0077ad;
@@ -10854,7 +10797,7 @@ EVENTS
   padding-top: 5px;
 }
 
-/* line 645, ../_sass/app.scss */
+/* line 638, ../_sass/app.scss */
 .event-item__calendar--day {
   height: 40px;
   color: #444444;
@@ -10870,14 +10813,14 @@ END EVENTS
 /******************************************************************
 CAMPUS FAST FACTS
 ******************************************************************/
-/* line 660, ../_sass/app.scss */
+/* line 653, ../_sass/app.scss */
 .fast-facts table {
   border: none;
   border-top: #fec425 2px solid;
   width: 100%;
 }
 
-/* line 665, ../_sass/app.scss */
+/* line 658, ../_sass/app.scss */
 .fast-facts__number {
   color: #0077ad;
 }
@@ -10888,7 +10831,7 @@ END CAMPUS FAST FACTS
 /******************************************************************
 UWO DRAWER STYLES
 ******************************************************************/
-/* line 675, ../_sass/app.scss */
+/* line 668, ../_sass/app.scss */
 .drawer__row {
   padding-top: 16px;
   padding-bottom: 16px;
@@ -10900,22 +10843,22 @@ END DRAWER STYLES
 /******************************************************************
 BESPOKE SLIDER STYLES
 ******************************************************************/
-/* line 686, ../_sass/app.scss */
+/* line 679, ../_sass/app.scss */
 .deck-container {
   position: relative;
 }
 
-/* line 687, ../_sass/app.scss */
+/* line 680, ../_sass/app.scss */
 deck {
   position: relative;
 }
 
-/* line 688, ../_sass/app.scss */
+/* line 681, ../_sass/app.scss */
 .container-overflow {
   overflow: hidden;
 }
 
-/* line 689, ../_sass/app.scss */
+/* line 682, ../_sass/app.scss */
 #socialTabs {
   width: 144px;
   height: 238px;
@@ -10923,27 +10866,27 @@ deck {
   background-color: #fff;
   font-size: 1.2em;
 }
-/* line 695, ../_sass/app.scss */
+/* line 688, ../_sass/app.scss */
 #socialTabs li {
   width: 100%;
 }
 
-/* line 699, ../_sass/app.scss */
+/* line 692, ../_sass/app.scss */
 #socialTabs dd > a {
   font-size: 13px;
 }
 
-/* line 702, ../_sass/app.scss */
+/* line 695, ../_sass/app.scss */
 #socialTabs > li > a:hover {
   border: none;
   background-color: #fff;
 }
 
-/* line 706, ../_sass/app.scss */
+/* line 699, ../_sass/app.scss */
 #socialTabs > li {
   background-color: #fff;
 }
-/* line 708, ../_sass/app.scss */
+/* line 701, ../_sass/app.scss */
 #socialTabs > li a {
   color: #b0b0b0;
   border: none;
@@ -10951,13 +10894,13 @@ deck {
   margin-right: 0;
 }
 
-/* line 715, ../_sass/app.scss */
+/* line 708, ../_sass/app.scss */
 #socialTabs > li.active > a {
   background-color: #0077ad;
   color: #fff;
 }
 
-/* line 720, ../_sass/app.scss */
+/* line 713, ../_sass/app.scss */
 .social-controls {
   position: absolute;
   left: 1074px;
@@ -10966,11 +10909,11 @@ deck {
   border: 1px solid #ededed;
   background-color: #fff;
 }
-/* line 727, ../_sass/app.scss */
+/* line 720, ../_sass/app.scss */
 .social-controls ul {
   margin-top: 50px;
 }
-/* line 730, ../_sass/app.scss */
+/* line 723, ../_sass/app.scss */
 .social-controls li {
   color: #fff;
   height: 24px;
@@ -10978,22 +10921,22 @@ deck {
   margin-right: 5px;
   padding-top: 2px;
 }
-/* line 737, ../_sass/app.scss */
+/* line 730, ../_sass/app.scss */
 .social-controls .previous {
   background-color: #69bad9;
   margin-bottom: 5px;
 }
-/* line 741, ../_sass/app.scss */
+/* line 734, ../_sass/app.scss */
 .social-controls .next {
   background-color: #0077ad;
 }
 
-/* line 745, ../_sass/app.scss */
+/* line 738, ../_sass/app.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   border: none;
 }
 
-/* line 748, ../_sass/app.scss */
+/* line 741, ../_sass/app.scss */
 slide {
   position: absolute;
   top: 0;
@@ -11001,7 +10944,7 @@ slide {
   opacity: 0;
 }
 
-/* line 754, ../_sass/app.scss */
+/* line 747, ../_sass/app.scss */
 slide.bespoke-slide {
   -webkit-transition: -webkit-transform .7s ease, opacity .7s ease, background-color .7s ease;
   -moz-transition: -moz-transform .7s ease, opacity .7s ease, background-color .7s ease;
@@ -11010,14 +10953,14 @@ slide.bespoke-slide {
   transition: transform .7s ease, opacity .7s ease, background-color .7s ease;
 }
 
-/* line 761, ../_sass/app.scss */
+/* line 754, ../_sass/app.scss */
 slide.bespoke-active {
   opacity: 1;
   z-index: 1;
 }
 
 /* Classic Theme */
-/* line 766, ../_sass/app.scss */
+/* line 759, ../_sass/app.scss */
 .social-article {
   width: 309px;
   height: 238px;
@@ -11028,7 +10971,7 @@ slide.bespoke-active {
   padding-right: 5px;
 }
 
-/* line 776, ../_sass/app.scss */
+/* line 769, ../_sass/app.scss */
 slide.bespoke-before {
   -webkit-transform: translate3d(-1920px, 0, 0);
   -moz-transform: translate3d(-1920px, 0, 0);
@@ -11037,7 +10980,7 @@ slide.bespoke-before {
   transform: translate3d(-1920px, 0, 0);
 }
 
-/* line 783, ../_sass/app.scss */
+/* line 776, ../_sass/app.scss */
 slide.bespoke-before-2 {
   -webkit-transform: translate3d(-1280px, 0, 0);
   -moz-transform: translate3d(-1280px, 0, 0);
@@ -11047,7 +10990,7 @@ slide.bespoke-before-2 {
   opacity: 0.1;
 }
 
-/* line 791, ../_sass/app.scss */
+/* line 784, ../_sass/app.scss */
 slide.bespoke-before-1 {
   -webkit-transform: translate3d(-640px, 0, 0);
   -moz-transform: translate3d(-640px, 0, 0);
@@ -11057,7 +11000,7 @@ slide.bespoke-before-1 {
   opacity: 0.3;
 }
 
-/* line 799, ../_sass/app.scss */
+/* line 792, ../_sass/app.scss */
 slide.bespoke-after {
   -webkit-transform: translate3d(1920px, 0, 0);
   -moz-transform: translate3d(1920px, 0, 0);
@@ -11066,7 +11009,7 @@ slide.bespoke-after {
   transform: translate3d(1920px, 0, 0);
 }
 
-/* line 806, ../_sass/app.scss */
+/* line 799, ../_sass/app.scss */
 slide.bespoke-after-2 {
   -webkit-transform: translate3d(615px, 0, 0);
   -moz-transform: translate3d(615px, 0, 0);
@@ -11076,7 +11019,7 @@ slide.bespoke-after-2 {
   opacity: 1.0;
 }
 
-/* line 814, ../_sass/app.scss */
+/* line 807, ../_sass/app.scss */
 slide.bespoke-after-1 {
   -webkit-transform: translate3d(308px, 0, 0);
   -moz-transform: translate3d(308px, 0, 0);
