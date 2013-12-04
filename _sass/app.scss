@@ -815,3 +815,40 @@ slide.bespoke-after-1 {
 /******************************************************************
 END BESPOKE SLIDER STYLES
 ******************************************************************/
+
+/******************************************************************
+GOOGLE SEARCH STYLES
+******************************************************************/
+.cse .gsc-control-cse, .gsc-control-cse {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.gsc-input {
+  padding: 0 !important;
+}
+.gsc-search-box {
+  background: transparent !important;
+  margin: 0 !important;
+}
+.gsc-input {
+    margin-top: 7px !important;
+}
+.gsc-search-button {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+input.gsc-search-button {
+  background-color: #008CBA !important;
+  color: #fff !important;
+  height: 36px !important;
+  margin-top: -10px !important;
+  margin-left: -3px !important;
+}
+.gsc-clear-button {
+  display: none !important;
+}
+/******************************************************************
+END GOOGLE SEARCH STYLES
+******************************************************************/
