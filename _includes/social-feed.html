@@ -77,7 +77,7 @@
                 <slide>
                   <div class="twitter-article social-article">
                     <div class="youtube" id="{{video.id}}" style="height:160px;"></div>
-                    <h5>{{ video.title }}</h5>
+                    <p>{{ video.title }}</p>
                     <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ video.updated }}">{{ video.updated | date: "%B %d, %Y" }}</time></span>
                   </div>
                 </slide>
@@ -100,7 +100,7 @@
                 <slide>
                   <div class="twitter-article social-article">
                     <p><a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg" class="social-feed-flickr-image"></a></p>
-                    <h5>{{ set.title._content }}</h5>
+                    <p>{{ set.title._content }}</p>
                     <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ set.date_update }}">{{ set.date_update | date: "%B %d, %Y" }}</time></span>
                   </div>
                 </slide>
