@@ -1,0 +1,61 @@
+---
+layout: default
+title: Traveling Around Campus
+---
+
+<div class="content">
+
+  <div class="row">
+    <div class="small-24 columns">
+
+      <a href="{{ site.baseurl }}/current-students">
+        <div class="page-banner page-banner--blue">
+          <h2 class="page-banner__title">Current Students</h2>
+        </div>
+      </a>
+
+    </div>
+  </div><br>
+
+  <div class="row">
+
+    <div class="large-5 columns">
+      {% include current-students/side-nav.html %}
+      {% include social-icons.html %}
+      <br>
+      <a href="http://www.uwosh.edu/admissions/visit">
+        <div class="cta cta--dark-green">
+          <span class="cta__text">News and Announcements</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="large-14 columns">
+      <nav class="breadcrumbs">
+        <a href="{{site.baseurl}}">Home</a>
+        <a href="{{site.baseurl}}/about-uw-oshkosh">About UW&nbsp;Oshkosh</a>
+        <a href="#" class="current">{{ page.title }}</a>
+      </nav>
+      {% include current-students/traveling-around-campus/lead-content.html %}
+    </div>
+
+    <div class="large-5 columns">
+      <a href="http://www.uwosh.edu/admissions/visit">
+        <div class="cta cta--orange">
+          <span class="cta__text">Student Policies</span>
+        </div>
+      </a>
+      <a href="http://www.uwosh.edu/admissions/visit">
+        <div class="cta cta--dark-orange">
+          <span class="cta__text">General Education</span>
+        </div>
+      </a>
+      {% include my-uwo.html %}
+      <br>
+      <br>
+      {% include titan-alert.html %}
+    </div>
+
+  </div>
+
+</div>
