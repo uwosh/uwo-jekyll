@@ -458,11 +458,7 @@ PANELS
   bottom: 25px;
 }
 .panel__image {
-  transition: padding 0.5s ease;
   padding: 16px;
-}
-.panel__image:hover {
-  padding: 0;
 }
 .panel__image--non-accordion {
   margin-bottom: 16px;
