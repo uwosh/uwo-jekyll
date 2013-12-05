@@ -109,7 +109,7 @@ abbr {
 
 .wordmark {
   margin-left: -15px;
-  margin-top: 6px;
+  margin-top: 5px;
   width: 213px;
   max-width: 213px;
 }
@@ -219,6 +219,9 @@ FOOTER
 }
 .wismap {
   width: 124px;
+}
+.college-portrait-logo {
+  padding-top: 59px;
 }
 /******************************************************************
 END FOOTER
@@ -860,10 +863,16 @@ END GOOGLE SEARCH STYLES
   .wordmark {
     margin-top: 0;
   }
+  .wordmark-wrapper {
+    text-align: center;
+  }
 }
 
 @media #{$medium-only} {
   .wordmark {
     margin-top: 0;
+  }
+  .wordmark-wrapper {
+    text-align: center;
   }
 }
