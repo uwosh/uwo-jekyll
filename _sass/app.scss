@@ -589,6 +589,14 @@ CTAs
 .cta__text--home {
   font-size: 28px;
 }
+.cta--light-gray {
+  background-color: $light-gray;
+  color: $medium-gray;
+  font-size: 13px;
+  font-weight: $semibold;
+  padding-top: 18px;
+  text-align: center;
+}
 .cta--blue {
   background-color: $blue;
 }
