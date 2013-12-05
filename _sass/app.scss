@@ -615,7 +615,9 @@ EVENTS
 
 }
 .event-item__title {
-  margin-top: -5px;
+  margin-top: -4px;
+  margin-bottom: 0;
+  font-weight: $bold;
 }
 .event-item__time {
 
@@ -852,3 +854,16 @@ input.gsc-search-button {
 /******************************************************************
 END GOOGLE SEARCH STYLES
 ******************************************************************/
+
+
+@media #{$small-only} {
+  .wordmark {
+    margin-top: 0;
+  }
+}
+
+@media #{$medium-only} {
+  .wordmark {
+    margin-top: 0;
+  }
+}
