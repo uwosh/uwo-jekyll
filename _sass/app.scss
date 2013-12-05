@@ -426,6 +426,9 @@ PANELS
   padding: 8px 16px 0 16px;
   border-bottom: 1px solid $light-gray;
 }
+.panel h3 {
+  margin-bottom: 0;
+}
 .panel__title--small {
   font-size: 13px;
   line-height: 19px;
@@ -461,7 +464,8 @@ PANELS
   height: 189px;
 }
 .panel__content {
-  padding: 8px 16px 8px 16px;
+  //padding: 8px 16px 8px 16px;
+  padding: 0;
 }
 .panel--home {
   height: 410px;
