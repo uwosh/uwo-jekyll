@@ -15,7 +15,7 @@
 			<div class="panel__excerpt">
 				<p>{{ post.excerpt | strip_html | truncate: 130 }} <a href="{{ post.url }}">Read more &hellip;</a></p>
 			</div>
-			<span class="panel__osted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
+			<span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
 		</div>
 	</div>
 {% endfor %}
