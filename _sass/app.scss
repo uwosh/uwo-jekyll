@@ -48,6 +48,10 @@ Setting up variables. Bringing in Colors and Spacing.
 .desaturate:hover {
   @include prefixed(filter, grayscale(0%));
 }
+.clickable {
+  color: #b0b0b0;
+  text-shadow: -1px -1px 0px #777;
+}
 .title-gradient {
   background: #ffffff; /* Old browsers */
   background: -moz-linear-gradient(top,  #ffffff 0%, #eef0f0 100%); /* FF3.6+ */
