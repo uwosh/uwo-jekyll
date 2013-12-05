@@ -66,6 +66,11 @@ $(function() {
       });
     });
 
+    // Titan Services
+    $('#titanServicesToggle').hover(function() {
+      $('#aboutDrawer,#academicsDrawer,#athleticsDrawer,#alumniDrawer,#admissionsDrawer,#administrationDrawer,#resourcesDrawer,#calendarsDrawer').fadeOut(450);
+    });
+
     // Education
     $('#educationToggle').hover(function() {
       $('#educationDrawer').fadeIn(200);$('#leadershipDrawer,#responsivenessDrawer,#serviceDrawer,#sustainabilityDrawer').fadeOut(450);
