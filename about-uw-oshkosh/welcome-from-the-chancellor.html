@@ -4,32 +4,28 @@ title: Welcome from the Chancellor
 ---
 
 <div class="content">
-  
+
   <div class="row">
     <div class="small-24 columns">
-      
+
       <a href="{{ site.baseurl }}/about-uw-oshkosh">
         <div class="page-banner page-banner--orange">
           <h2 class="page-banner__title">About UW&nbsp;Oshkosh</h2>
         </div>
       </a>
-      
+
     </div>
   </div><br>
-  
+
   <div class="row">
-    
+
     <div class="large-5 columns">
       {% include about-uw-oshkosh/side-nav.html %}
       {% include social-icons.html %}
       <br>
-      <a href="http://www.uwosh.edu/admissions/visit">
-        <div class="cta cta--dark-green">
-          <span class="cta__text">News and Announcements</span>
-        </div>
-      </a>
+      {% include news-announcements-cta.html %}
     </div>
-    
+
     <div class="large-19 columns">
       <nav class="breadcrumbs">
         <a href="{{site.baseurl}}">Home</a>
@@ -38,7 +34,7 @@ title: Welcome from the Chancellor
       </nav>
       {% include about-uw-oshkosh/welcome-from-the-chancellor/lead-content.html %}
     </div>
-    
+
   </div>
-  
+
 </div>
