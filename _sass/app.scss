@@ -449,6 +449,7 @@ PANELS
 }
 .panel__teaser {
   margin-bottom: 0;
+  padding: 0 16px 16px 16px;
 }
 .panel__posted-date {
   font-size: 11px;
@@ -461,7 +462,6 @@ PANELS
   padding: 16px;
 }
 .panel__image--non-accordion {
-  margin-bottom: 16px;
 }
 .panel__image__caption {
   padding: 0 16px 8px 16px;
