@@ -51,6 +51,10 @@ Setting up variables. Bringing in Colors and Spacing.
 .clickable {
   color: #b0b0b0;
   text-shadow: -1px -1px 0px #777;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
 }
 .title-gradient {
   background: #ffffff; /* Old browsers */
@@ -894,3 +898,16 @@ END GOOGLE SEARCH STYLES
     text-align: center;
   }
 }
+
+/******************************************************************
+EFFECTS
+******************************************************************/
+.rotate180 {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+}
+/******************************************************************
+END EFFECTS
+******************************************************************/
