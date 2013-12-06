@@ -56,6 +56,13 @@ Setting up variables. Bringing in Colors and Spacing.
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
 }
+.clickable:hover {
+  -webkit-animation: wobble .75s linear infinite;
+  -moz-animation: wobble .75s linear infinite;
+  -ms-animation: wobble .75s linear infinite;
+  -o-animation: wobble .75s linear infinite;
+  animation: wobble .75s linear infinite;
+}
 .title-gradient {
   background: #ffffff; /* Old browsers */
   background: -moz-linear-gradient(top,  #ffffff 0%, #eef0f0 100%); /* FF3.6+ */
@@ -907,6 +914,61 @@ EFFECTS
   -moz-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
+}
+@-webkit-keyframes wobble {
+    0% { -webkit-transform: rotate(-2deg); }
+    20% { -webkit-transform: rotate(4deg); }
+    30% { -webkit-transform: rotate(1deg); }
+    40% { -webkit-transform: rotate(3deg); }
+    55% { -webkit-transform: rotate(0deg); }
+    70% { -webkit-transform: rotate(-4deg); }
+    80% { -webkit-transform: rotate(2deg); }
+    90% { -webkit-transform: rotate(-2deg); }
+    90% { -webkit-transform: rotate(3deg); }
+}
+@-moz-keyframes wobble {
+    0% { -moz-transform: rotate(-2deg); }
+    20% { -moz-transform: rotate(4deg); }
+    30% { -moz-transform: rotate(1deg); }
+    40% { -moz-transform: rotate(3deg); }
+    55% { -moz-transform: rotate(0deg); }
+    70% { -moz-transform: rotate(-4deg); }
+    80% { -moz-transform: rotate(2deg); }
+    90% { -moz-transform: rotate(-2deg); }
+    90% { -moz-transform: rotate(3deg); }
+}
+@-ms-keyframes wobble {
+    0% { -ms-transform: rotate(-2deg); }
+    20% { -ms-transform: rotate(4deg); }
+    30% { -ms-transform: rotate(1deg); }
+    40% { -ms-transform: rotate(3deg); }
+    55% { -ms-transform: rotate(0deg); }
+    70% { -ms-transform: rotate(-4deg); }
+    80% { -ms-transform: rotate(2deg); }
+    90% { -ms-transform: rotate(-2deg); }
+    90% { -ms-transform: rotate(3deg); }
+}
+@-o-keyframes wobble {
+    0% { -o-transform: rotate(-2deg); }
+    20% { -o-transform: rotate(4deg); }
+    30% { -o-transform: rotate(1deg); }
+    40% { -o-transform: rotate(3deg); }
+    55% { -o-transform: rotate(0deg); }
+    70% { -o-transform: rotate(-4deg); }
+    80% { -o-transform: rotate(2deg); }
+    90% { -o-transform: rotate(-2deg); }
+    90% { -o-transform: rotate(3deg); }
+}
+@keyframes wobble {
+    0% { transform: rotate(-2deg); }
+    20% { transform: rotate(4deg); }
+    30% { transform: rotate(1deg); }
+    40% { transform: rotate(3deg); }
+    55% { transform: rotate(0deg); }
+    70% { transform: rotate(-4deg); }
+    80% { transform: rotate(2deg); }
+    90% { transform: rotate(-2deg); }
+    90% { transform: rotate(3deg); }
 }
 /******************************************************************
 END EFFECTS
