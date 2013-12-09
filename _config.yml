@@ -8,6 +8,8 @@ exclude:
   - bower.json
   - Gemfile
   - Gemfile.lock
+
+# URLs
 facebook: https://www.facebook.com/uwoshkosh
 twitter: https://twitter.com/uwoshkosh
 youtube: http://www.youtube.com/uwosh
