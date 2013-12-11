@@ -6,7 +6,7 @@
     {% for post in feed.posts %}
     <li>
       <a href="{{ post.url }}"><img class="pillar-image" src="{{ post.custom_fields.pillar_image }}" alt="Leadership Pillar" /></a>
-      <div class="orbit-caption home-slider__caption hide-for-small">
+      <div class="orbit-caption home-slider__caption">
         <div class="home-slider__caption__content">
           <p class="banner-headline home-slider__caption__title">{{ post.title }}</p>
           <p class="body-content"><span class="home-slider__caption__excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</span><a href="{{ post.url }}"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
@@ -19,7 +19,7 @@
     {% for post in feed.posts %}
     <li>
       <a href="{{ post.url }}"><img class="pillar-image" src="{{ post.custom_fields.pillar_image }}" alt="Responsiveness Pillar" /></a>
-      <div class="orbit-caption home-slider__caption hide-for-small">
+      <div class="orbit-caption home-slider__caption">
         <div class="home-slider__caption__content">
           <p class="banner-headline home-slider__caption__title">{{ post.title }}</p>
           <p class="body-content"><span class="home-slider__caption__excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</span><a href="{{ post.url }}"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
@@ -32,7 +32,7 @@
     {% for post in feed.posts %}
     <li>
       <a href="{{ post.url }}"><img class="pillar-image" src="{{ post.custom_fields.pillar_image }}" alt="Service Pillar" /></a>
-      <div class="orbit-caption home-slider__caption hide-for-small">
+      <div class="orbit-caption home-slider__caption">
         <div class="home-slider__caption__content">
           <p class="banner-headline home-slider__caption__title">{{ post.title }}</p>
           <p class="body-content"><span class="home-slider__caption__excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</span><a href="{{ post.url }}"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
@@ -45,7 +45,7 @@
     {% for post in feed.posts %}
     <li>
       <a href="{{ post.url }}"><img class="pillar-image" src="{{ post.custom_fields.pillar_image }}" alt="Service Pillar" /></a>
-      <div class="orbit-caption home-slider__caption hide-for-small">
+      <div class="orbit-caption home-slider__caption">
         <div class="home-slider__caption__content">
           <p class="banner-headline home-slider__caption__title">{{ post.title }}</p>
           <p class="body-content"><span class="home-slider__caption__excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</span><a href="{{ post.url }}"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
