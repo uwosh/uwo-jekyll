@@ -481,7 +481,7 @@ $crumb-slash: ">>";
 
 // Off-canvas
 
-// $tabbar-bg: #333;
+$tabbar-bg: #444;
 // $tabbar-height: rem-calc(45);
 // $tabbar-line-height: $tabbar-height;
 // $tabbar-color: #FFF;
@@ -931,7 +931,7 @@ $side-nav-font-size: rem-calc(13);
 
 // Background color for the top bar
 $topbar-bg-color: #444;
-$topbar-bg: $topbar-bg-color;
+$topbar-bg: linear-gradient(to bottom,  #666666 0%,#444444 100%);
 
 // Height and margin
 $topbar-height: 32px;
