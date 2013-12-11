@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="small-24 columns">
-		<h4>Events <small>View More Events -></small></h4>
+		<h4>Events <a href="http://www.uwosh.edu/today/events"><small>View More Events <i class="fa fa-arrow-right"></i></small></a></h4>
 	</div>
 </div>
 <div class="row">
@@ -17,7 +17,7 @@
 			<div class="media__body">
 				<h4 class="event-item__title body-content">{{ event.title }}</h4>
 				<div class="event-item__time body-content">{{ event['ev:tribe_event_meta']['ev:startdate'] | date: "%I:%M %p"}}-{{ event['ev:tribe_event_meta']['ev:enddate'] | date: "%I:%M %p"}}</div>
-				<div class="event-item__location body-content"><a href="{{ event.link }}">{{ event.link }}</a></div>
+				<div class="event-item__location body-content"><a href="{{ event.link }}">View event <i class="fa fa-arrow-right"></i></a></div>
 			</div>
 		</div>
 	</div>
