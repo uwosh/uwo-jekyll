@@ -6,7 +6,7 @@
 <div class="row">
 {% jsonball events from url http://feeds.uwosh.edu/api/v1/index.php/events/public %}
 {% for event in events.value.items limit: 3 %}
-	<div class="large-8 small-24 columns">
+	<div class="large-8 medium-8 small-24 columns">
 		<div class="media">
 			<a class="media__img" href="#">
 				<div class="event-item__calendar">
