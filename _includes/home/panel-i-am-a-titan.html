@@ -1,6 +1,6 @@
 {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/i-am-a-titan %}
 {% for post in feed.posts limit:1 %}
-	<div class="large-8 small-24 columns">
+	<div class="large-8 medium-12 small-24 columns">
 		<div class="panel panel--home panel--dark-yellow">
 			<span class="panel__category uppercase"><a href="http://www.uwosh.edu/today/category/this-week-in-focus/">I am a Titan <i class="fa fa-arrow-right"></i></a></span>
 			<h2 class="panel__news-heading">{{ post.title }}</h2>

@@ -1,6 +1,6 @@
 {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/powering-community %}
 {% for post in feed.posts %}
-	<div class="large-8 small-24 columns">
+	<div class="large-8 medium-12 small-24 columns">
 		<div class="panel panel--home panel--blue">
 			<span class="panel__category uppercase"><a href="http://www.uwosh.edu/today/knowledge-powers-community">Powering Community <i class="fa fa-arrow-right"></i></a></span>
 			<h2 class="panel__news-heading">{{ post.title }}</h2>
