@@ -332,7 +332,8 @@ ABOUT UW OSHKOSH STYLES
   left: 8px;
   z-index: 9999;
   max-width: 810px;
-  padding-left: 16px;
+  padding-left: 90px;
+  padding-top: 16px;
   h3 {
     color: #fff;
     font-weight: $semibold;
@@ -349,30 +350,40 @@ ABOUT UW OSHKOSH STYLES
 }
 .about-pillar__dropdown--education {
   background-color: #3b5282;
+  background-image: url('../img/about-uw-oshkosh/education-hover-corner.png');
+  background-repeat: no-repeat;
 }
 .about-pillar__dropdown--education--zebra {
   background-color: #3a77b0;
 }
 .about-pillar__dropdown--leadership {
   background-color: #b95413;
+  background-image: url('../img/about-uw-oshkosh/leadership-hover-corner.png');
+  background-repeat: no-repeat;
 }
 .about-pillar__dropdown--leadership--zebra {
   background-color: #cb6300;
 }
 .about-pillar__dropdown--responsiveness {
   background-color: #de861c;
+  background-image: url('../img/about-uw-oshkosh/responsiveness-hover-corner.png');
+  background-repeat: no-repeat;
 }
 .about-pillar__dropdown--responsiveness--zebra {
   background-color: #ed980b;
 }
 .about-pillar__dropdown--service {
   background-color: #75bad8;
+  background-image: url('../img/about-uw-oshkosh/service-hover-corner.png');
+  background-repeat: no-repeat;
 }
 .about-pillar__dropdown--service--zebra {
   background-color: #49a5cf;
 }
 .about-pillar__dropdown--sustainability {
   background-color: #5f9865;
+  background-image: url('../img/about-uw-oshkosh/sustainability-hover-corner.png');
+  background-repeat: no-repeat;
 }
 .about-pillar__dropdown--sustainability--zebra {
   background-color: #7ab063;
@@ -1026,4 +1037,14 @@ EFFECTS
 }
 /******************************************************************
 END EFFECTS
+******************************************************************/
+
+/******************************************************************
+FIXES/HACKS
+******************************************************************/
+.slideshow-wrapper {
+  margin-left: 1px;
+}
+/******************************************************************
+END FIXES/HACKS
 ******************************************************************/
