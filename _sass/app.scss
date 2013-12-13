@@ -15,6 +15,7 @@ Setting up variables. Bringing in Colors and Spacing.
 .media .media__img {float:left; margin-right: 10px;}
 .media .media__img img{display:block;}
 .media .media__img--ext{float:right; margin-left: 10px;}
+.media--about-pillar {margin-right: 0;}
 .img-responsive {
   width: 100%;
   height: auto;
@@ -26,7 +27,6 @@ Setting up variables. Bringing in Colors and Spacing.
   line-height: 24px;
 }
 .drop-down-nav {
-  color: $dark-gray;
   font-size: 16px;
   font-weight: $normal;
   line-height: 24px;
@@ -338,20 +338,44 @@ ABOUT UW OSHKOSH STYLES
     font-weight: $semibold;
   }
 }
+.about-pillar__dropdown__figure--large {
+  font-size: 36px;
+}
+.about-pillar__dropdown__figure--medium {
+  font-size: 48px;
+}
+.about-pillar__dropdown__figure--small {
+  font-size: 67px;
+}
 .about-pillar__dropdown--education {
-  background-color: $dark-blue !important;
+  background-color: #3b5282;
+}
+.about-pillar__dropdown--education--zebra {
+  background-color: #3a77b0;
 }
 .about-pillar__dropdown--leadership {
-  background-color: $dark-orange !important;
+  background-color: #b95413;
+}
+.about-pillar__dropdown--leadership--zebra {
+  background-color: #cb6300;
 }
 .about-pillar__dropdown--responsiveness {
-  background-color: $orange !important;
+  background-color: #de861c;
+}
+.about-pillar__dropdown--responsiveness--zebra {
+  background-color: #ed980b;
 }
 .about-pillar__dropdown--service {
-  background-color: $blue !important;
+  background-color: #75bad8;
+}
+.about-pillar__dropdown--service--zebra {
+  background-color: #49a5cf;
 }
 .about-pillar__dropdown--sustainability {
-  background-color: $dark-green !important;
+  background-color: #5f9865;
+}
+.about-pillar__dropdown--sustainability--zebra {
+  background-color: #7ab063;
 }
 /******************************************************************
 END ABOUT UW OSHKOSH
