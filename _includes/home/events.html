@@ -8,7 +8,7 @@
 {% for event in events.value.items limit: 3 %}
 	<div class="large-8 medium-8 small-24 columns">
 		<div class="media">
-			<a class="media__img" href="#">
+			<a class="media__img" href="{{ event.link }}">
 				<div class="event-item__calendar">
 					<div class="event-item__calendar--month">{{ event['ev:tribe_event_meta']['ev:startdate'] | date: "%b"}}</div>
 					<div class="event-item__calendar--day">{{ event['ev:tribe_event_meta']['ev:startdate'] | date: "%d"}}</div>
