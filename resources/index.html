@@ -1,0 +1,38 @@
+---
+layout: default
+title: Resources
+---
+
+<div class="content">
+
+  <div class="row">
+    <div class="small-24 columns">
+
+      <a href="{{ site.baseurl }}/calendars">
+        <div class="page-banner page-banner--dark-gray">
+          <h2 class="page-banner__title">Resources</h2>
+        </div>
+      </a>
+
+    </div>
+  </div><br>
+
+  <div class="row">
+
+    <div class="large-5 columns">
+      {% include home/side-nav.html %}
+      {% include social-icons.html %}
+      {% include news-announcements-cta.html %}
+    </div>
+
+    <div class="large-19 columns">
+      <nav class="breadcrumbs">
+        <a href="{{site.baseurl}}">Home</a>
+        <a href="#" class="current">{{ page.title }}</a>
+      </nav>
+      {% include resources/lead-content.html %}
+    </div>
+
+  </div>
+
+</div>
