@@ -73,6 +73,9 @@ Setting up variables. Bringing in Colors and Spacing.
   background: linear-gradient(to bottom,  #ffffff 0%,#eef0f0 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eef0f0',GradientType=0 ); /* IE6-9 */
 }
+.audience-banner {
+  margin-bottom: 16px;
+}
 
 body {
   background-image: url('../img/parts/gradientyellow.png');
@@ -577,7 +580,7 @@ CTAs
   min-height: 48px;
   padding-left: 10px;
   padding-top: 7px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 .cta--home {
   padding-top: 10px;
