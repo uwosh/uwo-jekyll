@@ -1,6 +1,6 @@
 <div class="slideshow-wrapper">
 <div class="preloader"></div>
-  <ul data-orbit data-options="slide_number:false;">
+  <ul data-orbit data-options="slide_number:false;timer_speed:6000;resume_on_mouseout:true">
 
   {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/leadership-pillar %}
     {% for post in feed.posts %}
