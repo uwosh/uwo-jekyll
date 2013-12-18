@@ -1,4 +1,4 @@
-{% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/chancellor %}
+<!--{% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/chancellor %}
 {% for post in feed.posts %}
 	<div class="large-8 medium-12 small-24 columns">
 		<div class="panel panel--home panel--orange">
@@ -18,4 +18,22 @@
 			<span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time class="timeago" datetime="{{ post.date }}"> {{ post.date | date: "%B %d, %Y" }}</time></span>
 		</div>
 	</div>
-{% endfor %}
+{% endfor %}-->
+
+{% raw %}
+<div ng-controller="ChancellorPanelCtrl">
+	<div class="large-8 medium-12 small-24 columns">
+		<div class="panel panel--home panel--orange">
+			<span class="panel__category uppercase"><a href="http://www.uwosh.edu/today/category/chancellor">From the Chancellor <i class="fa fa-arrow-right"></i></a></span>
+			<h2 class="panel__news-heading" ng-bind-html="post.title">{{ post.title }}</h2>
+			<div class="panel__video-wrapper">
+				<img ng-src="{{ post.thumbnail_images.medium.url }}" class="panel__image--home" />
+			</div><br>
+			<div class="panel__excerpt">
+				<span ng-bind-html="excerpt | characters:130"></span><span> <a href="{{ post.url }}">Read more &hellip;</a></span>
+			</div>
+			<span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time datetime="{{ post.date }}"> {{ post.date | fromNow }}</time></span>
+		</div>
+	</div>
+</div>
+{% endraw %}

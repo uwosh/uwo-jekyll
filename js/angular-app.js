@@ -89,6 +89,58 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
+  })
+  .controller('TitanPanelCtrl', function ($scope,$http,feedService) {
+    feedService.events().success(function(data) {
+      $scope.post = data.iAmATitan.posts[0];
+      $scope.post.category = data.iAmATitan.category.title;
+      $scope.categoryURL = 'http://www.uwosh.edu/today/' + data.iAmATitan.category.slug;
+      $scope.slug = data.iAmATitan.category.slug;
+      var presubstr = data.iAmATitan.posts[0].excerpt;
+      var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
+      $scope.excerpt = strippedstr;
+    }).error(function() {
+      // Some error occurred
+    });
+  })
+  .controller('ChancellorPanelCtrl', function ($scope,$http,feedService) {
+    feedService.events().success(function(data) {
+      $scope.post = data.chancellor.posts[0];
+      $scope.post.category = data.chancellor.category.title;
+      $scope.categoryURL = 'http://www.uwosh.edu/today/' + data.chancellor.category.slug;
+      $scope.slug = data.chancellor.category.slug;
+      var presubstr = data.chancellor.posts[0].excerpt;
+      var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
+      $scope.excerpt = strippedstr;
+    }).error(function() {
+      // Some error occurred
+    });
+  })
+  .controller('MeetUwoPanelCtrl', function ($scope,$http,feedService) {
+    feedService.events().success(function(data) {
+      $scope.post = data.meetUwo.posts[0];
+      $scope.post.category = 'Meet UWO';
+      $scope.categoryURL = 'http://www.uwosh.edu/faces';
+      $scope.slug = 'meet-uwo';
+      var presubstr = data.meetUwo.posts[0].excerpt;
+      var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
+      $scope.excerpt = strippedstr;
+    }).error(function() {
+      // Some error occurred
+    });
+  })
+  .controller('FacultyFivePanelCtrl', function ($scope,$http,feedService) {
+    feedService.events().success(function(data) {
+      $scope.post = data.twif.posts[0];
+      $scope.post.category = data.twif.category.title;
+      $scope.categoryURL = 'http://www.uwosh.edu/today/' + data.twif.category.slug;
+      $scope.slug = data.twif.category.slug;
+      var presubstr = data.twif.posts[0].excerpt;
+      var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
+      $scope.excerpt = strippedstr;
+    }).error(function() {
+      // Some error occurred
+    });
   });
 
 // FILTERS
