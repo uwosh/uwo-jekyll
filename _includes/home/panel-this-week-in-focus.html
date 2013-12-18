@@ -1,8 +1,8 @@
-{% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/this-week-in-focus %}
+{% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/faculty-five %}
 {% for post in feed.posts %}
 	<div class="large-8 medium-12 small-24 columns">
 		<div class="panel panel--home panel--yellow">
-			<span class="panel__category uppercase">This Week in Focus <i class="fa fa-arrow-right"></i></span>
+			<span class="panel__category uppercase">Faculty Five <i class="fa fa-arrow-right"></i></span>
 			<h2 class="panel__news-heading">{{ post.title }}</h2>
 			<div class="panel__video-wrapper">
 				{% if post.custom_fields.youtube_id != "" %}
