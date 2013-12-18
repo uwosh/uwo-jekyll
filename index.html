@@ -3,74 +3,75 @@ layout: default
 title: University of Wisconsin Oshkosh
 ---
 
-
-<div class="row">
-  <div class="large-24 columns">
-    {% include home/slider.html %}
+<div ng-app>
+  <div class="row">
+    <div class="large-24 columns">
+      {% include home/slider.html %}
+    </div>
   </div>
+
+
+
+  <div class="row">
+
+    <!-- Call to Actions -->
+    <div class="large-6 columns">
+      <div class="row">
+        <div class="small-24 medium-8 large-24 columns">
+          <a href="http://www.uwosh.edu/admissions/visit">
+            <div class="cta cta--home cta--blue">
+              <span class="cta__text cta__text--home">Visit Campus</span>
+            </div>
+          </a>
+        </div>
+        <div class="small-24 medium-8 large-24 columns">
+          <a href="http://www.uwosh.edu/map/main/">
+            <div class="cta cta--home cta--orange">
+              <span class="cta__text cta__text--home">Take a Virtual Tour</span>
+            </div>
+          </a>
+        </div>
+        <div class="small-24 medium-8 large-24 columns">
+          <a href="https://apply.wisconsin.edu/">
+            <div class="cta cta--home cta--dark-orange">
+              <span class="cta__text cta__text--home">Apply Now</span>
+            </div>
+          </a>
+        </div>
+      </div><br>
+    </div>
+    <!-- End Call to Actions -->
+
+    <!-- Events -->
+    <div class="large-18 columns">
+      {% include home/events.html %}
+    </div>
+    <!-- End Events -->
+
+  </div><br>
+
+  <div class="row">
+  	{% include home/panel-campus-news.html %}
+  	{% include home/panel-research-news.html %}
+  	{% include home/panel-powering-community.html %}
+    <div class="large-24 columns show-for-large-up">
+      <a href="http://www.uwosh.edu/today">
+        <div class="visit-uwot">
+          Visit UW Oshkosh Today for more <i class="fa fa-arrow-right"></i>
+        </div>
+      </a><br>
+    </div>
+    {% include home/panel-uwotw.html %}
+    {% include home/panel-admissions.html %}
+    {% include home/panel-i-am-a-titan.html %}
+    {% include home/panel-from-the-chancellor.html %}
+    {% include home/panel-meet-uw-oshkosh.html %}
+    {% include home/panel-this-week-in-focus.html %}
+  </div>
+
+  <div class="show-for-large-up">
+    {% include social-feed.html %}
+  </div>
+
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js'></script>
 </div>
-
-
-
-<div class="row">
-
-  <!-- Call to Actions -->
-  <div class="large-6 columns">
-    <div class="row">
-      <div class="small-24 medium-8 large-24 columns">
-        <a href="http://www.uwosh.edu/admissions/visit">
-          <div class="cta cta--home cta--blue">
-            <span class="cta__text cta__text--home">Visit Campus</span>
-          </div>
-        </a>
-      </div>
-      <div class="small-24 medium-8 large-24 columns">
-        <a href="http://www.uwosh.edu/map/main/">
-          <div class="cta cta--home cta--orange">
-            <span class="cta__text cta__text--home">Take a Virtual Tour</span>
-          </div>
-        </a>
-      </div>
-      <div class="small-24 medium-8 large-24 columns">
-        <a href="https://apply.wisconsin.edu/">
-          <div class="cta cta--home cta--dark-orange">
-            <span class="cta__text cta__text--home">Apply Now</span>
-          </div>
-        </a>
-      </div>
-    </div><br>
-  </div>
-  <!-- End Call to Actions -->
-
-  <!-- Events -->
-  <div class="large-18 columns">
-    {% include home/events.html %}
-  </div>
-  <!-- End Events -->
-
-</div><br>
-
-<div class="row">
-	{% include home/panel-campus-news.html %}
-	{% include home/panel-research-news.html %}
-	{% include home/panel-powering-community.html %}
-  <div class="large-24 columns show-for-large-up">
-    <a href="http://www.uwosh.edu/today">
-      <div class="visit-uwot">
-        Visit UW Oshkosh Today for more <i class="fa fa-arrow-right"></i>
-      </div>
-    </a><br>
-  </div>
-  {% include home/panel-uwotw.html %}
-  {% include home/panel-admissions.html %}
-  {% include home/panel-i-am-a-titan.html %}
-  {% include home/panel-from-the-chancellor.html %}
-  {% include home/panel-meet-uw-oshkosh.html %}
-  {% include home/panel-this-week-in-focus.html %}
-</div>
-
-<div class="show-for-large-up">
-  {% include social-feed.html %}
-</div>
-
-<script type='text/javascript' src='{{site.baseurl}}/js/knockout-3.0.0.js'></script>
