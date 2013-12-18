@@ -992,6 +992,17 @@ EFFECTS
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
 }
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease-in;
+  -moz-transition: opacity 0.25s ease-in;
+  -o-transition: opacity 0.25s ease-in;
+  -ms-transition: opacity 0.25s ease-in;
+  transition: opacity 0.25s ease-in;
+}
+.fade.in{
+  opacity: 1;
+}
 @-webkit-keyframes wobble {
     0% { -webkit-transform: rotate(-2deg); }
     20% { -webkit-transform: rotate(4deg); }

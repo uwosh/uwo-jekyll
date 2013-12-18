@@ -34,6 +34,7 @@ angular.module('eosApp')
       var presubstr = data.campusNews.posts[0].excerpt;
       var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
       $scope.excerpt = strippedstr;
+      $scope.events = data.events.value.items;
     }).error(function() {
       // Some error occurred
     });
@@ -47,6 +48,7 @@ angular.module('eosApp')
       var presubstr = data.researchNews.posts[0].excerpt;
       var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
       $scope.excerpt = strippedstr;
+      $scope.events = data.events.value.items;
     }).error(function() {
       // Some error occurred
     });
@@ -60,6 +62,7 @@ angular.module('eosApp')
       var presubstr = data.poweringCommunity.posts[0].excerpt;
       var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
       $scope.excerpt = strippedstr;
+      $scope.events = data.events.value.items;
     }).error(function() {
       // Some error occurred
     });
@@ -73,6 +76,7 @@ angular.module('eosApp')
       var presubstr = data.uwotw.posts[0].excerpt;
       var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
       $scope.excerpt = strippedstr;
+      $scope.events = data.events.value.items;
     }).error(function() {
       // Some error occurred
     });
@@ -86,6 +90,7 @@ angular.module('eosApp')
       var presubstr = data.admissions.posts[0].excerpt;
       var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
       $scope.excerpt = strippedstr;
+      $scope.events = data.events.value.items;
     }).error(function() {
       // Some error occurred
     });
@@ -99,6 +104,7 @@ angular.module('eosApp')
       var presubstr = data.iAmATitan.posts[0].excerpt;
       var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
       $scope.excerpt = strippedstr;
+      $scope.events = data.events.value.items;
     }).error(function() {
       // Some error occurred
     });
@@ -112,6 +118,7 @@ angular.module('eosApp')
       var presubstr = data.chancellor.posts[0].excerpt;
       var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
       $scope.excerpt = strippedstr;
+      $scope.events = data.events.value.items;
     }).error(function() {
       // Some error occurred
     });
@@ -125,6 +132,7 @@ angular.module('eosApp')
       var presubstr = data.meetUwo.posts[0].excerpt;
       var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
       $scope.excerpt = strippedstr;
+      $scope.events = data.events.value.items;
     }).error(function() {
       // Some error occurred
     });
@@ -138,6 +146,7 @@ angular.module('eosApp')
       var presubstr = data.twif.posts[0].excerpt;
       var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
       $scope.excerpt = strippedstr;
+      $scope.events = data.events.value.items;
     }).error(function() {
       // Some error occurred
     });

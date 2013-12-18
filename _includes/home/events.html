@@ -25,7 +25,7 @@
 </div>-->
 
 {% raw %}
-<div class="row" ng-controller="EventsCtrl">
+<div class="row fade" ng-class="{in:events.length}" ng-controller="EventsCtrl">
 	<div class="large-8 medium-8 small-24 columns" ng-repeat="event in events|limitTo:3">
 		<div class="media">
 			<a class="media__img" href="{{ event.link }}">
