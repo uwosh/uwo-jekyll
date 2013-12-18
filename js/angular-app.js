@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('eosApp', []);
+angular.module('eosApp', ['ngSanitize']);
 
 angular.module('eosApp')
   .factory('feedService', ['$http', function ($http) {
