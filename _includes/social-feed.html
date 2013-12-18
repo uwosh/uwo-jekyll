@@ -55,9 +55,8 @@
               {% for fbpost in facebook.data limit: 12 %}
                 <slide>
                   <div class="twitter-article social-article">
-                    <img src="{{ fbpost.picture }}">
                     <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
-                    <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ fbpost.created_time}}">{{ fbpost.created_time | date: "%B %d, %Y" }}</time>
+                    <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ fbpost.updated_time}}">{{ fbpost.updated_time | date: "%B %d, %Y" }}</time>
                   </div>
                 </slide>
               {% endfor %}
