@@ -3,7 +3,7 @@
 		<h4>Events <a href="http://www.uwosh.edu/today/events"><small>View More Events <i class="fa fa-arrow-right"></i></small></a></h4>
 	</div>
 </div>
-<div class="row">
+<!--<div class="row">
 {% jsonball events from url http://feeds.uwosh.edu/api/v1/index.php/events/public %}
 {% for event in events.value.items limit: 3 %}
 	<div class="large-8 medium-8 small-24 columns">
@@ -22,4 +22,24 @@
 		</div>
 	</div>
 	{% endfor %}
+</div>-->
+
+{% raw %}
+<div class="row" ng-controller="EventsCtrl">
+	<div class="large-8 medium-8 small-24 columns" ng-repeat="event in events|limitTo:3">
+		<div class="media">
+			<a class="media__img" href="{{ event.link }}">
+				<div class="event-item__calendar">
+					<div class="event-item__calendar--month">{{ event['ev:tribe_event_meta']['ev:startdate'] | cleanDate | date:'MMM' }}</div>
+					<div class="event-item__calendar--day">{{ event['ev:tribe_event_meta']['ev:startdate'] | cleanDate | date:'dd' }}</div>
+				</div>
+			</a>
+			<div class="media__body">
+				<h4 class="event-item__title body-content">{{ event.title }}</h4>
+				<div class="event-item__time body-content">{{ event['ev:tribe_event_meta']['ev:startdate'] | cleanDate | date }}-{{ event['ev:tribe_event_meta']['ev:enddate'] | cleanDate | date }}</div>
+				<div class="event-item__location body-content"><a href="{{ event.link }}">View event <i class="fa fa-arrow-right"></i></a></div>
+			</div>
+		</div>
+	</div>
 </div>
+{% endraw %}
