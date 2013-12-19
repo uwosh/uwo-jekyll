@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="eosApp">
   <head>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
@@ -160,6 +160,16 @@
           </div>
           <div class="large-8 columns">
             <p>Since 1871, the University of Wisconsin Oshkosh has been providing residents of northeastern Wisconsin with high-quality, affordable education through 60 undergraduate majors, 30 master&rsquo;s degree programs and one doctoral degree for our more than 13,500 students.</p>
+            {% raw %}
+            <div class="media" ng-controller="WeatherCtrl">
+              <span class="media__img">
+                <canvas id="weather1" width="40" height="40"></canvas> <span style="font-size:42px;">{{ weather.currently.temperature | number:0 }}&#176;</span>
+              </span>
+              <div class="media__body" style="margin-top:7px;">
+                {{ weather.hourly.summary }}
+              </div>
+            </div>
+            {% endraw %}
           </div>
 
           <div class="large-8 columns">
@@ -298,7 +308,7 @@
               <li><a href="http://reeve.uwosh.edu/involvement/clubs-organizations">Student Organizations</li>
               <li><a href="http://www.uwosh.edu/myuwo">MyUWO</li>
               <li><a href="https://titanfiles.uwosh.edu/xythoswfs/webview/xythoslogin.action">TitanFiles</li>
-              <li><a href="http://www.uwosh.edu/home/titanalert">TitanAlert</li>
+              <li><a href="http://www.uwosh.edu/home/titanalert">TitanAlert</a></li>
             </ul>
           </div>
           <div class="large-8 columns">
