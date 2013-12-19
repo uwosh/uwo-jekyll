@@ -25,7 +25,7 @@
 	<div class="large-8 medium-12 small-24 columns">
 		<div class="panel panel--home panel--dark-yellow">
 			<span class="panel__category uppercase"><a href="http://www.uwosh.edu/today/campus-news/">Campus News <i class="fa fa-arrow-right"></i></a></span>
-			<h2 class="panel__news-heading">{{ post.title }}</h2>
+			<h2 class="panel__news-heading" ng-bind-html="post.title">{{ post.title }}</h2>
 			<div class="panel__video-wrapper">
 				<img ng-src="{{ post.attachments[0].images.medium.url }}" class="panel__image--home" />
 			</div><br>
