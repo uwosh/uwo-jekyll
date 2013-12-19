@@ -1,0 +1,60 @@
+---
+layout: default
+title: Family Weekends
+responsive-nav: '
+<aside class="right-off-canvas-menu hide-for-medium-up">
+  <ul class="off-canvas-list">
+    <li><label>Audience Nav</label></li>
+    <li><a href="http://www.uwosh.edu/beta/future-students/">Future Students</a></li>
+    <li><a href="http://www.uwosh.edu/beta/parents-family-friends/">Parents</a></li>
+    <li><a href="http://www.uwosh.edu/beta/faculty-and-staff/">Faculty and Staff</a></li>
+    <li><a href="http://www.uwosh.edu/beta/current-students/">Current Students</a></li>
+    <li><a href="http://www.uwosh.edu/beta/community-and-visitors">Community and Visitors</a></li>
+    <li><label>Parents</label></li>
+    <li><a href="http://www.uwosh.edu/beta/parents-family-friends">Parents</a></li>
+    <li><a href="http://www.uwosh.edu/beta/about-uw-oshkosh">About UW&nbsp;Oshkosh</a></li>
+    <li><a href="http://www.uwosh.edu/beta/parents-family-friends/tips.html">Tips</a></li>
+    <li><a href="http://www.uwosh.edu/beta/parents-family-friends/recommended-reading.html">Recommended Reading</a></li>
+    <li><a href="http://www.uwosh.edu/beta/parents-family-friends/faqs.html">FAQs</a></li>
+    <li><a href="http://www.uwosh.edu/fin_aid">Costs and Financial Aid</a></li>
+    <li><a href="http://www.uwosh.edu/beta/current-students/health-wellness-safety.html">Health and Wellness</a></li>
+    <li><a href="http://www.uwosh.edu/beta/current-students/health-wellness-safety.html">Campus Safety Resources</a></li>
+  </ul>
+</aside>
+'
+---
+
+<div class="content">
+
+  <div class="row">
+    <div class="small-24 columns">
+
+      <a href="{{ site.baseurl }}/parents-family-friends">
+        <div class="page-banner page-banner--dark-blue">
+          <h2 class="page-banner__title">Parents, Family and Friends</h2>
+        </div>
+      </a>
+
+    </div>
+  </div><br>
+
+  <div class="row">
+
+    <div class="large-5 columns show-for-large-up">
+      {% include parents-family-friends/side-nav.html %}
+      {% include social-icons.html %}
+      {% include news-announcements-cta.html %}
+    </div>
+
+    <div class="large-19 columns">
+      <nav class="breadcrumbs">
+        <a href="{{site.baseurl}}">Home</a>
+        <a href="{{site.baseurl}}/parents-family-friends">Parents, Family and Friends</a>
+        <a href="#" class="current">{{ page.title }}</a>
+      </nav>
+      {% include parents-family-friends/family-weekends/lead-content.html %}
+    </div>
+
+  </div>
+
+</div>
