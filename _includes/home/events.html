@@ -36,7 +36,7 @@
 			</a>
 			<div class="media__body">
 				<h4 class="event-item__title body-content">{{ event.title }}</h4>
-				<div class="event-item__time body-content">{{ event['ev:tribe_event_meta']['ev:startdate'] | cleanDate | date: 'h a' }}-{{ event['ev:tribe_event_meta']['ev:enddate'] | cleanDate | date: 'h a' }}</div>
+				<div class="event-item__time body-content">{{ event['ev:tribe_event_meta']['ev:startdate'] | cleanDate | date: 'h a' }}&ndash;{{ event['ev:tribe_event_meta']['ev:enddate'] | cleanDate | date: 'h a' }}</div>
 				<div class="event-item__location body-content"><a href="{{ event.link }}">View event <i class="fa fa-arrow-right"></i></a></div>
 			</div>
 		</div>
