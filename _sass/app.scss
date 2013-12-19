@@ -982,11 +982,28 @@ END GOOGLE SEARCH STYLES
   .home-slider__caption__content {
     width: 100% !important;
   }
+  .home-slider__caption__title {
+    font-size: 16px;
+  }
+  .home-slider__caption__excerpt {
+    padding: 0;
+    color: #fff;
+    background-color: transparent;
+    margin-left: 0;
+  }
+  .home-slider__caption__read-more {
+    padding: 0;
+    color: #fff;
+    background-color: transparent;
+  }
 }
 
 @media #{$medium-only} {
   .audience-nav {
     margin-top: 15px;
+  }
+  .home-slider__caption__content {
+    width: 65% !important;
   }
 }
 
@@ -1077,4 +1094,50 @@ FIXES/HACKS
 }
 /******************************************************************
 END FIXES/HACKS
+******************************************************************/
+
+/******************************************************************
+MEDIA QUERIES
+******************************************************************/
+@media #{$small-only} {
+  .wordmark {
+    margin-top: 0;
+  }
+  .wordmark-wrapper {
+    text-align: center;
+  }
+  .home-slider__caption {
+    padding: 10px 0 10px 0 !important;
+    position: relative !important;
+    width: 100% !important;
+  }
+  .home-slider__caption__content {
+    width: 100% !important;
+  }
+  .home-slider__caption__title {
+    font-size: 16px;
+  }
+  .home-slider__caption__excerpt {
+    padding: 0;
+    color: #fff;
+    background-color: transparent;
+    margin-left: 0;
+  }
+  .home-slider__caption__read-more {
+    padding: 0;
+    color: #fff;
+    background-color: transparent;
+  }
+}
+
+@media #{$medium-only} {
+  .audience-nav {
+    margin-top: 15px;
+  }
+  .home-slider__caption__content {
+    width: 65% !important;
+  }
+}
+/******************************************************************
+END MEDIA QUERIES
 ******************************************************************/
