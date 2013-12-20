@@ -203,6 +203,40 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
+  })
+  .controller('TwitterCtrl', function ($scope,$http,feedService) {
+    feedService.events().success(function(data) {
+      $scope.tweets = data.twitter;
+    }).error(function() {
+      // Some error occurred
+    });
+  })
+  .controller('FacebookCtrl', function ($scope,$http,feedService) {
+    feedService.events().success(function(data) {
+      $scope.fbposts = data.facebook.data;
+      $scope.filterEmpties = function(post) {
+        if(post.message) {
+          return true;
+        }
+        return false;
+      };
+    }).error(function() {
+      // Some error occurred
+    });
+  })
+  .controller('YouTubeCtrl', function ($scope,$http,feedService) {
+    feedService.events().success(function(data) {
+      $scope.videos = data.youtube.data.items;
+    }).error(function() {
+      // Some error occurred
+    });
+  })
+  .controller('FlickrCtrl', function ($scope,$http,feedService) {
+    feedService.events().success(function(data) {
+      $scope.photosets = data.flickr.photosets.photoset;
+    }).error(function() {
+      // Some error occurred
+    });
   });
 
 // FILTERS

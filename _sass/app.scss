@@ -215,6 +215,11 @@ abbr {
   position: absolute;
   bottom: 5px;
 }
+.social-feed-likes {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}
 .social-feed-flickr-image {
   height: 160px;
 }
@@ -538,7 +543,7 @@ PANELS
   padding: 0 16px 8px 16px;
 }
 .panel__image--home {
-  height: 189px;
+  // height: 189px;
 }
 .panel__content {
   //padding: 8px 16px 8px 16px;

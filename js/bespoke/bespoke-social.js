@@ -17,7 +17,6 @@
   }
 
 
-
-  init();
+  setTimeout(function() {init();}, 3000);
 
 }());
