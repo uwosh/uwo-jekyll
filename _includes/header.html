@@ -160,7 +160,7 @@
                 <canvas id="weather1" width="40" height="40"></canvas> <span style="font-size:42px;">{{ weather.currently.temperature | number:0 }}&#176;</span>
               </span>
               <div class="media__body" style="margin-top:7px;">
-                {{ weather.hourly.summary }}
+                {{ weather.daily.data[0].summary }}
               </div>
             </div>
             {% endraw %}
