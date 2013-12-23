@@ -903,6 +903,11 @@ slide.bespoke-active {
   padding-left: 5px;
   padding-right: 5px;
 }
+.facebook-article {
+  .media {
+    margin-bottom: 0;
+  }
+}
 
 slide.bespoke-before {
     -webkit-transform: translate3d(-1920px, 0, 0);
