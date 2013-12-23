@@ -19,14 +19,14 @@
                 <slide ng-repeat="tweet in tweets|limitTo:12">
                   <div class="twitter-article social-article">
                     <div class="media">
-                      <a class="media__img" href="https://twitter.com/{{ tweet.user.screen_name }}"><img class="media-object" src="{{ tweet.user.profile_image_url_https }}"></a>
+                      <a class="media__img" ng-href="https://twitter.com/{{ tweet.user.screen_name }}" target="_blank"><img class="media-object" ng-src="{{ tweet.user.profile_image_url_https }}"></a>
                       <div class="media__body">
                         <div class="media-heading">
                           <span class="tweetprofilelink">
-                            <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
+                            <strong>{{ tweet.user.name }}</strong> <a ng-href="https://twitter.com/{{ tweet.user.screen_name }}" target="_blank">@{{ tweet.user.screen_name }}</a>
                           </span><br>
                           <span class="tweet-time">
-                            <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}"><i class="fa fa-clock-o datetime"></i> <time class="datetime" datetime="{{ tweet.created_at }}">{{ tweet.created_at | fromNow }}</time></a>
+                            <a ng-href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}" target="_blank"><i class="fa fa-clock-o datetime"></i> <time class="datetime" datetime="{{ tweet.created_at }}">{{ tweet.created_at | fromNow }}</time></a>
                           </span>
                         </div>
                         <p ng-bind-html="tweet.text | linky"></p>
@@ -63,7 +63,7 @@
                       </div>
                     </div>
                     <p>
-                      <img src="{{ fbpost.picture }}" class="right"><span ng-bind-html="fbpost.message | linky"></span>&hellip; <a href="{{ fbpost.link }}" target="_blank">Read more</a>
+                      <img ng-src="{{ fbpost.picture }}" class="right"><span ng-bind-html="fbpost.message | linky"></span>&hellip; <a ng-href="{{ fbpost.link }}" target="_blank">Read more</a>
                     </p>
                     <div>
                       <span class="social-feed-date posted-date uppercase"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ fbpost.updated_time}}">{{ fbpost.created_time | fromNow }}</time></span><span class="datetime social-feed-likes">{{ fbpost.likes.data.length }} people like this</span>
@@ -107,7 +107,7 @@
               {% raw %}
                 <slide ng-repeat="photoset in photosets|limitTo:12">
                   <div class="twitter-article social-article">
-                    <a href="http://www.flickr.com/photos/37901018@N05/sets/{{ photoset.id }}"><img src="http://farm{{ photoset.farm }}.static.flickr.com/{{ photoset.server }}/{{ photoset.primary }}_{{ photoset.secret }}_m.jpg" class="social-feed-flickr-image"></a>
+                    <a ng-href="http://www.flickr.com/photos/37901018@N05/sets/{{ photoset.id }}"><img ng-src="http://farm{{ photoset.farm }}.static.flickr.com/{{ photoset.server }}/{{ photoset.primary }}_{{ photoset.secret }}_m.jpg" class="social-feed-flickr-image"></a>
                     <p class="body-content">{{ photoset.title._content }}</p>
                     <span class="social-feed-date posted-date uppercase"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ photoset.date_update }}">{{ photoset.date_update | fromNow }}</time></span>
                   </div>
@@ -128,8 +128,3 @@
   </div><br><!-- /.row -->
 
 </div><!-- /.social-container -->
-
-<!-- Bespoke scripts -->
-<!--<script src="{{site.baseurl}}/js/bespoke/bespoke.min.js"></script>-->
-<!--<script src="{{site.baseurl}}/js/bespoke/bespoke-loop.min.js"></script>-->
-<!--<script src="{{site.baseurl}}/js/bespoke/bespoke-social.js"></script>-->
