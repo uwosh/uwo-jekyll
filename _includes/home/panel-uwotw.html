@@ -7,7 +7,7 @@
 			<div class="panel__video-wrapper">
 				<div class="youtube" id="{{post.custom_fields.youtube_id[0]}}" style="height:189px;"></div>
 			</div><br>
-			<div class="panel__excerpt body-content">
+			<div class="panel__excerpt body-content text-justify">
 				<span ng-bind-html="excerpt | characters:130"></span><span> <a href="{{ post.url }}">Read more &hellip;</a></span>
 			</div>
 			<span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time datetime="{{ post.date }}"> {{ post.date | fromNow }}</time></span>
