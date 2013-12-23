@@ -10,35 +10,11 @@
         <dd><a href="#flickr"><i class="fa fa-fw fa-flickr"></i> Flickr</a></dd>
       </dl>
 
-      <div class="tabs-content vertical">
+      <div class="tabs-content vertical tabs-social-content">
         <div class="content active" id="twitter">
-          {% jsonball twitter from url http://feeds.uwosh.edu/api/v1/index.php/twitter/uwoshkosh %}
+          <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
           <div class="deck-container">
             <deck id="deck-twitter" ng-controller="TwitterCtrl">
-              <!--{% for tweet in twitter limit: 12 %}
-                <slide>
-                  <div class="twitter-article social-article">
-                    <div class="media">
-                      <a class="media__img" href="https://twitter.com/{{ tweet.user.screen_name }}"><img class="media-object" src="{{ tweet.user.profile_image_url_https }}"></a>
-                      <div class="media__body">
-                        <div class="media-heading">
-                          <span class="tweetprofilelink">
-                            <strong>{{ tweet.user.name }}</strong> <a href="https://twitter.com/{{ tweet.user.screen_name }}">@{{ tweet.user.screen_name }}</a>
-                          </span><br>
-                          <span class="tweet-time">
-                            <a href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}"><i class="fa fa-clock-o datetime"></i> <time class="timeago datetime" datetime="{{ tweet.created_at}}">{{ tweet.created_at | date: "%B %d, %Y" }}</time></a>
-                          </span>
-                        </div>
-                        <p>{{ tweet.text }}</p>
-                        <p class="twitter-intents">
-                          <a href="https://twitter.com/intent/tweet?in_reply_to={{ tweet.id }}" target="_blank"><i class="fa fa-fw fa-reply"></i> Reply &nbsp;</a>
-                          <a href="https://twitter.com/intent/retweet?tweet_id={{ tweet.id }}" target="_blank"><i class="fa fa-fw fa-retweet"></i> Retweet &nbsp;</a>
-                          <a href="https://twitter.com/intent/favorite?tweet_id={{ tweet.id }}" target="_blank"><i class="fa fa-fw fa-star"></i> Favorite</a></p>
-                      </div>
-                    </div>
-                  </div>
-                </slide>
-              {% endfor %}-->
               {% raw %}
                 <slide ng-repeat="tweet in tweets|limitTo:12">
                   <div class="twitter-article social-article">
@@ -55,9 +31,9 @@
                         </div>
                         <p ng-bind-html="tweet.text | linky"></p>
                         <p class="twitter-intents">
-                          <a href="https://twitter.com/intent/tweet?in_reply_to={{ tweet.id }}" target="_blank"><i class="fa fa-fw fa-reply"></i> Reply &nbsp;</a>
-                          <a href="https://twitter.com/intent/retweet?tweet_id={{ tweet.id }}" target="_blank"><i class="fa fa-fw fa-retweet"></i> Retweet &nbsp;</a>
-                          <a href="https://twitter.com/intent/favorite?tweet_id={{ tweet.id }}" target="_blank"><i class="fa fa-fw fa-star"></i> Favorite</a></p>
+                          <a ng-href="https://twitter.com/intent/tweet?in_reply_to={{ tweet.id_str }}" target="_blank"><i class="fa fa-fw fa-reply"></i> Reply &nbsp;</a>
+                          <a ng-href="https://twitter.com/intent/retweet?tweet_id={{ tweet.id_str }}" target="_blank"><i class="fa fa-fw fa-retweet"></i> Retweet &nbsp;</a>
+                          <a ng-href="https://twitter.com/intent/favorite?tweet_id={{ tweet.id_str }}" target="_blank"><i class="fa fa-fw fa-star"></i> Favorite</a></p>
                       </div>
                     </div>
                   </div>
@@ -66,25 +42,15 @@
             </deck>
           </div><!-- /.deck-container -->
           <div class="social-controls">
-            <ul class="list-unstyled">
+            <ul class="no-bullets">
               <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
               <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
             </ul>
           </div>
         </div><!-- /#twitter -->
         <div class="content" id="facebook">
-          {% jsonball facebook from url http://feeds.uwosh.edu/api/v1/index.php/facebook/uwoshkosh %}
           <div class="deck-container">
             <deck id="deck-facebook" ng-controller="FacebookCtrl">
-              <!--{% for fbpost in facebook.data limit: 12 %}
-                <slide>
-                  <div class="twitter-article social-article">
-                    <img src="{{ fbpost.picture }}">
-                    <p>{{ fbpost.message }}&hellip; <a href="{{ fbpost.link }}">Read more</a></p>
-                    <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ fbpost.created_time}}">{{ fbpost.created_time | date: "%B %d, %Y" }}</time>
-                  </div>
-                </slide>
-              {% endfor %}-->
               {% raw %}
                 <slide ng-repeat="fbpost in fbposts |limitTo:12 | filter:filterEmpties">
                   <div class="twitter-article facebook-article social-article">
@@ -115,18 +81,8 @@
           </div>
         </div>
         <div class="content" id="youtube">
-          {% jsonball youtube from url http://feeds.uwosh.edu/api/v1/index.php/youtube/uwosh %}
           <div class="deck-container">
             <deck id="deck-youtube" ng-controller="YouTubeCtrl">
-              <!--{% for video in youtube.data.items limit: 12 %}
-                <slide>
-                  <div class="twitter-article social-article">
-                    <div class="youtube" id="{{video.id}}" style="height:160px;"></div>
-                    <p>{{ video.title }}</p>
-                    <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ video.updated }}">{{ video.updated | date: "%B %d, %Y" }}</time></span>
-                  </div>
-                </slide>
-              {% endfor %}-->
               {% raw %}
                 <slide ng-repeat="video in videos|limitTo:12">
                   <div class="twitter-article social-article">
@@ -146,18 +102,8 @@
           </div>
         </div>
         <div class="content" id="flickr">
-          {% jsonball flickr from url http://feeds.uwosh.edu/api/v1/index.php/flickr/uwoshkosh %}
           <div class="deck-container">
             <deck id="deck-flickr" ng-controller="FlickrCtrl">
-              <!--{% for set in flickr.photosets.photoset limit: 12 %}
-                <slide>
-                  <div class="twitter-article social-article">
-                    <p><a href="http://www.flickr.com/photos/37901018@N05/sets/{{ set.id }}"><img src="http://farm{{ set.farm }}.static.flickr.com/{{ set.server }}/{{ set.primary }}_{{ set.secret }}_m.jpg" class="social-feed-flickr-image"></a></p>
-                    <p>{{ set.title._content }}</p>
-                    <span class="social-feed-date posted-date"><i class="fa fa-clock-o"></i> <time class="timeago" datetime="{{ set.date_update }}">{{ set.date_update | date: "%B %d, %Y" }}</time></span>
-                  </div>
-                </slide>
-              {% endfor %}-->
               {% raw %}
                 <slide ng-repeat="photoset in photosets|limitTo:12">
                   <div class="twitter-article social-article">

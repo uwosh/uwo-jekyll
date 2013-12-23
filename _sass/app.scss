@@ -819,6 +819,12 @@ deck { position: relative; }
   li {
     width: 100%;
   }
+  .active {
+    a {
+      color: #fff;
+      background-color: $dark-blue;
+    }
+  }
 }
 #socialTabs dd > a {
   font-size: 13px;
@@ -850,6 +856,7 @@ deck { position: relative; }
   background-color: #fff;
   ul {
     margin-top: 50px;
+    margin-left: 0 !important;
   }
   li {
     color: #fff;
@@ -1109,6 +1116,9 @@ FIXES/HACKS
 ******************************************************************/
 .slideshow-wrapper {
   margin-left: 1px;
+}
+.tabs-social-content.vertical {
+  margin-left: -7px !important;
 }
 /******************************************************************
 END FIXES/HACKS
