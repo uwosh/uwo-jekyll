@@ -99,6 +99,9 @@ a {
 a:hover {
   text-decoration: none;
 }
+a:visited {
+  color: $medium-gray;
+}
 .side-nav {
   li {
     a {
