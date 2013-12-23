@@ -4,24 +4,35 @@ module.exports = function(grunt){
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    htmlhint: {
+
+    concat: {
+      dist: {
+        src: [
+          'bower_components/jquery/jquery.js',
+          'js/angular-app.js',
+          'bower_components/foundation/js/foundation.js',
+          'js/app.js',
+          'js/jquery.hoverIntent.js',
+          'js/showHide.js',
+          'js/moment.js',
+          'js/skycons.js',
+          'js/bespoke/bespoke.js',
+          'js/bespoke/bespoke-loop.js',
+          'js/bespoke/bespoke-social.js'
+        ],
+        dest: 'js/uwo.js'
+      }
+    },
+
+    uglify: {
       build: {
-        options: {
-          'tag-pair': true,
-          'tagname-lowercase': true,
-          'attr-lowercase': true,
-          'attr-value-double-quotes': true,
-          'doctype-first': true,
-          'spec-char-escape': true,
-          'id-unique': true,
-          'head-script-disabled': true,
-          'style-disabled': true
-        },
-        src: ['index.html']
+        src: 'js/uwo.js',
+        dest: 'js/uwo.min.js'
       }
     }
+
   });
 
-  grunt.registerTask('default', []);
+  grunt.registerTask('default', ['concat', 'uglify']);
 
 };

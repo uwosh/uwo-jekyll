@@ -18,14 +18,14 @@ angular.module('eosApp')
 
 // CONTROLLERS
 angular.module('eosApp')
-  .controller('EventsCtrl', function ($scope,$http,feedService) {
+  .controller('EventsCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.events = data.events.value.items;
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('WeatherCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('WeatherCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.weather = data.weather;
       var icon = data.weather.currently.icon;
@@ -68,8 +68,8 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('CampusNewsPanelCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('CampusNewsPanelCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.post = data.campusNews.posts[0];
       $scope.post.category = data.campusNews.category.title;
@@ -83,8 +83,8 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('ResearchNewsPanelCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('ResearchNewsPanelCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.post = data.researchNews.posts[0];
       $scope.post.category = data.researchNews.category.title;
@@ -98,8 +98,8 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('PoweringCommunityPanelCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('PoweringCommunityPanelCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.post = data.poweringCommunity.posts[0];
       $scope.post.category = data.poweringCommunity.category.title;
@@ -113,8 +113,8 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('UwotwPanelCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('UwotwPanelCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.post = data.uwotw.posts[0];
       $scope.post.category = data.uwotw.category.title;
@@ -128,8 +128,8 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('AdmissionsPanelCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('AdmissionsPanelCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.post = data.admissions.posts[0];
       $scope.post.category = data.admissions.category.title;
@@ -143,8 +143,8 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('TitanPanelCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('TitanPanelCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.post = data.iAmATitan.posts[0];
       $scope.post.category = data.iAmATitan.category.title;
@@ -158,8 +158,8 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('ChancellorPanelCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('ChancellorPanelCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.post = data.chancellor.posts[0];
       $scope.post.category = data.chancellor.category.title;
@@ -173,8 +173,8 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('MeetUwoPanelCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('MeetUwoPanelCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.post = data.meetUwo.posts[0];
       $scope.post.category = 'Meet UWO';
@@ -188,8 +188,8 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('FacultyFivePanelCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('FacultyFivePanelCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.post = data.twif.posts[0];
       $scope.post.category = data.twif.category.title;
@@ -203,15 +203,15 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('TwitterCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('TwitterCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.tweets = data.twitter;
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('FacebookCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('FacebookCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.fbposts = data.facebook.data;
       $scope.filterEmpties = function(post) {
@@ -223,21 +223,21 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('YouTubeCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('YouTubeCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.videos = data.youtube.data.items;
     }).error(function() {
       // Some error occurred
     });
-  })
-  .controller('FlickrCtrl', function ($scope,$http,feedService) {
+  }])
+  .controller('FlickrCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.photosets = data.flickr.photosets.photoset;
     }).error(function() {
       // Some error occurred
     });
-  });
+  }]);
 
 // FILTERS
 angular.module('eosApp')
