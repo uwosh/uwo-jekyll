@@ -721,6 +721,10 @@ CTAs
 .cta--my-uwo {
   padding-left: 0;
 }
+.cta--academics {
+  min-height: 38px;
+  padding-top: 12px;
+}
 .cta__icon {
   width: 40px;
   height: 40px;
@@ -756,6 +760,9 @@ CTAs
   color: #fff;
   font-size: 18px;
   font-weight: $normal;
+}
+.cta--academics__text {
+  font-size: 13px;
 }
 .cta__text--home {
   font-size: 28px;
