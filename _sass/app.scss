@@ -562,6 +562,12 @@ PANELS
   box-shadow: 0 0 5px $medium-gray;
   background: #fff;
   padding: 0;
+  position: relative;
+  .clickable {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+  }
 }
 .panel:hover {
   box-shadow: 0 0 5px $blue;
@@ -579,7 +585,7 @@ PANELS
   font-weight: $semibold;
   color: $dark-gray !important;
   height: 56px;
-  padding: 8px 16px 0 16px;
+  padding: 8px 26px 0 16px;
   border-bottom: 1px solid $light-gray;
   margin-top: 0.2rem !important;
 }
@@ -588,7 +594,7 @@ PANELS
 }
 .panel__title--small {
   font-size: 13px;
-  line-height: 19px;
+  line-height: 19px !important;
 }
 .panel__news-heading {
   font-size: 18px;
