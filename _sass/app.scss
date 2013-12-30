@@ -447,6 +447,31 @@ ABOUT UW OSHKOSH STYLES
 .about-pillar__dropdown--sustainability--zebra {
   background-color: #7ab063;
 }
+.about-slider {
+  .orbit-caption {
+    width: auto !important;
+    bottom: 30px !important;
+    height: 65px;
+    p {
+      font-size: 28px;
+    }
+  }
+  .caption--education {
+    background-color: rgba(59, 82, 130, 0.8) !important;
+  }
+  .caption--leadership {
+    background-color: rgba(185, 84, 19, 0.8) !important;
+  }
+  .caption--responsiveness {
+    background-color: rgba(222, 134, 28, 0.8) !important;
+  }
+  .caption--service {
+    background-color: rgba(117, 186, 216, 0.8) !important;
+  }
+  .caption--sustainability {
+    background-color: rgba(95, 152, 101, 0.8) !important;
+  }
+}
 /******************************************************************
 END ABOUT UW OSHKOSH
 ******************************************************************/
