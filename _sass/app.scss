@@ -114,6 +114,20 @@ a:hover {
 a:visited {
   color: $medium-gray;
 }
+.custom-bullets {
+  list-style: none;
+  padding:0;
+  margin:0;
+  margin-left: 3px;
+  li {
+    padding-left: 1em;
+    text-indent: -.7em;
+  }
+  li:before {
+    content: "• ";
+    color: $dark-gray;
+  }
+}
 .side-nav {
   li {
     a {
