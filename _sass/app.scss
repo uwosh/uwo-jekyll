@@ -92,6 +92,12 @@ abbr, acronym {
   background: linear-gradient(to bottom,  #ffffff 0%,#eef0f0 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eef0f0',GradientType=0 ); /* IE6-9 */
 }
+.right-rule {
+  border-right: 1px solid $rule-gray;
+}
+.padding-right-0 {
+  padding-right: 0;
+}
 .audience-banner {
   margin-bottom: 16px;
 }
@@ -134,6 +140,17 @@ a:visited {
       color: $dark-gray;
     }
   }
+}
+.side-nav__title {
+  padding-left: 7px;
+  min-height: 36px;
+  font-size: 13px;
+  font-weight: $semibold;
+  border-top: 1px solid $rule-gray;
+  border-bottom: 1px solid $rule-gray;
+}
+.side-nav__title__contents {
+  padding-top: 8px;
 }
 abbr {
   text-transform: inherit;
