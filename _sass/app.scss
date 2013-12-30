@@ -839,12 +839,17 @@ CAMPUS FAST FACTS
 ******************************************************************/
 .fast-facts table {
   border: none;
-  border-top: $yellow 2px solid;
   width: 100%;
+  .odd {
+    background-color: $light-gray;
+  }
 }
 .fast-facts__number {
   color: $dark-blue;
   font-weight: $bold;
+}
+.fast-facts th {
+  border-top: 3px solid $yellow;
 }
 /******************************************************************
 END CAMPUS FAST FACTS
