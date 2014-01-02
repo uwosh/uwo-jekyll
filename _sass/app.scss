@@ -26,6 +26,9 @@ Setting up variables. Bringing in Colors and Spacing.
   font-size: 18px;
   line-height: 24px;
 }
+h3.news-heading {
+  margin-bottom: 0;
+}
 .drop-down-nav {
   font-size: 16px;
   font-weight: $normal;
