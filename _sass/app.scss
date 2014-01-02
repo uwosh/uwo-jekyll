@@ -877,8 +877,16 @@ END CTAs
 /******************************************************************
 EVENTS
 ******************************************************************/
+.events__view-more {
+  margin-left: 15px;
+}
 .event-item {
 
+}
+.events__row {
+  @media #{$large-up} {
+    margin-top: 12px !important;
+  }
 }
 .event-item__title {
   margin-top: -4px;
@@ -893,7 +901,7 @@ EVENTS
 }
 .event-item__calendar {
   border: 1px solid $medium-gray;
-  box-shadow: 1px 1px 5px #999;
+  box-shadow: 0 0 5px $medium-gray;
   width: 64px;
 }
 .event-item__calendar--month {
@@ -901,6 +909,7 @@ EVENTS
   background-color: $dark-blue;
   color: #fff;
   text-align: center;
+  text-transform: uppercase;
   padding-top: 5px;
 }
 .event-item__calendar--day {
