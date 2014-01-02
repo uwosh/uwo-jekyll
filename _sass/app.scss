@@ -46,13 +46,16 @@ h3.news-heading {
   color: $dark-gray;
 }
 .intro-text {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 .intro-text-list {
   margin-left: 37px;
 }
 .breadcrumbs {
   padding-top: 0;
+}
+.breadcrumbs--internal {
+  padding-left: 0;
 }
 abbr, acronym {
   cursor: inherit;
@@ -751,6 +754,12 @@ CTAs
 .cta--parents {
   padding-top: 15px;
   margin-bottom: 16px;
+  a {
+    color: $dark-gray;
+  }
+  a:visited {
+    color: $dark-gray;
+  }
 }
 .cta--accreditation {
   width: 218px;
