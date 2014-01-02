@@ -2,12 +2,12 @@
 <div class="fade" ng-class="{in:posts.length}" ng-controller="TitanPanelCtrl">
 	<div class="large-8 medium-12 small-24 columns">
 		<div class="panel panel--home panel--dark-yellow">
-			<span class="panel__category uppercase"><a href="http://www.uwosh.edu/today/category/i-am-a-titan">I am a Titan <i class="fa fa-arrow-right"></i></a></span>
+			<div class="panel__category uppercase"><a href="http://www.uwosh.edu/today/category/i-am-a-titan">I am a Titan <i class="fa fa-arrow-right"></i></a></div>
 			<h2 class="panel__news-heading" ng-bind-html="post.title">{{ post.title }}</h2>
 			<div class="panel__video-wrapper">
 				<img ng-src="{{ post.attachments[0].images.medium.url }}" class="panel__image--home" />
 			</div><br>
-			<div class="panel__excerpt body-content text-justify">
+			<div class="panel__excerpt body-content">
 				<span ng-bind-html="excerpt | characters:130"></span><span> <a href="{{ post.url }}">Read more &hellip;</a></span>
 			</div>
 			<span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time datetime="{{ post.date }}"> {{ post.date | fromNow }}</time></span>

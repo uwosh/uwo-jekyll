@@ -590,6 +590,7 @@ PANELS
   box-shadow: 0 0 5px $dark-gray;
 }
 .panel__category {
+  margin-bottom: 15px;
   font-size: 13px;
   color: $medium-gray;
   font-weight: $semibold;
@@ -630,7 +631,7 @@ PANELS
   color: $medium-gray;
   font-weight: $semibold;
   position: absolute;
-  bottom: 25px;
+  bottom: 15px;
 }
 .panel__image {
   padding: 16px;
@@ -649,7 +650,8 @@ PANELS
 }
 .panel--home {
   height: 410px;
-  border-top: 3px solid $medium-dark-gray;
+  border-top: 3px solid $medium-gray;
+  border-radius: 2px;
   padding: 1.25rem;
 }
 .panel__video-wrapper {
