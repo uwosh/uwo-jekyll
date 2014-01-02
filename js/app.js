@@ -52,4 +52,3 @@ setTimeout(function() {
       }
   };
 }, 3001);
-// End YouTube Thumbnail and Video Replacement

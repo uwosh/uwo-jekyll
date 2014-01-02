@@ -1121,6 +1121,11 @@ GOOGLE SEARCH STYLES
 }
 .gsc-input {
   padding: 0 !important;
+  border-radius: 10px 0 0 10px !important;
+  padding-left: 10px !important;
+  input {
+    background-position: 10% 50% !important;
+  }
 }
 .gsc-search-box {
   background: transparent !important;
@@ -1131,6 +1136,7 @@ GOOGLE SEARCH STYLES
 }
 .gsc-search-button {
   border: none !important;
+  border-radius: 0 10px 10px 0 !important;
   padding: 0 !important;
   margin: 0 !important;
 }
