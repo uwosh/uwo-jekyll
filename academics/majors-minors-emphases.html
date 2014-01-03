@@ -10,6 +10,18 @@ responsive-nav: '
     <li><a href="http://www.uwosh.edu/beta/faculty-and-staff/">Faculty and Staff</a></li>
     <li><a href="http://www.uwosh.edu/beta/current-students/">Current Students</a></li>
     <li><a href="http://www.uwosh.edu/beta/community-and-visitors">Community and Visitors</a></li>
+    <li><label>Academics</label></li>
+    <li><a href="http://www.uwosh.edu/beta/about-uw-oshkosh/accreditation.html">Accreditation</a></li>
+    <li><a href="http://www.uwosh.edu/beta/academics/majors-minors-emphases.html">Majors, Minors and Emphases</a></li>
+    <li><a href="http://www.uwosh.edu/beta/academics/programs.html">Programs</a></li>
+    <li><a href="http://www.uwosh.edu/beta/academics/colleges.html">Colleges</a></li>
+    <li><a href="http://www.uwosh.edu/beta/academics/centers-and-programs.html">Centers and Programs</a></li>
+    <li><a href="http://www.uwosh.edu/grants/students/research-opps">Undergraduate Research</a></li>
+    <li><a href="http://www.uwosh.edu/beta/academics/learning-assistance-services.html">Learning Assistance Services</a></li>
+    <li><a href="http://www.uwosh.edu/oie">International Study</a></li>
+    <li><a href="http://www.uwosh.edu/provost/Main%20Highlight/usp-program/essential-learning-outcomes">Liberal Education</a></li>
+    <li><a href="http://www.uwosh.edu/gradstudies">Graduate Studies</a></li>
+    <li><a href="http://www.uwosh.edu/llce/conted">Continuing Education</a></li>
   </ul>
 </aside>
 '
@@ -31,7 +43,7 @@ responsive-nav: '
 
   <div class="row">
 
-    <div class="large-5 columns">
+    <div class="large-5 show-for-large-up columns">
       {% include academics/side-nav.html %}
       {% include social-icons.html %}
       {% include news-announcements-cta.html %}
@@ -44,6 +56,11 @@ responsive-nav: '
         <a href="#" class="current">{{ page.title }}</a>
       </nav>
       {% include academics/majors-minors-emphases/lead-content.html %}
+    </div>
+
+    <div class="small-24 columns hide-for-large-up">
+      {% include social-icons.html %}
+      {% include news-announcements-cta.html %}
     </div>
 
   </div>
