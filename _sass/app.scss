@@ -683,7 +683,7 @@ PANELS
   padding: 0 16px 8px 16px;
 }
 .panel__image--home {
-  // height: 189px;
+  height: 189px;
 }
 .panel__content {
   //padding: 8px 16px 8px 16px;
@@ -789,8 +789,13 @@ CTAs
 .cta--home {
   padding-top: 10px;
   @media #{$small-only} {
-    margin-bottom: 0;
+    margin-bottom: 8px;
     text-align: center;
+  }
+}
+.cta--home__row.row {
+  @media #{$small-only} {
+    margin-bottom: 16px;
   }
 }
 .cta--internal {
