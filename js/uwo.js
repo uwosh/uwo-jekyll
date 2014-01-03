@@ -8848,6 +8848,14 @@ angular.module('eosApp')
 
 // CONTROLLERS
 angular.module('eosApp')
+  .controller('EmergencyCtrl', ['$scope', '$http', function ($scope,$http) {
+    $http.get('http://feeds.uwosh.edu/api/v1/index.php/emergency/broadcast').success(function(data) {
+      $scope.posts = data.posts;
+      console.log(data.posts);
+    }).error(function() {
+      // Some error occurred
+    });
+  }])
   .controller('EventsCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.events = data.events.value.items;
@@ -13215,7 +13223,6 @@ setTimeout(function() {
       }
   };
 }, 3001);
-// End YouTube Thumbnail and Video Replacement
 
 /*!
  * hoverIntent r7 // 2013.03.11 // jQuery 1.9.1+
