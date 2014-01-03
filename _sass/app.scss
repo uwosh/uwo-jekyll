@@ -121,6 +121,9 @@ body {
   background-repeat: repeat-x;
   background-position: 0 38px;
   color: $dark-gray;
+  @media #{$small-only} {
+    background-position: 0 51px;
+  }
 }
 a {
   color: $dark-blue;
@@ -199,6 +202,14 @@ abbr {
   margin-top: 5px;
   width: 213px;
   max-width: 213px;
+  @media #{$small-only} {
+    margin-left: 0;
+  }
+}
+.wordmark-wrapper {
+  @media #{$small-only} {
+    text-align: center;
+  }
 }
 
 .audience-row {
@@ -209,6 +220,9 @@ abbr {
 
 .audience-nav {
   margin-top: 76px;
+  @media #{$medium-only} {
+    margin-top: 15px;
+  }
 }
 .audience-nav > ul > li > a {
   font-size: 12px;
@@ -551,24 +565,49 @@ HOME
   background-color: transparent !important;
   bottom: 10px !important;
   padding-left: 0 !important;
+  @media #{$small-only} {
+    padding: 10px 0 10px 0 !important;
+    position: relative !important;
+    width: 100% !important;
+  }
 }
 .home-slider__caption__content {
   background-color: rgba(230, 134, 0, 0.9);
   width: 50%;
   padding: 8px 10px 8px 10px;
+  @media #{$small-only} {
+    width: 100% !important;
+  }
+  @media #{$medium-only} {
+    width: 65% !important;
+  }
 }
 .home-slider__caption__title {
   font-weight: $normal;
+  @media #{$small-only} {
+    font-size: 16px;
+  }
 }
 .home-slider__caption__excerpt {
   background-color: rgba(255, 255, 255, 0.95);
   padding: 8px 40px 8px 10px;
   margin-left: -10px;
+  @media #{$small-only} {
+    padding: 0;
+    color: #fff;
+    background-color: transparent;
+    margin-left: 0;
+  }
 }
 .home-slider__caption__read-more {
   background-color: $dark-orange;
   color: #fff;
   padding: 8px 10px 8px 10px;
+  @media #{$small-only} {
+    padding: 0;
+    color: #fff;
+    background-color: transparent;
+  }
 }
 /******************************************************************
 END HOME
@@ -749,6 +788,10 @@ CTAs
 }
 .cta--home {
   padding-top: 10px;
+  @media #{$small-only} {
+    margin-bottom: 0;
+    text-align: center;
+  }
 }
 .cta--internal {
   margin-bottom: 8px;
@@ -1160,47 +1203,6 @@ input.gsc-search-button {
 END GOOGLE SEARCH STYLES
 ******************************************************************/
 
-
-@media #{$small-only} {
-  .wordmark {
-    margin-top: 0;
-  }
-  .wordmark-wrapper {
-    text-align: center;
-  }
-  .home-slider__caption {
-    padding: 10px 0 10px 0 !important;
-    position: relative !important;
-    width: 100% !important;
-  }
-  .home-slider__caption__content {
-    width: 100% !important;
-  }
-  .home-slider__caption__title {
-    font-size: 16px;
-  }
-  .home-slider__caption__excerpt {
-    padding: 0;
-    color: #fff;
-    background-color: transparent;
-    margin-left: 0;
-  }
-  .home-slider__caption__read-more {
-    padding: 0;
-    color: #fff;
-    background-color: transparent;
-  }
-}
-
-@media #{$medium-only} {
-  .audience-nav {
-    margin-top: 15px;
-  }
-  .home-slider__caption__content {
-    width: 65% !important;
-  }
-}
-
 /******************************************************************
 EFFECTS
 ******************************************************************/
@@ -1291,50 +1293,4 @@ FIXES/HACKS
 }
 /******************************************************************
 END FIXES/HACKS
-******************************************************************/
-
-/******************************************************************
-MEDIA QUERIES
-******************************************************************/
-@media #{$small-only} {
-  .wordmark {
-    margin-top: 0;
-  }
-  .wordmark-wrapper {
-    text-align: center;
-  }
-  .home-slider__caption {
-    padding: 10px 0 10px 0 !important;
-    position: relative !important;
-    width: 100% !important;
-  }
-  .home-slider__caption__content {
-    width: 100% !important;
-  }
-  .home-slider__caption__title {
-    font-size: 16px;
-  }
-  .home-slider__caption__excerpt {
-    padding: 0;
-    color: #fff;
-    background-color: transparent;
-    margin-left: 0;
-  }
-  .home-slider__caption__read-more {
-    padding: 0;
-    color: #fff;
-    background-color: transparent;
-  }
-}
-
-@media #{$medium-only} {
-  .audience-nav {
-    margin-top: 15px;
-  }
-  .home-slider__caption__content {
-    width: 65% !important;
-  }
-}
-/******************************************************************
-END MEDIA QUERIES
 ******************************************************************/
