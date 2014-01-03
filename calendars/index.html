@@ -10,6 +10,10 @@ responsive-nav: '
     <li><a href="http://www.uwosh.edu/beta/faculty-and-staff/">Faculty and Staff</a></li>
     <li><a href="http://www.uwosh.edu/beta/current-students/">Current Students</a></li>
     <li><a href="http://www.uwosh.edu/beta/community-and-visitors">Community and Visitors</a></li>
+    <li><label>Calendars</label></li>
+    <li><a href="http://www.uwosh.edu/beta/resources">Resources</a></li>
+    <li><a href="http://www.uwosh.edu/beta/calendars">Calendars</a></li>
+    <li><a href="http://www.uwosh.edu/beta/maps">Maps</a></li>
   </ul>
 </aside>
 '
@@ -31,8 +35,8 @@ responsive-nav: '
 
   <div class="row">
 
-    <div class="large-5 columns right-rule padding-right-0">
-      {% include home/side-nav.html %}
+    <div class="large-5 columns show-for-large-up right-rule padding-right-0">
+      {% include calendars/side-nav.html %}
       {% include social-icons-internal.html %}
       {% include news-announcements-cta.html %}
     </div>
@@ -43,6 +47,11 @@ responsive-nav: '
         <a href="#" class="current">{{ page.title }}</a>
       </nav>
       {% include calendars/lead-content.html %}
+    </div>
+
+    <div class="small-24 columns hide-for-large-up">
+      {% include social-icons.html %}
+      {% include news-announcements-cta.html %}
     </div>
 
   </div>
