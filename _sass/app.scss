@@ -894,6 +894,9 @@ CTAs
 .cta--academics {
   min-height: 38px;
   padding-top: 12px;
+  @media #{$small-only} {
+    padding-bottom: 12px;
+  }
 }
 .cta__icon {
   width: 40px;
