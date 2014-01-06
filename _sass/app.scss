@@ -162,7 +162,7 @@ a:visited {
   }
 }
 .side-nav__title {
-  padding-left: 7px;
+  padding-left: 16px;
   min-height: 36px;
   font-size: 13px;
   font-weight: $semibold;
@@ -172,6 +172,9 @@ a:visited {
 .side-nav__title__contents {
   padding-top: 8px;
   padding-right: 5px;
+}
+.side-nav--internal {
+  padding-left: 8px;
 }
 abbr {
   text-transform: inherit;
