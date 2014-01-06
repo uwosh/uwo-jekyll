@@ -34,19 +34,18 @@ responsive-nav: '
       </p>
 
       <div class="row">
-        <div class="large-12 columns">
-          {% include administration/panel-chancellor.html %}
-          {% include administration/panel-academic-affairs.html %}
-          {% include administration/panel-administrative-services.html %}
-          {% include administration/panel-information-technology.html %}
-          {% include administration/panel-university-advancement.html %}
-        </div>
-
-        <div class="large-12 columns">
-          {% include administration/panel-student-affairs.html %}
-          {% include administration/panel-colleges.html %}
-          {% include administration/panel-llce.html %}
-          {% include administration/panel-imc.html %}
+        <div class="small-24 columns">
+          <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+            <li>{% include administration/panel-chancellor.html %}</li>
+            <li>{% include administration/panel-university-advancement.html %}</li>
+            <li>{% include administration/panel-academic-affairs.html %}</li>
+            <li>{% include administration/panel-student-affairs.html %}</li>
+            <li>{% include administration/panel-administrative-services.html %}</li>
+            <li>{% include administration/panel-colleges.html %}</li>
+            <li>{% include administration/panel-information-technology.html %}</li>
+            <li>{% include administration/panel-llce.html %}</li>
+            <li>{% include administration/panel-imc.html %}</li>
+          </ul>
         </div>
       </div>
     </div>
