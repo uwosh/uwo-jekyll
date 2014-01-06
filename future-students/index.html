@@ -43,7 +43,7 @@ responsive-nav: '
     </div>
     <div class="large-8 columns">
       <div class="row">
-        <div class="large-24 columns">
+        <div class="small-24 medium-8 large-24 columns">
           <a href="http://apply.wisconsin.edu">
             <div class="cta cta--dark-orange">
               <img src="{{ site.baseurl }}/img/icons/icon-laptop-open.png" class="cta__icon cta__icon--laptop-open"> <span class="cta__text">Apply Online</span>
@@ -52,7 +52,7 @@ responsive-nav: '
         </div>
       </div>
       <div class="row">
-        <div class="large-24 columns">
+        <div class="small-24 medium-8 large-24 columns">
           <a href="http://www.uwosh.edu/map/main">
             <div class="cta cta--orange">
               <img src="{{ site.baseurl }}/img/icons/icon-pointer-star2.png" class="cta__icon cta__icon--pointer-star2"> <span class="cta__text">Take an Online Tour</span>
@@ -61,7 +61,7 @@ responsive-nav: '
         </div>
       </div>
       <div class="row">
-        <div class="large-24 columns">
+        <div class="small-24 medium-8 large-24 columns">
           <a href="{{ site.baseurl }}/about-uw-oshkosh">
             <div class="cta cta--dark-blue">
               <img src="{{ site.baseurl }}/img/icons/icon-light-bulb.png" class="cta__icon cta__icon--light-bulb"> <span class="cta__text">Learn More about UWO</span>
@@ -75,19 +75,15 @@ responsive-nav: '
 
   <div class="row">
 
-    <div class="medium-12 large-8 columns">
-      {% include future-students/panel-undergraduate.html %}
-      {% include future-students/panel-continuing-education.html %}
-    </div>
-
-    <div class="medium-12 large-8 columns">
-      {% include future-students/panel-graduate.html %}
-      {% include future-students/panel-youth-programs.html %}
-    </div>
-
-    <div class="medium-12 large-8 columns">
-      {% include future-students/panel-certificate-programs.html %}
-      {% include future-students/panel-online-degree-programs.html %}
+    <div class="small-24 columns">
+      <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+        <li>{% include future-students/panel-undergraduate.html %}</li>
+        <li>{% include future-students/panel-graduate.html %}</li>
+        <li>{% include future-students/panel-certificate-programs.html %}</li>
+        <li>{% include future-students/panel-continuing-education.html %}</li>
+        <li>{% include future-students/panel-youth-programs.html %}</li>
+        <li>{% include future-students/panel-online-degree-programs.html %}</li>
+      </ul>
     </div>
   </div>
 
