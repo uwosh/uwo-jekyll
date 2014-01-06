@@ -15,7 +15,6 @@ Setting up variables. Bringing in Colors and Spacing.
 .media .media__img {float:left; margin-right: 10px;}
 .media .media__img img{display:block;}
 .media .media__img--ext{float:right; margin-left: 10px;}
-.media--about-pillar {margin-right: 0;}
 .img-responsive {
   width: 100%;
   height: auto;
@@ -386,6 +385,13 @@ ABOUT UW OSHKOSH STYLES
     margin-left: 0;
   }
 }
+.about-pillar__main-text {
+  padding-right: 50px;
+}
+.media--about-pillar {
+  margin-right: 0;
+  padding: 8px 0 8px 8px;
+}
 .about-pillar__container {
   height: 54px;
 }
@@ -397,7 +403,7 @@ ABOUT UW OSHKOSH STYLES
   padding-top: 13px;
   a {
     font-size: 18px;
-    font-weight: $bold;
+    font-weight: $semibold;
     color: $dark-gray;
   }
   a:visited {
@@ -477,12 +483,15 @@ ABOUT UW OSHKOSH STYLES
 }
 .about-pillar__dropdown__figure--large {
   font-size: 36px;
+  font-weight: 700;
 }
 .about-pillar__dropdown__figure--medium {
   font-size: 48px;
+  font-weight: 700;
 }
 .about-pillar__dropdown__figure--small {
   font-size: 67px;
+  font-weight: 700;
 }
 .about-pillar__dropdown--education {
   background-color: #3b5282;
