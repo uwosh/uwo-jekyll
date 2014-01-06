@@ -875,18 +875,48 @@ CTAs
 .cta--accreditation {
   width: 218px;
   margin-left: 0 !important;
+  @media #{$small-only} {
+    width: 100%;
+  }
+  @media #{$medium-only} {
+    width: 100%;
+  }
 }
 .cta--fast-facts {
   width: 212px;
   margin-left: 0 !important;
+  @media #{$small-only} {
+    width: 100%;
+  }
+  @media #{$medium-only} {
+    width: 100%;
+  }
 }
 .cta--points-of-pride {
   width: 242px;
   margin-left: 0 !important;
+  @media #{$small-only} {
+    width: 100%;
+  }
+  @media #{$medium-only} {
+    width: 100%;
+  }
 }
 .cta--strategic-plan {
   width: 464px;
   margin-left: 0 !important;
+  @media #{$small-only} {
+    width: 100%;
+  }
+  @media #{$medium-only} {
+    width: 100%;
+  }
+}
+.cta__text--strategic-plan:after {
+  content: "Strategic Plan and Annual Report";
+  @media #{$small-only} {
+    content: "Strategic Plan";
+  }
 }
 .cta--my-uwo {
   padding-left: 0;
