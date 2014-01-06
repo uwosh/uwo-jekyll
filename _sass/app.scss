@@ -370,10 +370,18 @@ ABOUT UW OSHKOSH STYLES
 }
 .about-pillar__title {
   font-size: 18px;
-  font-weight: $semibold;
+  font-weight: $bold;
   text-transform: uppercase;
   height: 53px;
   padding-top: 13px;
+  a {
+    font-size: 18px;
+    font-weight: $bold;
+    color: $dark-gray;
+  }
+  a:visited {
+    color: $dark-gray;
+  }
 }
 .about-pillar--education {
   width: 210px;
