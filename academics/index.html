@@ -115,18 +115,17 @@ responsive-nav: '
       </a>
       <div class="row academics-row">
 
-        <div class="large-12 columns">
-          {% include academics/panel-cob.html %}
-          {% include academics/panel-cols.html %}
-          {% include academics/panel-llce.html %}
-          {% include academics/panel-undergraduate.html %}
-        </div>
-
-        <div class="large-12 columns">
-          {% include academics/panel-coehs.html %}
-          {% include academics/panel-con.html %}
-          {% include academics/panel-continuing-education.html %}
-          {% include academics/panel-graduate.html %}
+        <div class="large-24 columns">
+          <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+            <li>{% include academics/panel-cob.html %}</li>
+            <li>{% include academics/panel-coehs.html %}</li>
+            <li>{% include academics/panel-cols.html %}</li>
+            <li>{% include academics/panel-con.html %}</li>
+            <li>{% include academics/panel-llce.html %}</li>
+            <li>{% include academics/panel-continuing-education.html %}</li>
+            <li>{% include academics/panel-undergraduate.html %}</li>
+            <li>{% include academics/panel-graduate.html %}</li>
+          </ul>
         </div>
 
       </div>
