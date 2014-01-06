@@ -157,6 +157,9 @@ a:visited {
 ul.off-canvas-list li a { /* Remove separators for off-canvas nav */
   border-bottom: none;
 }
+ul.off-canvas-list li label {
+  padding-left: 0.66667rem;
+}
 .side-nav {
   li {
     a {
