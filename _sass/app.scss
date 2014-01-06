@@ -399,6 +399,9 @@ ABOUT UW OSHKOSH STYLES
 }
 .about-pillar--education:hover {
   background-position-y: 53px;
+  a {
+    color: #0077ac !important;
+  }
 }
 .about-pillar--leadership {
   width: 200px;
@@ -407,6 +410,9 @@ ABOUT UW OSHKOSH STYLES
 }
 .about-pillar--leadership:hover {
   background-position-y: 53px;
+  a {
+    color: #c05500 !important;
+  }
 }
 .about-pillar--responsiveness {
   width: 230px;
@@ -415,6 +421,9 @@ ABOUT UW OSHKOSH STYLES
 }
 .about-pillar--responsiveness:hover {
   background-position-y: 53px;
+  a {
+    color: #e68500 !important;
+  }
 }
 .about-pillar--service {
   width: 170px;
@@ -423,6 +432,9 @@ ABOUT UW OSHKOSH STYLES
 }
 .about-pillar--service:hover {
   background-position-y: 53px;
+  a {
+    color: #69b9d9 !important;
+  }
 }
 .about-pillar--sustainability {
   width: 220px;
@@ -431,6 +443,9 @@ ABOUT UW OSHKOSH STYLES
 }
 .about-pillar--sustainability:hover {
   background-position-y: 53px;
+  a {
+    color: #5a9563 !important;
+  }
 }
 .about-pillar__dropdown {
   color: #fff;
