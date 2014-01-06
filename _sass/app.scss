@@ -59,6 +59,12 @@ h3.news-heading {
 .breadcrumbs--internal {
   padding-left: 0;
 }
+.breadcrumbs--about {
+  border-bottom: 1px solid #DCDDDE;
+  margin-bottom: 5px;
+  height: 36px;
+  padding-top: 12px;
+}
 .breadcrumbs>*:before {
   margin: 0 5px;
 }
