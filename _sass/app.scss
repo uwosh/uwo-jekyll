@@ -154,6 +154,9 @@ a:visited {
     color: $dark-gray;
   }
 }
+ul.off-canvas-list li a { /* Remove separators for off-canvas nav */
+  border-bottom: none;
+}
 .side-nav {
   li {
     a {
