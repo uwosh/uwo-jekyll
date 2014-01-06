@@ -654,6 +654,7 @@ PANELS
   background: #fff;
   padding: 0;
   position: relative;
+  margin-bottom: 0;
   .clickable {
     position: absolute;
     top: 20px;
@@ -727,6 +728,7 @@ PANELS
   border-top: 3px solid $medium-gray;
   border-radius: 2px;
   padding: 1.25rem;
+  margin-bottom: 1.53846rem;
 }
 .panel__video-wrapper {
   position: relative;
