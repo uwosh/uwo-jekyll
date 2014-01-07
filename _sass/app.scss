@@ -233,6 +233,7 @@ abbr {
 }
 
 .audience-row {
+  font-weight: $semibold;
   a {
     color: $dark-gray;
   }
@@ -243,6 +244,9 @@ abbr {
   @media #{$medium-only} {
     margin-top: 15px;
   }
+}
+.audience-nav > ul > li {
+  margin-left: 1.5rem;
 }
 .audience-nav > ul > li > a {
   font-size: 12px;
