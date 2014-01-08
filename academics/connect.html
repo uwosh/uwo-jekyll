@@ -27,48 +27,28 @@ responsive-nav: '
 '
 ---
 
-<div class="content">
+<div class="row content">
+  <div class="small-24 columns page-banner__column">
 
-  <div class="row">
-    <div class="small-24 columns">
-
-      <a href="{{ site.baseurl }}/academics">
-        <div class="page-banner page-banner--medium-dark-gray">
-          <h2 class="page-banner__title">Academics</h2>
-        </div>
-      </a>
-
-    </div>
-  </div>
-
-  <div class="row">
-
-    <div class="small-24 columns">
-      <nav class="breadcrumbs breadcrumbs--internal">
-        <a href="{{site.baseurl}}">Home</a>
-        <a href="{{site.baseurl}}/academics">Academics</a>
-        <a href="{{site.baseurl}}/academics/learning-assistance-services.html">Academics</a>
-        <a href="#" class="current">{{ page.title }}</a>
-      </nav>
-      {% include academics/learning-assistance-services/connect-form.html %}
-    </div>
+    <a href="{{ site.baseurl }}/academics">
+      <div class="page-banner page-banner--medium-dark-gray">
+        <h2 class="page-banner__title">Academics</h2>
+      </div>
+    </a>
 
   </div>
-
 </div>
 
-<div class="row">
-  <div class="learning-bottom-bar">
-    MORE SUPPORT SERVICES<br>
-    <ul class="inline-list">
-      <li><a href="http://www.uwosh.edu/career">Career Services</a></li>
-      <li><a href="http://www.uwosh.edu/couns_center">Counseling Center</a></li>
-      <li><a href="http://www.uwosh.edu/lt">Learning Technologies</a></li>
-      <li><a href="http://www.uwosh.edu/advising">Undergraduate Academic Resources Center (<abbr title="Undergraduate Academic Resources Center">UARC</abbr>)</a></li>
-      <li><a href="http://www.uwosh.edu/acad-supp">Center for Academic Support and Diversity</a></li>
-      <li><a href="http://www.uwosh.edu/lgbtqcenter">LGBTQ Resource Center</a></li>
-      <li><a href="http://www.uwosh.edu/sss">Student Support Services</a></li>
-      <li><a href="http://www.uwosh.edu/womenscenter">Women's Center</a></li>
-    </ul>
+<div class="row content">
+
+  <div class="small-24 columns">
+    <nav class="breadcrumbs breadcrumbs--internal">
+      <a href="{{site.baseurl}}">Home</a>
+      <a href="{{site.baseurl}}/academics">Academics</a>
+      <a href="{{site.baseurl}}/academics/learning-assistance-services.html">Academics</a>
+      <a href="#" class="current">{{ page.title }}</a>
+    </nav>
+    {% include academics/learning-assistance-services/connect-form.html %}
   </div>
+
 </div>

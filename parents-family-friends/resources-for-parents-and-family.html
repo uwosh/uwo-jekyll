@@ -24,37 +24,33 @@ responsive-nav: '
 '
 ---
 
-<div class="content">
+<div class="row content">
+  <div class="small-24 columns page-banner__column">
 
-  <div class="row">
-    <div class="small-24 columns">
+    <a href="{{ site.baseurl }}/parents-family-friends">
+      <div class="page-banner page-banner--dark-blue">
+        <h2 class="page-banner__title">Parents, Family and Friends</h2>
+      </div>
+    </a>
 
-      <a href="{{ site.baseurl }}/parents-family-friends">
-        <div class="page-banner page-banner--dark-blue">
-          <h2 class="page-banner__title">Parents, Family and Friends</h2>
-        </div>
-      </a>
+  </div>
+</div>
 
-    </div>
-  </div><br>
+<div class="row content">
 
-  <div class="row">
+  <div class="large-5 columns show-for-large-up right-rule padding-right-0">
+    {% include parents-family-friends/side-nav.html %}
+    {% include social-icons-internal.html %}
+    {% include news-announcements-cta.html %}
+  </div>
 
-    <div class="large-5 columns show-for-large-up right-rule padding-right-0">
-      {% include parents-family-friends/side-nav.html %}
-      {% include social-icons-internal.html %}
-      {% include news-announcements-cta.html %}
-    </div>
-
-    <div class="large-19 columns">
-      <nav class="breadcrumbs breadcrumbs--internal">
-        <a href="{{site.baseurl}}">Home</a>
-        <a href="{{site.baseurl}}/parents-family-friends">Parents, Family and Friends</a>
-        <a href="#" class="current">{{ page.title }}</a>
-      </nav>
-      {% include parents-family-friends/resources-for-parents-and-family/lead-content.html %}
-    </div>
-
+  <div class="large-19 columns">
+    <nav class="breadcrumbs breadcrumbs--internal">
+      <a href="{{site.baseurl}}">Home</a>
+      <a href="{{site.baseurl}}/parents-family-friends">Parents, Family and Friends</a>
+      <a href="#" class="current">{{ page.title }}</a>
+    </nav>
+    {% include parents-family-friends/resources-for-parents-and-family/lead-content.html %}
   </div>
 
 </div>

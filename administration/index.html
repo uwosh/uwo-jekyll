@@ -15,64 +15,63 @@ responsive-nav: '
 '
 ---
 
-<div class="content">
-  <div class="row">
-    <div class="large-24 columns">
-      <div class="page-banner page-banner--dark-blue">
-        <h2 class="page-banner__title">Administration</h2>
-      </div>
-      <br>
+<div class="row content">
+  <div class="large-24 columns page-banner__column">
+    <div class="page-banner page-banner--dark-blue">
+      <h2 class="page-banner__title">Administration</h2>
     </div>
-    <div class="large-16 columns">
-      <nav class="breadcrumbs">
-        <a href="{{site.baseurl}}">Home</a>
-        <a href="#" class="current">Administration</a>
-      </nav>
-      <h1 class="news-heading intro-text">Administration</h1>
-      <p class="drop-down-nav intro-text">
-        Led by the dedicated and accomplished <a href="http://www.uwosh.edu/chancellor/about-chancellor-wells">Chancellor Richard H. Wells</a>, the University of Wisconsin Oshkosh&rsquo;s administration continues to deliver on its mission to provide high-quality, affordable and comprehensive education to the students and community.
-      </p>
+    <br>
+  </div>
+  <div class="large-16 columns">
+    <nav class="breadcrumbs">
+      <a href="{{site.baseurl}}">Home</a>
+      <a href="#" class="current">Administration</a>
+    </nav>
+    <h1 class="news-heading intro-text">Administration</h1>
+    <p class="drop-down-nav intro-text">
+      Led by the dedicated and accomplished <a href="http://www.uwosh.edu/chancellor/about-chancellor-wells">Chancellor Richard H. Wells</a>, the University of Wisconsin Oshkosh&rsquo;s administration continues to deliver on its mission to provide high-quality, affordable and comprehensive education to the students and community.
+    </p>
 
-      <div class="row">
-        <div class="small-24 columns">
-          <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
-            <li>{% include administration/panel-chancellor.html %}</li>
-            <li>{% include administration/panel-university-advancement.html %}</li>
-            <li>{% include administration/panel-academic-affairs.html %}</li>
-            <li>{% include administration/panel-student-affairs.html %}</li>
-            <li>{% include administration/panel-administrative-services.html %}</li>
-            <li>{% include administration/panel-colleges.html %}</li>
-            <li>{% include administration/panel-information-technology.html %}</li>
-            <li>{% include administration/panel-llce.html %}</li>
-            <li>{% include administration/panel-imc.html %}</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="large-8 columns">
-      <div class="row">
-        <div class="large-24 columns">
-          <a href="http://www.uwosh.edu/stuaff/policies-procedures">
-            <div class="cta cta--orange">
-              <i class="icon-book-closed cta__icon"></i> <span class="cta__text">Student Policies</span>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="large-24 columns">
-          <a href="http://www.uwosh.edu/usp">
-            <div class="cta cta--dark-orange">
-              <i class="icon-pencil cta__icon"></i> <span class="cta__text">General Education</span>
-            </div>
-          </a>
-          {% include social-icons.html %}
-          <ul class="no-bullet">
-            <li>{% include titan-alert.html %}</li>
-          </ul>
-        </div>
+    <div class="row content">
+      <div class="small-24 columns">
+        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+          <li>{% include administration/panel-chancellor.html %}</li>
+          <li>{% include administration/panel-university-advancement.html %}</li>
+          <li>{% include administration/panel-academic-affairs.html %}</li>
+          <li>{% include administration/panel-student-affairs.html %}</li>
+          <li>{% include administration/panel-administrative-services.html %}</li>
+          <li>{% include administration/panel-colleges.html %}</li>
+          <li>{% include administration/panel-information-technology.html %}</li>
+          <li>{% include administration/panel-llce.html %}</li>
+          <li>{% include administration/panel-imc.html %}</li>
+        </ul>
       </div>
     </div>
   </div>
+  <div class="large-8 columns">
+    <div class="row">
+      <div class="large-24 columns">
+        <a href="http://www.uwosh.edu/stuaff/policies-procedures">
+          <div class="cta cta--orange">
+            <i class="icon-book-closed cta__icon"></i> <span class="cta__text">Student Policies</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-24 columns">
+        <a href="http://www.uwosh.edu/usp">
+          <div class="cta cta--dark-orange">
+            <i class="icon-pencil cta__icon"></i> <span class="cta__text">General Education</span>
+          </div>
+        </a>
+        {% include social-icons.html %}
+        <ul class="no-bullet">
+          <li>{% include titan-alert.html %}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>

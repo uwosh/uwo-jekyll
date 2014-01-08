@@ -27,54 +27,50 @@ responsive-nav: '
 '
 ---
 
-<div class="content">
+<div class="row content">
+  <div class="small-24 columns page-banner__column">
 
-  <div class="row">
-    <div class="small-24 columns">
+    <a href="{{ site.baseurl }}/academics">
+      <div class="page-banner page-banner--medium-dark-gray">
+        <h2 class="page-banner__title">Academics</h2>
+      </div>
+    </a>
 
-      <a href="{{ site.baseurl }}/academics">
-        <div class="page-banner page-banner--medium-dark-gray">
-          <h2 class="page-banner__title">Academics</h2>
-        </div>
-      </a>
+  </div>
+</div>
 
-    </div>
+<div class="row content">
+
+  <div class="small-24 columns">
+    <ul class="learning-slider" data-orbit data-options="slide_number:false;timer_speed:6000;pause_on_hover:false;navigation_arrows:false;bullets:false;animation:fade">
+      <li>
+        <img src="{{ site.baseurl }}/img/academics/learning-assistance-services/Banner1.jpg" alt="slide 1" />
+      </li>
+      <li>
+        <img src="{{ site.baseurl }}/img/academics/learning-assistance-services/Banner2.jpg" alt="slide 2" />
+      </li>
+      <li>
+        <img src="{{ site.baseurl }}/img/academics/learning-assistance-services/Banner3.jpg" alt="slide 3" />
+      </li>
+      <li>
+        <img src="{{ site.baseurl }}/img/academics/learning-assistance-services/Banner4.jpg" alt="slide 4" />
+      </li>
+      <li>
+        <img src="{{ site.baseurl }}/img/academics/learning-assistance-services/Banner5.jpg" alt="slide 5" />
+      </li>
+      <li>
+        <img src="{{ site.baseurl }}/img/academics/learning-assistance-services/Banner6.jpg" alt="slide 6" />
+      </li>
+    </ul>
   </div>
 
-  <div class="row">
-
-    <div class="small-24 columns">
-      <ul class="learning-slider" data-orbit data-options="slide_number:false;timer_speed:6000;pause_on_hover:false;navigation_arrows:false;bullets:false;animation:fade">
-        <li>
-          <img src="{{ site.baseurl }}/img/academics/learning-assistance-services/Banner1.jpg" alt="slide 1" />
-        </li>
-        <li>
-          <img src="{{ site.baseurl }}/img/academics/learning-assistance-services/Banner2.jpg" alt="slide 2" />
-        </li>
-        <li>
-          <img src="{{ site.baseurl }}/img/academics/learning-assistance-services/Banner3.jpg" alt="slide 3" />
-        </li>
-        <li>
-          <img src="{{ site.baseurl }}/img/academics/learning-assistance-services/Banner4.jpg" alt="slide 4" />
-        </li>
-        <li>
-          <img src="{{ site.baseurl }}/img/academics/learning-assistance-services/Banner5.jpg" alt="slide 5" />
-        </li>
-        <li>
-          <img src="{{ site.baseurl }}/img/academics/learning-assistance-services/Banner6.jpg" alt="slide 6" />
-        </li>
-      </ul>
-    </div>
-
-    <div class="small-24 columns">
-      <nav class="breadcrumbs">
-        <a href="{{site.baseurl}}">Home</a>
-        <a href="{{site.baseurl}}/academics">Academics</a>
-        <a href="#" class="current">{{ page.title }}</a>
-      </nav>
-      {% include academics/learning-assistance-services/lead-content.html %}
-    </div>
-
+  <div class="small-24 columns">
+    <nav class="breadcrumbs">
+      <a href="{{site.baseurl}}">Home</a>
+      <a href="{{site.baseurl}}/academics">Academics</a>
+      <a href="#" class="current">{{ page.title }}</a>
+    </nav>
+    {% include academics/learning-assistance-services/lead-content.html %}
   </div>
 
 </div>

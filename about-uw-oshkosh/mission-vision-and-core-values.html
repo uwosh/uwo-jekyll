@@ -30,60 +30,56 @@ responsive-nav: '
 '
 ---
 
-<div class="content">
+<div class="row content">
+  <div class="small-24 columns page-banner__column">
 
-  <div class="row">
-    <div class="small-24 columns">
+    <a href="{{ site.baseurl }}/about-uw-oshkosh">
+      <div class="page-banner page-banner--orange">
+        <h2 class="page-banner__title">About UW&nbsp;Oshkosh</h2>
+      </div>
+    </a>
 
-      <a href="{{ site.baseurl }}/about-uw-oshkosh">
-        <div class="page-banner page-banner--orange">
-          <h2 class="page-banner__title">About UW&nbsp;Oshkosh</h2>
-        </div>
-      </a>
+  </div>
+</div>
 
-    </div>
-  </div><br>
+<div class="row content">
 
-  <div class="row">
+  <div class="large-5 columns right-rule padding-right-0 show-for-large-up">
+    {% include about-uw-oshkosh/side-nav.html %}
+    {% include social-icons.html %}
+    {% include news-announcements-cta.html %}
+  </div>
 
-    <div class="large-5 columns right-rule padding-right-0 show-for-large-up">
-      {% include about-uw-oshkosh/side-nav.html %}
-      {% include social-icons.html %}
-      {% include news-announcements-cta.html %}
-    </div>
+  <div class="large-14 columns">
+    <nav class="breadcrumbs breadcrumbs--internal breadcrumbs--about">
+      <a href="{{site.baseurl}}">Home</a>
+      <a href="{{site.baseurl}}/about-uw-oshkosh">About UW&nbsp;Oshkosh</a>
+      <a href="#" class="current">{{ page.title }}</a>
+    </nav>
+    {% include about-uw-oshkosh/mission-vision-and-core-values/lead-content.html %}
+  </div>
 
-    <div class="large-14 columns">
-      <nav class="breadcrumbs breadcrumbs--internal breadcrumbs--about">
-        <a href="{{site.baseurl}}">Home</a>
-        <a href="{{site.baseurl}}/about-uw-oshkosh">About UW&nbsp;Oshkosh</a>
-        <a href="#" class="current">{{ page.title }}</a>
-      </nav>
-      {% include about-uw-oshkosh/mission-vision-and-core-values/lead-content.html %}
-    </div>
-
-    <div class="large-5 columns">
-      <a href="{{ site.baseurl }}/about-uw-oshkosh/accreditation.html">
-        <div class="cta cta--dark-green">
-          <img src="{{ site.baseurl }}/img/icons/icon-award-ribbon.png" class="cta__icon cta__icon-award-ribbon"> <span class="cta__text">Accreditation</span>
-        </div>
-      </a>
-      <a href="{{ site.baseurl }}/about-uw-oshkosh/fast-facts.html">
-        <div class="cta cta--orange">
-          <img src="{{ site.baseurl }}/img/icons/icon-graph.png" class="cta__icon cta__icon-graph"> <span class="cta__text">Fast Facts</span>
-        </div>
-      </a>
-      <a href="{{ site.baseurl }}/about-uw-oshkosh/points-of-pride.html">
-        <div class="cta cta--yellow">
-          <img src="{{ site.baseurl }}/img/icons/icon-pointer-star.png" class="cta__icon cta__icon-pointer-star"> <span class="cta__text">Points of Pride</span>
-        </div>
-      </a>
-      <a href="http://www.uwosh.edu/strategicplan">
-        <div class="cta cta--blue">
-          <img src="{{ site.baseurl }}/img/icons/icon-pencil-w-notebook.png" class="cta__icon cta__icon-pencil-w-notebook"> <span class="cta__text">Strategic Plan</span>
-        </div>
-      </a>
-    </div>
-
+  <div class="large-5 columns">
+    <a href="{{ site.baseurl }}/about-uw-oshkosh/accreditation.html">
+      <div class="cta cta--dark-green">
+        <img src="{{ site.baseurl }}/img/icons/icon-award-ribbon.png" class="cta__icon cta__icon-award-ribbon"> <span class="cta__text">Accreditation</span>
+      </div>
+    </a>
+    <a href="{{ site.baseurl }}/about-uw-oshkosh/fast-facts.html">
+      <div class="cta cta--orange">
+        <img src="{{ site.baseurl }}/img/icons/icon-graph.png" class="cta__icon cta__icon-graph"> <span class="cta__text">Fast Facts</span>
+      </div>
+    </a>
+    <a href="{{ site.baseurl }}/about-uw-oshkosh/points-of-pride.html">
+      <div class="cta cta--yellow">
+        <img src="{{ site.baseurl }}/img/icons/icon-pointer-star.png" class="cta__icon cta__icon-pointer-star"> <span class="cta__text">Points of Pride</span>
+      </div>
+    </a>
+    <a href="http://www.uwosh.edu/strategicplan">
+      <div class="cta cta--blue">
+        <img src="{{ site.baseurl }}/img/icons/icon-pencil-w-notebook.png" class="cta__icon cta__icon-pencil-w-notebook"> <span class="cta__text">Strategic Plan</span>
+      </div>
+    </a>
   </div>
 
 </div>

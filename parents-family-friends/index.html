@@ -24,76 +24,73 @@ responsive-nav: '
 '
 ---
 
-<div class="content">
-  <div class="row">
-    <div class="large-24 columns">
-      <div class="page-banner page-banner--dark-blue">
-        <h2 class="page-banner__title">Parents, Family and Friends</h2>
-      </div>
-      <br>
+<div class="row content">
+  <div class="large-24 columns page-banner__column">
+    <div class="page-banner page-banner--dark-blue">
+      <h2 class="page-banner__title">Parents, Family and Friends</h2>
     </div>
-    <div class="large-16 columns">
-      {% include parents-family-friends/lead-content.html %}
+    <br>
+  </div>
+  <div class="large-16 columns">
+    {% include parents-family-friends/lead-content.html %}
+  </div>
+  <div class="large-8 columns">
+    <div class="row">
+      <div class="large-24 medium-8 small-24 columns">
+        <a href="http://www.uwosh.edu/go/directions">
+          <div class="cta cta--orange">
+            <img src="{{ site.baseurl }}/img/icons/icon-pointer-p.png" class="cta__icon cta__icon--pointer-p" alt="Parking icon"> <span class="cta__text">Directions to Campus/Parking</span>
+          </div>
+        </a>
+      </div>
     </div>
-    <div class="large-8 columns">
-      <div class="row">
-        <div class="large-24 medium-8 small-24 columns">
-          <a href="http://www.uwosh.edu/go/directions">
-            <div class="cta cta--orange">
-              <img src="{{ site.baseurl }}/img/icons/icon-pointer-p.png" class="cta__icon cta__icon--pointer-p" alt="Parking icon"> <span class="cta__text">Directions to Campus/Parking</span>
-            </div>
-          </a>
-        </div>
+    <div class="row">
+      <div class="large-24 medium-8 small-24 columns">
+        <a href="{{ site.baseurl }}/parents-family-friends/resources-for-parents-and-family.html">
+          <div class="cta cta--blue">
+            <img src="{{ site.baseurl }}/img/icons/icon-gear-person.png" class="cta__icon cta__icon--gear-person" alt="Resources icon"> <span class="cta__text">Resources</span>
+          </div>
+        </a>
       </div>
-      <div class="row">
-        <div class="large-24 medium-8 small-24 columns">
-          <a href="{{ site.baseurl }}/parents-family-friends/resources-for-parents-and-family.html">
-            <div class="cta cta--blue">
-              <img src="{{ site.baseurl }}/img/icons/icon-gear-person.png" class="cta__icon cta__icon--gear-person" alt="Resources icon"> <span class="cta__text">Resources</span>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <div class="large-24 medium-8 small-24 columns">
-          <a href="{{ site.baseurl }}/parents-family-friends/faqs.html">
-            <div class="cta cta--dark-orange">
-              <img src="{{ site.baseurl }}/img/icons/icon-question.png" class="cta__icon cta__icon--question" alt="Frequently asked questions icon"> <span class="cta__text">Frequently Asked Questions</span>
-            </div>
-          </a>
-        </div>
+    </div>
+    <div class="row">
+      <div class="large-24 medium-8 small-24 columns">
+        <a href="{{ site.baseurl }}/parents-family-friends/faqs.html">
+          <div class="cta cta--dark-orange">
+            <img src="{{ site.baseurl }}/img/icons/icon-question.png" class="cta__icon cta__icon--question" alt="Frequently asked questions icon"> <span class="cta__text">Frequently Asked Questions</span>
+          </div>
+        </a>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="row show-for-large-up">
-    <div class="large-24 columns">
-      <ul class="inline-list no-bullet cta cta--parents cta--light-yellow">
-        <li><a href="{{ site.baseurl }}/parents-family-friends">Parents</a></li>
-        <li><a href="{{ site.baseurl }}/about-uw-oshkosh">About UW&nbsp;Oshkosh</a></li>
-        <li><a href="{{ site.baseurl }}/parents-family-friends/resources-for-parents-and-family.html">Resources for Parents</a></li>
-        <li><a href="{{ site.baseurl }}/parents-family-friends/tips.html">Tips</a></li>
-        <li><a href="{{ site.baseurl }}/parents-family-friends/recommended-reading.html">Recommended Reading</a></li>
-        <li><a href="{{ site.baseurl }}/parents-family-friends/faqs.html">FAQs</li>
-        <li><a href="http://www.uwosh.edu/fin_aid">Costs and Financial Aid</a></li>
-        <li><a href="{{ site.baseurl }}/current-students/health-wellness-safety.html">Campus Health, Wellness and Safety Resources</a></li>
-      </ul>
-    </div>
+<div class="row show-for-large-up content">
+  <div class="large-24 columns">
+    <ul class="inline-list no-bullet cta cta--parents cta--light-yellow">
+      <li><a href="{{ site.baseurl }}/parents-family-friends">Parents</a></li>
+      <li><a href="{{ site.baseurl }}/about-uw-oshkosh">About UW&nbsp;Oshkosh</a></li>
+      <li><a href="{{ site.baseurl }}/parents-family-friends/resources-for-parents-and-family.html">Resources for Parents</a></li>
+      <li><a href="{{ site.baseurl }}/parents-family-friends/tips.html">Tips</a></li>
+      <li><a href="{{ site.baseurl }}/parents-family-friends/recommended-reading.html">Recommended Reading</a></li>
+      <li><a href="{{ site.baseurl }}/parents-family-friends/faqs.html">FAQs</li>
+      <li><a href="http://www.uwosh.edu/fin_aid">Costs and Financial Aid</a></li>
+      <li><a href="{{ site.baseurl }}/current-students/health-wellness-safety.html">Campus Health, Wellness and Safety Resources</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="large-8 columns">
+		{% include parents-family-friends/panel-parent-odyssey-orientation.html %}
   </div>
 
-  <div class="row">
-
-    <div class="large-8 columns">
-			{% include parents-family-friends/panel-parent-odyssey-orientation.html %}
-    </div>
-
-    <div class="large-8 columns">
-      {% include parents-family-friends/panel-family-weekends.html %}
-    </div>
-
-    <div class="large-8 columns">
-      {% include parents-family-friends/panel-move-in-weekend.html %}
-    </div>
+  <div class="large-8 columns">
+    {% include parents-family-friends/panel-family-weekends.html %}
   </div>
 
+  <div class="large-8 columns">
+    {% include parents-family-friends/panel-move-in-weekend.html %}
+  </div>
 </div>
