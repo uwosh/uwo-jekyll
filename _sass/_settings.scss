@@ -552,10 +552,10 @@ $tabbar-bg: #444;
 // $orbit-caption-height: auto;
 
 // We use these to control the left/right nav styles
-// $orbit-nav-bg: none;
-// $orbit-nav-bg-hover: rgba(0,0,0,0.3);
-// $orbit-nav-arrow-color: #fff;
-// $orbit-nav-arrow-color-hover: #fff;
+// $orbit-nav-bg: rgba(0,0,0,0.3);
+// $orbit-nav-bg-hover: rgba(0,0,0,0.5);
+$orbit-nav-arrow-color: #666;
+$orbit-nav-arrow-color-hover: #fff;
 
 // We use these to control the timer styles
 // $orbit-timer-bg: rgba(255,255,255,0.3);
