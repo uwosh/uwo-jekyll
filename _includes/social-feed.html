@@ -63,7 +63,7 @@
                       </div>
                     </div>
                     <p>
-                      <img ng-src="{{ fbpost.picture }}" class="right"><span ng-bind-html="fbpost.message | linky"></span>&hellip; <a ng-href="{{ fbpost.link }}" target="_blank" alt="" >Read more</a>
+                      <img ng-src="{{ fbpost.picture }}" class="right" alt=""><span ng-bind-html="fbpost.message | linky"></span>&hellip; <a ng-href="{{ fbpost.link }}" target="_blank" alt="" >Read more</a>
                     </p>
                     <div>
                       <span class="social-feed-date posted-date uppercase"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ fbpost.updated_time}}">{{ fbpost.created_time | fromNow }}</time></span><span class="datetime social-feed-likes">{{ fbpost.likes.data.length }} people like this</span>
