@@ -1228,6 +1228,9 @@ slide.bespoke-active {
     margin-bottom: 0;
   }
 }
+.facebook-article > p > img {
+  max-height: 100px;
+}
 
 slide.bespoke-before {
     -webkit-transform: translate3d(-1920px, 0, 0);
