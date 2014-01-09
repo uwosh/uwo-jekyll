@@ -27,42 +27,38 @@ responsive-nav: '
 '
 ---
 
-<div class="content">
+<div class="row content">
+  <div class="small-24 columns page-banner__column">
 
-  <div class="row">
-    <div class="small-24 columns">
+    <a href="{{ site.baseurl }}/academics">
+      <div class="page-banner page-banner--medium-dark-gray">
+        <h2 class="page-banner__title">Academics</h2>
+      </div>
+    </a>
 
-      <a href="{{ site.baseurl }}/academics">
-        <div class="page-banner page-banner--medium-dark-gray">
-          <h2 class="page-banner__title">Academics</h2>
-        </div>
-      </a>
+  </div>
+</div>
 
-    </div>
-  </div><br>
+<div class="row content">
 
-  <div class="row">
+  <div class="medium-6 large-5 show-for-medium-up columns right-rule padding-right-0">
+    {% include academics/side-nav.html %}
+    {% include social-icons.html %}
+    {% include news-announcements-cta.html %}
+  </div>
 
-    <div class="medium-6 large-5 show-for-medium-up columns right-rule padding-right-0">
-      {% include academics/side-nav.html %}
-      {% include social-icons.html %}
-      {% include news-announcements-cta.html %}
-    </div>
+  <div class="medium-18 large-19 columns">
+    <nav class="breadcrumbs breadcrumbs--internal">
+      <a href="{{site.baseurl}}">Home</a>
+      <a href="{{site.baseurl}}/academics">Academics</a>
+      <a href="#" class="current">{{ page.title }}</a>
+    </nav>
+    {% include academics/colleges/lead-content.html %}
+  </div>
 
-    <div class="medium-18 large-19 columns">
-      <nav class="breadcrumbs breadcrumbs--internal">
-        <a href="{{site.baseurl}}">Home</a>
-        <a href="{{site.baseurl}}/academics">Academics</a>
-        <a href="#" class="current">{{ page.title }}</a>
-      </nav>
-      {% include academics/colleges/lead-content.html %}
-    </div>
-
-    <div class="small-24 columns hide-for-large-up">
-      {% include social-icons.html %}
-      {% include news-announcements-cta.html %}
-    </div>
-
+  <div class="small-24 columns hide-for-large-up">
+    {% include social-icons.html %}
+    {% include news-announcements-cta.html %}
   </div>
 
 </div>

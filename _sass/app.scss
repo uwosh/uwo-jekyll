@@ -809,6 +809,10 @@ PAGE BANNERS
   margin-top: 0;
   padding-top: 12px;
 }
+.page-banner__column {
+  padding-left: 0;
+  padding-right: 0;
+}
 .page-banner__title {
   color: #fff;
   margin-top: 0;
@@ -1223,6 +1227,9 @@ slide.bespoke-active {
   .media {
     margin-bottom: 0;
   }
+}
+.facebook-article > p > img {
+  max-height: 100px;
 }
 
 slide.bespoke-before {

@@ -15,79 +15,77 @@ responsive-nav: '
 '
 ---
 
-<div class="content">
-  <div class="row">
-    <div class="large-24 columns">
-      <div class="page-banner page-banner--dark-orange">
-        <h2 class="page-banner__title">Faculty and Staff</h2>
-      </div>
-      <br>
+<div class="row content">
+  <div class="large-24 columns page-banner__column">
+    <div class="page-banner page-banner--dark-orange">
+      <h2 class="page-banner__title">Faculty and Staff</h2>
     </div>
-    <div class="large-16 columns">
-      <img src="{{site.baseurl}}/img/faculty-and-staff/top-banner.jpg" class="img-responsive" alt="Lab research, faculty and student">
-    </div>
-    <div class="large-8 columns">
-      <div class="row">
-        <div class="small-24 columns">
-          <a href="http://www.uwosh.edu/hr/employment/">
-            <div class="cta cta--blue">
-              <img src="{{ site.baseurl }}/img/icons/icon-file-folder.png" class="cta__icon cta__icon--file-folder" alt="File-folder icon"> <span class="cta__text">Current Openings</span>
-            </div>
-          </a>
-        </div>
-        <div class="small-24 columns">
-          <a href="https://wayf.wisconsin.edu/DS/WAYF?entityID=https%3A%2F%2Fmy.wisconsin.edu%2Fshibboleth&return=https%3A%2F%2Fmy.wisconsin.edu%2FShibboleth.sso%2FDS%3FSAMLDS%3D1%26target%3Dcookie%253Aa82ddf79" target="_blank">
-            <div class="cta cta--dark-green">
-              <img src="{{ site.baseurl }}/img/icons/icon-pencil-w-notebook.png" class="cta__icon cta__icon--pencil-w-notebook" alt="Pencil and paper icon"> <span class="cta__text">Log your Time and Leave</span>
-            </div>
-          </a>
-        </div>
+    <br>
+  </div>
+  <div class="large-16 columns">
+    <img src="{{site.baseurl}}/img/faculty-and-staff/top-banner.jpg" class="img-responsive" alt="Lab research, faculty and student">
+  </div>
+  <div class="large-8 columns">
+    <div class="row">
+      <div class="small-24 columns">
+        <a href="http://www.uwosh.edu/hr/employment/">
+          <div class="cta cta--blue">
+            <img src="{{ site.baseurl }}/img/icons/icon-file-folder.png" class="cta__icon cta__icon--file-folder" alt="File-folder icon"> <span class="cta__text">Current Openings</span>
+          </div>
+        </a>
       </div>
-      <div class="row show-for-large-up">
-        <div class="large-24 columns">
-          <a href="http://emergency.uwosh.edu/?page_id=239"><img src="{{site.baseurl}}/img/titan-alert.jpg" alt="Sign up for TitanAlert." class="img-responsive"></a>
-        </div>
+      <div class="small-24 columns">
+        <a href="https://wayf.wisconsin.edu/DS/WAYF?entityID=https%3A%2F%2Fmy.wisconsin.edu%2Fshibboleth&return=https%3A%2F%2Fmy.wisconsin.edu%2FShibboleth.sso%2FDS%3FSAMLDS%3D1%26target%3Dcookie%253Aa82ddf79" target="_blank">
+          <div class="cta cta--dark-green">
+            <img src="{{ site.baseurl }}/img/icons/icon-pencil-w-notebook.png" class="cta__icon cta__icon--pencil-w-notebook" alt="Pencil and paper icon"> <span class="cta__text">Log your Time and Leave</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row show-for-large-up">
+      <div class="large-24 columns">
+        <a href="http://emergency.uwosh.edu/?page_id=239"><img src="{{site.baseurl}}/img/titan-alert.jpg" alt="Sign up for TitanAlert." class="img-responsive"></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-16 columns">
+    <nav class="breadcrumbs">
+      <a href="{{site.baseurl}}">Home</a>
+      <a href="#" class="current">Faculty and Staff</a>
+    </nav>
+
+    {% include faculty-and-staff/lead-content.html %}
+
+    <div class="row">
+      <div class="small-24 columns">
+        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+          <li>{% include faculty-and-staff/panel-prospective-faculty-and-staff.html %}</li>
+          <li>{% include faculty-and-staff/panel-campus-amenities.html %}</li>
+          <li>{% include faculty-and-staff/panel-academics-and-research.html %}</li>
+          <li>{% include faculty-and-staff/panel-about-uw-oshkosh.html %}</li>
+          <li>{% include faculty-and-staff/panel-activities-and-events.html %}</li>
+          <li>{% include faculty-and-staff/panel-stay-connected-to-uw-oshkosh.html %}</li>
+          <li>{% include faculty-and-staff/panel-governance.html %}</li>
+          <li>{% include faculty-and-staff/panel-tools-and-services.html %}</li>
+          <li>{% include faculty-and-staff/panel-working-at-uw-oshkosh.html %}</li>
+          <li>{% include faculty-and-staff/panel-health-and-wellness-programs.html %}</li>
+          <li>{% include faculty-and-staff/panel-technology.html %}</li>
+          <li>{% include faculty-and-staff/panel-campus-safety.html %}</li>
+        </ul>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="large-16 columns">
-      <nav class="breadcrumbs">
-        <a href="{{site.baseurl}}">Home</a>
-        <a href="#" class="current">Faculty and Staff</a>
-      </nav>
-
-      {% include faculty-and-staff/lead-content.html %}
-
-      <div class="row">
-        <div class="small-24 columns">
-          <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
-            <li>{% include faculty-and-staff/panel-prospective-faculty-and-staff.html %}</li>
-            <li>{% include faculty-and-staff/panel-campus-amenities.html %}</li>
-            <li>{% include faculty-and-staff/panel-academics-and-research.html %}</li>
-            <li>{% include faculty-and-staff/panel-about-uw-oshkosh.html %}</li>
-            <li>{% include faculty-and-staff/panel-activities-and-events.html %}</li>
-            <li>{% include faculty-and-staff/panel-stay-connected-to-uw-oshkosh.html %}</li>
-            <li>{% include faculty-and-staff/panel-governance.html %}</li>
-            <li>{% include faculty-and-staff/panel-tools-and-services.html %}</li>
-            <li>{% include faculty-and-staff/panel-working-at-uw-oshkosh.html %}</li>
-            <li>{% include faculty-and-staff/panel-health-and-wellness-programs.html %}</li>
-            <li>{% include faculty-and-staff/panel-technology.html %}</li>
-            <li>{% include faculty-and-staff/panel-campus-safety.html %}</li>
-          </ul>
-        </div>
+  <div class="large-8 columns">
+    <div class="row">
+      <div class="large-24 columns">
+        <br>
+        {% include social-icons.html %}
       </div>
-    </div>
-
-    <div class="large-8 columns">
-      <div class="row">
-        <div class="large-24 columns">
-          <br>
-          {% include social-icons.html %}
-        </div>
-        {% include faculty-and-staff/audience-banners.html %}
-      </div>
+      {% include faculty-and-staff/audience-banners.html %}
     </div>
   </div>
 </div>

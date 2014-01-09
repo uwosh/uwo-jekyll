@@ -24,53 +24,49 @@ responsive-nav: '
 '
 ---
 
-<div class="content">
+<div class="row content">
+  <div class="small-24 columns page-banner__column">
 
-  <div class="row">
-    <div class="small-24 columns">
+    <a href="{{ site.baseurl }}/current-students">
+      <div class="page-banner page-banner--blue">
+        <h2 class="page-banner__title">Current Students</h2>
+      </div>
+    </a>
 
-      <a href="{{ site.baseurl }}/current-students">
-        <div class="page-banner page-banner--blue">
-          <h2 class="page-banner__title">Current Students</h2>
-        </div>
-      </a>
+  </div>
+</div>
 
-    </div>
-  </div><br>
+<div class="row content">
 
-  <div class="row">
+  <div class="medium-6 large-5 columns show-for-medium-up right-rule padding-right-0">
+    {% include current-students/side-nav.html %}
+    {% include social-icons-internal.html %}
+    {% include news-announcements-cta.html %}
+  </div>
 
-    <div class="medium-6 large-5 columns show-for-medium-up right-rule padding-right-0">
-      {% include current-students/side-nav.html %}
-      {% include social-icons-internal.html %}
-      {% include news-announcements-cta.html %}
-    </div>
+  <div class="medium-13 large-14 columns">
+    <nav class="breadcrumbs breadcrumbs--internal">
+      <a href="{{site.baseurl}}">Home</a>
+      <a href="{{site.baseurl}}/current-students">Current Students</a>
+      <a href="#" class="current">{{ page.title }}</a>
+    </nav>
+    {% include current-students/campus-life/lead-content.html %}
+  </div>
 
-    <div class="medium-13 large-14 columns">
-      <nav class="breadcrumbs breadcrumbs--internal">
-        <a href="{{site.baseurl}}">Home</a>
-        <a href="{{site.baseurl}}/current-students">Current Students</a>
-        <a href="#" class="current">{{ page.title }}</a>
-      </nav>
-      {% include current-students/campus-life/lead-content.html %}
-    </div>
-
-    <div class="medium-5 large-5 columns">
-      <a href="http://www.uwosh.edu/admissions/visit">
-        <div class="cta cta--internal cta--orange">
-          <span class="cta__text">Student Policies</span>
-        </div>
-      </a>
-      <a href="http://www.uwosh.edu/admissions/visit">
-        <div class="cta cta--internal cta--internal--last cta--dark-orange">
-          <span class="cta__text">General Education</span>
-        </div>
-      </a>
-      {% include my-uwo.html %}
-      <br>
-      {% include titan-alert-internal.html %}
-    </div>
-
+  <div class="medium-5 large-5 columns">
+    <a href="http://www.uwosh.edu/admissions/visit">
+      <div class="cta cta--internal cta--orange">
+        <span class="cta__text">Student Policies</span>
+      </div>
+    </a>
+    <a href="http://www.uwosh.edu/admissions/visit">
+      <div class="cta cta--internal cta--internal--last cta--dark-orange">
+        <span class="cta__text">General Education</span>
+      </div>
+    </a>
+    {% include my-uwo.html %}
+    <br>
+    {% include titan-alert-internal.html %}
   </div>
 
 </div>

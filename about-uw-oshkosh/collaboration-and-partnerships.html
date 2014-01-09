@@ -30,54 +30,50 @@ responsive-nav: '
 '
 ---
 
-<div class="content">
+<div class="row content">
+  <div class="small-24 columns page-banner__column">
 
-  <div class="row">
-    <div class="small-24 columns">
+    <a href="{{ site.baseurl }}/about-uw-oshkosh">
+      <div class="page-banner page-banner--orange">
+        <h2 class="page-banner__title">About UW&nbsp;Oshkosh</h2>
+      </div>
+    </a>
 
-      <a href="{{ site.baseurl }}/about-uw-oshkosh">
-        <div class="page-banner page-banner--orange">
-          <h2 class="page-banner__title">About UW&nbsp;Oshkosh</h2>
-        </div>
-      </a>
+  </div>
+</div>
 
-    </div>
-  </div><br>
+<div class="row content">
 
-  <div class="row">
+  <div class="large-5 columns right-rule padding-right-0 show-for-large-up">
+    {% include about-uw-oshkosh/side-nav.html %}
+    {% include social-icons.html %}
+    {% include news-announcements-cta.html %}
+  </div>
 
-    <div class="large-5 columns right-rule padding-right-0 show-for-large-up">
-      {% include about-uw-oshkosh/side-nav.html %}
-      {% include social-icons.html %}
-      {% include news-announcements-cta.html %}
-    </div>
+  <div class="large-14 columns">
+    <nav class="breadcrumbs breadcrumbs--internal breadcrumbs--about">
+      <a href="{{site.baseurl}}">Home</a>
+      <a href="{{site.baseurl}}/about-uw-oshkosh">About UW&nbsp;Oshkosh</a>
+      <a href="#" class="current">{{ page.title }}</a>
+    </nav>
+    {% include about-uw-oshkosh/collaboration-and-partnerships/lead-content.html %}
+  </div>
 
-    <div class="large-14 columns">
-      <nav class="breadcrumbs breadcrumbs--internal breadcrumbs--about">
-        <a href="{{site.baseurl}}">Home</a>
-        <a href="{{site.baseurl}}/about-uw-oshkosh">About UW&nbsp;Oshkosh</a>
-        <a href="#" class="current">{{ page.title }}</a>
-      </nav>
-      {% include about-uw-oshkosh/collaboration-and-partnerships/lead-content.html %}
-    </div>
-
-    <div class="large-5 columns">
-      <a href="http://www.uwosh.edu/admissions/visit">
-        <div class="cta cta--orange">
-          <span class="cta__text">Student Policies</span>
-        </div>
-      </a>
-      <a href="http://www.uwosh.edu/admissions/visit">
-        <div class="cta cta--dark-orange">
-          <span class="cta__text">General Education</span>
-        </div>
-      </a>
-      {% include my-uwo.html %}
-      <br>
-      <br>
-      {% include titan-alert.html %}
-    </div>
-
+  <div class="large-5 columns">
+    <a href="http://www.uwosh.edu/admissions/visit">
+      <div class="cta cta--orange">
+        <span class="cta__text">Student Policies</span>
+      </div>
+    </a>
+    <a href="http://www.uwosh.edu/admissions/visit">
+      <div class="cta cta--dark-orange">
+        <span class="cta__text">General Education</span>
+      </div>
+    </a>
+    {% include my-uwo.html %}
+    <br>
+    <br>
+    {% include titan-alert.html %}
   </div>
 
 </div>
