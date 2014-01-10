@@ -5,7 +5,7 @@
 </div>
 
 {% raw %}
-<div class="row fade events__row" ng-class="{in:events.length}" ng-controller="EventsCtrl">
+<div class="row fade events__row show-for-medium-up" ng-class="{in:events.length}" ng-controller="EventsCtrl">
 	<div class="large-8 medium-8 small-24 columns" ng-repeat="event in events|limitTo:3">
 		<div class="media">
 			<a class="media__img" ng-href="{{ event.link }}">
@@ -21,5 +21,27 @@
 			</div>
 		</div>
 	</div>
+</div>
+{% endraw %}
+
+{% raw %}
+<div class="row fade events__row hide-for-medium-up events__slider" ng-class="{in:events.length}" ng-controller="EventsCtrl">
+	<ul data-orbit data-options="bullets:false;timer:false;slide_number:false;next_on_click:true;">
+		<li ng-repeat="event in events|limitTo:3">
+			<div class="media">
+				<a class="media__img" ng-href="{{ event.link }}">
+					<div class="event-item__calendar">
+						<div class="event-item__calendar--month">{{ event['ev:tribe_event_meta']['ev:startdate'] | cleanDate | date:'MMM' }}.</div>
+						<div class="event-item__calendar--day">{{ event['ev:tribe_event_meta']['ev:startdate'] | cleanDate | date:'dd' }}</div>
+					</div>
+				</a>
+				<div class="media__body">
+					<a ng-href="{{ event.link }}"><h4 class="event-item__title body-content">{{ event.title }}</h4></a>
+					<div class="event-item__time body-content">{{ event['ev:tribe_event_meta']['ev:startdate'] | cleanDate | date: 'h a' }}&ndash;{{ event['ev:tribe_event_meta']['ev:enddate'] | cleanDate | date: 'h a' }}</div>
+					<div class="event-item__location body-content">{{ event.description }}</div>
+				</div>
+			</div>
+		</li>
+	</ul>
 </div>
 {% endraw %}

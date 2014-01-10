@@ -1073,6 +1073,9 @@ EVENTS
   text-align: center;
   text-transform: uppercase;
   padding-top: 5px;
+  @media #{$small-only} {
+    padding-top: 0;
+  }
 }
 .event-item__calendar--day {
   height: 40px;
@@ -1081,6 +1084,18 @@ EVENTS
   font-size: 28px;
   font-weight: $semibold;
   padding-top: 6px;
+  @media #{$small-only} {
+    padding-top: 0;
+  }
+}
+.events__slider {
+  margin-bottom: 16px;
+}
+.events__slider > .orbit-container > .orbit-next {
+  top: 8px;
+}
+.events__slider > .orbit-container > .orbit-prev {
+  display: none;
 }
 /******************************************************************
 END EVENTS
