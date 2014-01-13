@@ -291,6 +291,9 @@ abbr {
   color: #fff;
 }
 
+/******************************************************************
+SOCIAL FEED
+******************************************************************/
 .social-container {
   height: 320px;
   padding-top: 15px;
@@ -322,6 +325,81 @@ abbr {
 .social-feed-flickr-image {
   height: 160px;
 }
+#socialTabs {
+  padding-top: 52px;
+}
+#socialTabs dd>a {
+  padding-top: 0.5rem;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+}
+#socialTabs {
+  width: 144px;
+  height: 238px;
+  border: 1px solid $light-gray;
+  background-color: #fff;
+  font-size: 1.2em;
+  li {
+    width: 100%;
+  }
+  .active {
+    a {
+      color: #fff;
+      background-color: $dark-blue;
+    }
+  }
+}
+#socialTabs dd > a {
+  font-size: 13px;
+}
+#socialTabs>li>a:hover {
+  border: none;
+  background-color: #fff;
+}
+#socialTabs>li {
+  background-color: #fff;
+  a {
+    color: $medium-gray;
+    border: none;
+    border-radius: 0;
+    margin-right: 0;
+  }
+}
+#socialTabs>li.active>a {
+  background-color: $dark-blue-social;
+  color: #fff;
+}
+
+.social-controls {
+  position: absolute;
+  left: 1074px;
+  width: 70px;
+  height: 238px;
+  border: 1px solid $light-gray;
+  background-color: #fff;
+  ul {
+    margin-top: 90px;
+    margin-left: 0 !important;
+  }
+  li {
+    color: #fff;
+    height: 24px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .previous {
+    background-color: $blue-social;
+    margin-bottom: 5px;
+  }
+  .next {
+    background-color: $dark-blue-social;
+    padding-top: 5px;
+  }
+}
+/******************************************************************
+END SOCIAL FEED
+******************************************************************/
 
 /******************************************************************
 FOOTER
@@ -1151,69 +1229,7 @@ BESPOKE SLIDER STYLES
 .deck-container { position: relative; }
 deck { position: relative; }
 .container-overflow { overflow: hidden; }
-#socialTabs {
-  width: 144px;
-  height: 238px;
-  border: 1px solid $light-gray;
-  background-color: #fff;
-  font-size: 1.2em;
-  li {
-    width: 100%;
-  }
-  .active {
-    a {
-      color: #fff;
-      background-color: $dark-blue;
-    }
-  }
-}
-#socialTabs dd > a {
-  font-size: 13px;
-}
-#socialTabs>li>a:hover {
-  border: none;
-  background-color: #fff;
-}
-#socialTabs>li {
-  background-color: #fff;
-  a {
-    color: $medium-gray;
-    border: none;
-    border-radius: 0;
-    margin-right: 0;
-  }
-}
-#socialTabs>li.active>a {
-  background-color: $dark-blue;
-  color: #fff;
-}
 
-.social-controls {
-  position: absolute;
-  left: 1074px;
-  width: 70px;
-  height: 238px;
-  border: 1px solid $light-gray;
-  background-color: #fff;
-  ul {
-    margin-top: 50px;
-    margin-left: 0 !important;
-  }
-  li {
-    color: #fff;
-    height: 24px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding-top: 2px;
-  }
-  .previous {
-    background-color: $blue;
-    margin-bottom: 5px;
-  }
-  .next {
-    background-color: $dark-blue;
-  }
-}
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
   border: none;
 }

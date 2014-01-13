@@ -4,10 +4,10 @@
     <div class="large-24 columns">
 
       <dl class="tabs vertical" id="socialTabs" data-tab>
-        <dd class="active"><a href="#twitter"><i class="fa fa-fw fa-twitter"></i> Twitter</a></dd>
-        <dd><a href="#facebook"><i class="fa fa-fw fa-facebook"></i> Facebook</a></dd>
-        <dd><a href="#youtube"><i class="fa fa-fw fa-youtube"></i> YouTube</a></dd>
-        <dd><a href="#flickr"><i class="fa fa-fw fa-flickr"></i> Flickr</a></dd>
+        <dd class="active"><a href="#twitter"><i class="fa fa-lg fa-fw fa-twitter"></i> Twitter</a></dd>
+        <dd><a href="#facebook"><i class="fa fa-lg fa-fw fa-facebook-square"></i> Facebook</a></dd>
+        <dd><a href="#youtube"><i class="fa fa-lg fa-fw fa-youtube-square"></i> YouTube</a></dd>
+        <dd><a href="#flickr"><i class="fa fa-lg fa-fw fa-flickr"></i> Flickr</a></dd>
       </dl>
 
       <div class="tabs-content vertical tabs-social-content">
@@ -42,7 +42,7 @@
             </deck>
           </div><!-- /.deck-container -->
           <div class="social-controls">
-            <ul class="no-bullets">
+            <ul class="no-bullet">
               <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
               <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
             </ul>
@@ -66,7 +66,7 @@
                       <img ng-src="{{ fbpost.picture }}" class="right" alt=""><span ng-bind-html="fbpost.message | linky"></span>&hellip; <a ng-href="{{ fbpost.link }}" target="_blank" alt="" >Read more</a>
                     </p>
                     <div>
-                      <span class="social-feed-date posted-date uppercase"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ fbpost.updated_time}}">{{ fbpost.created_time | fromNow }}</time></span><span class="datetime social-feed-likes">{{ fbpost.likes.data.length }} people like this</span>
+                      <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ fbpost.updated_time}}">{{ fbpost.created_time | fromNow }}</time></span><span class="datetime social-feed-likes">{{ fbpost.likes.data.length }} people like this</span>
                     </div>
                   </div>
                 </slide>
@@ -74,7 +74,7 @@
             </deck>
           </div><!-- /.deck-container -->
           <div class="social-controls">
-            <ul class="list-unstyled">
+            <ul class="no-bullet">
               <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
               <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
             </ul>
@@ -88,14 +88,14 @@
                   <div class="twitter-article social-article">
                     <div class="youtube" id="{{video.id}}" style="height:160px;"></div>
                     <p class="body-content">{{ video.title }}</p>
-                    <span class="social-feed-date posted-date uppercase"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ video.updated }}">{{ video.updated | fromNow }}</time></span>
+                    <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ video.updated }}">{{ video.updated | fromNow }}</time></span>
                   </div>
                 </slide>
               {% endraw %}
             </deck>
           </div><!-- /.deck-container -->
           <div class="social-controls">
-            <ul class="list-unstyled">
+            <ul class="no-bullet">
               <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
               <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
             </ul>
@@ -107,16 +107,18 @@
               {% raw %}
                 <slide ng-repeat="photoset in photosets|limitTo:12">
                   <div class="twitter-article social-article">
-                    <a ng-href="http://www.flickr.com/photos/37901018@N05/sets/{{ photoset.id }}"><img ng-src="http://farm{{ photoset.farm }}.static.flickr.com/{{ photoset.server }}/{{ photoset.primary }}_{{ photoset.secret }}_m.jpg" class="social-feed-flickr-image" alt="{{ photoset.title._content }}" ></a>
+                    <div class="text-center">
+                      <a ng-href="http://www.flickr.com/photos/37901018@N05/sets/{{ photoset.id }}"><img ng-src="http://farm{{ photoset.farm }}.static.flickr.com/{{ photoset.server }}/{{ photoset.primary }}_{{ photoset.secret }}_m.jpg" class="social-feed-flickr-image" alt="{{ photoset.title._content }}" ></a>
+                    </div>
                     <p class="body-content">{{ photoset.title._content }}</p>
-                    <span class="social-feed-date posted-date uppercase"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ photoset.date_update }}">{{ photoset.date_update | fromNow }}</time></span>
+                    <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ photoset.date_update }}">{{ photoset.date_update | fromNow }}</time></span>
                   </div>
                 </slide>
               {% endraw %}
             </deck>
           </div><!-- /.deck-container -->
           <div class="social-controls">
-            <ul class="list-unstyled">
+            <ul class="no-bullet">
               <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
               <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
             </ul>
