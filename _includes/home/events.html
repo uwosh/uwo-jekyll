@@ -15,9 +15,9 @@
 				</div>
 			</a>
 			<div class="media__body">
-				<a ng-href="{{ event.link }}"><h4 class="event-item__title body-content">{{ event.title }}</h4></a>
+				<a ng-href="{{ event.link }}"><h4 ng-bind-html="event.title" class="event-item__title body-content"></h4></a>
 				<div class="event-item__time body-content">{{ event['ev:tribe_event_meta']['ev:startdate'] | cleanDate | date: 'h a' }}&ndash;{{ event['ev:tribe_event_meta']['ev:enddate'] | cleanDate | date: 'h a' }}</div>
-				<div class="event-item__location body-content">{{ event.description }}</div>
+				<div ng-bind-html="event.description" class="event-item__location body-content"></div>
 			</div>
 		</div>
 	</div>
@@ -36,9 +36,9 @@
 					</div>
 				</a>
 				<div class="media__body">
-					<a ng-href="{{ event.link }}"><h4 class="event-item__title body-content">{{ event.title }}</h4></a>
+					<a ng-href="{{ event.link }}"><h4 ng-bind-html="event.title" class="event-item__title body-content"></h4></a>
 					<div class="event-item__time body-content">{{ event['ev:tribe_event_meta']['ev:startdate'] | cleanDate | date: 'h a' }}&ndash;{{ event['ev:tribe_event_meta']['ev:enddate'] | cleanDate | date: 'h a' }}</div>
-					<div class="event-item__location body-content">{{ event.description }}</div>
+					<div ng-bind-html="event.description" class="event-item__location body-content"></div>
 				</div>
 			</div>
 		</li>
