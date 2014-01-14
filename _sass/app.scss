@@ -16,6 +16,11 @@ Setting up variables. Bringing in Colors and Spacing.
 .media .media__img img{display:block;}
 .media .media__img--ext{float:right; margin-left: 10px;}
 a:hover { text-decoration: underline !important; }
+.has-tip {
+  border: none;
+  font-weight: $normal;
+  color: $dark-gray;
+}
 .img-responsive {
   width: 100%;
   height: auto;
