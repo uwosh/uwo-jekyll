@@ -1459,6 +1459,12 @@ FIXES/HACKS
 .tabs-social-content.vertical {
   margin-left: -7px !important;
 }
+.orbit-bullets li {
+  display: inline-block !important;
+}
+.top-bar-section .dropdown li a {
+  background: #333 !important;
+}
 /******************************************************************
 END FIXES/HACKS
 ******************************************************************/
