@@ -140,8 +140,9 @@
     <div id="aboutDrawer" class="nav-info">
       <div class="content">
         <div class="row drawer__row">
-          <div class="medium-7 columns">
+          <div class="medium-5 columns">
             <ul class="no-bullet">
+              <li><a href="{{ site.baseurl }}/about-uw-oshkosh">Meet UW Oshkosh</a></li>
               <li><a href="{{ site.baseurl }}/about-uw-oshkosh/welcome-from-the-chancellor.html">Welcome from Chancellor Wells</a></li>
               <li><a href="{{ site.baseurl }}/about-uw-oshkosh/fast-facts.html">Fast Facts</a></li>
               <li><a href="{{ site.baseurl }}/administration">Leadership</li>
@@ -151,9 +152,9 @@
               <li><a href="{{ site.baseurl }}/about-uw-oshkosh/contact-uw-oshkosh.html">Contact Information</a></li>
             </ul>
           </div>
-          <div class="medium-9 columns">
+          <div class="medium-8 columns">
             <p>Since 1871, the University of Wisconsin Oshkosh has been providing residents of northeastern Wisconsin with high-quality, affordable education through 60 undergraduate majors, 30 master&rsquo;s degree programs and one doctoral degree for our more than 13,500 students.</p>
-            {% raw %}
+            <!--{% raw %}
             <div class="media" ng-controller="WeatherCtrl">
               <span class="media__img">
                 <canvas id="weather1" width="40" height="40"></canvas> <span style="font-size:42px;">{{ weather.currently.temperature | number:0 }}&#176;</span>
@@ -163,11 +164,12 @@
                 {{ weather.daily.summary }}</span>
               </div>
             </div>
-            {% endraw %}
+            {% endraw %}-->
           </div>
 
-          <div class="medium-8 columns">
-            <img src="{{ site.baseurl }}/img/nav-drawers/drawer-about-photo.jpg" alt="Reeve Union" >
+          <div class="medium-11 columns">
+            <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="https://forecast.io/embed/#lat=44.0264&lon=-88.5513&name=UW Oshkosh&color=#444444"> </iframe>
+            <!--<img src="{{ site.baseurl }}/img/nav-drawers/drawer-about-photo.jpg" alt="Reeve Union" >-->
           </div><br>
         </div>
       </div>
