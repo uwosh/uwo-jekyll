@@ -5,7 +5,7 @@
 			<div class="panel__category uppercase"><a href="http://www.uwosh.edu/today/category/admissions-2/">Study at UW&nbsp;Oshkosh <i class="fa fa-arrow-right"></i></a></div>
 			<h2 class="panel__news-heading" ng-bind-html="post.title"></h2>
 			<div class="panel__video-wrapper">
-				<img ng-src="http://src1.sencha.io/{{ post.thumbnail_images.medium.url }}" class="panel__image--home" alt="{{ post.title }}" />
+				<img ng-src="{{ post.thumbnail_images.medium.url }}" class="panel__image--home" alt="{{ post.title }}" />
 			</div><br>
 			<div class="panel__excerpt body-content">
 				<span ng-bind-html="excerpt | characters:130"></span><span> <a href="{{ post.url }}">Read the full story &hellip;</a></span>
