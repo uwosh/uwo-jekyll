@@ -692,6 +692,12 @@ CURRENT STUDENTS
   position: relative;
   background-color: $dark-blue;
   color: #fff;
+  a {
+    color: #fff;
+  }
+  a:visited {
+    color: #fff;
+  }
 }
 .slider--campus-life__text {
   padding-top: 8px;
