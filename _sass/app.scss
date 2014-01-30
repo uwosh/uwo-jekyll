@@ -688,6 +688,26 @@ CURRENT STUDENTS
 .my-uwo-paragraph {
   margin-bottom: 8px;
 }
+.slider--campus-life__wrapper {
+  position: relative;
+  background-color: $dark-blue;
+  color: #fff;
+}
+.slider--campus-life__text {
+  padding-top: 8px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 4px;
+}
+.slider--campus-life__learn-more {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 112px;
+  height: 32px;
+  padding: 6px 8px 8px 8px;
+  background-color: $blue;
+}
 /******************************************************************
 END CURRENT STUDENTS
 ******************************************************************/
