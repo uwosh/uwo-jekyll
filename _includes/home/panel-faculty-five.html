@@ -1,14 +1,14 @@
 {% raw %}
 <div class="fade" ng-class="{in:posts.length}" ng-controller="FacultyFivePanelCtrl">
 	<div class="large-8 medium-8 small-24 columns">
-		<div class="panel panel--home panel--dark-green">
+		<div id="facultyFivePanel" class="panel panel--home panel--dark-green">
 			<div class="panel__category uppercase"><a href="http://www.uwosh.edu/today/category/faculty-five">Faculty Five <i class="fa fa-arrow-right"></i></a></div>
 			<h2 class="panel__news-heading" ng-bind-html="post.title"></h2>
-			<div class="panel__video-wrapper">
+			<div id="facultyFiveVideo" class="panel__video-wrapper">
 				<div class="youtube" id="{{post.custom_fields.youtube_id[0]}}" style="height:189px;"></div>
 			</div><br>
 			<div class="panel__excerpt body-content">
-				<span ng-bind-html="excerpt | characters:130"></span><span> <a href="{{ post.url }}">Read the full story &hellip;</a></span>
+				<span ng-bind-html="excerpt | characters:130"></span><span> <a href="{{ post.url }}" id="facultyFiveFullStory">Read the full story &hellip;</a></span>
 			</div>
 			<span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time datetime="{{ post.date }}"> {{ post.date | fromNow }}</time></span>
 		</div>
