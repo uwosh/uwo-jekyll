@@ -16180,6 +16180,10 @@ $(function() {
 }).call(this);
 
 // UNIVERSITY NAVIGATION
+$('#wordmarkLink').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Wordmark');
+});
+
 $('#aboutToggle').on('mouseenter', function() {
   ga('send', 'event', 'University Navigation', 'hover', 'About');
 });

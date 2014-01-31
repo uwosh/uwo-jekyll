@@ -1,4 +1,8 @@
 // UNIVERSITY NAVIGATION
+$('#wordmarkLink').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Wordmark');
+});
+
 $('#aboutToggle').on('mouseenter', function() {
   ga('send', 'event', 'University Navigation', 'hover', 'About');
 });
@@ -210,10 +214,7 @@ $('#facultyFiveVideo').on('click', function() {
 // END HOME PAGE CARDS
 
 // FOOTER
-$('#meetUwOshkoshPanel').on('mouseenter', function() {
-  ga('send', 'event', 'Home Page Cards', 'hover', 'Meet UW Oshkosh');
-});
-$('#meetUwOshkoshFullStory').on('click', function() {
-  ga('send', 'event', 'Home Page Cards', 'click', 'Meet UW Oshkosh');
+$('.footerMap').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Wisconsin Map');
 });
 // END FOOTER
