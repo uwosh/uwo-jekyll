@@ -15,6 +15,7 @@ module.exports = function(grunt){
           'js/jquery.hoverIntent.js',
           'js/showHide.js',
           'js/moment.js',
+          'js/eventTracking.js',
           'js/bespoke/bespoke.js',
           'js/bespoke/bespoke-loop.js',
           'js/bespoke/bespoke-social.js'
