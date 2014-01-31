@@ -142,6 +142,24 @@ $('.quicklinksMyUwSystem').on('click', function() {
 });
 // END QUICKLINKS
 
+// PILLAR STORIES
+$('.pillarEducationMore').on('click', function() {
+  ga('send', 'event', 'Pillar Stories', 'click', 'Education');
+});
+$('.pillarLeadershipMore').on('click', function() {
+  ga('send', 'event', 'Pillar Stories', 'click', 'Leadership');
+});
+$('.pillarResponsivenessMore').on('click', function() {
+  ga('send', 'event', 'Pillar Stories', 'click', 'Responsiveness');
+});
+$('.pillarServiceMore').on('click', function() {
+  ga('send', 'event', 'Pillar Stories', 'click', 'Service');
+});
+$('.pillarSustainabilityMore').on('click', function() {
+  ga('send', 'event', 'Pillar Stories', 'click', 'Sustainability');
+});
+// END PILLAR STORIES
+
 // HOME PAGE CARDS
 $('#campusNewsPanel').on('mouseenter', function() {
   ga('send', 'event', 'Home Page Cards', 'hover', 'Campus News');
@@ -216,5 +234,62 @@ $('#facultyFiveVideo').on('click', function() {
 // FOOTER
 $('.footerMap').on('click', function() {
   ga('send', 'event', 'Footer', 'click', 'Wisconsin Map');
+});
+$('.footerPhone').on('click', function() {
+  ga('send', 'event', 'Footer', 'call', 'Phone Number');
+});
+$('.footerAccessibility').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Accessibility');
+});
+$('.footerCareer').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Career Services');
+});
+$('.footerDirections').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Get Directions');
+});
+$('.footerGive').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Give to UW Oshkosh');
+});
+$('.footerMedia').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Media Relations');
+});
+$('.footerWork').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Work at UW Oshkosh');
+});
+$('.footerMobile').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Download Mobile App');
+});
+$('.footerEmergency').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Emergency and Safety Information');
+});
+$('.footerFacebook').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Facebook');
+});
+$('.footerTwitter').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Twitter');
+});
+$('.footerInstagram').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Instagram');
+});
+$('.footerYouTube').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'YouTube');
+});
+$('.footerLinkedIn').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'LinkedIn');
+});
+$('.footerPinterest').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Pinterest');
+});
+$('.footerFlickr').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Flickr');
+});
+$('.footerCollegePortrait').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'College Portrait');
+});
+$('.footerHLC').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'Higher Learning Commission');
+});
+$('.footerUwSystem').on('click', function() {
+  ga('send', 'event', 'Footer', 'click', 'University of Wisconsin System');
 });
 // END FOOTER
