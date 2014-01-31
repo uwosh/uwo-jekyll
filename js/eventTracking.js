@@ -2,66 +2,141 @@
 $('#aboutToggle').on('mouseenter', function() {
   ga('send', 'event', 'University Navigation', 'hover', 'About');
 });
-$('#aboutToggle').on('click', function() {
+$('.aboutLink').on('click', function() {
   ga('send', 'event', 'University Navigation', 'click', 'About');
+});
+$('.meetUwoLink').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'About / Meet UW Oshkosh');
+});
+$('#forecast_embed').on('mouseenter', function() {
+  ga('send', 'event', 'University Navigation', 'hover', 'About / Weather');
 });
 
 $('#academicsToggle').on('mouseenter', function() {
   ga('send', 'event', 'University Navigation', 'hover', 'Academics');
 });
-$('#academicsToggle').on('click', function() {
+$('.academicsLink').on('click', function() {
   ga('send', 'event', 'University Navigation', 'click', 'Academics');
 });
 
 $('#athleticsToggle').on('mouseenter', function() {
   ga('send', 'event', 'University Navigation', 'hover', 'Athletics');
 });
-$('#athleticsToggle').on('click', function() {
+$('.athleticsLink').on('click', function() {
   ga('send', 'event', 'University Navigation', 'click', 'Athletics');
 });
 
 $('#alumniToggle').on('mouseenter', function() {
   ga('send', 'event', 'University Navigation', 'hover', 'Alumni');
 });
-$('#alumniToggle').on('click', function() {
+$('.alumniLink').on('click', function() {
   ga('send', 'event', 'University Navigation', 'click', 'Alumni');
 });
 
 $('#admissionsToggle').on('mouseenter', function() {
   ga('send', 'event', 'University Navigation', 'hover', 'Admissions');
 });
-$('#admissionsToggle').on('click', function() {
+$('.admissionsLink').on('click', function() {
   ga('send', 'event', 'University Navigation', 'click', 'Admissions');
 });
 
 $('#administrationToggle').on('mouseenter', function() {
   ga('send', 'event', 'University Navigation', 'hover', 'Administration');
 });
-$('#administrationToggle').on('click', function() {
+$('.administrationLink').on('click', function() {
   ga('send', 'event', 'University Navigation', 'click', 'Administration');
 });
 
 $('#resourcesToggle').on('mouseenter', function() {
   ga('send', 'event', 'University Navigation', 'hover', 'Resources');
 });
-$('#resourcesToggle').on('click', function() {
+$('.resourcesLink').on('click', function() {
   ga('send', 'event', 'University Navigation', 'click', 'Resources');
 });
 
 $('#calendarsToggle').on('mouseenter', function() {
   ga('send', 'event', 'University Navigation', 'hover', 'Calendars');
 });
-$('#calendarsToggle').on('click', function() {
+$('.calendarsLink').on('click', function() {
   ga('send', 'event', 'University Navigation', 'click', 'Calendars');
 });
 
 $('#titanServicesToggle').on('mouseenter', function() {
   ga('send', 'event', 'University Navigation', 'hover', 'Titan Services');
 });
-$('#titanServicesToggle').on('click', function() {
+$('.titanServicesLink').on('click', function() {
   ga('send', 'event', 'University Navigation', 'click', 'Titan Services');
 });
+$('.tsSiteIndex').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Site Index');
+});
+$('.tsDirectory').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Directory');
+});
+$('.tsTitanWeb').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Titan Web');
+});
+$('.tsTitanApps').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Titan Apps');
+});
+$('.tsTitanAdmin').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Titan Admin');
+});
+$('.tsMyUwSystem').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Titan Services / My UW System');
+});
+$('.tsD2L').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Titan Services / D2L');
+});
+$('.tsLibrary').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Polk Library');
+});
+$('.tsMyUwo').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Titan Services / MyUWO');
+});
+$('.tsStudentClubs').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Student Clubs & Orgs');
+});
+$('.tsTitanJobs').on('click', function() {
+  ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Titan Jobs');
+});
 // END UNIVERSITY NAVIGATION
+
+// AUDIENCE NAVIGATION
+$('.audienceFutureStudents').on('click', function() {
+  ga('send', 'event', 'Audience Navigation', 'click', 'Future Students');
+});
+$('.audienceParents').on('click', function() {
+  ga('send', 'event', 'Audience Navigation', 'click', 'Parents, Family and Friends');
+});
+$('.audienceFaculty').on('click', function() {
+  ga('send', 'event', 'Audience Navigation', 'click', 'Faculty and Staff');
+});
+$('.audienceCurrentStudents').on('click', function() {
+  ga('send', 'event', 'Audience Navigation', 'click', 'Current Students');
+});
+$('.audienceCommunity').on('click', function() {
+  ga('send', 'event', 'Audience Navigation', 'click', 'Community and Visitors');
+});
+// END AUDIENCE NAVIGATION
+
+// QUICKLINKS
+$('.quicklinksEmail').on('click', function() {
+  ga('send', 'event', 'Quicklinks', 'click', 'Email');
+});
+$('.quicklinksLibrary').on('click', function() {
+  ga('send', 'event', 'Quicklinks', 'click', 'Polk Library');
+});
+$('.quicklinksDirectory').on('click', function() {
+  ga('send', 'event', 'Quicklinks', 'click', 'Directory');
+});
+$('.quicklinksD2L').on('click', function() {
+  ga('send', 'event', 'Quicklinks', 'click', 'D2L');
+});
+$('.quicklinksMyUwSystem').on('click', function() {
+  ga('send', 'event', 'Quicklinks', 'click', 'My UW System');
+});
+// END QUICKLINKS
 
 // HOME PAGE CARDS
 $('#campusNewsPanel').on('mouseenter', function() {
@@ -133,3 +208,12 @@ $('#facultyFiveVideo').on('click', function() {
   ga('send', 'event', 'Home Page Cards', 'play', 'Faculty Five');
 });
 // END HOME PAGE CARDS
+
+// FOOTER
+$('#meetUwOshkoshPanel').on('mouseenter', function() {
+  ga('send', 'event', 'Home Page Cards', 'hover', 'Meet UW Oshkosh');
+});
+$('#meetUwOshkoshFullStory').on('click', function() {
+  ga('send', 'event', 'Home Page Cards', 'click', 'Meet UW Oshkosh');
+});
+// END FOOTER
