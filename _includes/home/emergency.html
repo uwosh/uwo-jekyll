@@ -1,5 +1,5 @@
 {% raw %}
-<div class="row fade events__row" ng-class="{in:posts.length}" ng-controller="EmergencyCtrl">
+<div class="row fade events__row alert-cta" ng-class="{in:posts.length}" ng-controller="EmergencyCtrl">
   <div data-alert class="alert-box small-24 columns" ng-repeat="post in posts|limitTo:3|orderBy:'date'">
     <span ng-bind-html="post.title" class="drop-down-nav">{{ post.title }}</span>&hellip; <a ng-href="{{ post.url }}" style="color:#fff;text-decoration:underline;font-size:16px;line-height:24px;">Read more</a><br>
     <span class="datetime" style="color:#fff;"><i class="fa fa-clock-o"></i> <time datetime="{{ post.date }}"> {{ post.modified | cleanDate | date: 'medium' }}</time></span>
