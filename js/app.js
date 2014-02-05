@@ -51,4 +51,4 @@ setTimeout(function() {
           this.parentNode.replaceChild(a, this)
       }
   };
-}, 3001);
+}, 2001);
