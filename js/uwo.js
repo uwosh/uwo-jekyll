@@ -13612,7 +13612,7 @@ setTimeout(function() {
           this.parentNode.replaceChild(a, this)
       }
   };
-}, 3001);
+}, 2001);
 
 /*!
  * hoverIntent r7 // 2013.03.11 // jQuery 1.9.1+
@@ -16348,6 +16348,9 @@ $('#campusNewsPanel').on('mouseenter', function() {
 $('#campusNewsFullStory').on('click', function() {
   ga('send', 'event', 'Home Page Cards', 'click', 'Campus News');
 });
+$('#campusNewsVideo').on('click', function() {
+  ga('send', 'event', 'Home Page Cards', 'play', 'Campus News');
+});
 
 $('#researchNewsPanel').on('mouseenter', function() {
   ga('send', 'event', 'Home Page Cards', 'hover', 'Research News');
@@ -16355,12 +16358,18 @@ $('#researchNewsPanel').on('mouseenter', function() {
 $('#researchNewsFullStory').on('click', function() {
   ga('send', 'event', 'Home Page Cards', 'click', 'Research News');
 });
+$('#researchNewsVideo').on('click', function() {
+  ga('send', 'event', 'Home Page Cards', 'play', 'Research News');
+});
 
 $('#poweringCommunityPanel').on('mouseenter', function() {
   ga('send', 'event', 'Home Page Cards', 'hover', 'Powering Community');
 });
 $('#poweringCommunityFullStory').on('click', function() {
   ga('send', 'event', 'Home Page Cards', 'click', 'Powering Community');
+});
+$('#poweringCommunityVideo').on('click', function() {
+  ga('send', 'event', 'Home Page Cards', 'play', 'Powering Community');
 });
 
 $('#uwotwPanel').on('mouseenter', function() {
@@ -16379,12 +16388,18 @@ $('#studyAtUwoPanel').on('mouseenter', function() {
 $('#studyAtUwoFullStory').on('click', function() {
   ga('send', 'event', 'Home Page Cards', 'click', 'Study at UW Oshkosh');
 });
+$('#studyAtUwoVideo').on('click', function() {
+  ga('send', 'event', 'Home Page Cards', 'play', 'Study at UW Oshkosh');
+});
 
 $('#iAmATitanPanel').on('mouseenter', function() {
   ga('send', 'event', 'Home Page Cards', 'hover', 'I Am A Titan');
 });
 $('#iAmATitanFullStory').on('click', function() {
   ga('send', 'event', 'Home Page Cards', 'click', 'I Am A Titan');
+});
+$('#iAmATitanVideo').on('click', function() {
+  ga('send', 'event', 'Home Page Cards', 'play', 'I Am A Titan');
 });
 
 $('#fromTheChancellorPanel').on('mouseenter', function() {
@@ -16393,12 +16408,18 @@ $('#fromTheChancellorPanel').on('mouseenter', function() {
 $('#fromTheChancellorFullStory').on('click', function() {
   ga('send', 'event', 'Home Page Cards', 'click', 'From the Chancellor');
 });
+$('#fromTheChancellorVideo').on('click', function() {
+  ga('send', 'event', 'Home Page Cards', 'play', 'From the Chancellor');
+});
 
 $('#meetUwOshkoshPanel').on('mouseenter', function() {
   ga('send', 'event', 'Home Page Cards', 'hover', 'Meet UW Oshkosh');
 });
 $('#meetUwOshkoshFullStory').on('click', function() {
   ga('send', 'event', 'Home Page Cards', 'click', 'Meet UW Oshkosh');
+});
+$('#meetUwOshkoshVideo').on('click', function() {
+  ga('send', 'event', 'Home Page Cards', 'play', 'Meet UW Oshkosh');
 });
 
 $('#facultyFivePanel').on('mouseenter', function() {
