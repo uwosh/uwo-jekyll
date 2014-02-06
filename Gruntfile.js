@@ -11,6 +11,7 @@ module.exports = function(grunt){
           'bower_components/jquery/jquery.js',
           'js/angular-app.js',
           'bower_components/foundation/js/foundation.js',
+          'bower_components/foundation/js/foundation/foundation.equalizer.js',
           'js/app.js',
           'js/jquery.hoverIntent.js',
           'js/showHide.js',

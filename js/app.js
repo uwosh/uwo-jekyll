@@ -52,3 +52,8 @@ setTimeout(function() {
       }
   };
 }, 2001);
+
+// Reflow Equalizer after content is loaded
+setTimeout(function() {
+  $(document).foundation('equalizer','reflow');
+}, 1001);

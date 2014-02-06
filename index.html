@@ -70,10 +70,12 @@ responsive-nav: '
 
   </div>
 
-  <div class="row">
+  <div class="row" data-equalizer>
   	{% include home/panel-campus-news.html %}
   	{% include home/panel-research-news.html %}
   	{% include home/panel-powering-community.html %}
+  </div>
+  <div class="row">
     <div class="large-24 columns show-for-medium-up">
       <a href="http://www.uwosh.edu/today">
         <div class="visit-uwot">
@@ -81,9 +83,13 @@ responsive-nav: '
         </div>
       </a><br><br>
     </div>
+  </div>
+  <div class="row" data-equalizer>
     {% include home/panel-uwotw.html %}
     {% include home/panel-admissions.html %}
     {% include home/panel-i-am-a-titan.html %}
+  </div>
+  <div class="row" data-equalizer>
     {% include home/panel-from-the-chancellor.html %}
     {% include home/panel-meet-uw-oshkosh.html %}
     {% include home/panel-faculty-five.html %}

@@ -877,11 +877,14 @@ PANELS
   padding: 0;
 }
 .panel--home {
-  height: 410px;
+  //height: 410px;
   border-top: 3px solid $medium-gray;
   border-radius: 2px;
   padding: 1.25rem;
   margin-bottom: 1.53846rem;
+}
+.panel__equalizer {
+  margin-bottom: 20px;
 }
 .panel__video-wrapper {
   position: relative;
