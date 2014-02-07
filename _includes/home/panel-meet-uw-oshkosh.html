@@ -4,7 +4,6 @@
 		<div id="meetUwOshkoshPanel" class="panel panel--home panel--dark-orange">
 			<div class="panel__category uppercase"><a href="http://www.uwosh.edu/faces">Meet UW&nbsp;Oshkosh <i class="fa fa-arrow-right"></i></a></div>
 			<div class="panel__equalizer" data-equalizer-watch>
-				<h2 class="panel__news-heading" ng-bind-html="post.title"></h2>
 				<div ng-if="post.custom_fields.youtube_id[0]">
 					<div id="meetUwOshkoshVideo" class="panel__video-wrapper">
 						<div class="youtube" id="{{post.custom_fields.youtube_id[0]}}" style="height:189px;"></div>
@@ -15,6 +14,7 @@
 						<img ng-src="{{ post.thumbnail_images.medium.url }}" class="panel__image--home" alt="{{ post.title }}" />
 					</div><br>
 				</div>
+				<h2 class="panel__news-heading" ng-bind-html="post.title"></h2>
 				<div class="panel__excerpt body-content">
 					<span ng-bind-html="excerpt | characters:130"></span><span> <a href="{{ post.url }}" id="meetUwOshkoshFullStory">Read the full story &hellip;</a></span>
 				</div>

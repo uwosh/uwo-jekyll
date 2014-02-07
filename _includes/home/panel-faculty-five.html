@@ -4,7 +4,6 @@
 		<div id="facultyFivePanel" class="panel panel--home panel--dark-green">
 			<div class="panel__category uppercase"><a href="http://www.uwosh.edu/today/category/faculty-five">Faculty Five <i class="fa fa-arrow-right"></i></a></div>
 			<div class="panel__equalizer" data-equalizer-watch>
-				<h2 class="panel__news-heading" ng-bind-html="post.title"></h2>
 				<div ng-if="post.custom_fields.youtube_id[0]">
 					<div id="facultyFiveVideo" class="panel__video-wrapper">
 						<div class="youtube" id="{{post.custom_fields.youtube_id[0]}}" style="height:189px;"></div>
@@ -15,6 +14,7 @@
 						<img ng-src="{{ post.thumbnail_images.medium.url }}" class="panel__image--home" alt="{{ post.title }}" />
 					</div><br>
 				</div>
+				<h2 class="panel__news-heading" ng-bind-html="post.title"></h2>
 				<!--<div id="facultyFiveVideo" class="panel__video-wrapper">
 					<div class="youtube" id="{{post.custom_fields.youtube_id[0]}}" style="height:189px;"></div>
 				</div><br>-->
