@@ -9653,7 +9653,7 @@ angular.module('eosApp')
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     media_queries : {
       small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
@@ -9966,7 +9966,7 @@ angular.module('eosApp')
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     settings : {
       live_validate : true,
@@ -10223,7 +10223,7 @@ angular.module('eosApp')
   Foundation.libs.accordion = {
     name : 'accordion',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     settings : {
       active_class: 'active',
@@ -10273,7 +10273,7 @@ angular.module('eosApp')
   Foundation.libs.alert = {
     name : 'alert',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     settings : {
       animation: 'fadeOut',
@@ -10311,7 +10311,7 @@ angular.module('eosApp')
   Foundation.libs.clearing = {
     name : 'clearing',
 
-    version: '5.1.0',
+    version: '5.1.1',
 
     settings : {
       templates : {
@@ -10797,7 +10797,7 @@ angular.module('eosApp')
   Foundation.libs.dropdown = {
     name : 'dropdown',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     settings : {
       active_class: 'open',
@@ -11006,7 +11006,7 @@ angular.module('eosApp')
   Foundation.libs.equalizer = {
     name : 'equalizer',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     settings : {
       use_tallest: true,
@@ -11016,6 +11016,7 @@ angular.module('eosApp')
 
     init : function (scope, method, options) {
       this.bindings(method, options);
+      this.reflow();
     },
 
     events : function () {
@@ -11069,7 +11070,7 @@ angular.module('eosApp')
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     cache : {},
 
@@ -11398,7 +11399,7 @@ angular.module('eosApp')
   Foundation.libs.joyride = {
     name : 'joyride',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     defaults : {
       expose                   : false,     // turn on or off the expose feature
@@ -12245,7 +12246,7 @@ angular.module('eosApp')
   Foundation.libs['magellan-expedition'] = {
     name : 'magellan-expedition',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     settings : {
       active_class: 'active',
@@ -12270,9 +12271,9 @@ angular.module('eosApp')
 
       S(self.scope)
         .off('.magellan')
-        .on('click.fndtn.magellan', '[data-magellan-arrival] a[href^="#"]', function (e) {
+        .on('click.fndtn.magellan', '[' + self.add_namespace('data-magellan-arrival') + '] a[href^="#"]', function (e) {
             e.preventDefault();
-            var expedition = $(this).closest('[data-magellan-expedition]'),
+            var expedition = $(this).closest('[' + self.attr_name() + ']'),
                 settings = expedition.data('magellan-expedition-init');
 
             var hash = this.hash.split('#').join(''),
@@ -12327,16 +12328,16 @@ angular.module('eosApp')
         if (window_top_offset >= top_offset) {
           // Placeholder allows height calculations to be consistent even when
           // appearing to switch between fixed/non-fixed placement
-          var placeholder = expedition.prev('[data-magellan-expedition-clone]');
+          var placeholder = expedition.prev('[' + self.add_namespace('data-magellan-expedition-clone') + ']');
           if (placeholder.length === 0) {
             placeholder = expedition.clone();
-            placeholder.removeAttr('data-magellan-expedition');
-            placeholder.attr('data-magellan-expedition-clone','');
+            placeholder.removeAttr(self.attr_name());
+            placeholder.attr(self.add_namespace('data-magellan-expedition-clone'),'');
             expedition.before(placeholder);
           }
           expedition.css({position:'fixed', top: 0});
         } else {
-          expedition.prev('[data-magellan-expedition-clone]').remove();
+          expedition.prev('[' + self.add_namespace('data-magellan-expedition-clone') + ']').remove();
           expedition.attr('style','');
         }
       });
@@ -12406,7 +12407,7 @@ angular.module('eosApp')
     reflow : function () {
       var self = this;
       // remove placeholder expeditions used for height calculation purposes
-      $('[data-magellan-expedition-clone]', self.scope).remove();
+      $('[' + self.add_namespace('data-magellan-expedition-clone') + ']', self.scope).remove();
     }
   };
 }(jQuery, this, this.document));
@@ -12416,7 +12417,7 @@ angular.module('eosApp')
   Foundation.libs.offcanvas = {
     name : 'offcanvas',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     settings : {},
 
@@ -12848,7 +12849,7 @@ angular.module('eosApp')
   Foundation.libs.orbit = {
     name: 'orbit',
 
-    version: '5.1.0',
+    version: '5.1.1',
 
     settings: {
       animation: 'slide',
@@ -12921,7 +12922,7 @@ angular.module('eosApp')
   Foundation.libs.reveal = {
     name : 'reveal',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     locked : false,
 
@@ -13322,7 +13323,7 @@ angular.module('eosApp')
   Foundation.libs.tab = {
     name : 'tab',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     settings : {
       active_class: 'active',
@@ -13380,7 +13381,7 @@ angular.module('eosApp')
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     settings : {
       additional_inheritable_classes : [],
@@ -13596,7 +13597,7 @@ angular.module('eosApp')
   Foundation.libs.topbar = {
     name : 'topbar',
 
-    version: '5.1.0',
+    version: '5.1.1',
 
     settings : {
       index : 0,
@@ -13984,7 +13985,7 @@ angular.module('eosApp')
   Foundation.libs.equalizer = {
     name : 'equalizer',
 
-    version : '5.1.0',
+    version : '5.1.1',
 
     settings : {
       use_tallest: true,
@@ -13994,6 +13995,7 @@ angular.module('eosApp')
 
     init : function (scope, method, options) {
       this.bindings(method, options);
+      this.reflow();
     },
 
     events : function () {
