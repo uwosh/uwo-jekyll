@@ -1509,6 +1509,9 @@ FIXES/HACKS
 .top-bar-section .dropdown li a {
   background: #333 !important;
 }
+.accordion dd.active a {
+  background: none;
+}
 /******************************************************************
 END FIXES/HACKS
 ******************************************************************/
