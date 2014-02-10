@@ -835,7 +835,7 @@ PANELS
   font-size: 18px;
   font-weight: $semibold;
   color: $dark-gray !important;
-  height: 56px;
+  min-height: 56px;
   padding: 8px 26px 0 16px;
   border-bottom: 1px solid $light-gray;
   margin-top: 0.2rem !important;
