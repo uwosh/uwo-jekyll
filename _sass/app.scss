@@ -1516,6 +1516,16 @@ FIXES/HACKS
 ******************************************************************/
 .slideshow-wrapper {
   //margin-left: 1px;
+  .orbit-prev {
+    @media #{$small-only} {
+      top: 15%;
+    }
+  }
+  .orbit-next {
+    @media #{$small-only} {
+      top: 15%;
+    }
+  }
 }
 .tabs-social-content.vertical {
   margin-left: -7px !important;
@@ -1528,6 +1538,11 @@ FIXES/HACKS
 }
 .accordion dd.active a {
   background: none;
+}
+.preloader {
+  @media #{$small-only} {
+    top: 5%;
+  }
 }
 /******************************************************************
 END FIXES/HACKS
