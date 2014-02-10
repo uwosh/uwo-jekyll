@@ -1027,6 +1027,14 @@ CTAs
   a:visited {
     color: $dark-gray;
   }
+  @media #{$medium-only} {
+    padding-left: 0;
+  }
+}
+.cta--parents > li {
+  @media #{$medium-only} {
+    margin-left: 10px;
+  }
 }
 .cta--accreditation {
   width: 218px;
