@@ -1533,10 +1533,16 @@ FIXES/HACKS
     @media #{$small-only} {
       top: 15%;
     }
+    @media #{$medium-only} {
+      top: 25%;
+    }
   }
   .orbit-next {
     @media #{$small-only} {
       top: 15%;
+    }
+    @media #{$medium-only} {
+      top: 25%;
     }
   }
 }
