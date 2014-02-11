@@ -1560,10 +1560,18 @@ FIXES/HACKS
   }
 }
 @-moz-document url-prefix() {
+  // Firefox rule sets go here
   .social-article {
     margin-top: 14px;
   }
 }
+@media screen and (min-width:0\0) {
+  /* IE9 and IE10 rule sets go here */
+  .social-article {
+    margin-top: 0;
+  }
+}
+
 /******************************************************************
 END FIXES/HACKS
 ******************************************************************/
