@@ -879,6 +879,9 @@ PANELS
 }
 .panel__image--home {
   height: 189px;
+  @media #{$small-only} {
+    height: auto;
+  }
 }
 .panel__content {
   //padding: 8px 16px 8px 16px;
@@ -900,6 +903,11 @@ PANELS
   height: 0;
   overflow: hidden;
   text-align: center;
+  @media #{$small-only} {
+    padding-bottom: 0;
+    height: auto;
+    overflow: visible;
+  }
 }
 .panel__video-wrapper iframe {
   position: absolute;
@@ -908,30 +916,6 @@ PANELS
   width: 100%;
   height: 100%;
 }
-/*.panel--green {
-  border-top-color: $green;
-}
-.panel--dark-green {
-  border-top-color: $dark-green;
-}
-.panel--blue {
-  border-top-color: $blue;
-}
-.panel--dark-blue {
-  border-top-color: $dark-blue;
-}
-.panel--orange {
-  border-top-color: $orange;
-}
-.panel--dark-orange {
-  border-top-color: $dark-orange;
-}
-.panel--yellow {
-  border-top-color: $yellow;
-}
-.panel--dark-yellow {
-  border-top-color: $dark-yellow;
-}*/
 /******************************************************************
 END PANELS
 ******************************************************************/
@@ -1572,7 +1556,7 @@ FIXES/HACKS
 }
 .preloader {
   @media #{$small-only} {
-    top: 5%;
+    top: 10%;
   }
 }
 @-moz-document url-prefix() {
