@@ -1,6 +1,17 @@
-# www.robotstxt.org/
-# www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
-
 User-agent: *
-Disallow: /
-Sitemap: http://www.uwosh.edu/beta/sitemap.gz
+Disallow: /cgi-bin/
+Disallow: /graphics/
+Disallow: /images/
+Disallow: departments/for_lang/minutes.html
+Disallow: /for_lang/minutes.html
+Disallow: /adultaccess/message_board/
+Disallow: /departments/adultaccess/message_board/
+Disallow: /coehs-new/
+Disallow: /home/university-events/
+Disallow: /llce/ansr/events/
+Disallow: /cols/cols-events/
+Disallow: /cob/cob-calendar/
+Disallow: /coehs/home/university-events/
+Disallow: /llce/conted/lir/events
+Disallow: /intranet/
+Sitemap: http://www.uwosh.edu/sitemap.xml

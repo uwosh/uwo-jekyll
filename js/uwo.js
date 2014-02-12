@@ -9133,7 +9133,6 @@ angular.module('eosApp')
   .controller('EmergencyCtrl', ['$scope', '$http', function ($scope,$http) {
     $http.get('http://feeds.uwosh.edu/api/v1/index.php/emergency/broadcast').success(function(data) {
       $scope.posts = data.posts;
-      console.log(data.posts);
     }).error(function() {
       // Some error occurred
     });

@@ -1,5 +1,5 @@
 name: University of Wisconsin Oshkosh
-baseurl: http://www.uwosh.edu/beta
+baseurl: http://www.uwosh.edu
 exclude:
   - .gitignore
   - README.md
@@ -8,6 +8,7 @@ exclude:
   - bower.json
   - Gemfile
   - Gemfile.lock
+  - node_modules
 
 # URLs
 facebook: https://www.facebook.com/uwoshkosh
