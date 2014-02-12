@@ -111,7 +111,7 @@
                       <a ng-href="http://www.flickr.com/photos/37901018@N05/sets/{{ photoset.id }}"><img ng-src="http://farm{{ photoset.farm }}.static.flickr.com/{{ photoset.server }}/{{ photoset.primary }}_{{ photoset.secret }}_m.jpg" class="social-feed-flickr-image" alt="{{ photoset.title._content }}" ></a>
                     </div>
                     <p class="body-content">{{ photoset.title._content }}</p>
-                    <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ photoset.date_update }}">{{ photoset.date_update | fromNow }}</time></span>
+                    <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ photoset.date_update * 1000 | date:'yyyy-MM-dd HH:mm:ss Z' }}">{{ photoset.date_update * 1000 | date:'yyyy-MM-dd HH:mm:ss Z' | fromNow }}</time></span>
                   </div>
                 </slide>
               {% endraw %}
