@@ -57,3 +57,8 @@ setTimeout(function() {
 setTimeout(function() {
   $(document).foundation('equalizer','reflow');
 }, 1001);
+
+// Fix orbit height issue
+setTimeout(function() {
+  $(document).resize();
+}, 500);

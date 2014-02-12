@@ -14102,6 +14102,11 @@ setTimeout(function() {
   $(document).foundation('equalizer','reflow');
 }, 1001);
 
+// Fix orbit height issue
+setTimeout(function() {
+  $(document).resize();
+}, 500);
+
 /*!
  * hoverIntent r7 // 2013.03.11 // jQuery 1.9.1+
  * http://cherne.net/brian/resources/jquery.hoverIntent.html
