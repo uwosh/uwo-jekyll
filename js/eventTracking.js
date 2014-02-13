@@ -308,6 +308,9 @@ setTimeout(function() {
   $('.footerGive').on('click', function() {
     ga('send', 'event', 'Footer', 'click', 'Give to UW Oshkosh');
   });
+  $('.footerUSP').on('click', function() {
+    ga('send', 'event', 'Footer', 'click', 'University Studies Program');
+  });
   $('.footerMedia').on('click', function() {
     ga('send', 'event', 'Footer', 'click', 'Media Relations');
   });
