@@ -459,6 +459,11 @@ FOOTER
 .college-portrait-logo {
   padding-top: 59px;
 }
+.footer-links {
+  @media #{$large-only} {
+    padding-left: 0;
+  }
+}
 /******************************************************************
 END FOOTER
 ******************************************************************/
