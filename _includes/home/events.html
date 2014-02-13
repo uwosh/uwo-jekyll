@@ -26,7 +26,7 @@
 
 {% raw %}
 <div class="row fade events__row hide-for-medium-up events__slider" ng-class="{in:events.length}" ng-controller="EventsCtrl">
-	<ul data-orbit data-options="bullets:false;timer:false;slide_number:false;next_on_click:true;variable_height:true;">
+	<ul data-orbit data-options="bullets:false;timer:true;slide_number:false;next_on_click:true;variable_height:true;">
 		<li ng-repeat="event in events|limitTo:3">
 			<div class="media">
 				<a class="media__img viewEvent" ng-href="{{ event.link }}">

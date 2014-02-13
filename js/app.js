@@ -61,4 +61,4 @@ setTimeout(function() {
 // Fix orbit height issue
 setTimeout(function() {
   $(document).resize();
-}, 500);
+}, 1000);

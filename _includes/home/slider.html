@@ -1,6 +1,6 @@
 <div class="slideshow-wrapper">
 <div class="preloader"></div>
-  <ul data-orbit data-options="slide_number:false;timer_speed:6000;pause_on_hover:false;animation:fade">
+  <ul data-orbit data-options="slide_number:false;timer_speed:6000;pause_on_hover:false;resume_on_mouseout:true;timer:true;animation:fade">
 
   {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/responsiveness-pillar %}
     {% for post in feed.posts %}

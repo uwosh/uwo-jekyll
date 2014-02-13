@@ -14105,7 +14105,7 @@ setTimeout(function() {
 // Fix orbit height issue
 setTimeout(function() {
   $(document).resize();
-}, 500);
+}, 1000);
 
 /*!
  * hoverIntent r7 // 2013.03.11 // jQuery 1.9.1+
