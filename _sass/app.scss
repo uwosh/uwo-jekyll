@@ -1442,6 +1442,17 @@ input.gsc-search-button {
   margin-left: -20px;
   margin-top: -8px;
 }
+.gsc-resultsHeader {
+    display: none;
+}
+.gsc-table-result {
+    border: none;
+    margin-bottom: 0;
+}
+.gsc-above-wrapper-area-container {
+    border: none;
+    margin-bottom: 0;
+}
 /******************************************************************
 END GOOGLE SEARCH STYLES
 ******************************************************************/
@@ -1563,6 +1574,9 @@ FIXES/HACKS
   @media #{$small-only} {
     top: 10%;
   }
+}
+.events__slider .orbit-timer {
+  display: none;
 }
 @-moz-document url-prefix() {
   // Firefox rule sets go here
