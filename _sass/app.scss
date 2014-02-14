@@ -136,13 +136,13 @@ body {
   }
 }
 a {
-  color: $dark-blue;
+  color: $dark-blue-accessible;
 }
 a:hover {
   text-decoration: none;
 }
 a:visited {
-  color: $dark-blue;
+  color: $dark-blue-accessible;
 }
 .custom-bullets {
   list-style: none;
@@ -435,9 +435,12 @@ FOOTER
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: $medium-gray;
-  color: $medium-dark-gray;
+  color: $dark-gray;
   a {
-    color: $medium-dark-gray;
+    color: $dark-gray;
+  }
+  a:visited {
+    color: $dark-gray;
   }
 }
 .vcard {
