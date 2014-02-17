@@ -53,7 +53,7 @@
     </nav>
 
     <aside class="left-off-canvas-menu hide-for-medium-up" role="navigation">
-      <ul class="off-canvas-list">
+      <ul id="off-canvas-left" class="off-canvas-list">
         <li class="off-canvas__label">UW Oshkosh</li>
         <li><a href="{{site.baseurl}}/about-uw-oshkosh" class="aboutLink">About</a></li>
         <li><a href="{{site.baseurl}}/academics" class="academicsLink">Academics</a></li>
@@ -64,7 +64,7 @@
         <li><a href="{{site.baseurl}}/resources" class="resourcesLink">Resources</a></li>
         <li><a href="{{site.baseurl}}/calendars" class="calendarsLink">Calendars</a></li>
         <li class="has-dropdown"><a href="{{ site.baseurl }}/titan-services" class="titanServicesLink">Titan Services</a>
-          <ul class="dropdown text-left">
+          <ul id="off-canvas-left-titan" class="dropdown text-left">
             <li><a href="{{ site.baseurl }}/site-index" class="tsSiteIndex">Site Index</a></li>
             <li><a href="http://www.uwosh.edu/directory" class="tsDirectory">Directory</a></li>
             <li><a href="http://www.uwosh.edu/registrar/titanweb/" class="tsTitanWeb">Titan Web</a></li>
@@ -110,7 +110,7 @@
             <li><a href="{{site.baseurl}}/resources" id="resourcesToggle" class="resourcesLink">Resources</a></li>
             <li><a href="{{site.baseurl}}/calendars" id="calendarsToggle" class="calendarsLink">Calendars</a></li>
             <li class="has-dropdown"><a href="{{ site.baseurl }}/titan-services" id="titanServicesToggle" class="titanServicesLink">Titan Services</a>
-              <ul class="dropdown text-left">
+              <ul id="university-nav-titan-services" class="dropdown text-left">
                 <li><a href="{{ site.baseurl }}/site-index" class="tsSiteIndex">Site Index</a></li>
                 <li><a href="http://www.uwosh.edu/directory" class="tsDirectory">Directory</a></li>
                 <li><a href="http://www.uwosh.edu/registrar/titanweb/" class="tsTitanWeb">Titan Web</a></li>
@@ -134,7 +134,7 @@
       <div class="content">
         <div class="row drawer__row">
           <div class="medium-5 columns">
-            <ul class="no-bullet">
+            <ul id="aboutDrawerLinks" class="no-bullet">
               <li><a href="{{ site.baseurl }}/about-uw-oshkosh" class="meetUwoLink">Meet UW Oshkosh</a></li>
               <li><a href="{{ site.baseurl }}/about-uw-oshkosh/welcome-from-the-chancellor.html">Welcome from Chancellor Wells</a></li>
               <li><a href="{{ site.baseurl }}/about-uw-oshkosh/fast-facts.html">Fast Facts</a></li>
@@ -160,7 +160,7 @@
       <div class="content">
         <div class="row drawer__row">
           <div class="medium-7 columns">
-            <ul class="no-bullet">
+            <ul id="academicsDrawerLinks" class="no-bullet">
               <li><a href="{{ site.baseurl }}/academics/majors-minors-emphases.html">Majors and Minors</a></li>
               <li><a href="http://www.uwosh.edu/cob">College of Business</a></li>
               <li><a href="http://www.uwosh.edu/coehs">College of Education &amp; Human Services</a></li>
@@ -188,7 +188,7 @@
       <div class="content">
         <div class="row drawer__row">
           <div class="medium-7 columns">
-            <ul class="no-bullet">
+            <ul id="athleticsDrawerLinks" class="no-bullet">
               <li><a href="http://www.uwoshkoshtitans.com/">Division III Sports</a></li>
               <li><a href="http://recreation.uwosh.edu/sport-clubs">Club Sports</a></li>
               <li><a href="http://recreation.uwosh.edu/intramural-sports">Intramural Sports</a></li>
@@ -211,7 +211,7 @@
       <div class="content">
         <div class="row drawer__row">
           <div class="medium-7 columns">
-            <ul class="no-bullet">
+            <ul id="alumniDrawerLinks" class="no-bullet">
               <li><a href="http://www.uwosh.edu/alumni">Alumni Relations Office</a></li>
               <li><a href="http://www.uwosh.edu/awcc">Alumni Welcome and Conference Center</a></li>
               <li><a href="http://www.uwosh.edu/alumni/documents/forms/alumni-update-form">Share Your News</a></li>
@@ -237,7 +237,7 @@
       <div class="content">
         <div class="row drawer__row">
           <div class="medium-7 columns">
-            <ul class="no-bullet">
+            <ul id="admissionsDrawerLinks" class="no-bullet">
               <li><a href="http://www.uwosh.edu/admissions">Undergraduate Admissions</a></li>
               <li><a href="http://www.uwosh.edu/gradstudies">Graduate Studies</a></li>
               <li><a href="http://www.uwosh.edu/llce/cnl">Accelerated Adult Programs</a></li>
@@ -269,7 +269,7 @@
             <p>Led by the dedicated and accomplished Chancellor Richard H. Wells, the University of Wisconsin Oshkosh’s administration continues to provide a high-quality, affordable and comprehensive education to our students and community.</p>
           </div>
           <div class="medium-7 columns">
-            <ul class="no-bullet">
+            <ul id="administrationDrawerLinks" class="no-bullet">
               <li><a href="http://www.uwosh.edu/admin_serv">Administrative Services</a></li>
               <li><a href="http://www.uwosh.edu/foundation">Advancement Division</a></li>
               <li><a href="http://www.uwosh.edu/provost">Academic Affairs/Provost's Office</a></li>
@@ -293,7 +293,7 @@
             <p>UW Oshkosh&rsquo;s sustainable campus provides a safe place for a diverse community of students, faculty, staff, parents and visitors through our quality academic, technology, employment, financial and campus resources.</p>
           </div>
           <div class="medium-7 columns">
-            <ul class="no-bullet">
+            <ul id="resourcesDrawerLinks" class="no-bullet">
               <li><a href="http://www.uwosh.edu/beta/academics/learning-assistance-services.html">Academic Resources</a></li>
               <li><a href="http://www.uwosh.edu/library/">Polk Library</a></li>
               <li><a href="http://bookstore.uwosh.edu/">University Books &amp; More</li>
@@ -320,7 +320,7 @@
             <p>The community is invited to attend events hosted by our students, faculty and staff on the UW Oshkosh campus. View the public events calendar, as well as important deadlines and academic schedules.</p>
           </div>
           <div class="medium-7 columns">
-            <ul class="no-bullet">
+            <ul id="calendarsDrawerLinks" class="no-bullet">
               <li><a href="http://www.uwosh.edu/today/events/">Campus Events</a></li>
               <li><a href="http://www.uwosh.edu/provost/Main%20Highlight/calendars/academic-calendars">Academic Calendar</a></li>
               <li><a href="http://www.uwosh.edu/registrar/registration-calendar">Add/Drop Dates</a></li>
@@ -341,7 +341,7 @@
               <a href="{{site.baseurl}}" id="wordmarkLink"><img src="{{site.baseurl}}/img/parts/wordmark.png" class="wordmark" alt="University of Wisconsin Oshkosh wordmark. Links to home page." /></a>
             </div>
             <div class="large-12 medium-19 medium-offset-1 large-offset-0 columns audience-nav show-for-medium-up">
-              <ul class="inline-list">
+              <ul id="audienceNavLinksDesktop" class="inline-list">
                 <li><a href="{{site.baseurl}}/future-students/" class="audienceFutureStudents">Future Students</a></li>
                 <li><a href="{{site.baseurl}}/parents-family-friends/" class="audienceParents">Parents</a></li>
                 <li><a href="{{site.baseurl}}/faculty-and-staff/" class="audienceFaculty">Faculty and Staff</a></li>
@@ -350,7 +350,7 @@
               </ul>
             </div>
             <div class="large-8 medium-19 small-23 small-offset-1 medium-offset-1 large-offset-0 columns uwo-search show-for-small-up">
-              <ul class="inline-list show-for-medium-up">
+              <ul is="quickLinksDesktop" class="inline-list show-for-medium-up">
                 <li><a href="https://www.gmail.com" target="_blank" class="quicklinksEmail">Email</a></li>
                 <li><a href="http://www.uwosh.edu/library" class="quicklinksLibrary">Polk Library</a></li>
                 <li><a href="http://www.uwosh.edu/directory" class="quicklinksDirectory">Directory</a></li>
