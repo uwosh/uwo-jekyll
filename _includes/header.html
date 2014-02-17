@@ -28,6 +28,7 @@
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-6634319-1', 'uwosh.edu');
+      ga('require', 'linkid', 'linkid.js');
       ga('send', 'pageview');
 
     </script>
@@ -53,7 +54,7 @@
 
     <aside class="left-off-canvas-menu hide-for-medium-up" role="navigation">
       <ul class="off-canvas-list">
-        <li><label>UW Oshkosh</label></li>
+        <li class="off-canvas__label">UW Oshkosh</li>
         <li><a href="{{site.baseurl}}/about-uw-oshkosh" class="aboutLink">About</a></li>
         <li><a href="{{site.baseurl}}/academics" class="academicsLink">Academics</a></li>
         <li><a href="http://www.titans.uwosh.edu/" class="athleticsLink">Athletics</a></li>
@@ -77,7 +78,7 @@
             <li><a href="https://www.myinterfase.com/uwosh/student/" class="tsTitanJobs">Titan Jobs</a></li>
           </ul>
         </li>
-        <li><label>Quicklinks</label></li>
+        <li class="off-canvas__label">Quicklinks</li>
         <li><a href="https://www.gmail.com" target="_blank" class="quicklinksEmail">Email</a></li>
         <li><a href="http://www.uwosh.edu/library" class="quicklinksLibrary">Polk Library</a></li>
         <li><a href="http://www.uwosh.edu/directory" class="quicklinksDirectory">Directory</a></li>
@@ -336,6 +337,7 @@
         <div class="audience-row">
           <div class="row">
             <div class="large-4 medium-4 small-24 small-centered medium-uncentered columns wordmark-wrapper">
+              <h1 class="school-title">University of Wisconsin Oshkosh</h1>
               <a href="{{site.baseurl}}" id="wordmarkLink"><img src="{{site.baseurl}}/img/parts/wordmark.png" class="wordmark" alt="University of Wisconsin Oshkosh wordmark. Links to home page." /></a>
             </div>
             <div class="large-12 medium-19 medium-offset-1 large-offset-0 columns audience-nav show-for-medium-up">
@@ -355,7 +357,9 @@
                 <li><a href="http://www.uwosh.edu/d2l/" class="quicklinksD2L">D2L</a></li>
                 <li><a href="https://my.wisconsin.edu/" class="quicklinksMyUwSystem">My UW System</a></li>
               </ul>
-              {% include search.html %}
+              <div class="">
+                {% include search.html %}
+              </div>
             </div>
           </div><!-- /.row -->
         </div><!-- /.audience-row -->

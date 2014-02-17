@@ -39,6 +39,7 @@ setTimeout(function() {
       i = document.createElement("img");
       i.setAttribute("src", "http://i.ytimg.com/vi/" + y.id + "/hqdefault.jpg");
       i.setAttribute("class", "thumb");
+      i.setAttribute("alt", "");
       c = document.createElement("div");
       c.setAttribute("class", "play");
       y.appendChild(i);
