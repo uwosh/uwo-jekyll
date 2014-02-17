@@ -32,7 +32,7 @@ responsive-nav: '
       <div class="small-24 medium-8 large-24 columns">
         <a href="http://www.uwosh.edu/go/directions/">
           <div class="cta cta--orange">
-            <img src="{{ site.baseurl }}/img/icons/icon-pointer-p.png" class="cta__icon"> <span class="cta__text">Directions to Campus/Parking</span>
+            <img src="{{ site.baseurl }}/img/icons/icon-pointer-p.png" class="cta__icon"> <span class="cta__text">Directions to Campus</span>
           </div>
         </a>
       </div>
@@ -68,15 +68,7 @@ responsive-nav: '
     <div class="row">
       <div class="large-24 columns">
         {% include social-icons.html %}
-      </div>
-      <div class="small-24 medium-8 large-24 columns audience-banner">
-        <a href="http://www.uwosh.edu/fapa"><img src="{{ site.baseurl }}/img/community-and-visitors/fapa-ad.jpg" class="img-responsive"></a>
-      </div>
-      <div class="small-24 medium-8 large-24 columns audience-banner">
-        <a href="http://www.uwpowerswi.com"><img src="{{ site.baseurl }}/img/community-and-visitors/knowledge-powers-ad.jpg" class="img-responsive"></a>
-      </div>
-      <div class="small-24 medium-8 large-24 columns audience-banner">
-        <a href="http://www.uwosh.edu/today/knowledge-powers-community/"><img src="{{ site.baseurl }}/img/community-and-visitors/uwot-ad.jpg" class="img-responsive"></a>
+        {% include community-and-visitors/audience-banners.html %}
       </div>
     </div>
   </div>
