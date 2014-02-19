@@ -16759,6 +16759,9 @@ setTimeout(function() {
   $('.tsTitanApps').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Titan Apps');
   });
+  $('.tsTitanFiles').on('click', function() {
+    ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Titan Files');
+  });
   $('.tsTitanAdmin').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Titan Admin');
   });
