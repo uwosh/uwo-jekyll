@@ -29,7 +29,7 @@
                             <a ng-href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}" target="_blank"><i class="fa fa-clock-o datetime"></i> <time class="datetime" datetime="{{ tweet.created_at }}">{{ tweet.created_at | fromNow }}</time></a>
                           </span>
                         </div>
-                        <p ng-bind-html="tweet.text | linky"></p>
+                        <p ng-bind-html="tweet.text | linky | tweetLinky:'_blank'"></p>
                         <p class="twitter-intents">
                           <a ng-href="https://twitter.com/intent/tweet?in_reply_to={{ tweet.id_str }}" target="_blank"><i class="fa fa-fw fa-reply"></i> Reply &nbsp;</a>
                           <a ng-href="https://twitter.com/intent/retweet?tweet_id={{ tweet.id_str }}" target="_blank"><i class="fa fa-fw fa-retweet"></i> Retweet &nbsp;</a>
