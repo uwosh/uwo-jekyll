@@ -87,9 +87,6 @@ setTimeout(function() {
   $('.tsTitanFiles').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Titan Files');
   });
-  $('.tsTitanAdmin').on('click', function() {
-    ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Titan Admin');
-  });
   $('.tsMyUwSystem').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Titan Services / My UW System');
   });
