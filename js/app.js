@@ -63,3 +63,8 @@ setTimeout(function() {
 setTimeout(function() {
   $(document).resize();
 }, 1000);
+
+// Reflow Equalizer after content is loaded
+setTimeout(function() {
+  $(document).foundation('equalizer','reflow');
+}, 8001);
