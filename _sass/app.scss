@@ -15,7 +15,7 @@ Setting up variables. Bringing in Colors and Spacing.
 .media .media__img {float:left; margin-right: 10px;}
 .media .media__img img{display:block;}
 .media .media__img--ext{float:right; margin-left: 10px;}
-a:hover { text-decoration: underline !important; }
+a:hover, a:focus, a:active { text-decoration: underline; }
 .has-tip {
   border: none;
   font-weight: $normal;
@@ -85,7 +85,7 @@ abbr, acronym {
   -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
   -webkit-backface-visibility: hidden; /* Fix for transition flickering */
 }
-.desaturate:hover {
+.desaturate:hover, .desaturate:focus, .desaturate:active {
   //@include prefixed(filter, grayscale(0%));
   filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
   -webkit-filter: grayscale(0%);
@@ -97,7 +97,7 @@ abbr, acronym {
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
 }
-.clickable:hover {
+.clickable:hover, .clickable:focus, .clickable:active {
   -webkit-animation: wobble .75s linear infinite;
   -moz-animation: wobble .75s linear infinite;
   -ms-animation: wobble .75s linear infinite;
@@ -137,9 +137,6 @@ body {
 }
 a {
   color: $dark-blue-accessible;
-}
-a:hover {
-  text-decoration: none;
 }
 a:visited {
   color: $dark-blue-accessible;
@@ -546,7 +543,7 @@ ABOUT UW OSHKOSH STYLES
   padding-left: 36px;
   background-image: url("../img/about-uw-oshkosh/about-pillar--education.png");
 }
-.about-pillar--education:hover {
+.about-pillar--education:hover, .about-pillar--education:focus, .about-pillar--education:active {
   background-position-y: 53px;
   a {
     color: #0077ac !important;
@@ -557,7 +554,7 @@ ABOUT UW OSHKOSH STYLES
   padding-left: 11px;
   background-image: url("../img/about-uw-oshkosh/about-pillar--leadership.png");
 }
-.about-pillar--leadership:hover {
+.about-pillar--leadership:hover, .about-pillar--leadership:focus, .about-pillar--leadership:active {
   background-position-y: 53px;
   a {
     color: #c05500 !important;
@@ -568,7 +565,7 @@ ABOUT UW OSHKOSH STYLES
   padding-left: 11px;
   background-image: url("../img/about-uw-oshkosh/about-pillar--responsiveness.png");
 }
-.about-pillar--responsiveness:hover {
+.about-pillar--responsiveness:hover, .about-pillar--responsiveness:focus, .about-pillar--responsiveness:active {
   background-position-y: 53px;
   a {
     color: #e68500 !important;
@@ -579,7 +576,7 @@ ABOUT UW OSHKOSH STYLES
   padding-left: 11px;
   background-image: url("../img/about-uw-oshkosh/about-pillar--service.png");
 }
-.about-pillar--service:hover {
+.about-pillar--service:hover, .about-pillar--service:focus, .about-pillar--service:active {
   background-position-y: 53px;
   a {
     color: #69b9d9 !important;
@@ -590,7 +587,7 @@ ABOUT UW OSHKOSH STYLES
   padding-left: 11px;
   background-image: url("../img/about-uw-oshkosh/about-pillar--sustainability.png");
 }
-.about-pillar--sustainability:hover {
+.about-pillar--sustainability:hover, .about-pillar--sustainability:focus, .about-pillar--sustainability:active {
   background-position-y: 53px;
   a {
     color: #5a9563 !important;
@@ -851,7 +848,7 @@ PANELS
     right: 16px;
   }
 }
-.panel:hover {
+.panel:hover, .panel:focus, .panel:active {
   box-shadow: 0 0 5px $dark-gray;
 }
 .panel__category {
