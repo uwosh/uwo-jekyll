@@ -19,7 +19,7 @@
                 <slide ng-repeat="tweet in tweets|limitTo:12">
                   <div class="twitter-article social-article">
                     <div class="media">
-                      <a class="media__img" ng-href="https://twitter.com/{{ tweet.user.screen_name }}" target="_blank"><img class="media-object" ng-src="{{ tweet.user.profile_image_url_https }}" alt="UW Oshkosh Twitter profile image"></a>
+                      <a class="media__img" ng-href="https://twitter.com/{{ tweet.user.screen_name }}" target="_blank"><img class="media-object twitter-article__avatar" ng-src="{{ tweet.user.profile_image_url_https }}" alt="UW Oshkosh Twitter profile image"></a>
                       <div class="media__body">
                         <div class="media-heading">
                           <span class="tweetprofilelink">
