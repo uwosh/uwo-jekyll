@@ -238,7 +238,7 @@ angular.module('eosApp')
   })
   .filter('fromNow', function () {
     return function(dateString) {
-      return moment.utc(dateString).fromNow();
+      return moment(dateString).fromNow();
     };
   })
   .filter('words', function () {
