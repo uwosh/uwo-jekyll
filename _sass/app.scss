@@ -1109,6 +1109,15 @@ CTAs
     padding-bottom: 12px;
   }
 }
+.cta--contact-us {
+  color: #fff;
+  padding-bottom: 7px;
+  padding-left: 2px;
+  margin-bottom: 48px;
+  a {
+    color: #fff;
+  }
+}
 .cta__icon {
   width: 40px;
   height: 40px;
@@ -1616,6 +1625,10 @@ FIXES/HACKS
   }
 }
 
+.study-banner {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
 /******************************************************************
 END FIXES/HACKS
 ******************************************************************/

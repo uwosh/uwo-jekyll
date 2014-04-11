@@ -18,11 +18,49 @@ responsive-nav: '
 
 <div class="row content">
   <div class="small-24 columns page-banner__column">
-    <div class="page-banner page-banner--dark-blue">
+    <div class="page-banner page-banner--blue">
       <h2 class="page-banner__title">Study at UW Oshkosh</h2>
     </div>
     <br>
   </div>
+  <div class="medium-16 small-24 columns">
+    <img src="{{site.baseurl}}/img/study-at-uw-oshkosh/meet-my-uwo-banner-image.jpg" class="img-responsive" alt="Girl wearing a tshirt that says Where Human Services and Culture Meet.">
+  </div>
+  <div class="medium-8 small-24 columns">
+    <div class="row">
+      <div class="small-24 columns">
+        <a href="http://www.uwosh.edu/goto/admissions/requestform.html">
+          <div class="cta cta--dark-green">
+            <img src="{{ site.baseurl }}/img/icons/icon-question.png" class="cta__icon" alt="Ask a question icon"> <span class="cta__text">Request More Information</span>
+          </div>
+        </a>
+      </div>
+      <div class="small-24 columns">
+        <a href="http://www.uwosh.edu/admissions/visit">
+          <div class="cta cta--orange">
+            <img src="{{ site.baseurl }}/img/icons/icon-pointer-star.png" class="cta__icon cta__icon--pointer-star"> <span class="cta__text">Visit Campus</span>
+          </div>
+        </a>
+        <div class="cta cta--dark-blue cta--contact-us">
+          <div class="media">
+            <a class="media__img">
+              <img src="{{site.baseurl}}/img/icons/icon-directory.png" class="cta__icon" alt="Contact Us icon">
+            </a>
+            <div class="media__body">
+              <span class="cta__text">Contact Us</span><br><br>
+              Dempsey Hall, Room 135<br>
+              Phone: <a href="tel:9204243164">(920) 424-3164</a><br>
+              Email: <a href="mailto:admissions@uwosh.edu">admissions@uwosh.edu</a>
+            </div>
+          </div>
+        </div>
+        {% include social-icons.html %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
   <div class="medium-16 columns">
     <nav class="breadcrumbs">
       <a href="{{site.baseurl}}">Home</a>
@@ -50,30 +88,11 @@ responsive-nav: '
   </div>
   <div class="medium-8 columns">
     <div class="row">
-      <div class="small-24 columns">
-        <a href="http://www.uwosh.edu/goto/admissions/requestform.html">
-          <div class="cta cta--dark-orange">
-            <img src="{{ site.baseurl }}/img/icons/icon-question.png" class="cta__icon" alt="Ask a question icon"> <span class="cta__text">Request More Information</span>
-          </div>
-        </a>
-      </div>
+
     </div>
     <div class="row">
       <div class="small-24 columns">
-        <a href="http://www.uwosh.edu/admissions/visit">
-          <div class="cta cta--blue">
-            <img src="{{ site.baseurl }}/img/icons/icon-pointer-star.png" class="cta__icon cta__icon--pointer-star"> <span class="cta__text">Visit Campus</span>
-          </div>
-        </a>
-        <div class="contact-us">
-          <strong>Contact Us<br>
-          Dempsey Hall, Room 135<br>
-          Phone: <a href="tel:9204243164">(920) 424-3164</a><br>
-          Email: <a href="mailto:admissions@uwosh.edu">admissions@uwosh.edu</a></strong>
-        </div><br>
-        <ul class="no-bullet">
-          <li>{% include titan-alert.html %}</li>
-        </ul>
+        <a href="http://www.uwosh.edu/gradstudies/gradschool-fest/gradschool-fest"><img class="img-responsive study-banner" src="{{site.baseurl}}/img/study-at-uw-oshkosh/audience-banners/Grad-School-Fest-Banner.jpg" alt="Grad School Fest - Find out more."></a>
         <span class="news-heading">Related Links</span>
         <ul class="no-bullet drop-down-nav">
           <li><a href="http://www.uwosh.edu/admissions/application-status-checker/?searchterm=application%20status">Application Status</a></li>
