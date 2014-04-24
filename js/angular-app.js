@@ -25,13 +25,13 @@ angular.module('eosApp')
       // Some error occurred
     });
   }])
-  .controller('TitanAlertCtrl', ['$scope', '$http', function ($scope,$http) {
-    $http.get('http://feeds.uwosh.edu/api/v1/index.php/titan-alert/rave').success(function(data) {
-      $scope.posts = data.value.items;
-    }).error(function() {
-      // Some error occurred
-    });
-  }])
+  // .controller('TitanAlertCtrl', ['$scope', '$http', function ($scope,$http) {
+  //   $http.get('http://feeds.uwosh.edu/api/v1/index.php/titan-alert/rave').success(function(data) {
+  //     $scope.posts = data.value.items;
+  //   }).error(function() {
+  //     // Some error occurred
+  //   });
+  // }])
   .controller('EventsCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.events = data.events.value.items;
