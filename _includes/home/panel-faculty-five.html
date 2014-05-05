@@ -21,7 +21,9 @@
 					<span ng-bind-html="excerpt | characters:170"></span>
 				</div>
 			</div>
-			<span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time datetime="{{ post.date }}"> {{ post.date | fromNow }}</time></span>
+			<div>
+				<span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time datetime="{{ post.date }}"> {{ post.date | fromNow }}</time></span>
+			</div>
 		</div>
 	</div>
 </div>
