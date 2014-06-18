@@ -7,7 +7,7 @@ angular.module('eosApp')
     var doRequest = function() {
       return $http({
         method: 'GET',
-        url: 'http://feeds.uwosh.edu/api/v1/index.php/uwo-api',
+        url: 'http://feeds2.uwosh.edu/api/v2/index.php/uwo-api',
         cache: true
       });
     };

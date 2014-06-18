@@ -2,7 +2,7 @@
 <div class="preloader"></div>
   <ul data-orbit data-options="slide_number:false;timer_speed:6000;pause_on_hover:true;resume_on_mouseout:true;timer:true;animation:fade">
 
-  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/sustainability-pillar %}
+  {% jsonball feed from url http://feeds2.uwosh.edu/api/v2/index.php/news/sustainability-pillar %}
     {% for post in feed.posts %}
     <li>
       <a href="{{ post.url }}"><img class="pillar-image img-responsive" src="{{ post.custom_fields.pillar_image }}" alt="Sustainability Pillar" /></a>
@@ -15,7 +15,7 @@
     </li>
     {% endfor %}
 
-  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/education-pillar %}
+  {% jsonball feed from url http://feeds2.uwosh.edu/api/v2/index.php/news/education-pillar %}
     {% for post in feed.posts %}
     <li>
       <a href="{{ post.url }}"><img class="pillar-image img-responsive" src="{{ post.custom_fields.pillar_image }}" alt="Education Pillar" /></a>
@@ -28,7 +28,7 @@
     </li>
     {% endfor %}
 
-  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/leadership-pillar %}
+  {% jsonball feed from url http://feeds2.uwosh.edu/api/v2/index.php/news/leadership-pillar %}
     {% for post in feed.posts %}
     <li>
       <a href="{{ post.url }}"><img class="pillar-image img-responsive" src="{{ post.custom_fields.pillar_image }}" alt="Leadership Pillar" /></a>
@@ -41,7 +41,7 @@
     </li>
     {% endfor %}
 
-  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/service-pillar %}
+  {% jsonball feed from url http://feeds2.uwosh.edu/api/v2/index.php/news/service-pillar %}
     {% for post in feed.posts %}
     <li>
       <a href="{{ post.url }}"><img class="pillar-image img-responsive" src="{{ post.custom_fields.pillar_image }}" alt="Service Pillar" /></a>
@@ -54,7 +54,7 @@
     </li>
     {% endfor %}
 
-  {% jsonball feed from url http://feeds.uwosh.edu/api/v1/index.php/news/responsiveness-pillar %}
+  {% jsonball feed from url http://feeds2.uwosh.edu/api/v2/index.php/news/responsiveness-pillar %}
     {% for post in feed.posts %}
     <li>
       <a href="{{ post.url }}"><img class="pillar-image img-responsive" src="{{ post.custom_fields.pillar_image }}" alt="Responsiveness Pillar" /></a>
