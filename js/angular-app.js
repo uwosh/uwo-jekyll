@@ -200,14 +200,14 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  }])
-  .controller('FlickrCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
-    feedService.events().success(function(data) {
-      $scope.photosets = data.flickr.photosets.photoset;
-    }).error(function() {
-      // Some error occurred
-    });
   }]);
+  // .controller('FlickrCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
+  //   feedService.events().success(function(data) {
+  //     $scope.photosets = data.flickr.photosets.photoset;
+  //   }).error(function() {
+  //     // Some error occurred
+  //   });
+  // }]);
 
 // FILTERS
 angular.module('eosApp')
