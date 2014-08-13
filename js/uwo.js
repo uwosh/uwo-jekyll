@@ -1,5 +1,5 @@
 /*!
- * jQuery JavaScript Library v2.1.0
+ * jQuery JavaScript Library v2.1.1
  * http://jquery.com/
  *
  * Includes Sizzle.js
@@ -9,7 +9,7 @@
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2014-01-23T21:10Z
+ * Date: 2014-05-01T17:11Z
  */
 
 (function( global, factory ) {
@@ -59,8 +59,6 @@ var toString = class2type.toString;
 
 var hasOwn = class2type.hasOwnProperty;
 
-var trim = "".trim;
-
 var support = {};
 
 
@@ -69,7 +67,7 @@ var
 	// Use the correct document accordingly with window argument (sandbox)
 	document = window.document,
 
-	version = "2.1.0",
+	version = "2.1.1",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -77,6 +75,10 @@ var
 		// Need init if jQuery is called (just allow error to be thrown if not included)
 		return new jQuery.fn.init( selector, context );
 	},
+
+	// Support: Android<4.1
+	// Make sure we trim BOM and NBSP
+	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
 
 	// Matches dashed string for camelizing
 	rmsPrefix = /^-ms-/,
@@ -108,10 +110,10 @@ jQuery.fn = jQuery.prototype = {
 	get: function( num ) {
 		return num != null ?
 
-			// Return a 'clean' array
+			// Return just the one element from the set
 			( num < 0 ? this[ num + this.length ] : this[ num ] ) :
 
-			// Return just the object
+			// Return all the elements in a clean array
 			slice.call( this );
 	},
 
@@ -267,7 +269,7 @@ jQuery.extend({
 		// parseFloat NaNs numeric-cast false positives (null|true|false|"")
 		// ...but misinterprets leading-number strings, particularly hex literals ("0x...")
 		// subtraction forces infinities to NaN
-		return obj - parseFloat( obj ) >= 0;
+		return !jQuery.isArray( obj ) && obj - parseFloat( obj ) >= 0;
 	},
 
 	isPlainObject: function( obj ) {
@@ -279,16 +281,8 @@ jQuery.extend({
 			return false;
 		}
 
-		// Support: Firefox <20
-		// The try/catch suppresses exceptions thrown when attempting to access
-		// the "constructor" property of certain host objects, ie. |window.location|
-		// https://bugzilla.mozilla.org/show_bug.cgi?id=814622
-		try {
-			if ( obj.constructor &&
-					!hasOwn.call( obj.constructor.prototype, "isPrototypeOf" ) ) {
-				return false;
-			}
-		} catch ( e ) {
+		if ( obj.constructor &&
+				!hasOwn.call( obj.constructor.prototype, "isPrototypeOf" ) ) {
 			return false;
 		}
 
@@ -398,8 +392,11 @@ jQuery.extend({
 		return obj;
 	},
 
+	// Support: Android<4.1
 	trim: function( text ) {
-		return text == null ? "" : trim.call( text );
+		return text == null ?
+			"" :
+			( text + "" ).replace( rtrim, "" );
 	},
 
 	// results is for internal usage only
@@ -551,14 +548,14 @@ function isArraylike( obj ) {
 }
 var Sizzle =
 /*!
- * Sizzle CSS Selector Engine v1.10.16
+ * Sizzle CSS Selector Engine v1.10.19
  * http://sizzlejs.com/
  *
  * Copyright 2013 jQuery Foundation, Inc. and other contributors
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2014-01-13
+ * Date: 2014-04-18
  */
 (function( window ) {
 
@@ -567,7 +564,9 @@ var i,
 	Expr,
 	getText,
 	isXML,
+	tokenize,
 	compile,
+	select,
 	outermostContext,
 	sortInput,
 	hasDuplicate,
@@ -634,17 +633,23 @@ var i,
 	// Proper syntax: http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier
 	identifier = characterEncoding.replace( "w", "w#" ),
 
-	// Acceptable operators http://www.w3.org/TR/selectors/#attribute-selectors
-	attributes = "\\[" + whitespace + "*(" + characterEncoding + ")" + whitespace +
-		"*(?:([*^$|!~]?=)" + whitespace + "*(?:(['\"])((?:\\\\.|[^\\\\])*?)\\3|(" + identifier + ")|)|)" + whitespace + "*\\]",
+	// Attribute selectors: http://www.w3.org/TR/selectors/#attribute-selectors
+	attributes = "\\[" + whitespace + "*(" + characterEncoding + ")(?:" + whitespace +
+		// Operator (capture 2)
+		"*([*^$|!~]?=)" + whitespace +
+		// "Attribute values must be CSS identifiers [capture 5] or strings [capture 3 or capture 4]"
+		"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + identifier + "))|)" + whitespace +
+		"*\\]",
 
-	// Prefer arguments quoted,
-	//   then not containing pseudos/brackets,
-	//   then attribute selectors/non-parenthetical expressions,
-	//   then anything else
-	// These preferences are here to reduce the number of selectors
-	//   needing tokenize in the PSEUDO preFilter
-	pseudos = ":(" + characterEncoding + ")(?:\\(((['\"])((?:\\\\.|[^\\\\])*?)\\3|((?:\\\\.|[^\\\\()[\\]]|" + attributes.replace( 3, 8 ) + ")*)|.*)\\)|)",
+	pseudos = ":(" + characterEncoding + ")(?:\\((" +
+		// To reduce the number of selectors needing tokenize in the preFilter, prefer arguments:
+		// 1. quoted (capture 3; capture 4 or capture 5)
+		"('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|" +
+		// 2. simple (capture 6)
+		"((?:\\\\.|[^\\\\()[\\]]|" + attributes + ")*)|" +
+		// 3. anything else (capture 2)
+		".*" +
+		")\\)|)",
 
 	// Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
 	rtrim = new RegExp( "^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "g" ),
@@ -689,7 +694,7 @@ var i,
 	funescape = function( _, escaped, escapedWhitespace ) {
 		var high = "0x" + escaped - 0x10000;
 		// NaN means non-codepoint
-		// Support: Firefox
+		// Support: Firefox<24
 		// Workaround erroneous numeric interpretation of +"0x"
 		return high !== high || escapedWhitespace ?
 			escaped :
@@ -1085,7 +1090,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				var m = context.getElementById( id );
 				// Check parentNode to catch when Blackberry 4.6 returns
 				// nodes that are no longer in the document #6963
-				return m && m.parentNode ? [m] : [];
+				return m && m.parentNode ? [ m ] : [];
 			}
 		};
 		Expr.filter["ID"] = function( id ) {
@@ -1165,11 +1170,13 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// setting a boolean content attribute,
 			// since its presence should be enough
 			// http://bugs.jquery.com/ticket/12359
-			div.innerHTML = "<select t=''><option selected=''></option></select>";
+			div.innerHTML = "<select msallowclip=''><option selected=''></option></select>";
 
-			// Support: IE8, Opera 10-12
+			// Support: IE8, Opera 11-12.16
 			// Nothing should be selected when empty strings follow ^= or $= or *=
-			if ( div.querySelectorAll("[t^='']").length ) {
+			// The test attribute must be unknown in Opera but "safe" for WinRT
+			// http://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section
+			if ( div.querySelectorAll("[msallowclip^='']").length ) {
 				rbuggyQSA.push( "[*^$]=" + whitespace + "*(?:''|\"\")" );
 			}
 
@@ -1212,7 +1219,8 @@ setDocument = Sizzle.setDocument = function( node ) {
 		});
 	}
 
-	if ( (support.matchesSelector = rnative.test( (matches = docElem.webkitMatchesSelector ||
+	if ( (support.matchesSelector = rnative.test( (matches = docElem.matches ||
+		docElem.webkitMatchesSelector ||
 		docElem.mozMatchesSelector ||
 		docElem.oMatchesSelector ||
 		docElem.msMatchesSelector) )) ) {
@@ -1393,7 +1401,7 @@ Sizzle.matchesSelector = function( elem, expr ) {
 		} catch(e) {}
 	}
 
-	return Sizzle( expr, document, null, [elem] ).length > 0;
+	return Sizzle( expr, document, null, [ elem ] ).length > 0;
 };
 
 Sizzle.contains = function( context, elem ) {
@@ -1522,7 +1530,7 @@ Expr = Sizzle.selectors = {
 			match[1] = match[1].replace( runescape, funescape );
 
 			// Move the given value to match[3] whether quoted or unquoted
-			match[3] = ( match[4] || match[5] || "" ).replace( runescape, funescape );
+			match[3] = ( match[3] || match[4] || match[5] || "" ).replace( runescape, funescape );
 
 			if ( match[2] === "~=" ) {
 				match[3] = " " + match[3] + " ";
@@ -1565,15 +1573,15 @@ Expr = Sizzle.selectors = {
 
 		"PSEUDO": function( match ) {
 			var excess,
-				unquoted = !match[5] && match[2];
+				unquoted = !match[6] && match[2];
 
 			if ( matchExpr["CHILD"].test( match[0] ) ) {
 				return null;
 			}
 
 			// Accept quoted arguments as-is
-			if ( match[3] && match[4] !== undefined ) {
-				match[2] = match[4];
+			if ( match[3] ) {
+				match[2] = match[4] || match[5] || "";
 
 			// Strip excess characters from unquoted arguments
 			} else if ( unquoted && rpseudo.test( unquoted ) &&
@@ -1978,7 +1986,7 @@ function setFilters() {}
 setFilters.prototype = Expr.filters = Expr.pseudos;
 Expr.setFilters = new setFilters();
 
-function tokenize( selector, parseOnly ) {
+tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 	var matched, match, tokens, type,
 		soFar, groups, preFilters,
 		cached = tokenCache[ selector + " " ];
@@ -2043,7 +2051,7 @@ function tokenize( selector, parseOnly ) {
 			Sizzle.error( selector ) :
 			// Cache the tokens
 			tokenCache( selector, groups ).slice( 0 );
-}
+};
 
 function toSelector( tokens ) {
 	var i = 0,
@@ -2120,6 +2128,15 @@ function elementMatcher( matchers ) {
 			return true;
 		} :
 		matchers[0];
+}
+
+function multipleContexts( selector, contexts, results ) {
+	var i = 0,
+		len = contexts.length;
+	for ( ; i < len; i++ ) {
+		Sizzle( selector, contexts[i], results );
+	}
+	return results;
 }
 
 function condense( unmatched, map, filter, context, xml ) {
@@ -2390,7 +2407,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 		superMatcher;
 }
 
-compile = Sizzle.compile = function( selector, group /* Internal Use Only */ ) {
+compile = Sizzle.compile = function( selector, match /* Internal Use Only */ ) {
 	var i,
 		setMatchers = [],
 		elementMatchers = [],
@@ -2398,12 +2415,12 @@ compile = Sizzle.compile = function( selector, group /* Internal Use Only */ ) {
 
 	if ( !cached ) {
 		// Generate a function of recursive functions that can be used to check each element
-		if ( !group ) {
-			group = tokenize( selector );
+		if ( !match ) {
+			match = tokenize( selector );
 		}
-		i = group.length;
+		i = match.length;
 		while ( i-- ) {
-			cached = matcherFromTokens( group[i] );
+			cached = matcherFromTokens( match[i] );
 			if ( cached[ expando ] ) {
 				setMatchers.push( cached );
 			} else {
@@ -2413,74 +2430,83 @@ compile = Sizzle.compile = function( selector, group /* Internal Use Only */ ) {
 
 		// Cache the compiled function
 		cached = compilerCache( selector, matcherFromGroupMatchers( elementMatchers, setMatchers ) );
+
+		// Save selector and tokenization
+		cached.selector = selector;
 	}
 	return cached;
 };
 
-function multipleContexts( selector, contexts, results ) {
-	var i = 0,
-		len = contexts.length;
-	for ( ; i < len; i++ ) {
-		Sizzle( selector, contexts[i], results );
-	}
-	return results;
-}
-
-function select( selector, context, results, seed ) {
+/**
+ * A low-level selection function that works with Sizzle's compiled
+ *  selector functions
+ * @param {String|Function} selector A selector or a pre-compiled
+ *  selector function built with Sizzle.compile
+ * @param {Element} context
+ * @param {Array} [results]
+ * @param {Array} [seed] A set of elements to match against
+ */
+select = Sizzle.select = function( selector, context, results, seed ) {
 	var i, tokens, token, type, find,
-		match = tokenize( selector );
+		compiled = typeof selector === "function" && selector,
+		match = !seed && tokenize( (selector = compiled.selector || selector) );
 
-	if ( !seed ) {
-		// Try to minimize operations if there is only one group
-		if ( match.length === 1 ) {
+	results = results || [];
 
-			// Take a shortcut and set the context if the root selector is an ID
-			tokens = match[0] = match[0].slice( 0 );
-			if ( tokens.length > 2 && (token = tokens[0]).type === "ID" &&
-					support.getById && context.nodeType === 9 && documentIsHTML &&
-					Expr.relative[ tokens[1].type ] ) {
+	// Try to minimize operations if there is no seed and only one group
+	if ( match.length === 1 ) {
 
-				context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
-				if ( !context ) {
-					return results;
-				}
-				selector = selector.slice( tokens.shift().value.length );
+		// Take a shortcut and set the context if the root selector is an ID
+		tokens = match[0] = match[0].slice( 0 );
+		if ( tokens.length > 2 && (token = tokens[0]).type === "ID" &&
+				support.getById && context.nodeType === 9 && documentIsHTML &&
+				Expr.relative[ tokens[1].type ] ) {
+
+			context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
+			if ( !context ) {
+				return results;
+
+			// Precompiled matchers will still verify ancestry, so step up a level
+			} else if ( compiled ) {
+				context = context.parentNode;
 			}
 
-			// Fetch a seed set for right-to-left matching
-			i = matchExpr["needsContext"].test( selector ) ? 0 : tokens.length;
-			while ( i-- ) {
-				token = tokens[i];
+			selector = selector.slice( tokens.shift().value.length );
+		}
 
-				// Abort if we hit a combinator
-				if ( Expr.relative[ (type = token.type) ] ) {
-					break;
-				}
-				if ( (find = Expr.find[ type ]) ) {
-					// Search, expanding context for leading sibling combinators
-					if ( (seed = find(
-						token.matches[0].replace( runescape, funescape ),
-						rsibling.test( tokens[0].type ) && testContext( context.parentNode ) || context
-					)) ) {
+		// Fetch a seed set for right-to-left matching
+		i = matchExpr["needsContext"].test( selector ) ? 0 : tokens.length;
+		while ( i-- ) {
+			token = tokens[i];
 
-						// If seed is empty or no tokens remain, we can return early
-						tokens.splice( i, 1 );
-						selector = seed.length && toSelector( tokens );
-						if ( !selector ) {
-							push.apply( results, seed );
-							return results;
-						}
+			// Abort if we hit a combinator
+			if ( Expr.relative[ (type = token.type) ] ) {
+				break;
+			}
+			if ( (find = Expr.find[ type ]) ) {
+				// Search, expanding context for leading sibling combinators
+				if ( (seed = find(
+					token.matches[0].replace( runescape, funescape ),
+					rsibling.test( tokens[0].type ) && testContext( context.parentNode ) || context
+				)) ) {
 
-						break;
+					// If seed is empty or no tokens remain, we can return early
+					tokens.splice( i, 1 );
+					selector = seed.length && toSelector( tokens );
+					if ( !selector ) {
+						push.apply( results, seed );
+						return results;
 					}
+
+					break;
 				}
 			}
 		}
 	}
 
-	// Compile and execute a filtering function
+	// Compile and execute a filtering function if one is not provided
 	// Provide `match` to avoid retokenization if we modified the selector above
-	compile( selector, match )(
+	( compiled || compile( selector, match ) )(
 		seed,
 		context,
 		!documentIsHTML,
@@ -2488,7 +2514,7 @@ function select( selector, context, results, seed ) {
 		rsibling.test( selector ) && testContext( context.parentNode ) || context
 	);
 	return results;
-}
+};
 
 // One-time assignments
 
@@ -3365,8 +3391,9 @@ jQuery.extend({
 		readyList.resolveWith( document, [ jQuery ] );
 
 		// Trigger any bound ready events
-		if ( jQuery.fn.trigger ) {
-			jQuery( document ).trigger("ready").off("ready");
+		if ( jQuery.fn.triggerHandler ) {
+			jQuery( document ).triggerHandler( "ready" );
+			jQuery( document ).off( "ready" );
 		}
 	}
 });
@@ -3738,11 +3765,15 @@ jQuery.fn.extend({
 				if ( elem.nodeType === 1 && !data_priv.get( elem, "hasDataAttrs" ) ) {
 					i = attrs.length;
 					while ( i-- ) {
-						name = attrs[ i ].name;
 
-						if ( name.indexOf( "data-" ) === 0 ) {
-							name = jQuery.camelCase( name.slice(5) );
-							dataAttr( elem, name, data[ name ] );
+						// Support: IE11+
+						// The attrs elements can be null (#14894)
+						if ( attrs[ i ] ) {
+							name = attrs[ i ].name;
+							if ( name.indexOf( "data-" ) === 0 ) {
+								name = jQuery.camelCase( name.slice(5) );
+								dataAttr( elem, name, data[ name ] );
+							}
 						}
 					}
 					data_priv.set( elem, "hasDataAttrs", true );
@@ -3972,10 +4003,17 @@ var rcheckableType = (/^(?:checkbox|radio)$/i);
 
 (function() {
 	var fragment = document.createDocumentFragment(),
-		div = fragment.appendChild( document.createElement( "div" ) );
+		div = fragment.appendChild( document.createElement( "div" ) ),
+		input = document.createElement( "input" );
 
 	// #11217 - WebKit loses check when the name is after the checked attribute
-	div.innerHTML = "<input type='radio' checked='checked' name='t'/>";
+	// Support: Windows Web Apps (WWA)
+	// `name` and `type` need .setAttribute for WWA
+	input.setAttribute( "type", "radio" );
+	input.setAttribute( "checked", "checked" );
+	input.setAttribute( "name", "t" );
+
+	div.appendChild( input );
 
 	// Support: Safari 5.1, iOS 5.1, Android 4.x, Android 2.3
 	// old WebKit doesn't clone checked state correctly in fragments
@@ -3995,7 +4033,7 @@ support.focusinBubbles = "onfocusin" in window;
 
 var
 	rkeyEvent = /^key/,
-	rmouseEvent = /^(?:mouse|contextmenu)|click/,
+	rmouseEvent = /^(?:mouse|pointer|contextmenu)|click/,
 	rfocusMorph = /^(?:focusinfocus|focusoutblur)$/,
 	rtypenamespace = /^([^.]*)(?:\.(.+)|)$/;
 
@@ -4564,7 +4602,7 @@ jQuery.event = {
 
 				// Support: Firefox 20+
 				// Firefox doesn't alert if the returnValue field is not set.
-				if ( event.result !== undefined ) {
+				if ( event.result !== undefined && event.originalEvent ) {
 					event.originalEvent.returnValue = event.result;
 				}
 			}
@@ -4615,9 +4653,9 @@ jQuery.Event = function( src, props ) {
 		// Events bubbling up the document may have been marked as prevented
 		// by a handler lower down the tree; reflect the correct value.
 		this.isDefaultPrevented = src.defaultPrevented ||
-				// Support: Android < 4.0
 				src.defaultPrevented === undefined &&
-				src.getPreventDefault && src.getPreventDefault() ?
+				// Support: Android < 4.0
+				src.returnValue === false ?
 			returnTrue :
 			returnFalse;
 
@@ -4664,7 +4702,14 @@ jQuery.Event.prototype = {
 		}
 	},
 	stopImmediatePropagation: function() {
+		var e = this.originalEvent;
+
 		this.isImmediatePropagationStopped = returnTrue;
+
+		if ( e && e.stopImmediatePropagation ) {
+			e.stopImmediatePropagation();
+		}
+
 		this.stopPropagation();
 	}
 };
@@ -4673,7 +4718,9 @@ jQuery.Event.prototype = {
 // Support: Chrome 15+
 jQuery.each({
 	mouseenter: "mouseover",
-	mouseleave: "mouseout"
+	mouseleave: "mouseout",
+	pointerenter: "pointerover",
+	pointerleave: "pointerout"
 }, function( orig, fix ) {
 	jQuery.event.special[ orig ] = {
 		delegateType: fix,
@@ -5098,7 +5145,7 @@ jQuery.extend({
 	},
 
 	cleanData: function( elems ) {
-		var data, elem, events, type, key, j,
+		var data, elem, type, key,
 			special = jQuery.event.special,
 			i = 0;
 
@@ -5107,9 +5154,8 @@ jQuery.extend({
 				key = elem[ data_priv.expando ];
 
 				if ( key && (data = data_priv.cache[ key ]) ) {
-					events = Object.keys( data.events || {} );
-					if ( events.length ) {
-						for ( j = 0; (type = events[j]) !== undefined; j++ ) {
+					if ( data.events ) {
+						for ( type in data.events ) {
 							if ( special[ type ] ) {
 								jQuery.event.remove( elem, type );
 
@@ -5412,14 +5458,15 @@ var iframe,
  */
 // Called only from within defaultDisplay
 function actualDisplay( name, doc ) {
-	var elem = jQuery( doc.createElement( name ) ).appendTo( doc.body ),
+	var style,
+		elem = jQuery( doc.createElement( name ) ).appendTo( doc.body ),
 
 		// getDefaultComputedStyle might be reliably used only on attached element
-		display = window.getDefaultComputedStyle ?
+		display = window.getDefaultComputedStyle && ( style = window.getDefaultComputedStyle( elem[ 0 ] ) ) ?
 
 			// Use of this method is a temporary fix (more like optmization) until something better comes along,
 			// since it was removed from specification and supported only in FF
-			window.getDefaultComputedStyle( elem[ 0 ] ).display : jQuery.css( elem[ 0 ], "display" );
+			style.display : jQuery.css( elem[ 0 ], "display" );
 
 	// We don't have any data stored on the element,
 	// so use "detach" method as fast way to get rid of the element
@@ -5542,28 +5589,32 @@ function addGetHookIf( conditionFn, hookFn ) {
 
 (function() {
 	var pixelPositionVal, boxSizingReliableVal,
-		// Support: Firefox, Android 2.3 (Prefixed box-sizing versions).
-		divReset = "padding:0;margin:0;border:0;display:block;-webkit-box-sizing:content-box;" +
-			"-moz-box-sizing:content-box;box-sizing:content-box",
 		docElem = document.documentElement,
 		container = document.createElement( "div" ),
 		div = document.createElement( "div" );
+
+	if ( !div.style ) {
+		return;
+	}
 
 	div.style.backgroundClip = "content-box";
 	div.cloneNode( true ).style.backgroundClip = "";
 	support.clearCloneStyle = div.style.backgroundClip === "content-box";
 
-	container.style.cssText = "border:0;width:0;height:0;position:absolute;top:0;left:-9999px;" +
-		"margin-top:1px";
+	container.style.cssText = "border:0;width:0;height:0;top:0;left:-9999px;margin-top:1px;" +
+		"position:absolute";
 	container.appendChild( div );
 
 	// Executing both pixelPosition & boxSizingReliable tests require only one layout
 	// so they're executed at the same time to save the second computation.
 	function computePixelPositionAndBoxSizingReliable() {
-		// Support: Firefox, Android 2.3 (Prefixed box-sizing versions).
-		div.style.cssText = "-webkit-box-sizing:border-box;-moz-box-sizing:border-box;" +
-			"box-sizing:border-box;padding:1px;border:1px;display:block;width:4px;margin-top:1%;" +
-			"position:absolute;top:1%";
+		div.style.cssText =
+			// Support: Firefox<29, Android 2.3
+			// Vendor-prefix box-sizing
+			"-webkit-box-sizing:border-box;-moz-box-sizing:border-box;" +
+			"box-sizing:border-box;display:block;margin-top:1%;top:1%;" +
+			"border:1px;padding:1px;width:4px;position:absolute";
+		div.innerHTML = "";
 		docElem.appendChild( container );
 
 		var divStyle = window.getComputedStyle( div, null );
@@ -5573,9 +5624,10 @@ function addGetHookIf( conditionFn, hookFn ) {
 		docElem.removeChild( container );
 	}
 
-	// Use window.getComputedStyle because jsdom on node.js will break without it.
+	// Support: node.js jsdom
+	// Don't assume that getComputedStyle is a property of the global object
 	if ( window.getComputedStyle ) {
-		jQuery.extend(support, {
+		jQuery.extend( support, {
 			pixelPosition: function() {
 				// This test is executed only once but we still do memoizing
 				// since we can use the boxSizingReliable pre-computing.
@@ -5597,7 +5649,13 @@ function addGetHookIf( conditionFn, hookFn ) {
 				// This support function is only executed once so no memoizing is needed.
 				var ret,
 					marginDiv = div.appendChild( document.createElement( "div" ) );
-				marginDiv.style.cssText = div.style.cssText = divReset;
+
+				// Reset CSS: box-sizing; display; margin; border; padding
+				marginDiv.style.cssText = div.style.cssText =
+					// Support: Firefox<29, Android 2.3
+					// Vendor-prefix box-sizing
+					"-webkit-box-sizing:content-box;-moz-box-sizing:content-box;" +
+					"box-sizing:content-box;display:block;margin:0;border:0;padding:0";
 				marginDiv.style.marginRight = marginDiv.style.width = "0";
 				div.style.width = "1px";
 				docElem.appendChild( container );
@@ -5605,9 +5663,6 @@ function addGetHookIf( conditionFn, hookFn ) {
 				ret = !parseFloat( window.getComputedStyle( marginDiv, null ).marginRight );
 
 				docElem.removeChild( container );
-
-				// Clean up the div for other support tests.
-				div.innerHTML = "";
 
 				return ret;
 			}
@@ -5647,8 +5702,8 @@ var
 
 	cssShow = { position: "absolute", visibility: "hidden", display: "block" },
 	cssNormalTransform = {
-		letterSpacing: 0,
-		fontWeight: 400
+		letterSpacing: "0",
+		fontWeight: "400"
 	},
 
 	cssPrefixes = [ "Webkit", "O", "Moz", "ms" ];
@@ -5795,13 +5850,10 @@ function showHide( elements, show ) {
 				values[ index ] = data_priv.access( elem, "olddisplay", defaultDisplay(elem.nodeName) );
 			}
 		} else {
+			hidden = isHidden( elem );
 
-			if ( !values[ index ] ) {
-				hidden = isHidden( elem );
-
-				if ( display && display !== "none" || !hidden ) {
-					data_priv.set( elem, "olddisplay", hidden ? display : jQuery.css(elem, "display") );
-				}
+			if ( display !== "none" || !hidden ) {
+				data_priv.set( elem, "olddisplay", hidden ? display : jQuery.css( elem, "display" ) );
 			}
 		}
 	}
@@ -5840,6 +5892,8 @@ jQuery.extend({
 	cssNumber: {
 		"columnCount": true,
 		"fillOpacity": true,
+		"flexGrow": true,
+		"flexShrink": true,
 		"fontWeight": true,
 		"lineHeight": true,
 		"opacity": true,
@@ -5904,9 +5958,6 @@ jQuery.extend({
 
 			// If a hook was provided, use that value, otherwise just set the specified value
 			if ( !hooks || !("set" in hooks) || (value = hooks.set( elem, value, extra )) !== undefined ) {
-				// Support: Chrome, Safari
-				// Setting style to blank string required to delete "style: x !important;"
-				style[ name ] = "";
 				style[ name ] = value;
 			}
 
@@ -5962,7 +6013,7 @@ jQuery.each([ "height", "width" ], function( i, name ) {
 			if ( computed ) {
 				// certain elements can have dimension info if we invisibly show them
 				// however, it must have a current display style that would benefit from this
-				return elem.offsetWidth === 0 && rdisplayswap.test( jQuery.css( elem, "display" ) ) ?
+				return rdisplayswap.test( jQuery.css( elem, "display" ) ) && elem.offsetWidth === 0 ?
 					jQuery.swap( elem, cssShow, function() {
 						return getWidthOrHeight( elem, name, extra );
 					}) :
@@ -6283,7 +6334,7 @@ function createTween( value, prop, animation ) {
 
 function defaultPrefilter( elem, props, opts ) {
 	/* jshint validthis: true */
-	var prop, value, toggle, tween, hooks, oldfire, display,
+	var prop, value, toggle, tween, hooks, oldfire, display, checkDisplay,
 		anim = this,
 		orig = {},
 		style = elem.style,
@@ -6327,13 +6378,12 @@ function defaultPrefilter( elem, props, opts ) {
 		// Set display property to inline-block for height/width
 		// animations on inline elements that are having width/height animated
 		display = jQuery.css( elem, "display" );
-		// Get default display if display is currently "none"
-		if ( display === "none" ) {
-			display = defaultDisplay( elem.nodeName );
-		}
-		if ( display === "inline" &&
-				jQuery.css( elem, "float" ) === "none" ) {
 
+		// Test default display if display is currently "none"
+		checkDisplay = display === "none" ?
+			data_priv.get( elem, "olddisplay" ) || defaultDisplay( elem.nodeName ) : display;
+
+		if ( checkDisplay === "inline" && jQuery.css( elem, "float" ) === "none" ) {
 			style.display = "inline-block";
 		}
 	}
@@ -6363,6 +6413,10 @@ function defaultPrefilter( elem, props, opts ) {
 				}
 			}
 			orig[ prop ] = dataShow && dataShow[ prop ] || jQuery.style( elem, prop );
+
+		// Any non-fx value stops us from restoring the original display value
+		} else {
+			display = undefined;
 		}
 	}
 
@@ -6405,6 +6459,10 @@ function defaultPrefilter( elem, props, opts ) {
 				}
 			}
 		}
+
+	// If this is a noop like .hide().hide(), restore an overwritten display value
+	} else if ( (display === "none" ? defaultDisplay( elem.nodeName ) : display) === "inline" ) {
+		style.display = display;
 	}
 }
 
@@ -7297,6 +7355,16 @@ jQuery.fn.extend({
 
 jQuery.extend({
 	valHooks: {
+		option: {
+			get: function( elem ) {
+				var val = jQuery.find.attr( elem, "value" );
+				return val != null ?
+					val :
+					// Support: IE10-11+
+					// option.text throws exceptions (#14686, #14858)
+					jQuery.trim( jQuery.text( elem ) );
+			}
+		},
 		select: {
 			get: function( elem ) {
 				var value, option,
@@ -7343,7 +7411,7 @@ jQuery.extend({
 
 				while ( i-- ) {
 					option = options[ i ];
-					if ( (option.selected = jQuery.inArray( jQuery(option).val(), values ) >= 0) ) {
+					if ( (option.selected = jQuery.inArray( option.value, values ) >= 0) ) {
 						optionSet = true;
 					}
 				}
@@ -8550,10 +8618,15 @@ jQuery.ajaxTransport(function( options ) {
 				// Create the abort callback
 				callback = xhrCallbacks[ id ] = callback("abort");
 
-				// Do send the request
-				// This may raise an exception which is actually
-				// handled in jQuery.ajax (so no try/catch here)
-				xhr.send( options.hasContent && options.data || null );
+				try {
+					// Do send the request (this may raise an exception)
+					xhr.send( options.hasContent && options.data || null );
+				} catch ( e ) {
+					// #14683: Only rethrow if this hasn't been notified as an error yet
+					if ( callback ) {
+						throw e;
+					}
+				}
 			},
 
 			abort: function() {
@@ -8760,7 +8833,7 @@ jQuery.fn.load = function( url, params, callback ) {
 		off = url.indexOf(" ");
 
 	if ( off >= 0 ) {
-		selector = url.slice( off );
+		selector = jQuery.trim( url.slice( off ) );
 		url = url.slice( 0, off );
 	}
 
@@ -9068,6 +9141,12 @@ jQuery.fn.andSelf = jQuery.fn.addBack;
 // derived from file names, and jQuery is normally delivered in a lowercase
 // file name. Do this after creating the global so that if an AMD module wants
 // to call noConflict to hide this version of jQuery, it will work.
+
+// Note that for maximum portability, libraries that are not jQuery should
+// declare themselves as anonymous modules, and avoid setting a global if an
+// AMD loader is present. jQuery is a special case. For more information, see
+// https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
+
 if ( typeof define === "function" && define.amd ) {
 	define( "jquery", [], function() {
 		return jQuery;
@@ -9411,26 +9490,27 @@ angular.module('eosApp')
 
   var header_helpers = function (class_array) {
     var i = class_array.length;
+    var head = $('head');
 
     while (i--) {
-      if($('head').has('.' + class_array[i]).length === 0) {
-        $('head').append('<meta class="' + class_array[i] + '">');
+      if(head.has('.' + class_array[i]).length === 0) {
+        head.append('<meta class="' + class_array[i] + '" />');
       }
     }
   };
 
   header_helpers([
-    'foundation-mq-small', 
-    'foundation-mq-medium', 
-    'foundation-mq-large', 
-    'foundation-mq-xlarge', 
-    'foundation-mq-xxlarge', 
+    'foundation-mq-small',
+    'foundation-mq-medium',
+    'foundation-mq-large',
+    'foundation-mq-xlarge',
+    'foundation-mq-xxlarge',
     'foundation-data-attribute-namespace']);
 
   // Enable FastClick if present
 
   $(function() {
-    if(typeof FastClick !== 'undefined') {
+    if (typeof FastClick !== 'undefined') {
       // Don't attach to body if undefined
       if (typeof document.body !== 'undefined') {
         FastClick.attach(document.body);
@@ -9443,10 +9523,11 @@ angular.module('eosApp')
   // getElementById is not available.
   var S = function (selector, context) {
     if (typeof selector === 'string') {
-      if (context) { 
+      if (context) {
         var cont;
         if (context.jquery) {
           cont = context[0];
+          if (!cont) return context;
         } else {
           cont = context;
         }
@@ -9470,22 +9551,12 @@ angular.module('eosApp')
     return arr.join('-');
   };
 
-  var header_helpers = function (class_array) {
-    var i = class_array.length;
-
-    while (i--) {
-      if($('head').has('.' + class_array[i]).length === 0) {
-        $('head').append('<meta class="' + class_array[i] + '">');
-      }
-    }
-  };
-
   var add_namespace = function (str) {
     var parts = str.split('-'),
         i = parts.length,
         arr = [];
 
-    while(i--) {
+    while (i--) {
       if (i !== 0) {
         arr.push(parts[i]);
       } else {
@@ -9506,9 +9577,6 @@ angular.module('eosApp')
     var self = this,
         should_bind_events = !S(this).data(this.attr_name(true));
 
-    if (typeof method === 'string') {
-      return this[method].call(this, options);
-    }
 
     if (S(this.scope).is('[' + this.attr_name() +']')) {
       S(this.scope).data(this.attr_name(true) + '-init', $.extend({}, this.settings, (options || method), this.data_options(S(this.scope))));
@@ -9520,7 +9588,6 @@ angular.module('eosApp')
     } else {
       S('[' + this.attr_name() +']', this.scope).each(function () {
         var should_bind_events = !S(this).data(self.attr_name(true) + '-init');
-
         S(this).data(self.attr_name(true) + '-init', $.extend({}, self.settings, (options || method), self.data_options(S(this))));
 
         if (should_bind_events) {
@@ -9528,6 +9595,11 @@ angular.module('eosApp')
         }
       });
     }
+    // # Patch to fix #5043 to move this *after* the if/else clause in order for Backbone and similar frameworks to have improved control over event binding and data-options updating. 
+    if (typeof method === 'string') {
+      return this[method].call(this, options);
+    }
+
   };
 
   var single_image_loaded = function (image, callback) {
@@ -9557,13 +9629,13 @@ angular.module('eosApp')
     } else {
       bindLoad.call(image);
     }
-  }
+  };
 
   /*
     https://github.com/paulirish/matchMedia.js
   */
 
-  window.matchMedia = window.matchMedia || (function( doc, undefined ) {
+  window.matchMedia = window.matchMedia || (function( doc ) {
 
     "use strict";
 
@@ -9579,7 +9651,7 @@ angular.module('eosApp')
     fakeBody.style.background = "none";
     fakeBody.appendChild(div);
 
-    return function(q){
+    return function (q) {
 
       div.innerHTML = "&shy;<style media=\"" + q + "\"> #mq-test-1 { width: 42px; }</style>";
 
@@ -9605,64 +9677,70 @@ angular.module('eosApp')
    * Licensed under the MIT license.
    */
 
-  (function( $ ) {
+  (function($) {
 
   // requestAnimationFrame polyfill adapted from Erik Möller
   // fixes from Paul Irish and Tino Zijdel
   // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
   // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
 
-
   var animating,
-    lastTime = 0,
-    vendors = ['webkit', 'moz'],
-    requestAnimationFrame = window.requestAnimationFrame,
-    cancelAnimationFrame = window.cancelAnimationFrame;
+      lastTime = 0,
+      vendors = ['webkit', 'moz'],
+      requestAnimationFrame = window.requestAnimationFrame,
+      cancelAnimationFrame = window.cancelAnimationFrame,
+      jqueryFxAvailable = 'undefined' !== typeof jQuery.fx;
 
-  for(; lastTime < vendors.length && !requestAnimationFrame; lastTime++) {
+  for (; lastTime < vendors.length && !requestAnimationFrame; lastTime++) {
     requestAnimationFrame = window[ vendors[lastTime] + "RequestAnimationFrame" ];
     cancelAnimationFrame = cancelAnimationFrame ||
-      window[ vendors[lastTime] + "CancelAnimationFrame" ] || 
+      window[ vendors[lastTime] + "CancelAnimationFrame" ] ||
       window[ vendors[lastTime] + "CancelRequestAnimationFrame" ];
   }
 
   function raf() {
-    if ( animating ) {
-      requestAnimationFrame( raf );
-      jQuery.fx.tick();
+    if (animating) {
+      requestAnimationFrame(raf);
+
+      if (jqueryFxAvailable) {
+        jQuery.fx.tick();
+      }
     }
   }
 
-  if ( requestAnimationFrame ) {
+  if (requestAnimationFrame) {
     // use rAF
     window.requestAnimationFrame = requestAnimationFrame;
     window.cancelAnimationFrame = cancelAnimationFrame;
-    jQuery.fx.timer = function( timer ) {
-      if ( timer() && jQuery.timers.push( timer ) && !animating ) {
-        animating = true;
-        raf();
-      }
-    };
 
-    jQuery.fx.stop = function() {
-      animating = false;
-    };
+    if (jqueryFxAvailable) {
+      jQuery.fx.timer = function (timer) {
+        if (timer() && jQuery.timers.push(timer) && !animating) {
+          animating = true;
+          raf();
+        }
+      };
+
+      jQuery.fx.stop = function () {
+        animating = false;
+      };
+    }
   } else {
     // polyfill
-    window.requestAnimationFrame = function( callback, element ) {
+    window.requestAnimationFrame = function (callback) {
       var currTime = new Date().getTime(),
-        timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) ),
-        id = window.setTimeout( function() {
-          callback( currTime + timeToCall );
-        }, timeToCall );
+        timeToCall = Math.max(0, 16 - (currTime - lastTime)),
+        id = window.setTimeout(function () {
+          callback(currTime + timeToCall);
+        }, timeToCall);
       lastTime = currTime + timeToCall;
       return id;
     };
 
-    window.cancelAnimationFrame = function(id) {
+    window.cancelAnimationFrame = function (id) {
       clearTimeout(id);
     };
-      
+
   }
 
   }( jQuery ));
@@ -9679,7 +9757,7 @@ angular.module('eosApp')
   window.Foundation = {
     name : 'Foundation',
 
-    version : '5.1.1',
+    version : '5.3.1',
 
     media_queries : {
       small : S('.foundation-mq-small').css('font-family').replace(/^[\/\\'"]+|(;\s?})+|[\/\\'"]+$/g, ''),
@@ -9692,12 +9770,11 @@ angular.module('eosApp')
     stylesheet : $('<style></style>').appendTo('head')[0].sheet,
 
     global: {
-      namespace: ''
+      namespace: undefined
     },
 
     init : function (scope, libraries, method, options, response) {
-      var library_arr,
-          args = [scope, method, options, response],
+      var args = [scope, method, options, response],
           responses = [];
 
       // check RTL
@@ -9726,10 +9803,16 @@ angular.module('eosApp')
         this.patch(this.libs[lib]);
 
         if (args && args.hasOwnProperty(lib)) {
+            if (typeof this.libs[lib].settings !== 'undefined') {
+                $.extend(true, this.libs[lib].settings, args[lib]);
+            }
+            else if (typeof this.libs[lib].defaults !== 'undefined') {
+                $.extend(true, this.libs[lib].defaults, args[lib]);
+            }
           return this.libs[lib].init.apply(this.libs[lib], [this.scope, args[lib]]);
         }
 
-        args = args instanceof Array ? args : Array(args);    // PATCH: added this line
+        args = args instanceof Array ? args : new Array(args);    // PATCH: added this line
         return this.libs[lib].init.apply(this.libs[lib], args);
       }
 
@@ -9759,11 +9842,25 @@ angular.module('eosApp')
     },
 
     set_namespace: function () {
-      var namespace = $('.foundation-data-attribute-namespace').css('font-family');
 
-      if (/false/i.test(namespace)) return;
+      // Description:
+      //    Don't bother reading the namespace out of the meta tag
+      //    if the namespace has been set globally in javascript
+      //
+      // Example:
+      //    Foundation.global.namespace = 'my-namespace';
+      // or make it an empty string:
+      //    Foundation.global.namespace = '';
+      //
+      //
 
-      this.global.namespace = namespace;
+      // If the namespace has not been set (is undefined), try to read it out of the meta element.
+      // Otherwise use the globally defined namespace, even if it's empty ('')
+      var namespace = ( this.global.namespace === undefined ) ? $('.foundation-data-attribute-namespace').css('font-family') : this.global.namespace;
+
+      // Finally, if the namsepace is either undefined or false, set it to an empty string.
+      // Otherwise use the namespace value.
+      this.global.namespace = ( namespace === undefined || /false/i.test(namespace) ) ? '' : namespace;
     },
 
     libs : {},
@@ -9772,23 +9869,23 @@ angular.module('eosApp')
     utils : {
 
       // Description:
-      //    Fast Selector wrapper returns jQuery object. Only use where getElementById 
+      //    Fast Selector wrapper returns jQuery object. Only use where getElementById
       //    is not available.
       //
       // Arguments:
-      //    Selector (String): CSS selector describing the element(s) to be 
+      //    Selector (String): CSS selector describing the element(s) to be
       //    returned as a jQuery object.
       //
-      //    Scope (String): CSS selector describing the area to be searched. Default 
+      //    Scope (String): CSS selector describing the area to be searched. Default
       //    is document.
       //
       // Returns:
-      //    Element (jQuery Object): jQuery object containing elements matching the 
+      //    Element (jQuery Object): jQuery object containing elements matching the
       //    selector within the scope.
       S : S,
 
       // Description:
-      //    Executes a function a max of once every n milliseconds 
+      //    Executes a function a max of once every n milliseconds
       //
       // Arguments:
       //    Func (Function): Function to be throttled.
@@ -9797,16 +9894,18 @@ angular.module('eosApp')
       //
       // Returns:
       //    Lazy_function (Function): Function with throttling applied.
-      throttle : function(func, delay) {
+      throttle : function (func, delay) {
         var timer = null;
 
         return function () {
           var context = this, args = arguments;
 
-          clearTimeout(timer);
-          timer = setTimeout(function () {
-            func.apply(context, args);
-          }, delay);
+          if (timer == null) {
+            timer = setTimeout(function () {
+              func.apply(context, args);
+              timer = null;
+            }, delay);
+          }
         };
       },
 
@@ -9818,17 +9917,17 @@ angular.module('eosApp')
       //    Func (Function): Function to be debounced.
       //
       //    Delay (Integer): Function execution threshold in milliseconds.
-      // 
-      //    Immediate (Bool): Whether the function should be called at the beginning 
+      //
+      //    Immediate (Bool): Whether the function should be called at the beginning
       //    of the delay instead of the end. Default is false.
       //
       // Returns:
       //    Lazy_function (Function): Function with debouncing applied.
-      debounce : function(func, delay, immediate) {
+      debounce : function (func, delay, immediate) {
         var timeout, result;
-        return function() {
+        return function () {
           var context = this, args = arguments;
-          var later = function() {
+          var later = function () {
             timeout = null;
             if (!immediate) result = func.apply(context, args);
           };
@@ -9847,18 +9946,19 @@ angular.module('eosApp')
       //    El (jQuery Object): Element to be parsed.
       //
       // Returns:
-      //    Options (Javascript Object): Contents of the element's data-options 
+      //    Options (Javascript Object): Contents of the element's data-options
       //    attribute.
-      data_options : function (el) {
+      data_options : function (el, data_attr_name) {
+        data_attr_name = data_attr_name || 'options';
         var opts = {}, ii, p, opts_arr,
             data_options = function (el) {
               var namespace = Foundation.global.namespace;
 
               if (namespace.length > 0) {
-                return el.data(namespace + '-options');
+                return el.data(namespace + '-' + data_attr_name);
               }
 
-              return el.data('options');
+              return el.data(data_attr_name);
             };
 
         var cached_options = data_options(el);
@@ -9867,24 +9967,31 @@ angular.module('eosApp')
           return cached_options;
         }
 
-        opts_arr = (cached_options || ':').split(';'),
+        opts_arr = (cached_options || ':').split(';');
         ii = opts_arr.length;
 
         function isNumber (o) {
           return ! isNaN (o-0) && o !== null && o !== "" && o !== false && o !== true;
         }
 
-        function trim(str) {
+        function trim (str) {
           if (typeof str === 'string') return $.trim(str);
           return str;
         }
 
         while (ii--) {
           p = opts_arr[ii].split(':');
+          p = [p[0], p.slice(1).join(':')];
 
           if (/true/i.test(p[1])) p[1] = true;
           if (/false/i.test(p[1])) p[1] = false;
-          if (isNumber(p[1])) p[1] = parseInt(p[1], 10);
+          if (isNumber(p[1])) {
+            if (p[1].indexOf('.') === -1) {
+              p[1] = parseInt(p[1], 10);
+            } else {
+              p[1] = parseFloat(p[1]);
+            }
+          }
 
           if (p.length === 2 && p[0].length > 0) {
             opts[trim(p[0])] = trim(p[1]);
@@ -9898,13 +10005,13 @@ angular.module('eosApp')
       //    Adds JS-recognizable media queries
       //
       // Arguments:
-      //    Media (String): Key string for the media query to be stored as in 
+      //    Media (String): Key string for the media query to be stored as in
       //    Foundation.media_queries
       //
       //    Class (String): Class name for the generated <meta> tag
-      register_media : function(media, media_class) {
+      register_media : function (media, media_class) {
         if(Foundation.media_queries[media] === undefined) {
-          $('head').append('<meta class="' + media_class + '">');
+          $('head').append('<meta class="' + media_class + '"/>');
           Foundation.media_queries[media] = removeQuotes($('.' + media_class).css('font-family'));
         }
       },
@@ -9915,15 +10022,16 @@ angular.module('eosApp')
       // Arguments:
       //    Rule (String): CSS rule to be appended to the document.
       //
-      //    Media (String): Optional media query string for the CSS rule to be 
+      //    Media (String): Optional media query string for the CSS rule to be
       //    nested under.
-      add_custom_rule : function(rule, media) {
-        if(media === undefined) {
+      add_custom_rule : function (rule, media) {
+        if (media === undefined && Foundation.stylesheet) {
           Foundation.stylesheet.insertRule(rule, Foundation.stylesheet.cssRules.length);
         } else {
           var query = Foundation.media_queries[media];
-          if(query !== undefined) {
-            Foundation.stylesheet.insertRule('@media ' + 
+
+          if (query !== undefined) {
+            Foundation.stylesheet.insertRule('@media ' +
               Foundation.media_queries[media] + '{ ' + rule + ' }');
           }
         }
@@ -9935,15 +10043,19 @@ angular.module('eosApp')
       // Arguments:
       //    Image (jQuery Object): Image(s) to check if loaded.
       //
-      //    Callback (Function): Fundation to execute when image is fully loaded.
+      //    Callback (Function): Function to execute when image is fully loaded.
       image_loaded : function (images, callback) {
         var self = this,
             unloaded = images.length;
 
-        images.each(function(){
-          single_image_loaded(self.S(this),function(){
-            unloaded -= 1; 
-            if(unloaded == 0){
+        if (unloaded === 0) {
+          callback(images);
+        }
+
+        images.each(function () {
+          single_image_loaded(self.S(this), function () {
+            unloaded -= 1;
+            if (unloaded === 0) {
               callback(images);
             }
           });
@@ -9954,23 +10066,16 @@ angular.module('eosApp')
       //    Returns a random, alphanumeric string
       //
       // Arguments:
-      //    Length (Integer): Length of string to be generated. Defaults to random 
+      //    Length (Integer): Length of string to be generated. Defaults to random
       //    integer.
       //
       // Returns:
       //    Rand (String): Pseudo-random, alphanumeric string.
-      random_str : function (length) {
-        var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+      random_str : function () {
+        if (!this.fidx) this.fidx = 0;
+        this.prefix = this.prefix || [(this.name || 'F'), (+new Date).toString(36)].join('-');
 
-        if (!length) {
-          length = Math.floor(Math.random() * chars.length);
-        }
-
-        var str = '';
-        while (length--) {
-          str += chars[Math.floor(Math.random() * chars.length)];
-        }
-        return str;
+        return this.prefix + (this.fidx++).toString(36);
       }
     }
   };
@@ -9984,7 +10089,7 @@ angular.module('eosApp')
     });
   };
 
-}(jQuery, this, this.document));
+}(jQuery, window, window.document));
 
 ;(function ($, window, document, undefined) {
   'use strict';
@@ -9992,7 +10097,7 @@ angular.module('eosApp')
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
     settings : {
       live_validate : true,
@@ -10002,11 +10107,8 @@ angular.module('eosApp')
       patterns : {
         alpha: /^[a-zA-Z]+$/,
         alpha_numeric : /^[a-zA-Z0-9]+$/,
-        integer: /^\d+$/,
-        number: /-?(?:\d+|\d{1,3}(?:,\d{3})+)?(?:\.\d+)?/,
-
-        // generic password: upper-case, lower-case, number/special character, and min 8 characters
-        password : /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
+        integer: /^[-+]?\d+$/,
+        number: /^[-+]?\d*(?:[\.\,]\d+)?$/,
 
         // amex, visa, diners
         card : /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/,
@@ -10015,21 +10117,30 @@ angular.module('eosApp')
         // http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#valid-e-mail-address
         email : /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
 
-        url: /(https?|ftp|file|ssh):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?/,
+        url: /^(https?|ftp|file|ssh):\/\/(((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-zA-Z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-zA-Z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/,
         // abc.de
         domain: /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/,
 
-        datetime: /([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])T([0-5][0-9])\:([0-5][0-9])\:([0-5][0-9])(Z|([\-\+]([0-1][0-9])\:00))/,
+        datetime: /^([0-2][0-9]{3})\-([0-1][0-9])\-([0-3][0-9])T([0-5][0-9])\:([0-5][0-9])\:([0-5][0-9])(Z|([\-\+]([0-1][0-9])\:00))$/,
         // YYYY-MM-DD
-        date: /(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))/,
+        date: /(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))$/,
         // HH:MM:SS
-        time : /(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}/,
-        dateISO: /\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}/,
+        time : /^(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}$/,
+        dateISO: /^\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}$/,
         // MM/DD/YYYY
-        month_day_year : /(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/,
+        month_day_year : /^(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.]\d{4}$/,
 
         // #FFF or #FFFFFF
         color: /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/
+      },
+      validators : {
+        equalTo: function(el, required, parent) {
+          var from  = document.getElementById(el.getAttribute(this.add_namespace('data-equalto'))).value,
+              to    = el.value,
+              valid = (from === to);
+
+          return valid;
+        }
       }
     },
 
@@ -10042,7 +10153,7 @@ angular.module('eosApp')
     events : function (scope) {
       var self = this,
           form = self.S(scope).attr('novalidate', 'novalidate'),
-          settings = form.data(this.attr_name(true) + '-init');
+          settings = form.data(this.attr_name(true) + '-init') || {};
 
       this.invalid_attr = this.add_namespace('data-invalid');
 
@@ -10061,7 +10172,6 @@ angular.module('eosApp')
             self.validate([this], e);
           })
           .on('keydown.fndtn.abide', function (e) {
-            var settings = $(this).closest('form').data('abide-init');
             if (settings.live_validate === true) {
               clearTimeout(self.timer);
               self.timer = setTimeout(function () {
@@ -10126,7 +10236,7 @@ angular.module('eosApp')
       } else if (pattern.length > 0) {
         return [el, new RegExp(pattern), required];
       }
-      
+
       if (this.settings.patterns.hasOwnProperty(type)) {
         return [el, this.settings.patterns[type], required];
       }
@@ -10138,20 +10248,24 @@ angular.module('eosApp')
 
     check_validation_and_apply_styles : function (el_patterns) {
       var i = el_patterns.length,
-          validations = [];
-
+          validations = [],
+          form = this.S(el_patterns[0][0]).closest('[data-' + this.attr_name(true) + ']'),
+          settings = form.data(this.attr_name(true) + '-init') || {};
       while (i--) {
         var el = el_patterns[i][0],
             required = el_patterns[i][2],
-            value = el.value,
+            value = el.value.trim(),
             direct_parent = this.S(el).parent(),
-            is_equal = el.getAttribute(this.add_namespace('data-equalto')),
+            validator = el.getAttribute(this.add_namespace('data-abide-validator')),
             is_radio = el.type === "radio",
             is_checkbox = el.type === "checkbox",
             label = this.S('label[for="' + el.getAttribute('id') + '"]'),
             valid_length = (required) ? (el.value.length > 0) : true;
 
-        var parent;
+        var parent, valid;
+
+        // support old way to do equalTo validations
+        if(el.getAttribute(this.add_namespace('data-equalto'))) { validator = "equalTo" }
 
         if (!direct_parent.is('label')) {
           parent = direct_parent;
@@ -10163,26 +10277,34 @@ angular.module('eosApp')
           validations.push(this.valid_radio(el, required));
         } else if (is_checkbox && required) {
           validations.push(this.valid_checkbox(el, required));
-        } else if (is_equal && required) {
-          validations.push(this.valid_equal(el, required, parent));
         } else {
+          
+          if (validator) {
+            valid = this.settings.validators[validator].apply(this, [el, required, parent]);
+            validations.push(valid);
+          }
 
           if (el_patterns[i][1].test(value) && valid_length ||
-            !required && el.value.length < 1) {
+            !required && el.value.length < 1 || $(el).attr('disabled')) {
+            validations.push(true);
+          } else {
+            validations.push(false);
+          }
+
+          validations = [validations.every(function(valid){return valid;})];
+
+          if(validations[0]){
             this.S(el).removeAttr(this.invalid_attr);
             parent.removeClass('error');
             if (label.length > 0 && this.settings.error_labels) label.removeClass('error');
-
-            validations.push(true);
             $(el).triggerHandler('valid');
           } else {
-            this.S(el).attr(this.invalid_attr, '');
             parent.addClass('error');
+            this.S(el).attr(this.invalid_attr, '');
             if (label.length > 0 && this.settings.error_labels) label.addClass('error');
-
-            validations.push(false);
             $(el).triggerHandler('invalid');
           }
+
         }
       }
 
@@ -10204,7 +10326,7 @@ angular.module('eosApp')
 
     valid_radio : function (el, required) {
       var name = el.getAttribute('name'),
-          group = document.getElementsByName(name),
+          group = this.S(el).closest('[data-' + this.attr_name(true) + ']').find("[name='"+name+"']"),
           count = group.length,
           valid = false;
 
@@ -10239,9 +10361,30 @@ angular.module('eosApp')
       }
 
       return valid;
+    },
+
+    valid_oneof: function(el, required, parent, doNotValidateOthers) {
+      var el = this.S(el),
+        others = this.S('[' + this.add_namespace('data-oneof') + ']'),
+        valid = others.filter(':checked').length > 0;
+
+      if (valid) {
+        el.removeAttr(this.invalid_attr).parent().removeClass('error');
+      } else {
+        el.attr(this.invalid_attr, '').parent().addClass('error');
+      }
+
+      if (!doNotValidateOthers) {
+        var _this = this;
+        others.each(function() {
+          _this.valid_oneof.call(_this, this, null, null, true);
+        });
+      }
+
+      return valid;
     }
   };
-}(jQuery, this, this.document));
+}(jQuery, window, window.document));
 
 ;(function ($, window, document, undefined) {
   'use strict';
@@ -10249,15 +10392,17 @@ angular.module('eosApp')
   Foundation.libs.accordion = {
     name : 'accordion',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
     settings : {
       active_class: 'active',
-      toggleable: true
+      multi_expand: false,
+      toggleable: true,
+      callback : function () {}
     },
 
     init : function (scope, method, options) {
-      this.bindings(method, options); 
+      this.bindings(method, options);
     },
 
     events : function () {
@@ -10267,23 +10412,37 @@ angular.module('eosApp')
       .off('.fndtn.accordion')
       .on('click.fndtn.accordion', '[' + this.attr_name() + '] > dd > a', function (e) {
         var accordion = S(this).closest('[' + self.attr_name() + ']'),
-            target = S('#' + this.href.split('#')[1]),
-            siblings = S('dd > .content', accordion),
-            aunts = $('> dd', accordion),
+            groupSelector = self.attr_name() + '=' + accordion.attr(self.attr_name()),
             settings = accordion.data(self.attr_name(true) + '-init'),
-            active_content = S('dd > .content.' + settings.active_class, accordion),
-            active_parent = S('dd.' + settings.active_class, accordion);
-
+            target = S('#' + this.href.split('#')[1]),
+            aunts = $('> dd', accordion),
+            siblings = aunts.children('.content'),
+            active_content = siblings.filter('.' + settings.active_class);
         e.preventDefault();
 
-        if (active_content[0] == target[0] && settings.toggleable) {
-          active_parent.toggleClass(settings.active_class, false);
-          return target.toggleClass(settings.active_class, false);
+        if (accordion.attr(self.attr_name())) {
+          siblings = siblings.add('[' + groupSelector + '] dd > .content');
+          aunts = aunts.add('[' + groupSelector + '] dd');
         }
 
-        siblings.removeClass(settings.active_class);
-        aunts.removeClass(settings.active_class);
+        if (settings.toggleable && target.is(active_content)) {
+          target.parent('dd').toggleClass(settings.active_class, false);
+          target.toggleClass(settings.active_class, false);
+          settings.callback(target);
+          target.triggerHandler('toggled', [accordion]);
+          accordion.triggerHandler('toggled', [target]);
+          return;
+        }
+
+        if (!settings.multi_expand) {
+          siblings.removeClass(settings.active_class);
+          aunts.removeClass(settings.active_class);
+        }
+
         target.addClass(settings.active_class).parent().addClass(settings.active_class);
+        settings.callback(target);
+        target.triggerHandler('toggled', [accordion]);
+        accordion.triggerHandler('toggled', [target]);
       });
     },
 
@@ -10291,7 +10450,7 @@ angular.module('eosApp')
 
     reflow : function () {}
   };
-}(jQuery, this, this.document));
+}(jQuery, window, window.document));
 
 ;(function ($, window, document, undefined) {
   'use strict';
@@ -10299,11 +10458,9 @@ angular.module('eosApp')
   Foundation.libs.alert = {
     name : 'alert',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
     settings : {
-      animation: 'fadeOut',
-      speed: 300, // fade out speed
       callback: function (){}
     },
 
@@ -10320,16 +10477,24 @@ angular.module('eosApp')
               settings = alertBox.data(self.attr_name(true) + '-init') || self.settings;
 
         e.preventDefault();
-        alertBox[settings.animation](settings.speed, function () {
-          S(this).trigger('closed').remove();
-          settings.callback();
-        });
+        if (Modernizr.csstransitions) {
+          alertBox.addClass("alert-close");
+          alertBox.on('transitionend webkitTransitionEnd oTransitionEnd', function(e) {
+            S(this).trigger('close').trigger('close.fndtn.alert').remove();
+            settings.callback();
+          });
+        } else {
+          alertBox.fadeOut(300, function () {
+            S(this).trigger('close').trigger('close.fndtn.alert').remove();
+            settings.callback();
+          });
+        }
       });
     },
 
     reflow : function () {}
   };
-}(jQuery, this, this.document));
+}(jQuery, window, window.document));
 
 ;(function ($, window, document, undefined) {
   'use strict';
@@ -10337,7 +10502,7 @@ angular.module('eosApp')
   Foundation.libs.clearing = {
     name : 'clearing',
 
-    version: '5.1.1',
+    version: '5.3.3',
 
     settings : {
       templates : {
@@ -10349,9 +10514,15 @@ angular.module('eosApp')
 
       // comma delimited list of selectors that, on click, will close clearing,
       // add 'div.clearing-blackout, div.visible-img' to close on background click
-      close_selectors : '.clearing-close',
+      close_selectors : '.clearing-close, div.clearing-blackout', 
 
-      touch_label : '&larr;&nbsp;Swipe to Advance&nbsp;&rarr;',
+      // Default to the entire li element.
+      open_selectors : '',
+
+      // Image will be skipped in carousel.
+      skip_selector : '',
+
+      touch_label : '',
 
       // event initializers and locks
       init : false,
@@ -10364,7 +10535,7 @@ angular.module('eosApp')
 
       this.bindings(method, options);
 
-      if (self.S(this.scope).is('[' + this.attr_name() + ']')) { 
+      if (self.S(this.scope).is('[' + this.attr_name() + ']')) {
         this.assemble(self.S('li', this.scope));
       } else {
         self.S('[' + this.attr_name() + ']', this.scope).each(function () {
@@ -10375,11 +10546,16 @@ angular.module('eosApp')
 
     events : function (scope) {
       var self = this,
-      S = self.S;
+          S = self.S,
+          $scroll_container = $('.scroll-container');
+
+      if ($scroll_container.length > 0) {
+        this.scope = $scroll_container;
+      }
 
       S(this.scope)
         .off('.clearing')
-        .on('click.fndtn.clearing', 'ul[' + this.attr_name() + '] li',
+        .on('click.fndtn.clearing', 'ul[' + this.attr_name() + '] li ' + this.settings.open_selectors,
           function (e, current, target) {
             var current = current || S(this),
                 target = target || current,
@@ -10396,8 +10572,8 @@ angular.module('eosApp')
 
             // if clearing is open and the current image is
             // clicked, go to the next image in sequence
-            if (target.hasClass('visible') && 
-              current[0] === target[0] && 
+            if (target.hasClass('visible') &&
+              current[0] === target[0] &&
               next.length > 0 && self.is_open(current)) {
               target = next;
               image = S('img', target);
@@ -10413,8 +10589,9 @@ angular.module('eosApp')
         .on('click.fndtn.clearing', '.clearing-main-prev',
           function (e) { self.nav(e, 'prev') })
         .on('click.fndtn.clearing', this.settings.close_selectors,
-          function (e) { Foundation.libs.clearing.close(e, this) })
-        .on('keydown.fndtn.clearing',
+          function (e) { Foundation.libs.clearing.close(e, this) });
+
+      $(document).on('keydown.fndtn.clearing',
           function (e) { self.keydown(e) });
 
       S(window).off('.clearing').on('resize.fndtn.clearing',
@@ -10454,7 +10631,11 @@ angular.module('eosApp')
 
           data.delta_x = e.touches[0].pageX - data.start_page_x;
 
-          if ( typeof data.is_scrolling === 'undefined') {
+          if (Foundation.rtl) {
+            data.delta_x = -data.delta_x;
+          }
+
+          if (typeof data.is_scrolling === 'undefined') {
             data.is_scrolling = !!( data.is_scrolling || Math.abs(data.delta_x) < Math.abs(e.touches[0].pageY - data.start_page_y) );
           }
 
@@ -10474,14 +10655,25 @@ angular.module('eosApp')
     assemble : function ($li) {
       var $el = $li.parent();
 
-      if ($el.parent().hasClass('carousel')) return;
+      if ($el.parent().hasClass('carousel')) {
+        return;
+      }
+      
       $el.after('<div id="foundationClearingHolder"></div>');
 
+      var grid = $el.detach(),
+          grid_outerHTML = '';
+
+      if (grid[0] == null) {
+        return;
+      } else {
+        grid_outerHTML = grid[0].outerHTML;
+      }
+      
       var holder = this.S('#foundationClearingHolder'),
           settings = $el.data(this.attr_name(true) + '-init'),
-          grid = $el.detach(),
           data = {
-            grid: '<div class="carousel">' + grid[0].outerHTML + '</div>',
+            grid: '<div class="carousel">' + grid_outerHTML + '</div>',
             viewing: settings.templates.viewing
           },
           wrapper = '<div class="clearing-assembled"><div>' + data.viewing +
@@ -10497,32 +10689,61 @@ angular.module('eosApp')
 
     open : function ($image, current, target) {
       var self = this,
+          body = $(document.body),
           root = target.closest('.clearing-assembled'),
           container = self.S('div', root).first(),
           visible_image = self.S('.visible-img', container),
           image = self.S('img', visible_image).not($image),
-          label = self.S('.clearing-touch-label', container);
+          label = self.S('.clearing-touch-label', container),
+          error = false;
+
+      // Event to disable scrolling on touch devices when Clearing is activated
+      $('body').on('touchmove',function(e){
+        e.preventDefault();
+      });
+
+      image.error(function () {
+        error = true;
+      });
+
+      function startLoad() {
+        setTimeout(function () {
+          this.image_loaded(image, function () {
+            if (image.outerWidth() === 1 && !error) {
+              startLoad.call(this);
+            } else {
+              cb.call(this, image);
+            }
+          }.bind(this));
+        }.bind(this), 100);
+      }
+
+      function cb (image) {
+        var $image = $(image);
+        $image.css('visibility', 'visible');
+        // toggle the gallery
+        body.css('overflow', 'hidden');
+        root.addClass('clearing-blackout');
+        container.addClass('clearing-container');
+        visible_image.show();
+        this.fix_height(target)
+          .caption(self.S('.clearing-caption', visible_image), self.S('img', target))
+          .center_and_label(image, label)
+          .shift(current, target, function () {
+            target.closest('li').siblings().removeClass('visible');
+            target.closest('li').addClass('visible');
+          });
+        visible_image.trigger('opened.fndtn.clearing')
+      }
 
       if (!this.locked()) {
+        visible_image.trigger('open.fndtn.clearing');
         // set the image to the selected thumbnail
         image
           .attr('src', this.load($image))
           .css('visibility', 'hidden');
 
-        this.image_loaded(image, function () {
-          image.css('visibility', 'visible');
-          // toggle the gallery
-          root.addClass('clearing-blackout');
-          container.addClass('clearing-container');
-          visible_image.show();
-          this.fix_height(target)
-            .caption(self.S('.clearing-caption', visible_image), $image)
-            .center_and_label(image,label)
-            .shift(current, target, function () {
-              target.siblings().removeClass('visible');
-              target.addClass('visible');
-            });
-        }.bind(this));
+        startLoad.call(this);
       }
     },
 
@@ -10535,18 +10756,25 @@ angular.module('eosApp')
             } else {
               return target.closest('.clearing-blackout');
             }
-          }($(el))), container, visible_image;
+          }($(el))),
+          body = $(document.body), container, visible_image;
 
       if (el === e.target && root) {
+        body.css('overflow', '');
         container = $('div', root).first();
         visible_image = $('.visible-img', container);
+        visible_image.trigger('close.fndtn.clearing');
         this.settings.prev_index = 0;
         $('ul[' + this.attr_name() + ']', root)
           .attr('style', '').closest('.clearing-blackout')
           .removeClass('clearing-blackout');
         container.removeClass('clearing-container');
         visible_image.hide();
+        visible_image.trigger('closed.fndtn.clearing');        
       }
+
+      // Event to re-enable scrolling on touch devices
+      $('body').off('touchmove');
 
       return false;
     },
@@ -10556,14 +10784,14 @@ angular.module('eosApp')
     },
 
     keydown : function (e) {
-      var clearing = $('ul[' + this.attr_name() + ']', '.clearing-blackout'),
+      var clearing = $('.clearing-blackout ul[' + this.attr_name() + ']'),
           NEXT_KEY = this.rtl ? 37 : 39,
           PREV_KEY = this.rtl ? 39 : 37,
           ESC_KEY = 27;
 
       if (e.which === NEXT_KEY) this.go(clearing, 'next');
       if (e.which === PREV_KEY) this.go(clearing, 'prev');
-      if (e.which === ESC_KEY) this.S('a.clearing-close').trigger('click');
+      if (e.which === ESC_KEY) this.S('a.clearing-close').trigger('click').trigger('click.fndtn.clearing');
     },
 
     nav : function (e, direction) {
@@ -10579,6 +10807,7 @@ angular.module('eosApp')
 
       if (image.length) {
         this.center_and_label(image, label);
+        image.trigger('resized.fndtn.clearing')
       }
     },
 
@@ -10588,38 +10817,35 @@ angular.module('eosApp')
           self = this;
 
       lis.each(function () {
-          var li = self.S(this),
-              image = li.find('img');
+        var li = self.S(this),
+            image = li.find('img');
 
-          if (li.height() > image.outerHeight()) {
-            li.addClass('fix-height');
-          }
-        })
-        .closest('ul')
-        .width(lis.length * 100 + '%');
+        if (li.height() > image.outerHeight()) {
+          li.addClass('fix-height');
+        }
+      })
+      .closest('ul')
+      .width(lis.length * 100 + '%');
 
       return this;
     },
 
     update_paddles : function (target) {
+      target = target.closest('li');
       var visible_image = target
         .closest('.carousel')
         .siblings('.visible-img');
 
       if (target.next().length > 0) {
-        this.S('.clearing-main-next', visible_image)
-          .removeClass('disabled');
+        this.S('.clearing-main-next', visible_image).removeClass('disabled');
       } else {
-        this.S('.clearing-main-next', visible_image)
-          .addClass('disabled');
+        this.S('.clearing-main-next', visible_image).addClass('disabled');
       }
 
       if (target.prev().length > 0) {
-        this.S('.clearing-main-prev', visible_image)
-          .removeClass('disabled');
+        this.S('.clearing-main-prev', visible_image).removeClass('disabled');
       } else {
-        this.S('.clearing-main-prev', visible_image)
-          .addClass('disabled');
+        this.S('.clearing-main-prev', visible_image).addClass('disabled');
       }
     },
 
@@ -10629,10 +10855,13 @@ angular.module('eosApp')
           marginLeft : -(target.outerWidth() / 2),
           marginTop : -(target.outerHeight() / 2)
         });
-        label.css({
-          marginLeft : -(label.outerWidth() / 2),
-          marginTop : -(target.outerHeight() / 2)-label.outerHeight()-10
-        });
+
+        if (label.length > 0) {
+          label.css({
+            marginLeft : -(label.outerWidth() / 2),
+            marginTop : -(target.outerHeight() / 2)-label.outerHeight()-10
+          });
+        }
       } else {
         target.css({
           marginRight : -(target.outerWidth() / 2),
@@ -10640,12 +10869,15 @@ angular.module('eosApp')
           left: 'auto',
           right: '50%'
         });
-        label.css({
-          marginRight : -(label.outerWidth() / 2),
-          marginTop : -(target.outerHeight() / 2)-label.outerHeight()-10,
-          left: 'auto',
-          right: '50%'
-        });
+
+        if (label.length > 0) {
+          label.css({
+            marginRight : -(label.outerWidth() / 2),
+            marginTop : -(target.outerHeight() / 2)-label.outerHeight()-10,
+            left: 'auto',
+            right: '50%'
+          });
+        }
       }
       return this;
     },
@@ -10653,10 +10885,12 @@ angular.module('eosApp')
     // image loading and preloading
 
     load : function ($image) {
+      var href;
+
       if ($image[0].nodeName === "A") {
-        var href = $image.attr('href');
+        href = $image.attr('href');
       } else {
-        var href = $image.parent().attr('href');
+        href = $image.parent().attr('href');
       }
 
       this.preload($image);
@@ -10688,7 +10922,7 @@ angular.module('eosApp')
     // image caption
 
     caption : function (container, $image) {
-      var caption = $image.data('caption');
+      var caption = $image.attr('data-caption');
 
       if (caption) {
         container
@@ -10700,7 +10934,7 @@ angular.module('eosApp')
           .hide();
       }
       return this;
-    },
+    }, 
 
     // directional methods
 
@@ -10708,9 +10942,15 @@ angular.module('eosApp')
       var current = this.S('.visible', $ul),
           target = current[direction]();
 
+      // Check for skip selector.
+      if (this.settings.skip_selector && target.find(this.settings.skip_selector).length != 0) {
+        target = target[direction]();
+      }
+
       if (target.length) {
         this.S('img', target)
-          .trigger('click', [current, target]);
+          .trigger('click', [current, target]).trigger('click.fndtn.clearing', [current, target])
+          .trigger('change.fndtn.clearing');
       }
     },
 
@@ -10766,11 +11006,9 @@ angular.module('eosApp')
       this.settings.up_count = up_count;
 
       if (this.adjacent(this.settings.prev_index, target_index)) {
-        if ((target_index > up_count)
-          && target_index > this.settings.prev_index) {
+        if ((target_index > up_count) && target_index > this.settings.prev_index) {
           response = 'right';
-        } else if ((target_index > up_count - 1)
-          && target_index <= this.settings.prev_index) {
+        } else if ((target_index > up_count - 1) && target_index <= this.settings.prev_index) {
           response = 'left';
         } else {
           response = false;
@@ -10815,7 +11053,7 @@ angular.module('eosApp')
     }
   };
 
-}(jQuery, this, this.document));
+}(jQuery, window, window.document));
 
 ;(function ($, window, document, undefined) {
   'use strict';
@@ -10823,10 +11061,11 @@ angular.module('eosApp')
   Foundation.libs.dropdown = {
     name : 'dropdown',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
     settings : {
       active_class: 'open',
+      align: 'bottom',
       is_hover: false,
       opened: function(){},
       closed: function(){}
@@ -10846,19 +11085,24 @@ angular.module('eosApp')
         .off('.dropdown')
         .on('click.fndtn.dropdown', '[' + this.attr_name() + ']', function (e) {
           var settings = S(this).data(self.attr_name(true) + '-init') || self.settings;
-          e.preventDefault();
-          if (!settings.is_hover || Modernizr.touch) self.toggle(S(this));
+          if (!settings.is_hover || Modernizr.touch) {
+            e.preventDefault();
+            self.toggle($(this));
+          }
         })
         .on('mouseenter.fndtn.dropdown', '[' + this.attr_name() + '], [' + this.attr_name() + '-content]', function (e) {
-          var $this = S(this);
+          var $this = S(this),
+              dropdown,
+              target;
+
           clearTimeout(self.timeout);
 
           if ($this.data(self.data_attr())) {
-            var dropdown = S('#' + $this.data(self.data_attr())),
-                target = $this;
+            dropdown = S('#' + $this.data(self.data_attr()));
+            target = $this;
           } else {
-            var dropdown = $this;
-                target = S("[" + self.attr_name() + "='" + dropdown.attr('id') + "']");
+            dropdown = $this;
+            target = S("[" + self.attr_name() + "='" + dropdown.attr('id') + "']");
           }
 
           var settings = target.data(self.attr_name(true) + '-init') || self.settings;
@@ -10885,7 +11129,7 @@ angular.module('eosApp')
         .on('click.fndtn.dropdown', function (e) {
           var parent = S(e.target).closest('[' + self.attr_name() + '-content]');
 
-          if (S(e.target).data(self.data_attr()) || S(e.target).parent().data(self.data_attr())) {
+          if (S(e.target).closest('[' + self.attr_name() + ']').length > 0) {
             return;
           }
           if (!(S(e.target).data('revealId')) && 
@@ -10908,7 +11152,9 @@ angular.module('eosApp')
         .off('.dropdown')
         .on('resize.fndtn.dropdown', self.throttle(function () {
           self.resize.call(self);
-        }, 50)).trigger('resize');
+        }, 50));
+
+      this.resize();
     },
 
     close: function (dropdown) {
@@ -10917,8 +11163,12 @@ angular.module('eosApp')
         if (self.S(this).hasClass(self.settings.active_class)) {
           self.S(this)
             .css(Foundation.rtl ? 'right':'left', '-99999px')
-            .removeClass(self.settings.active_class);
-          self.S(this).trigger('closed');
+            .removeClass(self.settings.active_class)
+            .prev('[' + self.attr_name() + ']')
+            .removeClass(self.settings.active_class)
+            .removeData('target');
+
+          self.S(this).trigger('closed').trigger('closed.fndtn.dropdown', [dropdown]);
         }
       });
     },
@@ -10934,7 +11184,8 @@ angular.module('eosApp')
         this
           .css(dropdown
             .addClass(this.settings.active_class), target);
-        dropdown.trigger('opened');
+        dropdown.prev('[' + this.attr_name() + ']').addClass(this.settings.active_class);
+        dropdown.data('target', target.get(0)).trigger('opened').trigger('opened.fndtn.dropdown', [dropdown, target]);
     },
 
     data_attr: function () {
@@ -10956,8 +11207,9 @@ angular.module('eosApp')
 
       if (dropdown.hasClass(this.settings.active_class)) {
         this.close.call(this, dropdown);
+        if (dropdown.data('target') !== target.get(0))
+          this.open.call(this, dropdown, target);
       } else {
-        this.close.call(this, this.S('[' + this.attr_name() + '-content]'))
         this.open.call(this, dropdown, target);
       }
     },
@@ -10972,41 +11224,133 @@ angular.module('eosApp')
     },
 
     css : function (dropdown, target) {
-      var offset_parent = dropdown.offsetParent(),
-          position = target.offset();
-
-      position.top -= offset_parent.offset().top;
-      position.left -= offset_parent.offset().left;
+      var left_offset = Math.max((target.width() - dropdown.width()) / 2, 8);
+      
+      this.clear_idx();
 
       if (this.small()) {
-        dropdown.css({
+        var p = this.dirs.bottom.call(dropdown, target);
+
+        dropdown.attr('style', '').removeClass('drop-left drop-right drop-top').css({
           position : 'absolute',
           width: '95%',
           'max-width': 'none',
-          top: position.top + target.outerHeight()
+          top: p.top
         });
-        dropdown.css(Foundation.rtl ? 'right':'left', '2.5%');
-      } else {
-        if (!Foundation.rtl && this.S(window).width() > dropdown.outerWidth() + target.offset().left) {
-          var left = position.left;
-          if (dropdown.hasClass('right')) {
-            dropdown.removeClass('right');
-          }
-        } else {
-          if (!dropdown.hasClass('right')) {
-            dropdown.addClass('right');
-          }
-          var left = position.left - (dropdown.outerWidth() - target.outerWidth());
-        }
 
-        dropdown.attr('style', '').css({
-          position : 'absolute',
-          top: position.top + target.outerHeight(),
-          left: left
-        });
+        dropdown.css(Foundation.rtl ? 'right':'left', left_offset);
+      } else {
+        var settings = target.data(this.attr_name(true) + '-init') || this.settings;
+
+        this.style(dropdown, target, settings);
       }
 
       return dropdown;
+    },
+
+    style : function (dropdown, target, settings) {
+      var css = $.extend({position: 'absolute'}, 
+        this.dirs[settings.align].call(dropdown, target, settings));
+
+      dropdown.attr('style', '').css(css);
+    },
+
+    // return CSS property object
+    // `this` is the dropdown
+    dirs : {
+      // Calculate target offset
+      _base : function (t) {
+        var o_p = this.offsetParent(),
+            o = o_p.offset(),
+            p = t.offset();
+
+        p.top -= o.top;
+        p.left -= o.left;
+
+        return p;
+      },
+      top: function (t, s) {
+        var self = Foundation.libs.dropdown,
+            p = self.dirs._base.call(this, t),
+            pip_offset_base = 8;
+
+        this.addClass('drop-top');
+
+        if (t.outerWidth() < this.outerWidth() || self.small()) {
+          self.adjust_pip(pip_offset_base, p);
+        }
+
+        if (Foundation.rtl) {
+          return {left: p.left - this.outerWidth() + t.outerWidth(), 
+            top: p.top - this.outerHeight()};
+        }
+
+        return {left: p.left, top: p.top - this.outerHeight()};
+      },
+      bottom: function (t, s) {
+        var self = Foundation.libs.dropdown,
+            p = self.dirs._base.call(this, t),
+            pip_offset_base = 8;
+
+        if (t.outerWidth() < this.outerWidth() || self.small()) {
+          self.adjust_pip(pip_offset_base, p);
+        }
+
+        if (self.rtl) {
+          return {left: p.left - this.outerWidth() + t.outerWidth(), top: p.top + t.outerHeight()};
+        }
+
+        return {left: p.left, top: p.top + t.outerHeight()};
+      },
+      left: function (t, s) {
+        var p = Foundation.libs.dropdown.dirs._base.call(this, t);
+
+        this.addClass('drop-left');
+
+        return {left: p.left - this.outerWidth(), top: p.top};
+      },
+      right: function (t, s) {
+        var p = Foundation.libs.dropdown.dirs._base.call(this, t);
+
+        this.addClass('drop-right');
+
+        return {left: p.left + t.outerWidth(), top: p.top};
+      }
+    },
+
+    // Insert rule to style psuedo elements
+    adjust_pip : function (pip_offset_base, p) {
+      var sheet = Foundation.stylesheet;
+
+      if (this.small()) {
+        pip_offset_base += p.left - 8;
+      }
+
+      this.rule_idx = sheet.cssRules.length;
+
+      var sel_before = '.f-dropdown.open:before',
+          sel_after  = '.f-dropdown.open:after',
+          css_before = 'left: ' + pip_offset_base + 'px;',
+          css_after  = 'left: ' + (pip_offset_base - 1) + 'px;';
+
+      if (sheet.insertRule) {
+        sheet.insertRule([sel_before, '{', css_before, '}'].join(' '), this.rule_idx);
+        sheet.insertRule([sel_after, '{', css_after, '}'].join(' '), this.rule_idx + 1);
+      } else {
+        sheet.addRule(sel_before, css_before, this.rule_idx);
+        sheet.addRule(sel_after, css_after, this.rule_idx + 1);
+      }
+    },
+
+    // Remove old dropdown rule index
+    clear_idx : function () {
+      var sheet = Foundation.stylesheet;
+
+      if (this.rule_idx) {
+        sheet.deleteRule(this.rule_idx);
+        sheet.deleteRule(this.rule_idx);
+        delete this.rule_idx;
+      }
     },
 
     small : function () {
@@ -11019,12 +11363,11 @@ angular.module('eosApp')
       this.S('html, body').off('.fndtn.dropdown');
       this.S(window).off('.fndtn.dropdown');
       this.S('[data-dropdown-content]').off('.fndtn.dropdown');
-      this.settings.init = false;
     },
 
     reflow : function () {}
   };
-}(jQuery, this, this.document));
+}(jQuery, window, window.document));
 
 ;(function ($, window, document, undefined) {
   'use strict';
@@ -11032,15 +11375,17 @@ angular.module('eosApp')
   Foundation.libs.equalizer = {
     name : 'equalizer',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
     settings : {
       use_tallest: true,
       before_height_change: $.noop,
-      after_height_change: $.noop
+      after_height_change: $.noop,
+      equalize_on_stack: false
     },
 
     init : function (scope, method, options) {
+      Foundation.inherit(this, 'image_loaded');
       this.bindings(method, options);
       this.reflow();
     },
@@ -11053,13 +11398,13 @@ angular.module('eosApp')
 
     equalize: function(equalizer) {
       var isStacked = false,
-          vals = equalizer.find('[' + this.attr_name() + '-watch]'),
-          firstTopOffset = vals.first().offset().top,
+          vals = equalizer.find('[' + this.attr_name() + '-watch]:visible'),
           settings = equalizer.data(this.attr_name(true)+'-init');
-      
+
       if (vals.length === 0) return;
+      var firstTopOffset = vals.first().offset().top;
       settings.before_height_change();
-      equalizer.trigger('before-height-change');
+      equalizer.trigger('before-height-change').trigger('before-height-change.fndth.equalizer');
       vals.height('inherit');
       vals.each(function(){
         var el = $(this);
@@ -11067,36 +11412,45 @@ angular.module('eosApp')
           isStacked = true;
         }
       });
-      if (isStacked) return;
-      
-      var heights = vals.map(function(){ return $(this).outerHeight() });
+
+      if (settings.equalize_on_stack === false) {
+        if (isStacked) return;
+      };
+
+      var heights = vals.map(function(){ return $(this).outerHeight(false) }).get();
+
       if (settings.use_tallest) {
         var max = Math.max.apply(null, heights);
-        vals.height(max);
+        vals.css('height', max);
       } else {
         var min = Math.min.apply(null, heights);
-        vals.height(min);
+        vals.css('height', min);
       }
       settings.after_height_change();
-      equalizer.trigger('after-height-change');
+      equalizer.trigger('after-height-change').trigger('after-height-change.fndtn.equalizer');
     },
 
     reflow : function () {
       var self = this;
 
       this.S('[' + this.attr_name() + ']', this.scope).each(function(){
-        self.equalize($(this));
+        var $eq_target = $(this);
+        self.image_loaded(self.S('img', this), function(){
+          self.equalize($eq_target)
+        });
       });
     }
   };
-}(jQuery, this, this.document));
+})(jQuery, window, window.document);
+
+
 ;(function ($, window, document, undefined) {
   'use strict';
 
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
     cache : {},
 
@@ -11115,11 +11469,11 @@ angular.module('eosApp')
         xxlarge: Foundation.media_queries.xxlarge,
         landscape : 'only screen and (orientation: landscape)',
         portrait : 'only screen and (orientation: portrait)',
-        retina : 'only screen and (-webkit-min-device-pixel-ratio: 2),' + 
-          'only screen and (min--moz-device-pixel-ratio: 2),' + 
-          'only screen and (-o-min-device-pixel-ratio: 2/1),' + 
-          'only screen and (min-device-pixel-ratio: 2),' + 
-          'only screen and (min-resolution: 192dpi),' + 
+        retina : 'only screen and (-webkit-min-device-pixel-ratio: 2),' +
+          'only screen and (min--moz-device-pixel-ratio: 2),' +
+          'only screen and (-o-min-device-pixel-ratio: 2/1),' +
+          'only screen and (min-device-pixel-ratio: 2),' +
+          'only screen and (min-resolution: 192dpi),' +
           'only screen and (min-resolution: 2dppx)'
       },
 
@@ -11145,13 +11499,20 @@ angular.module('eosApp')
 
             return trigger(el[0].src);
           }
-          var last_path = el.data(this.data_attr + '-last-path');
+          var last_path = el.data(this.data_attr + '-last-path'),
+              self = this;
 
           if (last_path == path) return;
 
+          if (/\.(gif|jpg|jpeg|tiff|png)([?#].*)?/i.test(path)) {
+            $(el).css('background-image', 'url('+path+')');
+            el.data('interchange-last-path', path);
+            return trigger(path);
+          }
+
           return $.get(path, function (response) {
             el.html(response);
-            el.data(this.data_attr + '-last-path', path);
+            el.data(self.data_attr + '-last-path', path);
             trigger();
           });
 
@@ -11164,19 +11525,30 @@ angular.module('eosApp')
 
       this.data_attr = this.set_data_attr();
       $.extend(true, this.settings, method, options);
-
       this.bindings(method, options);
       this.load('images');
       this.load('nodes');
     },
 
+    get_media_hash : function() {
+        var mediaHash='';
+        for (var queryName in this.settings.named_queries ) {
+            mediaHash += matchMedia(this.settings.named_queries[queryName]).matches.toString();
+        }
+        return mediaHash;
+    },
+
     events : function () {
-      var self = this;
+      var self = this, prevMediaHash;
 
       $(window)
         .off('.interchange')
         .on('resize.fndtn.interchange', self.throttle(function () {
-          self.resize();
+            var currMediaHash = self.get_media_hash();
+            if (currMediaHash !== prevMediaHash) {
+                self.resize();
+            }
+            prevMediaHash = currMediaHash;
         }, 50));
 
       return this;
@@ -11279,8 +11651,6 @@ angular.module('eosApp')
           data_attr = this.data_attr;
 
       this.cached_nodes = [];
-      // Set nodes_loaded to true if there are no nodes
-      // this.nodes_loaded = false;
       this.nodes_loaded = (count === 0);
 
 
@@ -11308,14 +11678,11 @@ angular.module('eosApp')
         this.object($(this['cached_' + type][i]));
       }
 
-      return $(window).trigger('resize');
-    },
-
-    parse_params : function (path, directive, mq) {
-      return [this.trim(path), this.convert_directive(directive), this.trim(mq)];
+      return $(window).trigger('resize').trigger('resize.fndtn.interchange');
     },
 
     convert_directive : function (directive) {
+
       var trimmed = this.trim(directive);
 
       if (trimmed.length > 0) {
@@ -11323,6 +11690,25 @@ angular.module('eosApp')
       }
 
       return 'replace';
+    },
+
+    parse_scenario : function (scenario) {
+      // This logic had to be made more complex since some users were using commas in the url path
+      // So we cannot simply just split on a comma
+      var directive_match = scenario[0].match(/(.+),\s*(\w+)\s*$/),
+      media_query         = scenario[1];
+
+      if (directive_match) {
+        var path  = directive_match[1],
+        directive = directive_match[2];
+      }
+      else {
+        var cached_split = scenario[0].split(/,\s*$/),
+        path             = cached_split[0],
+        directive        = '';               
+      }
+
+      return [this.trim(path), this.convert_directive(directive), this.trim(media_query)];
     },
 
     object : function(el) {
@@ -11335,10 +11721,7 @@ angular.module('eosApp')
           var split = raw_arr[i].split(/\((.*?)(\))$/);
 
           if (split.length > 1) {
-            var cached_split = split[0].split(','),
-                params = this.parse_params(cached_split[0],
-                  cached_split[1], split[1]);
-
+            var params = this.parse_scenario(split);
             scenarios.push(params);
           }
         }
@@ -11347,20 +11730,8 @@ angular.module('eosApp')
       return this.store(el, scenarios);
     },
 
-    uuid : function (separator) {
-      var delim = separator || "-",
-          self = this;
-
-      function S4() {
-        return self.random_str(6);
-      }
-
-      return (S4() + S4() + delim + S4() + delim + S4()
-        + delim + S4() + delim + S4() + S4() + S4());
-    },
-
     store : function (el, scenarios) {
-      var uuid = this.uuid(),
+      var uuid = this.random_str(),
           current_uuid = el.data(this.add_namespace('uuid', true));
 
       if (this.cache[current_uuid]) return this.cache[current_uuid];
@@ -11371,6 +11742,7 @@ angular.module('eosApp')
     },
 
     trim : function(str) {
+
       if (typeof str === 'string') {
         return $.trim(str);
       }
@@ -11415,7 +11787,7 @@ angular.module('eosApp')
 
   };
 
-}(jQuery, this, this.document));
+}(jQuery, window, window.document));
 
 ;(function ($, window, document, undefined) {
   'use strict';
@@ -11425,7 +11797,7 @@ angular.module('eosApp')
   Foundation.libs.joyride = {
     name : 'joyride',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
     defaults : {
       expose                   : false,     // turn on or off the expose feature
@@ -11438,6 +11810,7 @@ angular.module('eosApp')
       start_timer_on_click     : true,      // true or false - true requires clicking the first button start the timer
       start_offset             : 0,         // the index of the tooltip you want to start on (index of the li)
       next_button              : true,      // true or false to control whether a next button is used
+      prev_button              : true,      // true or false to control whether a prev button is used
       tip_animation            : 'fade',    // 'pop' or 'fade' in each tip
       pause_after              : [],        // array of indexes where to pause the tour after
       exposed                  : [],        // array of expose elements
@@ -11447,6 +11820,7 @@ angular.module('eosApp')
       cookie_domain            : false,     // Will this cookie be attached to a domain, ie. '.notableapp.com'
       cookie_expires           : 365,       // set when you would like the cookie to expire.
       tip_container            : 'body',    // Where will the tip be attached
+      abort_on_close           : true,      // When true, the close event will not fire any callback
       tip_location_patterns    : {
         top: ['bottom'],
         bottom: [], // bottom should not need to be repositioned
@@ -11459,14 +11833,15 @@ angular.module('eosApp')
       pre_ride_callback      : function (){},    // A method to call before the tour starts (passed index, tip, and cloned exposed element)
       post_expose_callback   : function (){},    // A method to call after an element has been exposed
       template : { // HTML segments for tip layout
-        link    : '<a href="#close" class="joyride-close-tip">&times;</a>',
-        timer   : '<div class="joyride-timer-indicator-wrap"><span class="joyride-timer-indicator"></span></div>',
-        tip     : '<div class="joyride-tip-guide"><span class="joyride-nub"></span></div>',
-        wrapper : '<div class="joyride-content-wrapper"></div>',
-        button  : '<a href="#" class="small button joyride-next-tip"></a>',
-        modal   : '<div class="joyride-modal-bg"></div>',
-        expose  : '<div class="joyride-expose-wrapper"></div>',
-        expose_cover: '<div class="joyride-expose-cover"></div>'
+        link          : '<a href="#close" class="joyride-close-tip">&times;</a>',
+        timer         : '<div class="joyride-timer-indicator-wrap"><span class="joyride-timer-indicator"></span></div>',
+        tip           : '<div class="joyride-tip-guide"><span class="joyride-nub"></span></div>',
+        wrapper       : '<div class="joyride-content-wrapper"></div>',
+        button        : '<a href="#" class="small button joyride-next-tip"></a>',
+        prev_button   : '<a href="#" class="small button joyride-prev-tip"></a>',
+        modal         : '<div class="joyride-modal-bg"></div>',
+        expose        : '<div class="joyride-expose-wrapper"></div>',
+        expose_cover  : '<div class="joyride-expose-cover"></div>'
       },
       expose_add_class : '' // One or more space-separated class names to be added to exposed element
     },
@@ -11474,7 +11849,7 @@ angular.module('eosApp')
     init : function (scope, method, options) {
       Foundation.inherit(this, 'throttle random_str');
 
-      this.settings = this.defaults;
+      this.settings = this.settings || $.extend({}, this.defaults, (options || method));
 
       this.bindings(method, options)
     },
@@ -11500,10 +11875,26 @@ angular.module('eosApp')
           }
 
         }.bind(this))
+        .on('click.fndtn.joyride', '.joyride-prev-tip', function (e) {
+          e.preventDefault();
+
+          if (this.settings.$li.prev().length < 1) {
+            // Do nothing if there are no prev element
+          } else if (this.settings.timer > 0) {
+            clearTimeout(this.settings.automate);
+            this.hide();
+            this.show(null, true);
+            this.startTimer();
+          } else {
+            this.hide();
+            this.show(null, true);
+          }
+
+        }.bind(this))
 
         .on('click.fndtn.joyride', '.joyride-close-tip', function (e) {
           e.preventDefault();
-          this.end();
+          this.end(this.settings.abort_on_close);
         }.bind(this));
 
       $(window)
@@ -11523,7 +11914,7 @@ angular.module('eosApp')
             if (self.is_phone()) {
               self.pos_phone();
             } else {
-              self.pos_default(false, true);
+              self.pos_default(false);
             }
           }
         }, 100));
@@ -11558,7 +11949,7 @@ angular.module('eosApp')
       if (!this.settings.cookie_monster || this.settings.cookie_monster && !$.cookie(this.settings.cookie_name)) {
         this.settings.$tip_content.each(function (index) {
           var $this = $(this);
-          this.settings = $.extend({}, self.defaults, self.data_options($this))
+          this.settings = $.extend({}, self.defaults, self.data_options($this));
 
           // Make sure that settings parsed from data_options are integers where necessary
           var i = int_settings_count;
@@ -11591,6 +11982,7 @@ angular.module('eosApp')
 
       $blank = $(this.settings.template.tip).addClass(opts.tip_class);
       content = $.trim($(opts.li).html()) +
+        this.prev_button_text(opts.prev_button_text, opts.index) +
         this.button_text(opts.button_text) +
         this.settings.template.link +
         this.timer_instance(opts.index);
@@ -11614,7 +12006,7 @@ angular.module('eosApp')
     },
 
     button_text : function (txt) {
-      if (this.settings.next_button) {
+      if (this.settings.tip_settings.next_button) {
         txt = $.trim(txt) || 'Next';
         txt = $(this.settings.template.button).append(txt)[0].outerHTML;
       } else {
@@ -11623,22 +12015,40 @@ angular.module('eosApp')
       return txt;
     },
 
+    prev_button_text : function (txt, idx) {
+      if (this.settings.tip_settings.prev_button) {
+        txt = $.trim(txt) || 'Previous';
+
+        // Add the disabled class to the button if it's the first element
+        if (idx == 0)
+          txt = $(this.settings.template.prev_button).append(txt).addClass('disabled')[0].outerHTML;
+        else
+          txt = $(this.settings.template.prev_button).append(txt)[0].outerHTML;
+      } else {
+        txt = '';
+      }
+      return txt;
+    },
+
     create : function (opts) {
-      console.log(opts.$li)
-      var buttonText = opts.$li.attr(this.add_namespace('data-button')) 
+      this.settings.tip_settings = $.extend({}, this.settings, this.data_options(opts.$li));
+      var buttonText = opts.$li.attr(this.add_namespace('data-button'))
         || opts.$li.attr(this.add_namespace('data-text')),
+          prevButtonText = opts.$li.attr(this.add_namespace('data-button-prev'))
+        || opts.$li.attr(this.add_namespace('data-prev-text')),
         tipClass = opts.$li.attr('class'),
         $tip_content = $(this.tip_template({
           tip_class : tipClass,
           index : opts.index,
           button_text : buttonText,
+          prev_button_text : prevButtonText,
           li : opts.$li
         }));
 
       $(this.settings.tip_container).append($tip_content);
     },
 
-    show : function (init) {
+    show : function (init, is_prev) {
       var $timer = null;
 
       // are we paused?
@@ -11649,7 +12059,7 @@ angular.module('eosApp')
         if (this.settings.paused) {
           this.settings.paused = false;
         } else {
-          this.set_li(init);
+          this.set_li(init, is_prev);
         }
 
         this.settings.attempts = 0;
@@ -11721,7 +12131,7 @@ angular.module('eosApp')
                 $timer.animate({
                   width: $timer.parent().width()
                 }, this.settings.timer, 'linear');
-              }.bind(this), this.settings.tip_animation_fadeSpeed);
+              }.bind(this), this.settings.tip_animation_fade_speed);
 
             } else {
               this.settings.$next_tip.fadeIn(this.settings.tip_animation_fade_speed);
@@ -11772,13 +12182,16 @@ angular.module('eosApp')
         this.settings.$current_tip);
     },
 
-    set_li : function (init) {
+    set_li : function (init, is_prev) {
       if (init) {
         this.settings.$li = this.settings.$tip_content.eq(this.settings.start_offset);
         this.set_next_tip();
         this.settings.$current_tip = this.settings.$next_tip;
       } else {
-        this.settings.$li = this.settings.$li.next();
+        if (is_prev)
+          this.settings.$li = this.settings.$li.prev();
+        else
+          this.settings.$li = this.settings.$li.next();
         this.set_next_tip();
       }
 
@@ -11791,7 +12204,6 @@ angular.module('eosApp')
     },
 
     set_target : function () {
-      console.log(this.add_namespace('data-class'))
       var cl = this.settings.$li.attr(this.add_namespace('data-class')),
           id = this.settings.$li.attr(this.add_namespace('data-id')),
           $sel = function () {
@@ -11804,8 +12216,6 @@ angular.module('eosApp')
             }
           };
 
-      console.log(cl, id)
-
       this.settings.$target = $sel();
     },
 
@@ -11816,7 +12226,7 @@ angular.module('eosApp')
       tipOffset = Math.ceil(this.settings.$target.offset().top - window_half + this.settings.$next_tip.outerHeight());
 
       if (tipOffset != 0) {
-        $('html, body').animate({
+        $('html, body').stop().animate({
           scrollTop: tipOffset
         }, this.settings.scroll_speed, 'swing');
       }
@@ -11832,10 +12242,8 @@ angular.module('eosApp')
       this.show('init');
     },
 
-    pos_default : function (init, resizing) {
-      var half_fold = Math.ceil($(window).height() / 2),
-          tip_position = this.settings.$next_tip.offset(),
-          $nub = this.settings.$next_tip.find('.joyride-nub'),
+    pos_default : function (init) {
+      var $nub = this.settings.$next_tip.find('.joyride-nub'),
           nub_width = Math.ceil($nub.outerWidth() / 2),
           nub_height = Math.ceil($nub.outerHeight() / 2),
           toggle = init || false;
@@ -11846,20 +12254,19 @@ angular.module('eosApp')
         this.settings.$next_tip.show();
       }
 
-      if (typeof resizing === 'undefined') {
-        resizing = false;
-      }
-
       if (!/body/i.test(this.settings.$target.selector)) {
+      	  var topAdjustment = this.settings.tip_settings.tipAdjustmentY ? parseInt(this.settings.tip_settings.tipAdjustmentY) : 0,
+			        leftAdjustment = this.settings.tip_settings.tipAdjustmentX ? parseInt(this.settings.tip_settings.tipAdjustmentX) : 0;
+
           if (this.bottom()) {
             if (this.rtl) {
               this.settings.$next_tip.css({
-                top: (this.settings.$target.offset().top + nub_height + this.settings.$target.outerHeight()),
-                left: this.settings.$target.offset().left + this.settings.$target.outerWidth() - this.settings.$next_tip.outerWidth()});
+                top: (this.settings.$target.offset().top + nub_height + this.settings.$target.outerHeight() + topAdjustment),
+                left: this.settings.$target.offset().left + this.settings.$target.outerWidth() - this.settings.$next_tip.outerWidth() + leftAdjustment});
             } else {
               this.settings.$next_tip.css({
-                top: (this.settings.$target.offset().top + nub_height + this.settings.$target.outerHeight()),
-                left: this.settings.$target.offset().left});
+                top: (this.settings.$target.offset().top + nub_height + this.settings.$target.outerHeight() + topAdjustment),
+                left: this.settings.$target.offset().left + leftAdjustment});
             }
 
             this.nub_position($nub, this.settings.tip_settings.nub_position, 'top');
@@ -11867,12 +12274,12 @@ angular.module('eosApp')
           } else if (this.top()) {
             if (this.rtl) {
               this.settings.$next_tip.css({
-                top: (this.settings.$target.offset().top - this.settings.$next_tip.outerHeight() - nub_height),
+                top: (this.settings.$target.offset().top - this.settings.$next_tip.outerHeight() - nub_height + topAdjustment),
                 left: this.settings.$target.offset().left + this.settings.$target.outerWidth() - this.settings.$next_tip.outerWidth()});
             } else {
               this.settings.$next_tip.css({
-                top: (this.settings.$target.offset().top - this.settings.$next_tip.outerHeight() - nub_height),
-                left: this.settings.$target.offset().left});
+                top: (this.settings.$target.offset().top - this.settings.$next_tip.outerHeight() - nub_height + topAdjustment),
+                left: this.settings.$target.offset().left + leftAdjustment});
             }
 
             this.nub_position($nub, this.settings.tip_settings.nub_position, 'bottom');
@@ -11880,16 +12287,16 @@ angular.module('eosApp')
           } else if (this.right()) {
 
             this.settings.$next_tip.css({
-              top: this.settings.$target.offset().top,
-              left: (this.outerWidth(this.settings.$target) + this.settings.$target.offset().left + nub_width)});
+              top: this.settings.$target.offset().top + topAdjustment,
+              left: (this.settings.$target.outerWidth() + this.settings.$target.offset().left + nub_width + leftAdjustment)});
 
             this.nub_position($nub, this.settings.tip_settings.nub_position, 'left');
 
           } else if (this.left()) {
 
             this.settings.$next_tip.css({
-              top: this.settings.$target.offset().top,
-              left: (this.settings.$target.offset().left - this.outerWidth(this.settings.$next_tip) - nub_width)});
+              top: this.settings.$target.offset().top + topAdjustment,
+              left: (this.settings.$target.offset().left - this.settings.$next_tip.outerWidth() - nub_width + leftAdjustment)});
 
             this.nub_position($nub, this.settings.tip_settings.nub_position, 'right');
 
@@ -12231,7 +12638,7 @@ angular.module('eosApp')
       }
     },
 
-    end : function () {
+    end : function (abort) {
       if (this.settings.cookie_monster) {
         $.cookie(this.settings.cookie_name, 'ridden', { expires: this.settings.cookie_expires, domain: this.settings.cookie_domain });
       }
@@ -12248,8 +12655,12 @@ angular.module('eosApp')
 
       $('.joyride-modal-bg').hide();
       this.settings.$current_tip.hide();
-      this.settings.post_step_callback(this.settings.$li.index(), this.settings.$current_tip);
-      this.settings.post_ride_callback(this.settings.$li.index(), this.settings.$current_tip);
+
+      if (typeof abort === 'undefined' || abort === false) {
+        this.settings.post_step_callback(this.settings.$li.index(), this.settings.$current_tip);
+        this.settings.post_ride_callback(this.settings.$li.index(), this.settings.$current_tip);
+      }
+
       $('.joyride-tip-guide').remove();
     },
 
@@ -12264,7 +12675,7 @@ angular.module('eosApp')
 
     reflow : function () {}
   };
-}(jQuery, this, this.document));
+}(jQuery, window, window.document));
 
 ;(function ($, window, document, undefined) {
   'use strict';
@@ -12272,14 +12683,15 @@ angular.module('eosApp')
   Foundation.libs['magellan-expedition'] = {
     name : 'magellan-expedition',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
     settings : {
       active_class: 'active',
       threshold: 0, // pixels from the top of the expedition for it to become fixes
       destination_threshold: 20, // pixels from the top of destination for it to be considered active
-      throttle_delay: 30 // calculation throttling to increase framerate
-    },
+      throttle_delay: 30, // calculation throttling to increase framerate
+      fixed_top: 0 // top distance in pixels assigend to the fixed element on scroll
+    }, 
 
     init : function (scope, method, options) {
       Foundation.inherit(this, 'throttle');
@@ -12290,35 +12702,43 @@ angular.module('eosApp')
       var self = this,
           S = self.S,
           settings = self.settings;
-      
+
       // initialize expedition offset
       self.set_expedition_position();
-      
 
       S(self.scope)
         .off('.magellan')
         .on('click.fndtn.magellan', '[' + self.add_namespace('data-magellan-arrival') + '] a[href^="#"]', function (e) {
-            e.preventDefault();
-            var expedition = $(this).closest('[' + self.attr_name() + ']'),
-                settings = expedition.data('magellan-expedition-init');
+          e.preventDefault();
+          var expedition = $(this).closest('[' + self.attr_name() + ']'),
+              settings = expedition.data('magellan-expedition-init'),
+              hash = this.hash.split('#').join(''),
+              target = $("a[name='"+hash+"']");
+          
+          if (target.length === 0) {
+            target = $('#'+hash);
+            
+          }
 
-            var hash = this.hash.split('#').join(''),
-                target = $('a[name='+hash+']');
-            if (target.length === 0) target = $('#'+hash);
 
-            // Account for expedition height if fixed position
-            var scroll_top = target.offset().top;
-            if (expedition.css('position') === 'fixed') {
-              scroll_top = scroll_top - expedition.outerHeight();
+          // Account for expedition height if fixed position
+          var scroll_top = target.offset().top - settings.destination_threshold + 1;
+          scroll_top = scroll_top - expedition.outerHeight();
+
+          $('html, body').stop().animate({
+            'scrollTop': scroll_top
+          }, 700, 'swing', function () {
+            if(history.pushState) {
+              history.pushState(null, null, '#'+hash);
             }
-
-            $('html, body').stop().animate({
-                'scrollTop': scroll_top
-            }, 700, 'swing', function () {
-                window.location.hash = '#'+hash;
-            });
+            else {
+              location.hash = '#'+hash;
+            }
+          });
         })
-        .on('scroll.fndtn.magellan', self.throttle(this.check_for_arrivals.bind(this), settings.throttle_delay))
+        .on('scroll.fndtn.magellan', self.throttle(this.check_for_arrivals.bind(this), settings.throttle_delay));
+      
+      $(window)
         .on('resize.fndtn.magellan', self.throttle(this.set_expedition_position.bind(this), settings.throttle_delay));
     },
 
@@ -12332,11 +12752,17 @@ angular.module('eosApp')
       var self = this;
       $('[' + this.attr_name() + '=fixed]', self.scope).each(function(idx, el) {
         var expedition = $(this),
+            settings = expedition.data('magellan-expedition-init'),
             styles = expedition.attr('styles'), // save styles
-            top_offset;
+            top_offset, fixed_top;
 
         expedition.attr('style', '');
-        top_offset = expedition.offset().top;
+        top_offset = expedition.offset().top + settings.threshold;
+
+        //set fixed-top by attribute
+        fixed_top = parseInt(expedition.data('magellan-fixed-top'));
+        if(!isNaN(fixed_top))
+            self.settings.fixed_top = fixed_top;
 
         expedition.data(self.data_attr('magellan-top-offset'), top_offset);
         expedition.attr('style', styles);
@@ -12349,9 +12775,12 @@ angular.module('eosApp')
 
       $('[' + this.attr_name() + '=fixed]', self.scope).each(function() {
         var expedition = $(this),
+            settings = expedition.data('magellan-expedition-init'),
+            styles = expedition.attr('style'), // save styles
             top_offset = expedition.data('magellan-top-offset');
-        
-        if (window_top_offset >= top_offset) {
+
+        //scroll to the top distance
+        if (window_top_offset+self.settings.fixed_top >= top_offset) {
           // Placeholder allows height calculations to be consistent even when
           // appearing to switch between fixed/non-fixed placement
           var placeholder = expedition.prev('[' + self.add_namespace('data-magellan-expedition-clone') + ']');
@@ -12361,10 +12790,10 @@ angular.module('eosApp')
             placeholder.attr(self.add_namespace('data-magellan-expedition-clone'),'');
             expedition.before(placeholder);
           }
-          expedition.css({position:'fixed', top: 0});
+          expedition.css({position:'fixed', top: settings.fixed_top});
         } else {
           expedition.prev('[' + self.add_namespace('data-magellan-expedition-clone') + ']').remove();
-          expedition.attr('style','');
+          expedition.attr('style',styles).css('position','').css('top','').removeClass('fixed');
         }
       });
     },
@@ -12375,7 +12804,7 @@ angular.module('eosApp')
 
       $('[' + this.attr_name() + ']', self.scope).each(function() {
         var expedition = $(this),
-            settings = settings = expedition.data(self.attr_name(true) + '-init'),
+            settings = expedition.data(self.attr_name(true) + '-init'),
             offsets = self.offsets(expedition, window_top_offset),
             arrivals = expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']'),
             active_item = false;
@@ -12396,13 +12825,13 @@ angular.module('eosApp')
     offsets : function(expedition, window_offset) {
       var self = this,
           settings = expedition.data(self.attr_name(true) + '-init'),
-          viewport_offset = (window_offset + settings.destination_threshold);
+          viewport_offset = window_offset;
 
       return expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']').map(function(idx, el) {
         var name = $(this).data(self.data_attr('magellan-arrival')),
             dest = $('[' + self.add_namespace('data-magellan-destination') + '=' + name + ']');
         if (dest.length > 0) {
-          var top_offset = dest.offset().top;
+          var top_offset = Math.floor(dest.offset().top - settings.destination_threshold - expedition.outerHeight());
           return {
             destination : dest,
             arrival : $(this),
@@ -12436,46 +12865,116 @@ angular.module('eosApp')
       $('[' + self.add_namespace('data-magellan-expedition-clone') + ']', self.scope).remove();
     }
   };
-}(jQuery, this, this.document));
+}(jQuery, window, window.document));
+
 ;(function ($, window, document, undefined) {
   'use strict';
 
   Foundation.libs.offcanvas = {
     name : 'offcanvas',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
-    settings : {},
+    settings : {
+      open_method: 'move',
+      close_on_click: false
+    },
 
     init : function (scope, method, options) {
-      this.events();
+      this.bindings(method, options);
     },
 
     events : function () {
-      var S = this.S;
+      var self = this,
+          S = self.S,
+          move_class = '',
+          right_postfix = '',
+          left_postfix = '';
+
+      if (this.settings.open_method === 'move') {
+        move_class = 'move-';
+        right_postfix = 'right';
+        left_postfix = 'left';
+      } else if (this.settings.open_method === 'overlap') {
+        move_class = 'offcanvas-overlap';
+      }
 
       S(this.scope).off('.offcanvas')
         .on('click.fndtn.offcanvas', '.left-off-canvas-toggle', function (e) {
-          e.preventDefault();
-          S(this).closest('.off-canvas-wrap').toggleClass('move-right');
+          self.click_toggle_class(e, move_class + right_postfix);
         })
-        .on('click.fndtn.offcanvas', '.exit-off-canvas', function (e) {
-          e.preventDefault();
-          S(".off-canvas-wrap").removeClass("move-right");
+        .on('click.fndtn.offcanvas', '.left-off-canvas-menu a', function (e) {
+          var settings = self.get_settings(e);
+          if (settings.close_on_click) {
+            self.hide.call(self, move_class + right_postfix, self.get_wrapper(e));
+          }
         })
         .on('click.fndtn.offcanvas', '.right-off-canvas-toggle', function (e) {
-          e.preventDefault();
-          S(this).closest(".off-canvas-wrap").toggleClass("move-left");
+          self.click_toggle_class(e, move_class + left_postfix);
+        })
+        .on('click.fndtn.offcanvas', '.right-off-canvas-menu a', function (e) {
+          var settings = self.get_settings(e);
+          if (settings.close_on_click) {
+            self.hide.call(self, move_class + left_postfix, self.get_wrapper(e));
+          }
         })
         .on('click.fndtn.offcanvas', '.exit-off-canvas', function (e) {
-          e.preventDefault();
-          S(".off-canvas-wrap").removeClass("move-left");
+          self.click_remove_class(e, move_class + left_postfix);
+          if (right_postfix) self.click_remove_class(e, move_class + right_postfix);
         });
+
+    },
+
+    toggle: function(class_name, $off_canvas) {
+      $off_canvas = $off_canvas || this.get_wrapper();
+      if ($off_canvas.is('.' + class_name)) {
+        this.hide(class_name, $off_canvas);
+      } else {
+        this.show(class_name, $off_canvas);
+      }
+    },
+
+    show: function(class_name, $off_canvas) {
+      $off_canvas = $off_canvas || this.get_wrapper();
+      $off_canvas.trigger('open').trigger('open.fndtn.offcanvas');
+      $off_canvas.addClass(class_name);
+    },
+
+    hide: function(class_name, $off_canvas) {
+      $off_canvas = $off_canvas || this.get_wrapper();
+      $off_canvas.trigger('close').trigger('close.fndtn.offcanvas');
+      $off_canvas.removeClass(class_name);
+    },
+
+    click_toggle_class: function(e, class_name) {
+      e.preventDefault();
+      var $off_canvas = this.get_wrapper(e);
+      this.toggle(class_name, $off_canvas);
+    },
+
+    click_remove_class: function(e, class_name) {
+      e.preventDefault();
+      var $off_canvas = this.get_wrapper(e);
+      this.hide(class_name, $off_canvas);
+    },
+
+    get_settings: function(e) {
+      var offcanvas  = this.S(e.target).closest('[' + this.attr_name() + ']');
+      return offcanvas.data(this.attr_name(true) + '-init') || this.settings;
+    },
+
+    get_wrapper: function(e) {
+      var $off_canvas = this.S(e ? e.target : this.scope).closest('.off-canvas-wrap');
+
+      if ($off_canvas.length === 0) {
+        $off_canvas = this.S('.off-canvas-wrap');
+      }
+      return $off_canvas;
     },
 
     reflow : function () {}
   };
-}(jQuery, this, this.document));
+}(jQuery, window, window.document));
 
 ;(function ($, window, document, undefined) {
   'use strict';
@@ -12519,7 +13018,7 @@ angular.module('eosApp')
     };
 
     self.update_active_link = function(index) {
-      var link = $('a[data-orbit-link="'+self.slides().eq(index).attr('data-orbit-slide')+'"]');
+      var link = $('[data-orbit-link="'+self.slides().eq(index).attr('data-orbit-slide')+'"]');
       link.siblings().removeClass(settings.bullets_active_class);
       link.addClass(settings.bullets_active_class);
     };
@@ -12528,7 +13027,11 @@ angular.module('eosApp')
       slides_container.wrap('<div class="'+settings.container_class+'"></div>');
       container = slides_container.parent();
       slides_container.addClass(settings.slides_container_class);
-      
+
+      if (settings.stack_on_small) {
+        container.addClass(settings.stack_on_small_class);
+      }
+
       if (settings.navigation_arrows) {
         container.append($('<a href="#"><span></span></a>').addClass(settings.prev_class));
         container.append($('<a href="#"><span></span></a>').addClass(settings.next_class));
@@ -12553,14 +13056,11 @@ angular.module('eosApp')
         container.append(bullets_container);
         bullets_container.wrap('<div class="orbit-bullets-container"></div>');
         self.slides().each(function(idx, el) {
-          var bullet = $('<li>').attr('data-orbit-slide', idx);
+          var bullet = $('<li>').attr('data-orbit-slide', idx).on('click', self.link_bullet);;
           bullets_container.append(bullet);
         });
       }
 
-      if (settings.stack_on_small) {
-        container.addClass(settings.stack_on_small_class);
-      }
     };
 
     self._goto = function(next_idx, start_timer) {
@@ -12579,7 +13079,7 @@ angular.module('eosApp')
         if (!settings.circular) return false;
         next_idx = slides.length - 1;
       }
-      
+
       var current = $(slides.get(idx));
       var next = $(slides.get(next_idx));
 
@@ -12590,7 +13090,7 @@ angular.module('eosApp')
       slides_container.trigger('before-slide-change.fndtn.orbit');
       settings.before_slide_change();
       self.update_active_link(next_idx);
-      
+
       var callback = function() {
         var unlock = function() {
           idx = next_idx;
@@ -12611,7 +13111,7 @@ angular.module('eosApp')
 
       var start_animation = function() {
         if (dir === 'next') {animate.next(current, next, callback);}
-        if (dir === 'prev') {animate.prev(current, next, callback);}        
+        if (dir === 'prev') {animate.prev(current, next, callback);}
       };
 
       if (next.height() > slides_container.height() && settings.variable_height) {
@@ -12620,13 +13120,13 @@ angular.module('eosApp')
         start_animation();
       }
     };
-    
+
     self.next = function(e) {
       e.stopImmediatePropagation();
       e.preventDefault();
       self._goto(idx + 1);
     };
-    
+
     self.prev = function(e) {
       e.stopImmediatePropagation();
       e.preventDefault();
@@ -12642,7 +13142,7 @@ angular.module('eosApp')
       }
     };
 
-    self.link_bullet = function(e) {    
+    self.link_bullet = function(e) {
       var index = $(this).attr('data-orbit-slide');
       if ((typeof index === 'string') && (index = $.trim(index)) != "") {
         if(isNaN(parseInt(index)))
@@ -12661,7 +13161,7 @@ angular.module('eosApp')
     self.timer_callback = function() {
       self._goto(idx + 1, true);
     }
-    
+
     self.compute_dimensions = function() {
       var current = $(self.slides().get(idx));
       var h = current.height();
@@ -12675,8 +13175,8 @@ angular.module('eosApp')
 
     self.create_timer = function() {
       var t = new Timer(
-        container.find('.'+settings.timer_container_class), 
-        settings, 
+        container.find('.'+settings.timer_container_class),
+        settings,
         self.timer_callback
       );
       return t;
@@ -12690,7 +13190,7 @@ angular.module('eosApp')
       var t = container.find('.'+settings.timer_container_class);
       if (t.hasClass(settings.timer_paused_class)) {
         if (typeof timer === 'undefined') {timer = self.create_timer();}
-        timer.start();     
+        timer.start();
       }
       else {
         if (typeof timer === 'object') {timer.stop();}
@@ -12700,15 +13200,20 @@ angular.module('eosApp')
     self.init = function() {
       self.build_markup();
       if (settings.timer) {
-        timer = self.create_timer(); 
+        timer = self.create_timer();
         Foundation.utils.image_loaded(this.slides().children('img'), timer.start);
       }
       animate = new FadeAnimation(settings, slides_container);
-      if (settings.animation === 'slide') 
-        animate = new SlideAnimation(settings, slides_container);        
+      if (settings.animation === 'slide')
+        animate = new SlideAnimation(settings, slides_container);
+
       container.on('click', '.'+settings.next_class, self.next);
       container.on('click', '.'+settings.prev_class, self.prev);
-      container.on('click', '[data-orbit-slide]', self.link_bullet);
+
+      if (settings.next_on_click) {
+        container.on('click', '.'+settings.slides_container_class+' [data-orbit-slide]', self.link_bullet);
+      }
+
       container.on('click', self.toggle_timer);
       if (settings.swipe) {
         container.on('touchstart.fndtn.orbit', function(e) {
@@ -12759,12 +13264,12 @@ angular.module('eosApp')
           timer.start();
         }
       });
-      
+
       $(document).on('click', '[data-orbit-link]', self.link_custom);
-      $(window).on('resize', self.compute_dimensions);
+      $(window).on('load resize', self.compute_dimensions);
       Foundation.utils.image_loaded(this.slides().children('img'), self.compute_dimensions);
       Foundation.utils.image_loaded(this.slides().children('img'), function() {
-        container.prev('.preloader').css('display', 'none');
+        container.prev('.'+settings.preloader_class).css('display', 'none');
         self.update_slide_number(0);
         self.update_active_link(0);
         slides_container.trigger('ready.fndtn.orbit');
@@ -12778,7 +13283,7 @@ angular.module('eosApp')
     var self = this,
         duration = settings.timer_speed,
         progress = el.find('.'+settings.timer_progress_class),
-        start, 
+        start,
         timeout,
         left = -1;
 
@@ -12821,7 +13326,7 @@ angular.module('eosApp')
       el.trigger('timer-stopped.fndtn.orbit');
     };
   };
-  
+
   var SlideAnimation = function(settings, container) {
     var duration = settings.animation_speed;
     var is_rtl = ($('html[dir=rtl]').length === 1);
@@ -12875,13 +13380,14 @@ angular.module('eosApp')
   Foundation.libs.orbit = {
     name: 'orbit',
 
-    version: '5.1.1',
+    version: '5.3.1',
 
     settings: {
       animation: 'slide',
       timer_speed: 10000,
       pause_on_hover: true,
       resume_on_mouseout: false,
+      next_on_click: true,
       animation_speed: 500,
       stack_on_small: false,
       navigation_arrows: true,
@@ -12895,6 +13401,7 @@ angular.module('eosApp')
       timer_paused_class: 'paused',
       timer_progress_class: 'orbit-progress',
       slides_container_class: 'orbit-slides-container',
+      preloader_class: 'preloader',
       slide_selector: '*',
       bullets_container_class: 'orbit-bullets',
       bullets_active_class: 'active',
@@ -12918,7 +13425,7 @@ angular.module('eosApp')
 
     events : function (instance) {
       var orbit_instance = new Orbit(this.S(instance), this.S(instance).data('orbit-init'));
-      this.S(instance).data(self.name + '-instance', orbit_instance);
+      this.S(instance).data(this.name + '-instance', orbit_instance);
     },
 
     reflow : function () {
@@ -12939,8 +13446,8 @@ angular.module('eosApp')
     }
   };
 
-    
-}(jQuery, this, this.document));
+
+}(jQuery, window, window.document));
 
 ;(function ($, window, document, undefined) {
   'use strict';
@@ -12948,7 +13455,7 @@ angular.module('eosApp')
   Foundation.libs.reveal = {
     name : 'reveal',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
     locked : false,
 
@@ -12959,6 +13466,7 @@ angular.module('eosApp')
       close_on_esc: true,
       dismiss_modal_class: 'close-reveal-modal',
       bg_class: 'reveal-modal-bg',
+      root_element: 'body',
       open: function(){},
       opened: function(){},
       close: function(){},
@@ -12989,9 +13497,9 @@ angular.module('eosApp')
 
       S(this.scope)
         .off('.reveal')
-        .on('click.fndtn.reveal', '[' + this.add_namespace('data-reveal-id') + ']', function (e) {
+        .on('click.fndtn.reveal', '[' + this.add_namespace('data-reveal-id') + ']:not([disabled])', function (e) {
           e.preventDefault();
-
+        
           if (!self.locked) {
             var element = S(this),
                 ajax = element.data(self.data_attr('reveal-ajax'));
@@ -13017,8 +13525,12 @@ angular.module('eosApp')
             var settings = S('[' + self.attr_name() + '].open').data(self.attr_name(true) + '-init'),
                 bg_clicked = S(e.target)[0] === S('.' + settings.bg_class)[0];
 
-            if (bg_clicked && !settings.close_on_background_click) {
-              return;
+            if (bg_clicked) {
+              if (settings.close_on_background_click) {
+                e.stopPropagation();
+              } else {
+                return;
+              }
             }
 
             self.locked = true;
@@ -13056,7 +13568,7 @@ angular.module('eosApp')
       // PATCH #1: fixing multiple keyup event trigger from single key press
       self.S('body').off('keyup.fndtn.reveal').on('keyup.fndtn.reveal', function ( event ) {
         var open_modal = self.S('[' + self.attr_name() + '].open'),
-            settings = open_modal.data(self.attr_name(true) + '-init');
+            settings = open_modal.data(self.attr_name(true) + '-init') || self.settings ;
         // PATCH #2: making sure that the close event can be called only while unlocked,
         //           so that multiple keyup.fndtn.reveal events don't prevent clean closing of the reveal window.
         if ( settings && event.which === 27  && settings.close_on_esc && !self.locked) { // 27 is the keycode for the Escape key
@@ -13073,21 +13585,31 @@ angular.module('eosApp')
       return true;
     },
 
+
     open : function (target, ajax_settings) {
-      var self = this;
+      var self = this,
+          modal;
+
       if (target) {
         if (typeof target.selector !== 'undefined') {
-          var modal = self.S('#' + target.data(self.data_attr('reveal-id')));
+          // Find the named node; only use the first one found, since the rest of the code assumes there's only one node
+          modal = self.S('#' + target.data(self.data_attr('reveal-id'))).first();
         } else {
-          var modal = self.S(this.scope);
+          modal = self.S(this.scope);
 
           ajax_settings = target;
         }
       } else {
-        var modal = self.S(this.scope);
+        modal = self.S(this.scope);
       }
 
       var settings = modal.data(self.attr_name(true) + '-init');
+      settings = settings || this.settings;
+
+
+      if (modal.hasClass('open') && target.attr('data-reveal-id') == modal.attr('id')) {
+        return self.close(modal);
+      }
 
       if (!modal.hasClass('open')) {
         var open_modal = self.S('[' + self.attr_name() + '].open');
@@ -13098,10 +13620,10 @@ angular.module('eosApp')
         }
 
         this.key_up_on(modal);    // PATCH #3: turning on key up capture only when a reveal window is open
-        modal.trigger('open');
+        modal.trigger('open').trigger('open.fndtn.reveal');
 
         if (open_modal.length < 1) {
-          this.toggle_bg(modal);
+          this.toggle_bg(modal, true);
         }
 
         if (typeof ajax_settings === 'string') {
@@ -13112,8 +13634,7 @@ angular.module('eosApp')
 
         if (typeof ajax_settings === 'undefined' || !ajax_settings.url) {
           if (open_modal.length > 0) {
-            var open_modal_settings = open_modal.data(self.attr_name(true) + '-init');
-            this.hide(open_modal, open_modal_settings.css.close);
+            this.hide(open_modal, settings.css.close);
           }
 
           this.show(modal, settings.css.open);
@@ -13128,10 +13649,10 @@ angular.module('eosApp')
 
               modal.html(data);
               self.S(modal).foundation('section', 'reflow');
+              self.S(modal).children().foundation();
 
               if (open_modal.length > 0) {
-                var open_modal_settings = open_modal.data(self.attr_name(true));
-                self.hide(open_modal, open_modal_settings.css.close);
+                self.hide(open_modal, settings.css.close);
               }
               self.show(modal, settings.css.open);
             }
@@ -13145,13 +13666,13 @@ angular.module('eosApp')
     close : function (modal) {
       var modal = modal && modal.length ? modal : this.S(this.scope),
           open_modals = this.S('[' + this.attr_name() + '].open'),
-          settings = modal.data(this.attr_name(true) + '-init');
+          settings = modal.data(this.attr_name(true) + '-init') || this.settings;
 
       if (open_modals.length > 0) {
         this.locked = true;
         this.key_up_off(modal);   // PATCH #3: turning on key up capture only when a reveal window is open
-        modal.trigger('close');
-        this.toggle_bg(modal);
+        modal.trigger('close').trigger('close.fndtn.reveal');
+        this.toggle_bg(modal, false);
         this.hide(open_modals, settings.css.close, settings);
       }
     },
@@ -13166,38 +13687,44 @@ angular.module('eosApp')
       return base;
     },
 
-    toggle_bg : function (modal) {
-      var settings = modal.data(this.attr_name(true));
-
+    toggle_bg : function (modal, state) {
       if (this.S('.' + this.settings.bg_class).length === 0) {
         this.settings.bg = $('<div />', {'class': this.settings.bg_class})
-          .appendTo('body');
+          .appendTo('body').hide();
       }
 
-      if (this.settings.bg.filter(':visible').length > 0) {
-        this.hide(this.settings.bg);
-      } else {
-        this.show(this.settings.bg);
+      var visible = this.settings.bg.filter(':visible').length > 0;
+      if ( state != visible ) {
+        if ( state == undefined ? visible : !state ) {
+          this.hide(this.settings.bg);
+        } else {
+          this.show(this.settings.bg);
+        }
       }
     },
 
     show : function (el, css) {
       // is modal
       if (css) {
-        var settings = el.data(this.attr_name(true) + '-init');
-        if (el.parent('body').length === 0) {
-          var placeholder = el.wrap('<div style="display: none;" />').parent(),
-              rootElement = this.settings.rootElement || 'body';
+        var settings = el.data(this.attr_name(true) + '-init') || this.settings,
+            root_element = settings.root_element;
+
+        if (el.parent(root_element).length === 0) {
+          var placeholder = el.wrap('<div style="display: none;" />').parent();
 
           el.on('closed.fndtn.reveal.wrapped', function() {
             el.detach().appendTo(placeholder);
             el.unwrap().unbind('closed.fndtn.reveal.wrapped');
           });
 
-          el.detach().appendTo(rootElement);
+          el.detach().appendTo(root_element);
         }
 
-        if (/pop/i.test(settings.animation)) {
+        var animData = getAnimationData(settings.animation);
+        if (!animData.animate) {
+          this.locked = false;
+        }
+        if (animData.pop) {
           css.top = $(window).scrollTop() - el.data('offset') + 'px';
           var end_css = {
             top: $(window).scrollTop() + el.data('css-top') + 'px',
@@ -13209,13 +13736,14 @@ angular.module('eosApp')
               .css(css)
               .animate(end_css, settings.animation_speed, 'linear', function () {
                 this.locked = false;
-                el.trigger('opened');
+                el.trigger('opened').trigger('opened.fndtn.reveal');
               }.bind(this))
               .addClass('open');
           }.bind(this), settings.animation_speed / 2);
         }
 
-        if (/fade/i.test(settings.animation)) {
+        if (animData.fade) {
+          css.top = $(window).scrollTop() + el.data('css-top') + 'px';
           var end_css = {opacity: 1};
 
           return setTimeout(function () {
@@ -13223,19 +13751,19 @@ angular.module('eosApp')
               .css(css)
               .animate(end_css, settings.animation_speed, 'linear', function () {
                 this.locked = false;
-                el.trigger('opened');
+                el.trigger('opened').trigger('opened.fndtn.reveal');
               }.bind(this))
               .addClass('open');
           }.bind(this), settings.animation_speed / 2);
         }
 
-        return el.css(css).show().css({opacity: 1}).addClass('open').trigger('opened');
+        return el.css(css).show().css({opacity: 1}).addClass('open').trigger('opened').trigger('opened.fndtn.reveal');
       }
 
       var settings = this.settings;
 
       // should we animate the background?
-      if (/fade/i.test(settings.animation)) {
+      if (getAnimationData(settings.animation).fade) {
         return el.fadeIn(settings.animation_speed / 2);
       }
 
@@ -13248,7 +13776,13 @@ angular.module('eosApp')
       // is modal
       if (css) {
         var settings = el.data(this.attr_name(true) + '-init');
-        if (/pop/i.test(settings.animation)) {
+        settings = settings || this.settings;
+
+        var animData = getAnimationData(settings.animation);
+        if (!animData.animate) {
+          this.locked = false;
+        }
+        if (animData.pop) {
           var end_css = {
             top: - $(window).scrollTop() - el.data('offset') + 'px',
             opacity: 0
@@ -13258,32 +13792,32 @@ angular.module('eosApp')
             return el
               .animate(end_css, settings.animation_speed, 'linear', function () {
                 this.locked = false;
-                el.css(css).trigger('closed');
+                el.css(css).trigger('closed').trigger('closed.fndtn.reveal');
               }.bind(this))
               .removeClass('open');
           }.bind(this), settings.animation_speed / 2);
         }
 
-        if (/fade/i.test(settings.animation)) {
+        if (animData.fade) {
           var end_css = {opacity: 0};
 
           return setTimeout(function () {
             return el
               .animate(end_css, settings.animation_speed, 'linear', function () {
                 this.locked = false;
-                el.css(css).trigger('closed');
+                el.css(css).trigger('closed').trigger('closed.fndtn.reveal');
               }.bind(this))
               .removeClass('open');
           }.bind(this), settings.animation_speed / 2);
         }
 
-        return el.hide().css(css).removeClass('open').trigger('closed');
+        return el.hide().css(css).removeClass('open').trigger('closed').trigger('closed.fndtn.reveal');
       }
 
       var settings = this.settings;
 
       // should we animate the background?
-      if (/fade/i.test(settings.animation)) {
+      if (getAnimationData(settings.animation).fade) {
         return el.fadeOut(settings.animation_speed / 2);
       }
 
@@ -13296,7 +13830,7 @@ angular.module('eosApp')
 
       if (iframe.length > 0) {
         iframe.attr('data-src', iframe[0].src);
-        iframe.attr('src', 'about:blank');
+        iframe.attr('src', iframe.attr('src'));
         video.hide();
       }
     },
@@ -13340,51 +13874,409 @@ angular.module('eosApp')
 
     reflow : function () {}
   };
-}(jQuery, this, this.document));
 
-/*jslint unparam: true, browser: true, indent: 2 */
+  /*
+   * getAnimationData('popAndFade') // {animate: true,  pop: true,  fade: true}
+   * getAnimationData('fade')       // {animate: true,  pop: false, fade: true}
+   * getAnimationData('pop')        // {animate: true,  pop: true,  fade: false}
+   * getAnimationData('foo')        // {animate: false, pop: false, fade: false}
+   * getAnimationData(null)         // {animate: false, pop: false, fade: false}
+   */
+  function getAnimationData(str) {
+    var fade = /fade/i.test(str);
+    var pop = /pop/i.test(str);
+    return {
+      animate: fade || pop,
+      pop: pop,
+      fade: fade
+    };
+  }
+}(jQuery, window, window.document));
+
+;(function ($, window, document, undefined) {
+  'use strict';
+
+  Foundation.libs.slider = {
+    name : 'slider',
+
+    version : '5.3.3',
+
+    settings: {
+      start: 0,
+      end: 100,
+      step: 1,
+      initial: null,
+      display_selector: '',
+      vertical: false,
+      on_change: function(){}
+    },
+
+    cache : {},
+
+    init : function (scope, method, options) {
+      Foundation.inherit(this,'throttle');
+      this.bindings(method, options);
+      this.reflow();
+    },
+
+    events : function() {
+      var self = this;
+
+      $(this.scope)
+        .off('.slider')
+        .on('mousedown.fndtn.slider touchstart.fndtn.slider pointerdown.fndtn.slider',
+        '[' + self.attr_name() + ']:not(.disabled, [disabled]) .range-slider-handle', function(e) {
+          if (!self.cache.active) {
+            e.preventDefault();
+            self.set_active_slider($(e.target));
+          }
+        })
+        .on('mousemove.fndtn.slider touchmove.fndtn.slider pointermove.fndtn.slider', function(e) {
+          if (!!self.cache.active) {
+            e.preventDefault();
+            if ($.data(self.cache.active[0], 'settings').vertical) {
+              var scroll_offset = 0;
+              if (!e.pageY) {
+                scroll_offset = window.scrollY;
+              }
+              self.calculate_position(self.cache.active, (e.pageY || 
+                                                          e.originalEvent.clientY || 
+                                                          e.originalEvent.touches[0].clientY || 
+                                                          e.currentPoint.y) 
+                                                          + scroll_offset);
+            } else {
+              self.calculate_position(self.cache.active, e.pageX || 
+                                                         e.originalEvent.clientX || 
+                                                         e.originalEvent.touches[0].clientX || 
+                                                         e.currentPoint.x);
+            }
+          }
+        })
+        .on('mouseup.fndtn.slider touchend.fndtn.slider pointerup.fndtn.slider', function(e) {
+          self.remove_active_slider();
+        })
+        .on('change.fndtn.slider', function(e) {
+          self.settings.on_change();
+        });
+
+      self.S(window)
+        .on('resize.fndtn.slider', self.throttle(function(e) {
+          self.reflow();
+        }, 300));
+    },
+
+    set_active_slider : function($handle) {
+      this.cache.active = $handle;
+    },
+
+    remove_active_slider : function() {
+      this.cache.active = null;
+    },
+
+    calculate_position : function($handle, cursor_x) {
+      var self = this,
+          settings = $.data($handle[0], 'settings'),
+          handle_l = $.data($handle[0], 'handle_l'),
+          handle_o = $.data($handle[0], 'handle_o'),
+          bar_l = $.data($handle[0], 'bar_l'),
+          bar_o = $.data($handle[0], 'bar_o');
+
+      requestAnimationFrame(function(){
+        var pct;
+
+        if (Foundation.rtl && !settings.vertical) {
+          pct = self.limit_to(((bar_o+bar_l-cursor_x)/bar_l),0,1);
+        } else {
+          pct = self.limit_to(((cursor_x-bar_o)/bar_l),0,1);
+        }
+
+        pct = settings.vertical ? 1-pct : pct;
+
+        var norm = self.normalized_value(pct, settings.start, settings.end, settings.step);
+
+        self.set_ui($handle, norm);
+      });
+    },
+
+    set_ui : function($handle, value) {
+      var settings = $.data($handle[0], 'settings'),
+          handle_l = $.data($handle[0], 'handle_l'),
+          bar_l = $.data($handle[0], 'bar_l'),
+          norm_pct = this.normalized_percentage(value, settings.start, settings.end),
+          handle_offset = norm_pct*(bar_l-handle_l)-1,
+          progress_bar_length = norm_pct*100;
+
+      if (Foundation.rtl && !settings.vertical) {
+        handle_offset = -handle_offset;
+      }
+
+      handle_offset = settings.vertical ? -handle_offset + bar_l - handle_l + 1 : handle_offset;
+      this.set_translate($handle, handle_offset, settings.vertical);
+
+      if (settings.vertical) {
+        $handle.siblings('.range-slider-active-segment').css('height', progress_bar_length + '%');
+      } else {
+        $handle.siblings('.range-slider-active-segment').css('width', progress_bar_length + '%');
+      }
+
+      $handle.parent().attr(this.attr_name(), value).trigger('change').trigger('change.fndtn.slider');
+
+      $handle.parent().children('input[type=hidden]').val(value);
+
+      if (settings.input_id != '') {
+        $(settings.display_selector).each(function(){
+          if (this.hasOwnProperty('value')) {
+            $(this).val(value);
+          } else {
+            $(this).text(value);
+          }
+        });
+      }
+
+    },
+
+    normalized_percentage : function(val, start, end) {
+      return (val - start)/(end - start);
+    },
+
+    normalized_value : function(val, start, end, step) {
+      var range = end - start,
+          point = val*range,
+          mod = (point-(point%step)) / step,
+          rem = point % step,
+          round = ( rem >= step*0.5 ? step : 0);
+      return (mod*step + round) + start;
+    },
+
+    set_translate : function(ele, offset, vertical) {
+      if (vertical) {
+        $(ele)
+          .css('-webkit-transform', 'translateY('+offset+'px)')
+          .css('-moz-transform', 'translateY('+offset+'px)')
+          .css('-ms-transform', 'translateY('+offset+'px)')
+          .css('-o-transform', 'translateY('+offset+'px)')
+          .css('transform', 'translateY('+offset+'px)');
+      } else {
+        $(ele)
+          .css('-webkit-transform', 'translateX('+offset+'px)')
+          .css('-moz-transform', 'translateX('+offset+'px)')
+          .css('-ms-transform', 'translateX('+offset+'px)')
+          .css('-o-transform', 'translateX('+offset+'px)')
+          .css('transform', 'translateX('+offset+'px)');
+      }
+    },
+
+    limit_to : function(val, min, max) {
+      return Math.min(Math.max(val, min), max);
+    },
+
+    initialize_settings : function(handle) {
+      var settings = $.extend({}, this.settings, this.data_options($(handle).parent()));
+
+      if (settings.vertical) {
+        $.data(handle, 'bar_o', $(handle).parent().offset().top);
+        $.data(handle, 'bar_l', $(handle).parent().outerHeight());
+        $.data(handle, 'handle_o', $(handle).offset().top);
+        $.data(handle, 'handle_l', $(handle).outerHeight());
+      } else {
+        $.data(handle, 'bar_o', $(handle).parent().offset().left);
+        $.data(handle, 'bar_l', $(handle).parent().outerWidth());
+        $.data(handle, 'handle_o', $(handle).offset().left);
+        $.data(handle, 'handle_l', $(handle).outerWidth());
+      }
+
+      $.data(handle, 'bar', $(handle).parent());
+      $.data(handle, 'settings', settings);
+    },
+
+    set_initial_position : function($ele) {
+      var settings = $.data($ele.children('.range-slider-handle')[0], 'settings'),
+          initial = (!!settings.initial ? settings.initial : Math.floor((settings.end-settings.start)*0.5/settings.step)*settings.step+settings.start),
+          $handle = $ele.children('.range-slider-handle');
+      this.set_ui($handle, initial);
+    },
+
+    set_value : function(value) {
+      var self = this;
+      $('[' + self.attr_name() + ']', this.scope).each(function(){
+        $(this).attr(self.attr_name(), value);
+      });
+      if (!!$(this.scope).attr(self.attr_name())) {
+        $(this.scope).attr(self.attr_name(), value);
+      }
+      self.reflow();
+    },
+
+    reflow : function() {
+      var self = this;
+      self.S('[' + this.attr_name() + ']').each(function() {
+        var handle = $(this).children('.range-slider-handle')[0],
+            val = $(this).attr(self.attr_name());
+        self.initialize_settings(handle);
+
+        if (val) {
+          self.set_ui($(handle), parseFloat(val));
+        } else {
+          self.set_initial_position($(this));
+        }
+      });
+    }
+  };
+
+}(jQuery, window, window.document));
+
 ;(function ($, window, document, undefined) {
   'use strict';
 
   Foundation.libs.tab = {
     name : 'tab',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
     settings : {
       active_class: 'active',
-      callback : function () {}
+      callback : function () {},
+      deep_linking: false,
+      scroll_to_content: true,
+      is_hover: false
     },
 
+    default_tab_hashes: [],
+
     init : function (scope, method, options) {
+      var self = this,
+          S = this.S;
+
       this.bindings(method, options);
+      this.handle_location_hash_change();
+
+      // Store the default active tabs which will be referenced when the
+      // location hash is absent, as in the case of navigating the tabs and
+      // returning to the first viewing via the browser Back button.
+      S('[' + this.attr_name() + '] > .active > a', this.scope).each(function () {
+        self.default_tab_hashes.push(this.hash);
+      });
     },
 
     events : function () {
       var self = this,
           S = this.S;
 
-      S(this.scope).off('.tab').on('click.fndtn.tab', '[' + this.attr_name() + '] > dd > a', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
+      S(this.scope)
+        .off('.tab')
+        // Click event: tab title
+        .on('click.fndtn.tab', '[' + this.attr_name() + '] > * > a', function (e) {
+          var settings = S(this).closest('[' + self.attr_name() +']').data(self.attr_name(true) + '-init');
+          if (!settings.is_hover || Modernizr.touch) {
+            e.preventDefault();
+            e.stopPropagation();
+            self.toggle_active_tab(S(this).parent());
+          }
+        })
+        // Hover event: tab title
+        .on('mouseenter.fndtn.tab', '[' + this.attr_name() + '] > * > a', function (e) {
+          var settings = S(this).closest('[' + self.attr_name() +']').data(self.attr_name(true) + '-init');
+          if (settings.is_hover) self.toggle_active_tab(S(this).parent());
+        });
 
-        var tab = S(this).parent(),
-            tabs = tab.closest('[' + self.attr_name() + ']'),
-            target = S('#' + this.href.split('#')[1]),
-            siblings = tab.siblings(),
-            settings = tabs.data(self.attr_name(true) + '-init');
-        
-        // allow usage of data-tab-content attribute instead of href
-        if (S(this).data(self.data_attr('tab-content'))) {
-          target = S('#' + S(this).data(self.data_attr('tab-content')).split('#')[1]);
-        }
-        
-        tab.addClass(settings.active_class).triggerHandler('opened');
-        siblings.removeClass(settings.active_class);
-        target.siblings().removeClass(settings.active_class).end().addClass(settings.active_class);
-        settings.callback(tab);
-        tabs.triggerHandler('toggled', [tab]);
+      // Location hash change event
+      S(window).on('hashchange.fndtn.tab', function (e) {
+        e.preventDefault();
+        self.handle_location_hash_change();
       });
+    },
+
+    handle_location_hash_change : function () {
+      var self = this,
+          S = this.S;
+
+      S('[' + this.attr_name() + ']', this.scope).each(function () {
+        var settings = S(this).data(self.attr_name(true) + '-init');
+        if (settings.deep_linking) {
+          // Match the location hash to a label
+          var hash = self.scope.location.hash;
+          if (hash != '') {
+            // Check whether the location hash references a tab content div or
+            // another element on the page (inside or outside the tab content div)
+            var hash_element = S(hash);
+            if (hash_element.hasClass('content') && hash_element.parent().hasClass('tab-content')) {
+              // Tab content div
+              self.toggle_active_tab($('[' + self.attr_name() + '] > * > a[href=' + hash + ']').parent());
+            } else {
+              // Not the tab content div. If inside the tab content, find the
+              // containing tab and toggle it as active.
+              var hash_tab_container_id = hash_element.closest('.content').attr('id');
+              if (hash_tab_container_id != undefined) {
+                self.toggle_active_tab($('[' + self.attr_name() + '] > * > a[href=#' + hash_tab_container_id + ']').parent(), hash);
+              }
+            }
+          } else {
+            // Reference the default tab hashes which were initialized in the init function
+            for (var ind in self.default_tab_hashes) {
+              self.toggle_active_tab($('[' + self.attr_name() + '] > * > a[href=' + self.default_tab_hashes[ind] + ']').parent());
+            }
+          }
+        }
+       });
+     },
+
+    toggle_active_tab: function (tab, location_hash) {
+      var S = this.S,
+          tabs = tab.closest('[' + this.attr_name() + ']'),
+          anchor = tab.children('a').first(),
+          target_hash = '#' + anchor.attr('href').split('#')[1],
+          target = S(target_hash),
+          siblings = tab.siblings(),
+          settings = tabs.data(this.attr_name(true) + '-init');
+
+      // allow usage of data-tab-content attribute instead of href
+      if (S(this).data(this.data_attr('tab-content'))) {
+        target_hash = '#' + S(this).data(this.data_attr('tab-content')).split('#')[1];
+        target = S(target_hash);
+      }
+
+      if (settings.deep_linking) {
+        // Get the scroll Y position prior to moving to the hash ID
+        var cur_ypos = $('body,html').scrollTop();
+
+        // Update the location hash to preserve browser history
+        // Note that the hash does not need to correspond to the
+        // tab content ID anchor; it can be an ID inside or outside of the tab
+        // content div.
+        if (location_hash != undefined) {
+          window.location.hash = location_hash;
+        } else {
+          window.location.hash = target_hash;
+        }
+
+        if (settings.scroll_to_content) {
+          // If the user is requesting the content of a tab, then scroll to the
+          // top of the title area; otherwise, scroll to the element within
+          // the content area as defined by the hash value.
+          if (location_hash == undefined || location_hash == target_hash) {
+            tab.parent()[0].scrollIntoView();
+          } else {
+            S(target_hash)[0].scrollIntoView();
+          }
+        } else {
+          // Adjust the scrollbar to the Y position prior to setting the hash
+          // Only do this for the tab content anchor, otherwise there will be
+          // conflicts with in-tab anchor links nested in the tab-content div
+          if (location_hash == undefined || location_hash == target_hash) {
+            $('body,html').scrollTop(cur_ypos);
+          }
+        }
+      }
+
+      // WARNING: The activation and deactivation of the tab content must
+      // occur after the deep linking in order to properly refresh the browser
+      // window (notably in Chrome).
+      tab.addClass(settings.active_class).triggerHandler('opened');
+      siblings.removeClass(settings.active_class);
+      target.siblings().removeClass(settings.active_class).end().addClass(settings.active_class);
+      settings.callback(tab);
+      target.triggerHandler('toggled', [tab]);
+      tabs.triggerHandler('toggled', [target]);
     },
 
     data_attr: function (str) {
@@ -13399,7 +14291,7 @@ angular.module('eosApp')
 
     reflow : function () {}
   };
-}(jQuery, this, this.document));
+}(jQuery, window, window.document));
 
 ;(function ($, window, document, undefined) {
   'use strict';
@@ -13407,7 +14299,7 @@ angular.module('eosApp')
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
     settings : {
       additional_inheritable_classes : [],
@@ -13416,9 +14308,10 @@ angular.module('eosApp')
       touch_close_text: 'Tap To Close',
       disable_for_touch: false,
       hover_delay: 200,
+      show_on : 'all',
       tip_template : function (selector, content) {
-        return '<span data-selector="' + selector + '" class="' 
-          + Foundation.libs.tooltip.settings.tooltip_class.substring(1) 
+        return '<span data-selector="' + selector + '" class="'
+          + Foundation.libs.tooltip.settings.tooltip_class.substring(1)
           + '">' + content + '<span class="nub"></span></span>';
       }
     },
@@ -13430,62 +14323,110 @@ angular.module('eosApp')
       this.bindings(method, options);
     },
 
-    events : function () {
+    should_show: function (target, tip) {
+      var settings = $.extend({}, this.settings, this.data_options(target));
+
+      if (settings.show_on === 'all') {
+        return true;
+      } else if (this.small() && settings.show_on === 'small') {
+        return true;
+      } else if (this.medium() && settings.show_on === 'medium') {
+        return true;
+      } else if (this.large() && settings.show_on === 'large') {
+        return true;
+      }
+      return false;
+    },
+
+    medium : function () {
+      return matchMedia(Foundation.media_queries['medium']).matches;
+    },
+
+    large : function () {
+      return matchMedia(Foundation.media_queries['large']).matches;
+    },
+
+    events : function (instance) {
       var self = this,
           S = self.S;
 
-      if (Modernizr.touch) {
-        S(document)
-          .off('.tooltip')
-          .on('click.fndtn.tooltip touchstart.fndtn.tooltip touchend.fndtn.tooltip', 
-            '[' + this.attr_name() + ']:not(a)', function (e) {
-            var settings = $.extend({}, self.settings, self.data_options(S(this)));
-            if (!settings.disable_for_touch) {
+      self.create(this.S(instance));
+
+      $(this.scope)
+        .off('.tooltip')
+        .on('mouseenter.fndtn.tooltip mouseleave.fndtn.tooltip touchstart.fndtn.tooltip MSPointerDown.fndtn.tooltip',
+          '[' + this.attr_name() + ']', function (e) {
+          var $this = S(this),
+              settings = $.extend({}, self.settings, self.data_options($this)),
+              is_touch = false;
+
+          if (Modernizr.touch && /touchstart|MSPointerDown/i.test(e.type) && S(e.target).is('a')) {
+            return false;
+          }
+
+          if (/mouse/i.test(e.type) && self.ie_touch(e)) return false;
+
+          if ($this.hasClass('open')) {
+            if (Modernizr.touch && /touchstart|MSPointerDown/i.test(e.type)) e.preventDefault();
+            self.hide($this);
+          } else {
+            if (settings.disable_for_touch && Modernizr.touch && /touchstart|MSPointerDown/i.test(e.type)) {
+              return;
+            } else if(!settings.disable_for_touch && Modernizr.touch && /touchstart|MSPointerDown/i.test(e.type)) {
               e.preventDefault();
-              S(settings.tooltip_class).hide();
-              self.showOrCreateTip(S(this));
+              S(settings.tooltip_class + '.open').hide();
+              is_touch = true;
             }
-          })
-          .on('click.fndtn.tooltip touchstart.fndtn.tooltip touchend.fndtn.tooltip', 
-            this.settings.tooltip_class, function (e) {
-            e.preventDefault();
-            S(this).fadeOut(150);
-          });
-      } else {
-        S(document)
-          .off('.tooltip')
-          .on('mouseenter.fndtn.tooltip mouseleave.fndtn.tooltip', 
-            '[' + this.attr_name() + ']', function (e) {
-            var $this = S(this);
 
             if (/enter|over/i.test(e.type)) {
               this.timer = setTimeout(function () {
-                var tip = self.showOrCreateTip($this);
+                var tip = self.showTip($this);
               }.bind(this), self.settings.hover_delay);
             } else if (e.type === 'mouseout' || e.type === 'mouseleave') {
               clearTimeout(this.timer);
               self.hide($this);
+            } else {
+              self.showTip($this);
             }
-          });
-      }
+          }
+        })
+        .on('mouseleave.fndtn.tooltip touchstart.fndtn.tooltip MSPointerDown.fndtn.tooltip', '[' + this.attr_name() + '].open', function (e) {
+          if (/mouse/i.test(e.type) && self.ie_touch(e)) return false;
+
+          if($(this).data('tooltip-open-event-type') == 'touch' && e.type == 'mouseleave') {
+            return;
+          }
+          else if($(this).data('tooltip-open-event-type') == 'mouse' && /MSPointerDown|touchstart/i.test(e.type)) {
+            self.convert_to_touch($(this));
+          } else {
+            self.hide($(this));
+          }
+        })
+        .on('DOMNodeRemoved DOMAttrModified', '[' + this.attr_name() + ']:not(a)', function (e) {
+          self.hide(S(this));
+        });
     },
 
-    showOrCreateTip : function ($target) {
-      var $tip = this.getTip($target);
+    ie_touch : function (e) {
+      // How do I distinguish between IE11 and Windows Phone 8?????
+      return false;
+    },
 
-      if ($tip && $tip.length > 0) {
+    showTip : function ($target) {
+      var $tip = this.getTip($target);
+      if (this.should_show($target, $tip)){
         return this.show($target);
       }
-
-      return this.create($target);
+      return;
     },
 
     getTip : function ($target) {
       var selector = this.selector($target),
+          settings = $.extend({}, this.settings, this.data_options($target)),
           tip = null;
 
       if (selector) {
-        tip = this.S('span[data-selector="' + selector + '"]' + this.settings.tooltip_class);
+        tip = this.S('span[data-selector="' + selector + '"]' + settings.tooltip_class);
       }
 
       return (typeof tip === 'object') ? tip : false;
@@ -13496,7 +14437,7 @@ angular.module('eosApp')
           dataSelector = $target.attr(this.attr_name()) || $target.attr('data-selector');
 
       if ((id && id.length < 1 || !id) && typeof dataSelector != 'string') {
-        dataSelector = 'tooltip' + this.random_str(6);
+        dataSelector = this.random_str(6);
         $target.attr('data-selector', dataSelector);
       }
 
@@ -13504,15 +14445,27 @@ angular.module('eosApp')
     },
 
     create : function ($target) {
-      var $tip = $(this.settings.tip_template(this.selector($target), $('<div></div>').html($target.attr('title')).html())),
+      var self = this,
+          settings = $.extend({}, this.settings, this.data_options($target)),
+          tip_template = this.settings.tip_template;
+
+      if (typeof settings.tip_template === 'string' && window.hasOwnProperty(settings.tip_template)) {
+        tip_template = window[settings.tip_template];
+      }
+
+      var $tip = $(tip_template(this.selector($target), $('<div></div>').html($target.attr('title')).html())),
           classes = this.inheritable_classes($target);
 
-      $tip.addClass(classes).appendTo(this.settings.append_to);
+      $tip.addClass(classes).appendTo(settings.append_to);
+
       if (Modernizr.touch) {
-        $tip.append('<span class="tap-to-close">'+this.settings.touch_close_text+'</span>');
+        $tip.append('<span class="tap-to-close">'+settings.touch_close_text+'</span>');
+        $tip.on('touchstart.fndtn.tooltip MSPointerDown.fndtn.tooltip', function(e) {
+          self.hide($target);
+        });
       }
+
       $target.removeAttr('title').attr('title','');
-      this.show($target);
     },
 
     reposition : function (target, tip, classes) {
@@ -13525,12 +14478,12 @@ angular.module('eosApp')
       nubHeight = nub.outerHeight();
       nubWidth = nub.outerHeight();
 
-      if(this.small()) {
+      if (this.small()) {
         tip.css({'width' : '100%' });
       } else {
         tip.css({'width' : (width) ? width : 'auto'});
       }
-      
+
       objPos = function (obj, top, right, bottom, left, width) {
         return obj.css({
           'top' : (top) ? top : 'auto',
@@ -13543,27 +14496,29 @@ angular.module('eosApp')
       objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', target.offset().left);
 
       if (this.small()) {
-        objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', 12.5, this.S(this.scope).width());
+        objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', 12.5, $(this.scope).width());
         tip.addClass('tip-override');
-        objPos(nub, -nubHeight, 'auto', 'auto', target.offset().left + 10);
+        objPos(nub, -nubHeight, 'auto', 'auto', target.offset().left);
       } else {
         var left = target.offset().left;
         if (Foundation.rtl) {
+          nub.addClass('rtl');
           left = target.offset().left + target.outerWidth() - tip.outerWidth();
         }
-
         objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', left);
         tip.removeClass('tip-override');
-        nub.removeAttr( 'style' );
         if (classes && classes.indexOf('tip-top') > -1) {
-          objPos(tip, (target.offset().top - tip.outerHeight() - 10), 'auto', 'auto', left)
+          if (Foundation.rtl) nub.addClass('rtl');
+          objPos(tip, (target.offset().top - tip.outerHeight()), 'auto', 'auto', left)
             .removeClass('tip-override');
         } else if (classes && classes.indexOf('tip-left') > -1) {
           objPos(tip, (target.offset().top + (target.outerHeight() / 2) - (tip.outerHeight() / 2)), 'auto', 'auto', (target.offset().left - tip.outerWidth() - nubHeight))
             .removeClass('tip-override');
+          nub.removeClass('rtl');
         } else if (classes && classes.indexOf('tip-right') > -1) {
           objPos(tip, (target.offset().top + (target.outerHeight() / 2) - (tip.outerHeight() / 2)), 'auto', 'auto', (target.offset().left + target.outerWidth() + nubHeight))
             .removeClass('tip-override');
+          nub.removeClass('rtl');
         }
       }
 
@@ -13571,12 +14526,14 @@ angular.module('eosApp')
     },
 
     small : function () {
-      return matchMedia(Foundation.media_queries.small).matches;
+      return matchMedia(Foundation.media_queries.small).matches &&
+        !matchMedia(Foundation.media_queries.medium).matches;
     },
 
-    inheritable_classes : function (target) {
-      var inheritables = ['tip-top', 'tip-left', 'tip-bottom', 'tip-right', 'radius', 'round'].concat(this.settings.additional_inheritable_classes),
-          classes = target.attr('class'),
+    inheritable_classes : function ($target) {
+      var settings = $.extend({}, this.settings, this.data_options($target)),
+          inheritables = ['tip-top', 'tip-left', 'tip-bottom', 'tip-right', 'radius', 'round'].concat(settings.additional_inheritable_classes),
+          classes = $target.attr('class'),
           filtered = classes ? $.map(classes.split(' '), function (el, i) {
             if ($.inArray(el, inheritables) !== -1) {
               return el;
@@ -13586,36 +14543,54 @@ angular.module('eosApp')
       return $.trim(filtered);
     },
 
+    convert_to_touch : function($target) {
+      var self = this,
+          $tip = self.getTip($target),
+          settings = $.extend({}, self.settings, self.data_options($target));
+
+      if ($tip.find('.tap-to-close').length === 0) {
+        $tip.append('<span class="tap-to-close">'+settings.touch_close_text+'</span>');
+        $tip.on('click.fndtn.tooltip.tapclose touchstart.fndtn.tooltip.tapclose MSPointerDown.fndtn.tooltip.tapclose', function(e) {
+          self.hide($target);
+        });
+      }
+
+      $target.data('tooltip-open-event-type', 'touch');
+    },
+
     show : function ($target) {
       var $tip = this.getTip($target);
 
+      if ($target.data('tooltip-open-event-type') == 'touch') {
+        this.convert_to_touch($target);
+      }
+
       this.reposition($target, $tip, $target.attr('class'));
-      return $tip.fadeIn(150);
+      $target.addClass('open');
+      $tip.fadeIn(150);
     },
 
     hide : function ($target) {
       var $tip = this.getTip($target);
 
-      return $tip.fadeOut(150);
-    },
-
-    // deprecate reload
-    reload : function () {
-      var $self = $(this);
-
-      return ($self.data('fndtn-tooltips')) ? $self.foundationTooltips('destroy').foundationTooltips('init') : $self.foundationTooltips('init');
+      $tip.fadeOut(150, function() {
+        $tip.find('.tap-to-close').remove();
+        $tip.off('click.fndtn.tooltip.tapclose MSPointerDown.fndtn.tapclose');
+        $target.removeClass('open');
+      });
     },
 
     off : function () {
+      var self = this;
       this.S(this.scope).off('.fndtn.tooltip');
       this.S(this.settings.tooltip_class).each(function (i) {
-        $('[' + this.attr_name() + ']').get(i).attr('title', $(this).text());
+        $('[' + self.attr_name() + ']').eq(i).attr('title', $(this).text());
       }).remove();
     },
 
     reflow : function () {}
   };
-}(jQuery, this, this.document));
+}(jQuery, window, window.document));
 
 ;(function ($, window, document, undefined) {
   'use strict';
@@ -13623,18 +14598,19 @@ angular.module('eosApp')
   Foundation.libs.topbar = {
     name : 'topbar',
 
-    version: '5.1.1',
+    version: '5.3.3',
 
     settings : {
       index : 0,
       sticky_class : 'sticky',
       custom_back_text: true,
       back_text: 'Back',
+      mobile_show_parent_link: true,
       is_hover: true,
-      mobile_show_parent_link: false,
-      scrolltop : true // jump to top when sticky nav menu toggle is clicked
+      scrolltop : true, // jump to top when sticky nav menu toggle is clicked
+      sticky_on : 'all'
     },
-
+    
     init : function (section, method, options) {
       Foundation.inherit(this, 'add_custom_rule register_media throttle');
       var self = this;
@@ -13644,15 +14620,12 @@ angular.module('eosApp')
       this.bindings(method, options);
 
       self.S('[' + this.attr_name() + ']', this.scope).each(function () {
-        var topbar = self.S(this),
+        var topbar = $(this),
             settings = topbar.data(self.attr_name(true) + '-init'),
-            section = self.S('section', this),
-            titlebar = $('> ul', this).first();
-
+            section = self.S('section', this);
         topbar.data('index', 0);
-
         var topbarContainer = topbar.parent();
-        if(topbarContainer.hasClass('fixed') || topbarContainer.hasClass(settings.sticky_class)) {
+        if (topbarContainer.hasClass('fixed') || self.is_sticky(topbar, topbarContainer, settings) ) {
           self.settings.sticky_class = settings.sticky_class;
           self.settings.sticky_topbar = topbar;
           topbar.data('height', topbarContainer.outerHeight());
@@ -13661,7 +14634,9 @@ angular.module('eosApp')
           topbar.data('height', topbar.outerHeight());
         }
 
-        if (!settings.assembled) self.assemble(topbar);
+        if (!settings.assembled) {
+          self.assemble(topbar);
+        }
 
         if (settings.is_hover) {
           self.S('.has-dropdown', topbar).addClass('not-click');
@@ -13679,13 +14654,36 @@ angular.module('eosApp')
 
     },
 
+    is_sticky: function (topbar, topbarContainer, settings) {
+      var sticky = topbarContainer.hasClass(settings.sticky_class);
+
+      if (sticky && settings.sticky_on === 'all') {
+        return true;
+      } else if (sticky && this.small() && settings.sticky_on === 'small') {
+        return (matchMedia(Foundation.media_queries.small).matches && !matchMedia(Foundation.media_queries.medium).matches &&
+            !matchMedia(Foundation.media_queries.large).matches); 
+        //return true;
+      } else if (sticky && this.medium() && settings.sticky_on === 'medium') {
+        return (matchMedia(Foundation.media_queries.small).matches && matchMedia(Foundation.media_queries.medium).matches &&
+            !matchMedia(Foundation.media_queries.large).matches);
+        //return true;
+      } else if(sticky && this.large() && settings.sticky_on === 'large') {
+        return (matchMedia(Foundation.media_queries.small).matches && matchMedia(Foundation.media_queries.medium).matches &&
+            matchMedia(Foundation.media_queries.large).matches);
+        //return true;
+      }
+
+      return false;
+    },
+
     toggle: function (toggleEl) {
-      var self = this;
+      var self = this,
+          topbar;
 
       if (toggleEl) {
-        var topbar = self.S(toggleEl).closest('[' + this.attr_name() + ']');
+        topbar = self.S(toggleEl).closest('[' + this.attr_name() + ']');
       } else {
-        var topbar = self.S('[' + this.attr_name() + ']');
+        topbar = self.S('[' + this.attr_name() + ']');
       }
 
       var settings = topbar.data(this.attr_name(true) + '-init');
@@ -13724,15 +14722,15 @@ angular.module('eosApp')
 
             window.scrollTo(0,0);
           } else {
-              topbar.parent().removeClass('expanded');
+            topbar.parent().removeClass('expanded');
           }
         }
       } else {
-        if(topbar.parent().hasClass(self.settings.sticky_class)) {
+        if (self.is_sticky(topbar, topbar.parent(), settings)) {
           topbar.parent().addClass('fixed');
         }
 
-        if(topbar.parent().hasClass('fixed')) {
+        if (topbar.parent().hasClass('fixed')) {
           if (!topbar.hasClass('expanded')) {
             topbar.removeClass('fixed');
             topbar.parent().removeClass('expanded');
@@ -13757,6 +14755,13 @@ angular.module('eosApp')
         .on('click.fndtn.topbar', '[' + this.attr_name() + '] .toggle-topbar', function (e) {
           e.preventDefault();
           self.toggle(this);
+        })
+        .on('click.fndtn.topbar','.top-bar .top-bar-section li a[href^="#"],[' + this.attr_name() + '] .top-bar-section li a[href^="#"]',function (e) {
+            var li = $(this).closest('li');
+            if(self.breakpoint() && !li.hasClass('back') && !li.hasClass('has-dropdown'))
+            {
+            self.toggle();
+            }
         })
         .on('click.fndtn.topbar', '[' + this.attr_name() + '] li.has-dropdown', function (e) {
           var li = S(this),
@@ -13784,6 +14789,8 @@ angular.module('eosApp')
               .removeClass('hover');
           } else {
             li.addClass('hover');
+
+            $(li).siblings().removeClass('hover');
 
             if (target[0].nodeName === 'A' && target.parent().hasClass('has-dropdown')) {
               e.preventDefault();
@@ -13818,16 +14825,16 @@ angular.module('eosApp')
       
       S(window).off('.topbar').on('resize.fndtn.topbar', self.throttle(function () {
         self.resize.call(self);
-      }, 50)).trigger('resize');
+      }, 50)).trigger('resize').trigger('resize.fndtn.topbar');
 
-      S('body').off('.topbar').on('click.fndtn.topbar touchstart.fndtn.topbar', function (e) {
+      S('body').off('.topbar').on('click.fndtn.topbar', function (e) {
         var parent = S(e.target).closest('li').closest('li.hover');
 
         if (parent.length > 0) {
           return;
         }
 
-        S('[' + self.attr_name() + '] li').removeClass('hover');
+        S('[' + self.attr_name() + '] li.hover').removeClass('hover');
       });
 
       // Go up a level on Click
@@ -13885,7 +14892,7 @@ angular.module('eosApp')
             }
         }
 
-        if(stickyContainer.length > 0) {
+        if(self.is_sticky(topbar, stickyContainer, settings)) {
           if(stickyContainer.hasClass('fixed')) {
             // Remove the fixed to allow for correct calculation of the offset.
             stickyContainer.removeClass('fixed');
@@ -13910,11 +14917,22 @@ angular.module('eosApp')
       return !matchMedia(Foundation.media_queries['topbar']).matches;
     },
 
+    small : function () {
+      return matchMedia(Foundation.media_queries['small']).matches;
+    },
+
+    medium : function () {
+      return matchMedia(Foundation.media_queries['medium']).matches;
+    },
+
+    large : function () {
+      return matchMedia(Foundation.media_queries['large']).matches;
+    },
+
     assemble : function (topbar) {
       var self = this,
           settings = topbar.data(this.attr_name(true) + '-init'),
-          section = self.S('section', topbar),
-          titlebar = $('> ul', topbar).first();
+          section = self.S('section', topbar);
 
       // Pull element out of the DOM for manipulation
       section.detach();
@@ -13922,15 +14940,18 @@ angular.module('eosApp')
       self.S('.has-dropdown>a', section).each(function () {
         var $link = self.S(this),
             $dropdown = $link.siblings('.dropdown'),
-            url = $link.attr('href');
+            url = $link.attr('href'),
+            $titleLi;
+
 
         if (!$dropdown.find('.title.back').length) {
-          if (settings.mobile_show_parent_link && url && url.length > 1) {
-            var $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li><a class="parent-link js-generated" href="' + url + '">' + $link.text() +'</a></li>');
+
+          if (settings.mobile_show_parent_link == true && url) {
+            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li><li class="parent-link show-for-small"><a class="parent-link js-generated" href="' + url + '">' + $link.html() +'</a></li>');
           } else {
-            var $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li>');
+            $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5>');
           }
-  
+          
           // Copy link to subnav
           if (settings.custom_back_text == true) {
             $('h5>a', $titleLi).html(settings.back_text);
@@ -13958,14 +14979,15 @@ angular.module('eosApp')
       var total = 0,
           self = this;
 
-      $('> li', ul).each(function () { total += self.S(this).outerHeight(true); });
+      $('> li', ul).each(function () { 
+        total += self.S(this).outerHeight(true); 
+      });
 
       return total;
     },
 
     sticky : function () {
-      var $window = this.S(window),
-          self = this;
+      var self = this;
 
       this.S(window).on('scroll', function() {
         self.update_sticky_positioning();
@@ -13974,11 +14996,10 @@ angular.module('eosApp')
 
     update_sticky_positioning: function() {
       var klass = '.' + this.settings.sticky_class,
-          $window = this.S(window),
+          $window = this.S(window), 
           self = this;
 
-
-      if (self.S(klass).length > 0) {
+      if (self.settings.sticky_topbar && self.is_sticky(this.settings.sticky_topbar,this.settings.sticky_topbar.parent(), this.settings)) {
         var distance = this.settings.sticky_topbar.data('stickyoffset');
         if (!self.S(klass).hasClass('expanded')) {
           if ($window.scrollTop() > (distance)) {
@@ -14011,15 +15032,17 @@ angular.module('eosApp')
   Foundation.libs.equalizer = {
     name : 'equalizer',
 
-    version : '5.1.1',
+    version : '5.3.3',
 
     settings : {
       use_tallest: true,
       before_height_change: $.noop,
-      after_height_change: $.noop
+      after_height_change: $.noop,
+      equalize_on_stack: false
     },
 
     init : function (scope, method, options) {
+      Foundation.inherit(this, 'image_loaded');
       this.bindings(method, options);
       this.reflow();
     },
@@ -14032,13 +15055,13 @@ angular.module('eosApp')
 
     equalize: function(equalizer) {
       var isStacked = false,
-          vals = equalizer.find('[' + this.attr_name() + '-watch]'),
-          firstTopOffset = vals.first().offset().top,
+          vals = equalizer.find('[' + this.attr_name() + '-watch]:visible'),
           settings = equalizer.data(this.attr_name(true)+'-init');
-      
+
       if (vals.length === 0) return;
+      var firstTopOffset = vals.first().offset().top;
       settings.before_height_change();
-      equalizer.trigger('before-height-change');
+      equalizer.trigger('before-height-change').trigger('before-height-change.fndth.equalizer');
       vals.height('inherit');
       vals.each(function(){
         var el = $(this);
@@ -14046,29 +15069,38 @@ angular.module('eosApp')
           isStacked = true;
         }
       });
-      if (isStacked) return;
-      
-      var heights = vals.map(function(){ return $(this).outerHeight() });
+
+      if (settings.equalize_on_stack === false) {
+        if (isStacked) return;
+      };
+
+      var heights = vals.map(function(){ return $(this).outerHeight(false) }).get();
+
       if (settings.use_tallest) {
         var max = Math.max.apply(null, heights);
-        vals.height(max);
+        vals.css('height', max);
       } else {
         var min = Math.min.apply(null, heights);
-        vals.height(min);
+        vals.css('height', min);
       }
       settings.after_height_change();
-      equalizer.trigger('after-height-change');
+      equalizer.trigger('after-height-change').trigger('after-height-change.fndtn.equalizer');
     },
 
     reflow : function () {
       var self = this;
 
       this.S('[' + this.attr_name() + ']', this.scope).each(function(){
-        self.equalize($(this));
+        var $eq_target = $(this);
+        self.image_loaded(self.S('img', this), function(){
+          self.equalize($eq_target)
+        });
       });
     }
   };
-}(jQuery, this, this.document));
+})(jQuery, window, window.document);
+
+
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
