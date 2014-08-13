@@ -30,10 +30,21 @@ module.exports = function(grunt){
         src: 'js/uwo.js',
         dest: 'js/uwo.min.js'
       }
+    },
+
+    sass: {
+      dist: {
+        options: {
+          style: 'compressed'
+        },
+        files: {
+          'css/app.css': 'css/app.scss'
+        }
+      }
     }
 
   });
 
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['sass', 'concat', 'uglify']);
 
 };

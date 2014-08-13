@@ -5,14 +5,14 @@
   "private": true,
   "devDependencies": {
     "grunt": "~0.4.0",
+    "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-cssmin": "*",
-    "grunt-contrib-sass": "*",
+    "grunt-contrib-imagemin": "~0.4.0",
+    "grunt-contrib-sass": "^0.7.4",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
     "grunt-cssc": "*",
     "grunt-htmlhint": "*",
-    "matchdep": "*",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-imagemin": "~0.4.0"
+    "matchdep": "*"
   }
 }
