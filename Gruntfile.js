@@ -8,7 +8,7 @@ module.exports = function(grunt){
     concat: {
       dist: {
         src: [
-          'bower_components/jquery/jquery.js',
+          'bower_components/jquery/dist/jquery.js',
           'js/angular-app.js',
           'bower_components/foundation/js/foundation.js',
           'bower_components/foundation/js/foundation/foundation.equalizer.js',
