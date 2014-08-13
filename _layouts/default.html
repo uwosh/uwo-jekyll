@@ -1,7 +1,24 @@
-{% include header.html %}
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" ng-app="eosApp"> <![endif]-->
+<html class="no-js" lang="en" ng-app="eosApp">
 
-<main role="main">
-  {{ content }}
-</main>
+  {% include head.html %}
 
-{% include footer.html %}
+  <body>
+    {% include header.html %}
+
+    <main role="main">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js'></script>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-sanitize.min.js'></script>
+
+    <!--Production JS-->
+    <script src="{{ site.baseurl }}/js/uwo.min.js"></script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </body>
+</html>
