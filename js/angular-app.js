@@ -2,20 +2,6 @@
 
 angular.module('eosApp', ['ngSanitize']);
 
-angular.module('eosApp')
-  .factory('feedService', ['$http', function ($http) {
-    var doRequest = function() {
-      return $http({
-        method: 'GET',
-        url: 'http://feeds2.uwosh.edu/api/v2/index.php/uwo-api',
-        cache: true
-      });
-    };
-    return {
-      events: function() { return doRequest(); },
-    };
-  }]);
-
 // CONTROLLERS
 angular.module('eosApp')
   .controller('EmergencyCtrl', ['$scope', '$http', function ($scope,$http) {
@@ -24,55 +10,7 @@ angular.module('eosApp')
     }).error(function() {
       // Some error occurred
     });
-  }])
-  // .controller('TitanAlertCtrl', ['$scope', '$http', function ($scope,$http) {
-  //   $http.get('http://feeds.uwosh.edu/api/v1/index.php/titan-alert/rave').success(function(data) {
-  //     $scope.posts = data.value.items;
-  //   }).error(function() {
-  //     // Some error occurred
-  //   });
-  // }])
-  // .controller('EventsCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
-  //   feedService.events().success(function(data) {
-  //     $scope.events = data.events.value.items;
-  //   }).error(function() {
-  //     // Some error occurred
-  //   });
-  // }])
-  .controller('TwitterCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
-    feedService.events().success(function(data) {
-      $scope.tweets = data.twitter;
-    }).error(function() {
-      // Some error occurred
-    });
-  }])
-  .controller('FacebookCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
-    feedService.events().success(function(data) {
-      $scope.fbposts = data.facebook.data;
-      $scope.filterEmpties = function(post) {
-        if(post.message) {
-          return true;
-        }
-        return false;
-      };
-    }).error(function() {
-      // Some error occurred
-    });
-  }])
-  .controller('YouTubeCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
-    feedService.events().success(function(data) {
-      $scope.videos = data.youtube.data.items;
-    }).error(function() {
-      // Some error occurred
-    });
   }]);
-  // .controller('FlickrCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
-  //   feedService.events().success(function(data) {
-  //     $scope.photosets = data.flickr.photosets.photoset;
-  //   }).error(function() {
-  //     // Some error occurred
-  //   });
-  // }]);
 
 // FILTERS
 angular.module('eosApp')

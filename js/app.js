@@ -94,6 +94,10 @@ $( document ).ready(function() {
         meetUwOshkoshPanel(data.meetUwo.posts[0]);
         poweringCommunityPanel(data.poweringCommunity.posts[0]);
         researchNewsPanel(data.researchNews.posts[0]);
+        tweetsLoad(data.twitter);
+        facebookLoad(data.facebook.data);
+        youtubeLoad(data.youtube.data.items);
+        //flickrLoad(data.flickr.photosets.photoset);
       }
     });
 
@@ -426,4 +430,92 @@ var researchNewsPanel = function(post) {
   };
 
   $('.fade--research-news').addClass("in");
+};
+
+var tweetsLoad = function(tweets) {
+  var tweetHtml = '';
+
+  $.each(tweets, function(index, tweet) {
+    var rawdate = moment(new Date(tweet.created_at)).format();
+    var tweetDate = moment(rawdate).fromNow();
+
+    tweetHtml = tweetHtml + '
+      <slide>
+        <div class="twitter-article social-article">
+          <div class="media">
+            <a class="media__img" href="https://twitter.com/' + tweet.user.screen_name + '" target="_blank"><img class="media-object twitter-article__avatar" src="' +  tweet.user.profile_image_url_https + '" alt="UW Oshkosh Twitter profile image"></a>
+            <div class="media__body">
+              <div class="media-heading">
+                <span class="tweetprofilelink">
+                  <strong>' + tweet.user.name + '</strong> <a href="https://twitter.com/' +  tweet.user.screen_name + '" target="_blank">@' + tweet.user.screen_name + '</a>
+                </span><br>
+                <span class="tweet-time">
+                  <a href="https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id_str + '" target="_blank"><i class="fa fa-clock-o datetime"></i> <time class="datetime" datetime="' + tweet.created_at + '">' + tweetDate + '</time></a>
+                </span>
+              </div>
+              <p>' + tweet.text + '</p>
+              <p class="twitter-intents">
+                <a href="https://twitter.com/intent/tweet?in_reply_to=' + tweet.id_str + '" target="_blank"><i class="fa fa-fw fa-reply"></i> Reply &nbsp;</a>
+                <a ng-href="https://twitter.com/intent/retweet?tweet_id=' + tweet.id_str + '" target="_blank"><i class="fa fa-fw fa-retweet"></i> Retweet &nbsp;</a>
+                <a ng-href="https://twitter.com/intent/favorite?tweet_id=' + tweet.id_str + '" target="_blank"><i class="fa fa-fw fa-star"></i> Favorite</a></p>
+            </div>
+          </div>
+        </div>
+      </slide>
+    ';
+  });
+  $('#deck-twitter').html(tweetHtml);
+};
+
+var facebookLoad = function(fbposts) {
+  var facebookHtml = '';
+
+  $.each(fbposts, function(index, fbpost) {
+    if (fbpost.message) {
+      var rawdate = moment(new Date(fbpost.created_time)).format();
+      var fbpostDate = moment(rawdate).fromNow();
+
+      facebookHtml = facebookHtml + '
+        <slide>
+          <div class="twitter-article facebook-article social-article">
+            <div class="media">
+              <a class="media__img" href="https://www.facebook.com/uwoshkosh">
+                <img src="http://www.uwosh.edu/img/facebook-wordmark.jpg" alt="UW Oshkosh wordmark">
+              </a>
+              <div class="media__body">
+                <strong>UW Oshkosh</strong>
+              </div>
+            </div>
+            <p>
+              <!-- <img ng-src="{{ fbpost.picture }}" class="right" alt=""> --><span>' + fbpost.message + '</span>&hellip; <a ng-href="' + fbpost.link + '" target="_blank" alt="" >Read more</a>
+            </p>
+            <div>
+              <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="' + fbpost.updated_time + '">' + fbpostDate + '</time></span><span class="datetime social-feed-likes">' + fbpost.likes.data.length + ' people like this</span>
+            </div>
+          </div>
+        </slide>
+      ';
+    };
+  });
+  $('#deck-facebook').html(facebookHtml);
+};
+
+var youtubeLoad = function(videos) {
+  var youtubeHtml = '';
+
+  $.each(videos, function(index, video) {
+    var rawdate = moment(new Date(video.updated)).format();
+    var videoDate = moment(rawdate).fromNow();
+
+    youtubeHtml = youtubeHtml + '
+      <slide>
+        <div class="twitter-article social-article">
+          <div class="youtube" id="' + video.id + '" style="height:160px;"></div>
+          <p class="body-content">' + video.title + '</p>
+          <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="' + video.updated + '">' + videoDate + '</time></span>
+        </div>
+      </slide>
+    ';
+  });
+  $('#deck-youtube').html(youtubeHtml);
 };
