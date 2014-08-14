@@ -101,6 +101,15 @@ $( document ).ready(function() {
       }
     });
 
+    $.ajax({
+      url: "http://feeds2.uwosh.edu/api/v2/index.php/emergency/broadcast",
+      dataType: 'json',
+      success: function( data )
+      {
+        emergencyLoad(data.posts);
+      }
+    });
+
   };
 
 });
@@ -518,4 +527,23 @@ var youtubeLoad = function(videos) {
     ';
   });
   $('#deck-youtube').html(youtubeHtml);
+};
+
+var emergencyLoad = function(posts) {
+  var postHtml = '';
+
+  $.each(posts, function(index, post) {
+    if (post.title) {
+      var postDate = moment(new Date(post.modified)).format('MMM D h:m a');
+
+      postHtml = postHtml + '
+        <div data-alert class="alert-box small-24 columns">
+          <span class="drop-down-nav">' + post.title + '</span>&hellip; <a href="' + post.url + '" style="color:#fff;text-decoration:underline;font-size:16px;line-height:24px;">Read more</a><br>
+          <span class="datetime" style="color:#fff;"><i class="fa fa-clock-o"></i> <time datetime="' + post.date + '"> ' + postDate + '</time></span>
+        </div>
+      ';
+    };
+  });
+  $('#emergency-alert').html(postHtml);
+  $('.fade--emergency').addClass("in");
 };

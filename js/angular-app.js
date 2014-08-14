@@ -2,15 +2,6 @@
 
 angular.module('eosApp', ['ngSanitize']);
 
-// CONTROLLERS
-angular.module('eosApp')
-  .controller('EmergencyCtrl', ['$scope', '$http', function ($scope,$http) {
-    $http.get('http://feeds2.uwosh.edu/api/v2/index.php/emergency/broadcast').success(function(data) {
-      $scope.posts = data.posts;
-    }).error(function() {
-      // Some error occurred
-    });
-  }]);
 
 // FILTERS
 angular.module('eosApp')
