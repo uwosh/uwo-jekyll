@@ -32,13 +32,13 @@ angular.module('eosApp')
   //     // Some error occurred
   //   });
   // }])
-  .controller('EventsCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
-    feedService.events().success(function(data) {
-      $scope.events = data.events.value.items;
-    }).error(function() {
-      // Some error occurred
-    });
-  }])
+  // .controller('EventsCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
+  //   feedService.events().success(function(data) {
+  //     $scope.events = data.events.value.items;
+  //   }).error(function() {
+  //     // Some error occurred
+  //   });
+  // }])
   .controller('CampusNewsPanelCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.post = data.campusNews.posts[0];
