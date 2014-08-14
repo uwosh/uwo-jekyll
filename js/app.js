@@ -86,6 +86,7 @@ $( document ).ready(function() {
       {
         eventsLoad(data.events.value.items);
         admissionsPanel(data.admissions.posts[0]);
+        uwotwPanel(data.uwotw.posts[0]);
       }
     });
 
@@ -162,4 +163,36 @@ var admissionsPanel = function(post) {
   };
 
   $('.fade--study-uwo').addClass("in");
+};
+
+var uwotwPanel = function(post) {
+  var excerpt = postExcerpt(post.excerpt);
+  var rawdate = moment(new Date(post.date)).format();
+  var date = moment(rawdate).fromNow();
+
+  $('.uwotw-title').text(post.title);
+  $('.uwotw-excerpt').text(excerpt);
+  $('.uwotw-postdate').text(date);
+  $('.uwotw-postdate').attr("datetime", date);
+  $('.uwotw-url').attr("href", post.url);
+
+  if (post.custom_fields.youtube_id) {
+    var postHtml = '
+      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
+        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
+      </div><br>
+    ';
+    $('.uwotw-media').html(postHtml);
+  } else {
+    var postHtml = '
+      <a href="" class="studyAtUwoFullStory uwotw-url">
+        <div class="panel__video-wrapper">
+          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home uwotw-image" alt="' + post.title + '" />
+        </div><br>
+      </a>
+    ';
+    $('.uwotw-media').html(postHtml);
+  };
+
+  $('.fade--uwotw').addClass("in");
 };
