@@ -76,7 +76,10 @@ setTimeout(function() {
 
 // jQuery Port
 $( document ).ready(function() {
-  $.ajax({
+
+  if ($('html').hasClass('page--home')) {
+
+    $.ajax({
       url: "http://feeds2.uwosh.edu/api/v2/index.php/uwo-api",
       dataType: 'json',
       success: function( data )
@@ -111,8 +114,10 @@ $( document ).ready(function() {
         });
 
         $('.event-list').html(eventHtml);
+        $('.fade--events').addClass("in");
       }
     });
 
-    $('.fade').addClass("in");
+  };
+
 });

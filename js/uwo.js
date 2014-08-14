@@ -9223,13 +9223,13 @@ angular.module('eosApp')
   //     // Some error occurred
   //   });
   // }])
-  .controller('EventsCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
-    feedService.events().success(function(data) {
-      $scope.events = data.events.value.items;
-    }).error(function() {
-      // Some error occurred
-    });
-  }])
+  // .controller('EventsCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
+  //   feedService.events().success(function(data) {
+  //     $scope.events = data.events.value.items;
+  //   }).error(function() {
+  //     // Some error occurred
+  //   });
+  // }])
   .controller('CampusNewsPanelCtrl', ['$scope', '$http', 'feedService', function ($scope,$http,feedService) {
     feedService.events().success(function(data) {
       $scope.post = data.campusNews.posts[0];
@@ -15179,7 +15179,10 @@ setTimeout(function() {
 
 // jQuery Port
 $( document ).ready(function() {
-  $.ajax({
+
+  if ($('html').hasClass('page--home')) {
+
+    $.ajax({
       url: "http://feeds2.uwosh.edu/api/v2/index.php/uwo-api",
       dataType: 'json',
       success: function( data )
@@ -15214,10 +15217,12 @@ $( document ).ready(function() {
         });
 
         $('.event-list').html(eventHtml);
+        $('.fade--events').addClass("in");
       }
     });
 
-    $('.fade').addClass("in");
+  };
+
 });
 
 /*!
