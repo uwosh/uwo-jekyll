@@ -93,6 +93,7 @@ $( document ).ready(function() {
         iAmATitanPanel(data.iAmATitan.posts[0]);
         meetUwOshkoshPanel(data.meetUwo.posts[0]);
         poweringCommunityPanel(data.poweringCommunity.posts[0]);
+        researchNewsPanel(data.researchNews.posts[0]);
       }
     });
 
@@ -393,4 +394,36 @@ var poweringCommunityPanel = function(post) {
   };
 
   $('.fade--powering-community').addClass("in");
+};
+
+var researchNewsPanel = function(post) {
+  var excerpt = postExcerpt(post.excerpt);
+  var rawdate = moment(new Date(post.date)).format();
+  var date = moment(rawdate).fromNow();
+
+  $('.research-news-title').text(post.title);
+  $('.research-news-excerpt').text(excerpt);
+  $('.research-news-postdate').text(date);
+  $('.research-news-postdate').attr("datetime", date);
+  $('.research-news-url').attr("href", post.url);
+
+  if (post.custom_fields.youtube_id) {
+    var postHtml = '
+      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
+        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
+      </div><br>
+    ';
+    $('.research-news-media').html(postHtml);
+  } else {
+    var postHtml = '
+      <a href="" class="studyAtUwoFullStory research-news-url">
+        <div class="panel__video-wrapper">
+          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home research-news-image" alt="' + post.title + '" />
+        </div><br>
+      </a>
+    ';
+    $('.research-news-media').html(postHtml);
+  };
+
+  $('.fade--research-news').addClass("in");
 };
