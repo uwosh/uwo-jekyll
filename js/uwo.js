@@ -15188,6 +15188,7 @@ $( document ).ready(function() {
       success: function( data )
       {
         eventsLoad(data.events.value.items);
+        admissionsPanel(data.admissions.posts[0]);
       }
     });
 
@@ -15195,8 +15196,14 @@ $( document ).ready(function() {
 
 });
 
-var eventsLoad = function(events) {
+var postExcerpt = function(rawString) {
+  var presubstr = rawString;
+  var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
+  var truncstring = $.trim(strippedstr).substring(0,170).split(" ").slice(0, -1).join(" ") + "...";
+  return truncstring;
+};
 
+var eventsLoad = function(events) {
   var eventHtml = '';
 
   $.each(events, function(index, event) {
@@ -15226,7 +15233,38 @@ var eventsLoad = function(events) {
   });
   $('.event-list').html(eventHtml);
   $('.fade--events').addClass("in");
+};
 
+var admissionsPanel = function(post) {
+  var excerpt = postExcerpt(post.excerpt);
+  var rawdate = moment(new Date(post.date)).format();
+  var date = moment(rawdate).fromNow();
+
+  $('.study-uwo-title').text(post.title);
+  $('.study-uwo-excerpt').text(excerpt);
+  $('.study-uwo-postdate').text(date);
+  $('.study-uwo-postdate').attr("datetime", date);
+  $('.study-uwo-url').attr("href", post.url);
+
+  if (post.custom_fields.youtube_id) {
+    var postHtml = '
+      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
+        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
+      </div><br>
+    ';
+    $('.study-uwo-media').html(postHtml);
+  } else {
+    var postHtml = '
+      <a href="" class="studyAtUwoFullStory study-uwo-url">
+        <div class="panel__video-wrapper">
+          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home study-uwo-image" alt="' + post.title + '" />
+        </div><br>
+      </a>
+    ';
+    $('.study-uwo-media').html(postHtml);
+  };
+
+  $('.fade--study-uwo').addClass("in");
 };
 
 /*!
