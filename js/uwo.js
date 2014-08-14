@@ -15172,6 +15172,54 @@ setTimeout(function() {
   $(document).foundation('equalizer','reflow');
 }, 8001);
 
+
+
+
+
+
+// jQuery Port
+$( document ).ready(function() {
+  $.ajax({
+      url: "http://feeds2.uwosh.edu/api/v2/index.php/uwo-api",
+      dataType: 'json',
+      success: function( data )
+      {
+        var events = data.events.value.items;
+        var eventHtml = '';
+
+        $.each(events, function(index, event) {
+          var eventMonth = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('MMM');
+          var eventDay = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('D');
+          var startTime = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('h a');
+          var endTime = moment(new Date(event['ev:tribe_event_meta']['ev:enddate'])).format('h a');
+          var description = $.trim(event.description).substring(0,130).split(" ").slice(0, -1).join(" ") + "...";
+
+          eventHtml = eventHtml + '
+            <div class="large-8 medium-8 small-24 columns">
+              <div class="media">
+                <a class="media__img viewEvent" href="' + event.link + '">
+                  <div class="event-item__calendar">
+                    <div class="event-item__calendar--month">' + eventMonth + '.</div>
+                    <div class="event-item__calendar--day">' + eventDay + '</div>
+                  </div>
+                </a>
+                <div class="media__body">
+                  <a class="viewEvent" href="' + event.link + '"><h4 class="event-item__title body-content">' + event.title + '</h4></a>
+                  <div class="event-item__time body-content">' + startTime + '&ndash;' +  endTime + '</div>
+                  <div class="event-item__location body-content">' + description + '</div>
+                </div>
+              </div>
+            </div>
+          ';
+        });
+
+        $('.event-list').html(eventHtml);
+      }
+    });
+
+    $('.fade').addClass("in");
+});
+
 /*!
  * hoverIntent r7 // 2013.03.11 // jQuery 1.9.1+
  * http://cherne.net/brian/resources/jquery.hoverIntent.html
