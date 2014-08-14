@@ -88,6 +88,7 @@ $( document ).ready(function() {
         admissionsPanel(data.admissions.posts[0]);
         uwotwPanel(data.uwotw.posts[0]);
         campusNewsPanel(data.campusNews.posts[0]);
+        facultyFivePanel(data.twif.posts[0]);
       }
     });
 
@@ -228,4 +229,36 @@ var campusNewsPanel = function(post) {
   };
 
   $('.fade--campus-news').addClass("in");
+};
+
+var facultyFivePanel = function(post) {
+  var excerpt = postExcerpt(post.excerpt);
+  var rawdate = moment(new Date(post.date)).format();
+  var date = moment(rawdate).fromNow();
+
+  $('.faculty-five-title').text(post.title);
+  $('.faculty-five-excerpt').text(excerpt);
+  $('.faculty-five-postdate').text(date);
+  $('.faculty-five-postdate').attr("datetime", date);
+  $('.faculty-five-url').attr("href", post.url);
+
+  if (post.custom_fields.youtube_id) {
+    var postHtml = '
+      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
+        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
+      </div><br>
+    ';
+    $('.faculty-five-media').html(postHtml);
+  } else {
+    var postHtml = '
+      <a href="" class="studyAtUwoFullStory faculty-five-url">
+        <div class="panel__video-wrapper">
+          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home faculty-five-image" alt="' + post.title + '" />
+        </div><br>
+      </a>
+    ';
+    $('.faculty-five-media').html(postHtml);
+  };
+
+  $('.fade--faculty-five').addClass("in");
 };
