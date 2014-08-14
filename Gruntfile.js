@@ -9,7 +9,6 @@ module.exports = function(grunt){
       dist: {
         src: [
           'bower_components/jquery/dist/jquery.js',
-          'js/angular-app.js',
           'bower_components/foundation/js/foundation.js',
           'bower_components/foundation/js/foundation/foundation.equalizer.js',
           'js/app.js',
