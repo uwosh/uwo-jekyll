@@ -90,6 +90,7 @@ $( document ).ready(function() {
         campusNewsPanel(data.campusNews.posts[0]);
         facultyFivePanel(data.twif.posts[0]);
         fromTheChancellorPanel(data.chancellor.posts[0]);
+        iAmATitanPanel(data.iAmATitan.posts[0]);
       }
     });
 
@@ -294,4 +295,36 @@ var fromTheChancellorPanel = function(post) {
   };
 
   $('.fade--chancellor').addClass("in");
+};
+
+var iAmATitanPanel = function(post) {
+  var excerpt = postExcerpt(post.excerpt);
+  var rawdate = moment(new Date(post.date)).format();
+  var date = moment(rawdate).fromNow();
+
+  $('.i-am-a-titan-title').text(post.title);
+  $('.i-am-a-titan-excerpt').text(excerpt);
+  $('.i-am-a-titan-postdate').text(date);
+  $('.i-am-a-titan-postdate').attr("datetime", date);
+  $('.i-am-a-titan-url').attr("href", post.url);
+
+  if (post.custom_fields.youtube_id) {
+    var postHtml = '
+      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
+        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
+      </div><br>
+    ';
+    $('.i-am-a-titan-media').html(postHtml);
+  } else {
+    var postHtml = '
+      <a href="" class="studyAtUwoFullStory i-am-a-titan-url">
+        <div class="panel__video-wrapper">
+          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home i-am-a-titan-image" alt="' + post.title + '" />
+        </div><br>
+      </a>
+    ';
+    $('.i-am-a-titan-media').html(postHtml);
+  };
+
+  $('.fade--i-am-a-titan').addClass("in");
 };
