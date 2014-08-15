@@ -16785,20 +16785,20 @@ setTimeout(function() {
   };
 }, 2001);
 
-// // Reflow Equalizer after content is loaded
-// setTimeout(function() {
-//   $(document).foundation('equalizer','reflow');
-// }, 1001);
-//
-// // Fix orbit height issue
-// setTimeout(function() {
-//   $(document).resize();
-// }, 1000);
-//
-// // Reflow Equalizer after content is loaded
-// setTimeout(function() {
-//   $(document).foundation('equalizer','reflow');
-// }, 8001);
+// Reflow Equalizer after content is loaded
+setTimeout(function() {
+  $(document).foundation('equalizer','reflow');
+}, 1001);
+
+// Fix orbit height issue
+setTimeout(function() {
+  $(document).resize();
+}, 1000);
+
+// Reflow Equalizer after content is loaded
+setTimeout(function() {
+  $(document).foundation('equalizer','reflow');
+}, 8001);
 
 
 
@@ -16848,8 +16848,6 @@ $( document ).ready(function() {
       	});
 
         $('.fade--pillar-slick').addClass("in");
-
-        $(document).foundation('equalizer','reflow');
       }
     });
 
