@@ -15058,12 +15058,13 @@ var eventsLoad = function(events) {
 };
 
 var admissionsPanel = function(post) {
-  var excerpt = postExcerpt(post.excerpt);
+  var excerpt = $.truncate(post.excerpt, { length: 170 });
+  //var excerpt = postExcerpt(post.excerpt);
   var rawdate = moment(new Date(post.date)).format();
   var date = moment(rawdate).fromNow();
 
-  $('.study-uwo-title').text(post.title);
-  $('.study-uwo-excerpt').text(excerpt);
+  $('.study-uwo-title').html(post.title);
+  $('.study-uwo-excerpt').html(excerpt);
   $('.study-uwo-postdate').text(date);
   $('.study-uwo-postdate').attr("datetime", date);
   $('.study-uwo-url').attr("href", post.url);
@@ -15123,12 +15124,13 @@ var uwotwPanel = function(post) {
 };
 
 var campusNewsPanel = function(post) {
-  var excerpt = postExcerpt(post.excerpt);
+  var excerpt = $.truncate(post.excerpt, { length: 170 });
+  //var excerpt = postExcerpt(post.excerpt);
   var rawdate = moment(new Date(post.date)).format();
   var date = moment(rawdate).fromNow();
 
-  $('.campus-news-title').text(post.title);
-  $('.campus-news-excerpt').text(excerpt);
+  $('.campus-news-title').html(post.title);
+  $('.campus-news-excerpt').html(excerpt);
   $('.campus-news-postdate').text(date);
   $('.campus-news-postdate').attr("datetime", date);
   $('.campus-news-url').attr("href", post.url);
@@ -15155,12 +15157,13 @@ var campusNewsPanel = function(post) {
 };
 
 var facultyFivePanel = function(post) {
-  var excerpt = postExcerpt(post.excerpt);
+  var excerpt = $.truncate(post.excerpt, { length: 170 });
+  //var excerpt = postExcerpt(post.excerpt);
   var rawdate = moment(new Date(post.date)).format();
   var date = moment(rawdate).fromNow();
 
-  $('.faculty-five-title').text(post.title);
-  $('.faculty-five-excerpt').text(excerpt);
+  $('.faculty-five-title').html(post.title);
+  $('.faculty-five-excerpt').html(excerpt);
   $('.faculty-five-postdate').text(date);
   $('.faculty-five-postdate').attr("datetime", date);
   $('.faculty-five-url').attr("href", post.url);
@@ -15187,12 +15190,13 @@ var facultyFivePanel = function(post) {
 };
 
 var fromTheChancellorPanel = function(post) {
-  var excerpt = postExcerpt(post.excerpt);
+  var excerpt = $.truncate(post.excerpt, { length: 170 });
+  //var excerpt = postExcerpt(post.excerpt);
   var rawdate = moment(new Date(post.date)).format();
   var date = moment(rawdate).fromNow();
 
-  $('.chancellor-title').text(post.title);
-  $('.chancellor-excerpt').text(excerpt);
+  $('.chancellor-title').html(post.title);
+  $('.chancellor-excerpt').html(excerpt);
   $('.chancellor-postdate').text(date);
   $('.chancellor-postdate').attr("datetime", date);
   $('.chancellor-url').attr("href", post.url);
@@ -15219,12 +15223,13 @@ var fromTheChancellorPanel = function(post) {
 };
 
 var iAmATitanPanel = function(post) {
-  var excerpt = postExcerpt(post.excerpt);
+  var excerpt = $.truncate(post.excerpt, { length: 170 });
+  //var excerpt = postExcerpt(post.excerpt);
   var rawdate = moment(new Date(post.date)).format();
   var date = moment(rawdate).fromNow();
 
-  $('.i-am-a-titan-title').text(post.title);
-  $('.i-am-a-titan-excerpt').text(excerpt);
+  $('.i-am-a-titan-title').html(post.title);
+  $('.i-am-a-titan-excerpt').html(excerpt);
   $('.i-am-a-titan-postdate').text(date);
   $('.i-am-a-titan-postdate').attr("datetime", date);
   $('.i-am-a-titan-url').attr("href", post.url);
@@ -15251,12 +15256,13 @@ var iAmATitanPanel = function(post) {
 };
 
 var meetUwOshkoshPanel = function(post) {
-  var excerpt = postExcerpt(post.excerpt);
+  var excerpt = $.truncate(post.excerpt, { length: 170 });
+  //var excerpt = postExcerpt(post.excerpt);
   var rawdate = moment(new Date(post.date)).format();
   var date = moment(rawdate).fromNow();
 
-  $('.meet-uwo-title').text(post.title);
-  $('.meet-uwo-excerpt').text(excerpt);
+  $('.meet-uwo-title').html(post.title);
+  $('.meet-uwo-excerpt').html(excerpt);
   $('.meet-uwo-postdate').text(date);
   $('.meet-uwo-postdate').attr("datetime", date);
   $('.meet-uwo-url').attr("href", post.url);
@@ -15283,12 +15289,13 @@ var meetUwOshkoshPanel = function(post) {
 };
 
 var poweringCommunityPanel = function(post) {
-  var excerpt = postExcerpt(post.excerpt);
+  var excerpt = $.truncate(post.excerpt, { length: 170 });
+  //var excerpt = postExcerpt(post.excerpt);
   var rawdate = moment(new Date(post.date)).format();
   var date = moment(rawdate).fromNow();
 
-  $('.powering-community-title').text(post.title);
-  $('.powering-community-excerpt').text(excerpt);
+  $('.powering-community-title').html(post.title);
+  $('.powering-community-excerpt').html(excerpt);
   $('.powering-community-postdate').text(date);
   $('.powering-community-postdate').attr("datetime", date);
   $('.powering-community-url').attr("href", post.url);
@@ -15315,12 +15322,13 @@ var poweringCommunityPanel = function(post) {
 };
 
 var researchNewsPanel = function(post) {
-  var excerpt = postExcerpt(post.excerpt);
+  var excerpt = $.truncate(post.excerpt, { length: 170 });
+  //var excerpt = postExcerpt(post.excerpt);
   var rawdate = moment(new Date(post.date)).format();
   var date = moment(rawdate).fromNow();
 
-  $('.research-news-title').text(post.title);
-  $('.research-news-excerpt').text(excerpt);
+  $('.research-news-title').html(post.title);
+  $('.research-news-excerpt').html(excerpt);
   $('.research-news-postdate').text(date);
   $('.research-news-postdate').attr("datetime", date);
   $('.research-news-url').attr("href", post.url);
