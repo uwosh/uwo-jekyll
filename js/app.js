@@ -104,6 +104,20 @@ $( document ).ready(function() {
         youtubeLoad(data.youtube.data.items);
         //flickrLoad(data.flickr.photosets.photoset);
 
+        $('.pillar-slick').slick({
+          autoplay: true,
+          autoplaySpeed: 6000,
+          speed: 500,
+          fade: true,
+          cssEase: 'linear',
+          arrows: false,
+          lazyLoad: 'ondemand',
+          slidesToShow: 1,
+          slidesToScroll: 1
+      	});
+
+        $('.fade--pillar-slick').addClass("in");
+
         $(document).foundation('equalizer','reflow');
       }
     });
@@ -572,7 +586,7 @@ var pillarEducationLoad = function(post) {
   $('.pillar-education-title').html(post.title);
   $('.pillar-education-excerpt').html(excerpt);
   $('.pillar-education-url').attr("href", post.url);
-  $('.pillar-education-image').attr("src", post.custom_fields.pillar_image);
+  $('.pillar-education-image').attr("data-lazy", post.custom_fields.pillar_image);
 
 };
 
@@ -583,7 +597,7 @@ var pillarServiceLoad = function(post) {
   $('.pillar-service-title').html(post.title);
   $('.pillar-service-excerpt').html(excerpt);
   $('.pillar-service-url').attr("href", post.url);
-  $('.pillar-service-image').attr("src", post.custom_fields.pillar_image);
+  $('.pillar-service-image').attr("data-lazy", post.custom_fields.pillar_image);
 
 };
 
@@ -594,7 +608,7 @@ var pillarSustainabilityLoad = function(post) {
   $('.pillar-sustainability-title').html(post.title);
   $('.pillar-sustainability-excerpt').html(excerpt);
   $('.pillar-sustainability-url').attr("href", post.url);
-  $('.pillar-sustainability-image').attr("src", post.custom_fields.pillar_image);
+  $('.pillar-sustainability-image').attr("data-lazy", post.custom_fields.pillar_image);
 
 };
 
@@ -605,7 +619,7 @@ var pillarLeadershipLoad = function(post) {
   $('.pillar-leadership-title').html(post.title);
   $('.pillar-leadership-excerpt').html(excerpt);
   $('.pillar-leadership-url').attr("href", post.url);
-  $('.pillar-leadership-image').attr("src", post.custom_fields.pillar_image);
+  $('.pillar-leadership-image').attr("data-lazy", post.custom_fields.pillar_image);
 
 };
 
@@ -616,6 +630,6 @@ var pillarResponsivenessLoad = function(post) {
   $('.pillar-responsiveness-title').html(post.title);
   $('.pillar-responsiveness-excerpt').html(excerpt);
   $('.pillar-responsiveness-url').attr("href", post.url);
-  $('.pillar-responsiveness-image').attr("src", post.custom_fields.pillar_image);
+  $('.pillar-responsiveness-image').attr("data-lazy", post.custom_fields.pillar_image);
 
 };

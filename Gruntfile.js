@@ -11,6 +11,7 @@ module.exports = function(grunt){
           'bower_components/jquery/dist/jquery.js',
           'bower_components/foundation/js/foundation.js',
           'bower_components/foundation/js/foundation/foundation.equalizer.js',
+          'js/slick.js',
           'js/jquery.truncate.js',
           'js/app.js',
           'js/jquery.hoverIntent.js',

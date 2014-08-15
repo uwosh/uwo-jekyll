@@ -2,6 +2,7 @@
 @import "../bower_components/foundation/scss/foundation";
 @import "partials/mixins";
 @import "font-awesome-4.1.0/scss/font-awesome";
+@import "slick.css";
 /*
 VARIABLES
 ---------------
@@ -786,6 +787,9 @@ HOME
   background-color: transparent !important;
   bottom: 10px !important;
   padding-left: 0 !important;
+  position: absolute;
+  display: block;
+  width: 100%;
   @media #{$small-only} {
     padding: 10px 0 10px 0 !important;
     position: relative !important;
