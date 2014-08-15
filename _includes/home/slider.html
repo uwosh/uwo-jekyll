@@ -2,70 +2,55 @@
 <div class="preloader"></div>
   <ul data-orbit data-options="slide_number:false;timer_speed:6000;pause_on_hover:true;resume_on_mouseout:true;timer:true;animation:fade">
 
-  {% jsonball feed from url http://feeds2.uwosh.edu/api/v2/index.php/news/education-pillar %}
-    {% for post in feed.posts %}
-    <li>
-      <a href="{{ post.url }}"><img class="pillar-image img-responsive" src="{{ post.custom_fields.pillar_image }}" alt="Education Pillar" /></a>
-      <div class="orbit-caption home-slider__caption">
-        <div class="home-slider__caption__content">
-          <p class="banner-headline home-slider__caption__title">{{ post.title }}</p>
-          <p class="body-content"><span class="home-slider__caption__excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</span><a href="{{ post.url }}" class="pillarEducationMore"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
-        </div>
+  <li>
+    <a href="" class="pillar-education-url"><img class="pillar-image img-responsive pillar-education-image" src="" alt="Education Pillar" /></a>
+    <div class="orbit-caption home-slider__caption">
+      <div class="home-slider__caption__content">
+        <p class="banner-headline home-slider__caption__title pillar-education-title"></p>
+        <p class="body-content"><span class="home-slider__caption__excerpt pillar-education-excerpt"></span><a href="" class="pillarEducationMore pillar-education-url"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
       </div>
-    </li>
-    {% endfor %}
+    </div>
+  </li>
 
-  {% jsonball feed from url http://feeds2.uwosh.edu/api/v2/index.php/news/service-pillar %}
-    {% for post in feed.posts %}
-    <li>
-      <a href="{{ post.url }}"><img class="pillar-image img-responsive" src="{{ post.custom_fields.pillar_image }}" alt="Service Pillar" /></a>
-      <div class="orbit-caption home-slider__caption">
-        <div class="home-slider__caption__content">
-          <p class="banner-headline home-slider__caption__title">{{ post.title }}</p>
-          <p class="body-content"><span class="home-slider__caption__excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</span><a href="{{ post.url }}" class="pillarServiceMore"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
-        </div>
+  <li>
+    <a href="" class="pillar-service-url"><img class="pillar-image img-responsive pillar-service-image" src="" alt="Service Pillar" /></a>
+    <div class="orbit-caption home-slider__caption">
+      <div class="home-slider__caption__content">
+        <p class="banner-headline home-slider__caption__title pillar-service-title"></p>
+        <p class="body-content"><span class="home-slider__caption__excerpt pillar-service-excerpt"></span><a href="" class="pillarServiceMore pillar-service-url"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
       </div>
-    </li>
-    {% endfor %}
+    </div>
+  </li>
 
-  {% jsonball feed from url http://feeds2.uwosh.edu/api/v2/index.php/news/sustainability-pillar %}
-    {% for post in feed.posts %}
-    <li>
-      <a href="{{ post.url }}"><img class="pillar-image img-responsive" src="{{ post.custom_fields.pillar_image }}" alt="Sustainability Pillar" /></a>
-      <div class="orbit-caption home-slider__caption">
-        <div class="home-slider__caption__content">
-          <p class="banner-headline home-slider__caption__title">{{ post.title }}</p>
-          <p class="body-content"><span class="home-slider__caption__excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</span><a href="{{ post.url }}" class="pillarSustainabilityMore"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
-        </div>
+  <li>
+    <a href="" class="pillar-sustainability-url"><img class="pillar-image img-responsive pillar-sustainability-image" src="" alt="Sustainability Pillar" /></a>
+    <div class="orbit-caption home-slider__caption">
+      <div class="home-slider__caption__content">
+        <p class="banner-headline home-slider__caption__title pillar-sustainability-title"></p>
+        <p class="body-content"><span class="home-slider__caption__excerpt pillar-sustainability-excerpt"></span><a href="" class="pillarSustainabilityMore pillar-sustainability-url"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
       </div>
-    </li>
-    {% endfor %}
+    </div>
+  </li>
 
-  {% jsonball feed from url http://feeds2.uwosh.edu/api/v2/index.php/news/leadership-pillar %}
-    {% for post in feed.posts %}
-    <li>
-      <a href="{{ post.url }}"><img class="pillar-image img-responsive" src="{{ post.custom_fields.pillar_image }}" alt="Leadership Pillar" /></a>
-      <div class="orbit-caption home-slider__caption">
-        <div class="home-slider__caption__content">
-          <p class="banner-headline home-slider__caption__title">{{ post.title }}</p>
-          <p class="body-content"><span class="home-slider__caption__excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</span><a href="{{ post.url }}" class="pillarLeadershipMore"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
-        </div>
+  <li>
+    <a href="" class="pillar-leadership-url"><img class="pillar-image img-responsive pillar-leadership-image" src="" alt="Leadership Pillar" /></a>
+    <div class="orbit-caption home-slider__caption">
+      <div class="home-slider__caption__content">
+        <p class="banner-headline home-slider__caption__title pillar-leadership-title"></p>
+        <p class="body-content"><span class="home-slider__caption__excerpt pillar-leadership-excerpt"></span><a href="" class="pillarLeadershipMore pillar-leadership-url"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
       </div>
-    </li>
-    {% endfor %}
+    </div>
+  </li>
 
-  {% jsonball feed from url http://feeds2.uwosh.edu/api/v2/index.php/news/responsiveness-pillar %}
-    {% for post in feed.posts %}
-    <li>
-      <a href="{{ post.url }}"><img class="pillar-image img-responsive" src="{{ post.custom_fields.pillar_image }}" alt="Responsiveness Pillar" /></a>
-      <div class="orbit-caption home-slider__caption">
-        <div class="home-slider__caption__content">
-          <p class="banner-headline home-slider__caption__title">{{ post.title }}</p>
-          <p class="body-content"><span class="home-slider__caption__excerpt">{{ post.excerpt | strip_html | truncate: 60 }}</span><a href="{{ post.url }}" class="pillarResponsivenessMore"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
-        </div>
+  <li>
+    <a href="" class="pillar-responsiveness-url"><img class="pillar-image img-responsive pillar-responsiveness-image" src="" alt="Responsiveness Pillar" /></a>
+    <div class="orbit-caption home-slider__caption">
+      <div class="home-slider__caption__content">
+        <p class="banner-headline home-slider__caption__title pillar-responsiveness-title"></p>
+        <p class="body-content"><span class="home-slider__caption__excerpt pillar-responsiveness-excerpt"></span><a href="" class="pillarResponsivenessMore pillar-responsiveness-url"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
       </div>
-    </li>
-    {% endfor %}
+    </div>
+  </li>
 
   </ul>
 </div>

@@ -84,6 +84,11 @@ $( document ).ready(function() {
       dataType: 'json',
       success: function( data )
       {
+        pillarEducationLoad(data.pillarEducation.posts[0]);
+        pillarServiceLoad(data.pillarService.posts[0]);
+        pillarSustainabilityLoad(data.pillarSustainability.posts[0]);
+        pillarLeadershipLoad(data.pillarLeadership.posts[0]);
+        pillarResponsivenessLoad(data.pillarResponsiveness.posts[0]);
         eventsLoad(data.events.value.items);
         admissionsPanel(data.admissions.posts[0]);
         uwotwPanel(data.uwotw.posts[0]);
@@ -114,10 +119,11 @@ $( document ).ready(function() {
 
 });
 
-var postExcerpt = function(rawString) {
+var postExcerpt = function(rawString, chars) {
+  chars = chars || 170;
   var presubstr = rawString;
   var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
-  var truncstring = $.trim(strippedstr).substring(0,170).split(" ").slice(0, -1).join(" ") + "...";
+  var truncstring = $.trim(strippedstr).substring(0,chars).split(" ").slice(0, -1).join(" ") + "...";
   return truncstring;
 };
 
@@ -186,12 +192,13 @@ var admissionsPanel = function(post) {
 };
 
 var uwotwPanel = function(post) {
-  var excerpt = postExcerpt(post.excerpt);
+  var excerpt = $.truncate(post.excerpt, { length: 170 });
+  //var excerpt = postExcerpt(post.excerpt);
   var rawdate = moment(new Date(post.date)).format();
   var date = moment(rawdate).fromNow();
 
-  $('.uwotw-title').text(post.title);
-  $('.uwotw-excerpt').text(excerpt);
+  $('.uwotw-title').html(post.title);
+  $('.uwotw-excerpt').html(excerpt);
   $('.uwotw-postdate').text(date);
   $('.uwotw-postdate').attr("datetime", date);
   $('.uwotw-url').attr("href", post.url);
@@ -546,4 +553,59 @@ var emergencyLoad = function(posts) {
   });
   $('#emergency-alert').html(postHtml);
   $('.fade--emergency').addClass("in");
+};
+
+var pillarEducationLoad = function(post) {
+  var excerpt = postExcerpt(post.excerpt, 60);
+  //var excerpt = $.truncate(post.excerpt, { length: 60 });
+
+  $('.pillar-education-title').html(post.title);
+  $('.pillar-education-excerpt').html(excerpt);
+  $('.pillar-education-url').attr("href", post.url);
+  $('.pillar-education-image').attr("src", post.custom_fields.pillar_image);
+
+};
+
+var pillarServiceLoad = function(post) {
+  var excerpt = postExcerpt(post.excerpt, 60);
+  //var excerpt = $.truncate(post.excerpt, { length: 60 });
+
+  $('.pillar-service-title').html(post.title);
+  $('.pillar-service-excerpt').html(excerpt);
+  $('.pillar-service-url').attr("href", post.url);
+  $('.pillar-service-image').attr("src", post.custom_fields.pillar_image);
+
+};
+
+var pillarSustainabilityLoad = function(post) {
+  var excerpt = postExcerpt(post.excerpt, 60);
+  //var excerpt = $.truncate(post.excerpt, { length: 60 });
+
+  $('.pillar-sustainability-title').html(post.title);
+  $('.pillar-sustainability-excerpt').html(excerpt);
+  $('.pillar-sustainability-url').attr("href", post.url);
+  $('.pillar-sustainability-image').attr("src", post.custom_fields.pillar_image);
+
+};
+
+var pillarLeadershipLoad = function(post) {
+  var excerpt = postExcerpt(post.excerpt, 60);
+  //var excerpt = $.truncate(post.excerpt, { length: 60 });
+
+  $('.pillar-leadership-title').html(post.title);
+  $('.pillar-leadership-excerpt').html(excerpt);
+  $('.pillar-leadership-url').attr("href", post.url);
+  $('.pillar-leadership-image').attr("src", post.custom_fields.pillar_image);
+
+};
+
+var pillarResponsivenessLoad = function(post) {
+  var excerpt = postExcerpt(post.excerpt, 60);
+  //var excerpt = $.truncate(post.excerpt, { length: 60 });
+
+  $('.pillar-responsiveness-title').html(post.title);
+  $('.pillar-responsiveness-excerpt').html(excerpt);
+  $('.pillar-responsiveness-url').attr("href", post.url);
+  $('.pillar-responsiveness-image').attr("src", post.custom_fields.pillar_image);
+
 };

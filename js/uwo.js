@@ -14813,6 +14813,89 @@ return jQuery;
 })(jQuery, window, window.document);
 
 
+(function($) {
+
+  // Matches trailing non-space characters.
+  var chop = /(\s*\S+|\s)$/;
+
+  // Return a truncated html string.  Delegates to $.fn.truncate.
+  $.truncate = function(html, options) {
+    return $('<div></div>').append(html).truncate(options).html();
+  };
+
+  // Truncate the contents of an element in place.
+  $.fn.truncate = function(options) {
+    if ($.isNumeric(options)) options = {length: options};
+    var o = $.extend({}, $.truncate.defaults, options);
+
+    return this.each(function() {
+      var self = $(this);
+
+      if (o.noBreaks) self.find('br').replaceWith(' ');
+
+      var text = self.text();
+      var excess = text.length - o.length;
+
+      if (o.stripTags) self.text(text);
+
+      // Chop off any partial words if appropriate.
+      if (o.words && excess > 0) {
+        excess = text.length - text.slice(0, o.length).replace(chop, '').length - 1;
+      }
+
+      if (excess < 0 || !excess && !o.truncated) return;
+
+      // Iterate over each child node in reverse, removing excess text.
+      $.each(self.contents().get().reverse(), function(i, el) {
+        var $el = $(el);
+        var text = $el.text();
+        var length = text.length;
+
+        // If the text is longer than the excess, remove the node and continue.
+        if (length <= excess) {
+          o.truncated = true;
+          excess -= length;
+          $el.remove();
+          return;
+        }
+
+        // Remove the excess text and append the ellipsis.
+        if (el.nodeType === 3) {
+          $(el.splitText(length - excess - 1)).replaceWith(o.ellipsis);
+          return false;
+        }
+
+        // Recursively truncate child nodes.
+        $el.truncate($.extend(o, {length: length - excess}));
+        return false;
+      });
+    });
+  };
+
+  $.truncate.defaults = {
+
+    // Strip all html elements, leaving only plain text.
+    stripTags: false,
+
+    // Only truncate at word boundaries.
+    words: false,
+
+    // Replace instances of <br> with a single space.
+    noBreaks: false,
+
+    // The maximum length of the truncated html.
+    length: Infinity,
+
+    // The character to use as the ellipsis.  The word joiner (U+2060) can be
+    // used to prevent a hanging ellipsis, but displays incorrectly in Chrome
+    // on Windows 7.
+    // http://code.google.com/p/chromium/issues/detail?id=68323
+    ellipsis: '\u2026' // '\u2060\u2026'
+
+  };
+
+})(jQuery);
+
 // Foundation JavaScript
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
@@ -14899,6 +14982,11 @@ $( document ).ready(function() {
       dataType: 'json',
       success: function( data )
       {
+        pillarEducationLoad(data.pillarEducation.posts[0]);
+        pillarServiceLoad(data.pillarService.posts[0]);
+        pillarSustainabilityLoad(data.pillarSustainability.posts[0]);
+        pillarLeadershipLoad(data.pillarLeadership.posts[0]);
+        pillarResponsivenessLoad(data.pillarResponsiveness.posts[0]);
         eventsLoad(data.events.value.items);
         admissionsPanel(data.admissions.posts[0]);
         uwotwPanel(data.uwotw.posts[0]);
@@ -14929,10 +15017,11 @@ $( document ).ready(function() {
 
 });
 
-var postExcerpt = function(rawString) {
+var postExcerpt = function(rawString, chars) {
+  chars = chars || 170;
   var presubstr = rawString;
   var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
-  var truncstring = $.trim(strippedstr).substring(0,170).split(" ").slice(0, -1).join(" ") + "...";
+  var truncstring = $.trim(strippedstr).substring(0,chars).split(" ").slice(0, -1).join(" ") + "...";
   return truncstring;
 };
 
@@ -15001,12 +15090,13 @@ var admissionsPanel = function(post) {
 };
 
 var uwotwPanel = function(post) {
-  var excerpt = postExcerpt(post.excerpt);
+  var excerpt = $.truncate(post.excerpt, { length: 170 });
+  //var excerpt = postExcerpt(post.excerpt);
   var rawdate = moment(new Date(post.date)).format();
   var date = moment(rawdate).fromNow();
 
-  $('.uwotw-title').text(post.title);
-  $('.uwotw-excerpt').text(excerpt);
+  $('.uwotw-title').html(post.title);
+  $('.uwotw-excerpt').html(excerpt);
   $('.uwotw-postdate').text(date);
   $('.uwotw-postdate').attr("datetime", date);
   $('.uwotw-url').attr("href", post.url);
@@ -15361,6 +15451,61 @@ var emergencyLoad = function(posts) {
   });
   $('#emergency-alert').html(postHtml);
   $('.fade--emergency').addClass("in");
+};
+
+var pillarEducationLoad = function(post) {
+  var excerpt = postExcerpt(post.excerpt, 60);
+  //var excerpt = $.truncate(post.excerpt, { length: 60 });
+
+  $('.pillar-education-title').html(post.title);
+  $('.pillar-education-excerpt').html(excerpt);
+  $('.pillar-education-url').attr("href", post.url);
+  $('.pillar-education-image').attr("src", post.custom_fields.pillar_image);
+
+};
+
+var pillarServiceLoad = function(post) {
+  var excerpt = postExcerpt(post.excerpt, 60);
+  //var excerpt = $.truncate(post.excerpt, { length: 60 });
+
+  $('.pillar-service-title').html(post.title);
+  $('.pillar-service-excerpt').html(excerpt);
+  $('.pillar-service-url').attr("href", post.url);
+  $('.pillar-service-image').attr("src", post.custom_fields.pillar_image);
+
+};
+
+var pillarSustainabilityLoad = function(post) {
+  var excerpt = postExcerpt(post.excerpt, 60);
+  //var excerpt = $.truncate(post.excerpt, { length: 60 });
+
+  $('.pillar-sustainability-title').html(post.title);
+  $('.pillar-sustainability-excerpt').html(excerpt);
+  $('.pillar-sustainability-url').attr("href", post.url);
+  $('.pillar-sustainability-image').attr("src", post.custom_fields.pillar_image);
+
+};
+
+var pillarLeadershipLoad = function(post) {
+  var excerpt = postExcerpt(post.excerpt, 60);
+  //var excerpt = $.truncate(post.excerpt, { length: 60 });
+
+  $('.pillar-leadership-title').html(post.title);
+  $('.pillar-leadership-excerpt').html(excerpt);
+  $('.pillar-leadership-url').attr("href", post.url);
+  $('.pillar-leadership-image').attr("src", post.custom_fields.pillar_image);
+
+};
+
+var pillarResponsivenessLoad = function(post) {
+  var excerpt = postExcerpt(post.excerpt, 60);
+  //var excerpt = $.truncate(post.excerpt, { length: 60 });
+
+  $('.pillar-responsiveness-title').html(post.title);
+  $('.pillar-responsiveness-excerpt').html(excerpt);
+  $('.pillar-responsiveness-url').attr("href", post.url);
+  $('.pillar-responsiveness-image').attr("src", post.custom_fields.pillar_image);
+
 };
 
 /*!
