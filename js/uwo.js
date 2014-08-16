@@ -16821,15 +16821,15 @@ $( document ).ready(function() {
         pillarLeadershipLoad(data.pillarLeadership.posts[0]);
         pillarResponsivenessLoad(data.pillarResponsiveness.posts[0]);
         eventsLoad(data.events.value.items);
-        admissionsPanel(data.admissions.posts[0]);
-        uwotwPanel(data.uwotw.posts[0]);
-        campusNewsPanel(data.campusNews.posts[0]);
-        facultyFivePanel(data.twif.posts[0]);
-        fromTheChancellorPanel(data.chancellor.posts[0]);
-        iAmATitanPanel(data.iAmATitan.posts[0]);
-        meetUwOshkoshPanel(data.meetUwo.posts[0]);
-        poweringCommunityPanel(data.poweringCommunity.posts[0]);
-        researchNewsPanel(data.researchNews.posts[0]);
+        panelLoad(data.admissions.posts[0], 'study-uwo');
+        panelLoad(data.uwotw.posts[0], 'uwotw');
+        panelLoad(data.campusNews.posts[0], 'campus-news');
+        panelLoad(data.twif.posts[0], 'faculty-five');
+        panelLoad(data.chancellor.posts[0], 'chancellor');
+        panelLoad(data.iAmATitan.posts[0], 'i-am-a-titan');
+        panelLoad(data.meetUwo.posts[0], 'meet-uwo');
+        panelLoad(data.poweringCommunity.posts[0], 'powering-community');
+        panelLoad(data.researchNews.posts[0], 'research-news');
         tweetsLoad(data.twitter);
         facebookLoad(data.facebook.data);
         youtubeLoad(data.youtube.data.items);
@@ -16904,17 +16904,18 @@ var eventsLoad = function(events) {
   $('.fade--events').addClass("in");
 };
 
-var admissionsPanel = function(post) {
+var panelLoad = function(post, panelClass) {
   var excerpt = $.truncate(post.excerpt, { length: 170 });
   //var excerpt = postExcerpt(post.excerpt);
   var rawdate = moment(new Date(post.date)).format();
   var date = moment(rawdate).fromNow();
 
-  $('.study-uwo-title').html(post.title);
-  $('.study-uwo-excerpt').html(excerpt);
-  $('.study-uwo-postdate').text(date);
-  $('.study-uwo-postdate').attr("datetime", date);
-  $('.study-uwo-url').attr("href", post.url);
+  $('.' + panelClass + '-title').html(post.title);
+  $('.' + panelClass + '-excerpt').html(excerpt);
+  $('.' + panelClass + '-postdate').text(date);
+  $('.' + panelClass + '-postdate').attr("datetime", date);
+  $('.' + panelClass + '-url').attr("href", post.url);
+
 
   if (post.custom_fields.youtube_id) {
     var postHtml = '
@@ -16922,283 +16923,19 @@ var admissionsPanel = function(post) {
         <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
       </div><br>
     ';
-    $('.study-uwo-media').html(postHtml);
+    $('.' + panelClass + '-media').html(postHtml);
   } else {
     var postHtml = '
-      <a href="" class="studyAtUwoFullStory study-uwo-url">
+      <a href="" class="studyAtUwoFullStory ' + panelClass + '-url">
         <div class="panel__video-wrapper">
-          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home study-uwo-image" alt="' + post.title + '" />
+          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home ' + panelClass + '-image" alt="' + post.title + '" />
         </div><br>
       </a>
     ';
-    $('.study-uwo-media').html(postHtml);
+    $('.' + panelClass + '-media').html(postHtml);
   };
 
-  $('.fade--study-uwo').addClass("in");
-};
-
-var uwotwPanel = function(post) {
-  var excerpt = $.truncate(post.excerpt, { length: 170 });
-  //var excerpt = postExcerpt(post.excerpt);
-  var rawdate = moment(new Date(post.date)).format();
-  var date = moment(rawdate).fromNow();
-
-  $('.uwotw-title').html(post.title);
-  $('.uwotw-excerpt').html(excerpt);
-  $('.uwotw-postdate').text(date);
-  $('.uwotw-postdate').attr("datetime", date);
-  $('.uwotw-url').attr("href", post.url);
-
-  if (post.custom_fields.youtube_id) {
-    var postHtml = '
-      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
-        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
-      </div><br>
-    ';
-    $('.uwotw-media').html(postHtml);
-  } else {
-    var postHtml = '
-      <a href="" class="studyAtUwoFullStory uwotw-url">
-        <div class="panel__video-wrapper">
-          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home uwotw-image" alt="' + post.title + '" />
-        </div><br>
-      </a>
-    ';
-    $('.uwotw-media').html(postHtml);
-  };
-
-  $('.fade--uwotw').addClass("in");
-};
-
-var campusNewsPanel = function(post) {
-  var excerpt = $.truncate(post.excerpt, { length: 170 });
-  //var excerpt = postExcerpt(post.excerpt);
-  var rawdate = moment(new Date(post.date)).format();
-  var date = moment(rawdate).fromNow();
-
-  $('.campus-news-title').html(post.title);
-  $('.campus-news-excerpt').html(excerpt);
-  $('.campus-news-postdate').text(date);
-  $('.campus-news-postdate').attr("datetime", date);
-  $('.campus-news-url').attr("href", post.url);
-
-  if (post.custom_fields.youtube_id) {
-    var postHtml = '
-      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
-        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
-      </div><br>
-    ';
-    $('.campus-news-media').html(postHtml);
-  } else {
-    var postHtml = '
-      <a href="" class="studyAtUwoFullStory campus-news-url">
-        <div class="panel__video-wrapper">
-          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home campus-news-image" alt="' + post.title + '" />
-        </div><br>
-      </a>
-    ';
-    $('.campus-news-media').html(postHtml);
-  };
-
-  $('.fade--campus-news').addClass("in");
-};
-
-var facultyFivePanel = function(post) {
-  var excerpt = $.truncate(post.excerpt, { length: 170 });
-  //var excerpt = postExcerpt(post.excerpt);
-  var rawdate = moment(new Date(post.date)).format();
-  var date = moment(rawdate).fromNow();
-
-  $('.faculty-five-title').html(post.title);
-  $('.faculty-five-excerpt').html(excerpt);
-  $('.faculty-five-postdate').text(date);
-  $('.faculty-five-postdate').attr("datetime", date);
-  $('.faculty-five-url').attr("href", post.url);
-
-  if (post.custom_fields.youtube_id) {
-    var postHtml = '
-      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
-        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
-      </div><br>
-    ';
-    $('.faculty-five-media').html(postHtml);
-  } else {
-    var postHtml = '
-      <a href="" class="studyAtUwoFullStory faculty-five-url">
-        <div class="panel__video-wrapper">
-          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home faculty-five-image" alt="' + post.title + '" />
-        </div><br>
-      </a>
-    ';
-    $('.faculty-five-media').html(postHtml);
-  };
-
-  $('.fade--faculty-five').addClass("in");
-};
-
-var fromTheChancellorPanel = function(post) {
-  var excerpt = $.truncate(post.excerpt, { length: 170 });
-  //var excerpt = postExcerpt(post.excerpt);
-  var rawdate = moment(new Date(post.date)).format();
-  var date = moment(rawdate).fromNow();
-
-  $('.chancellor-title').html(post.title);
-  $('.chancellor-excerpt').html(excerpt);
-  $('.chancellor-postdate').text(date);
-  $('.chancellor-postdate').attr("datetime", date);
-  $('.chancellor-url').attr("href", post.url);
-
-  if (post.custom_fields.youtube_id) {
-    var postHtml = '
-      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
-        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
-      </div><br>
-    ';
-    $('.chancellor-media').html(postHtml);
-  } else {
-    var postHtml = '
-      <a href="" class="studyAtUwoFullStory chancellor-url">
-        <div class="panel__video-wrapper">
-          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home chancellor-image" alt="' + post.title + '" />
-        </div><br>
-      </a>
-    ';
-    $('.chancellor-media').html(postHtml);
-  };
-
-  $('.fade--chancellor').addClass("in");
-};
-
-var iAmATitanPanel = function(post) {
-  var excerpt = $.truncate(post.excerpt, { length: 170 });
-  //var excerpt = postExcerpt(post.excerpt);
-  var rawdate = moment(new Date(post.date)).format();
-  var date = moment(rawdate).fromNow();
-
-  $('.i-am-a-titan-title').html(post.title);
-  $('.i-am-a-titan-excerpt').html(excerpt);
-  $('.i-am-a-titan-postdate').text(date);
-  $('.i-am-a-titan-postdate').attr("datetime", date);
-  $('.i-am-a-titan-url').attr("href", post.url);
-
-  if (post.custom_fields.youtube_id) {
-    var postHtml = '
-      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
-        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
-      </div><br>
-    ';
-    $('.i-am-a-titan-media').html(postHtml);
-  } else {
-    var postHtml = '
-      <a href="" class="studyAtUwoFullStory i-am-a-titan-url">
-        <div class="panel__video-wrapper">
-          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home i-am-a-titan-image" alt="' + post.title + '" />
-        </div><br>
-      </a>
-    ';
-    $('.i-am-a-titan-media').html(postHtml);
-  };
-
-  $('.fade--i-am-a-titan').addClass("in");
-};
-
-var meetUwOshkoshPanel = function(post) {
-  var excerpt = $.truncate(post.excerpt, { length: 170 });
-  //var excerpt = postExcerpt(post.excerpt);
-  var rawdate = moment(new Date(post.date)).format();
-  var date = moment(rawdate).fromNow();
-
-  $('.meet-uwo-title').html(post.title);
-  $('.meet-uwo-excerpt').html(excerpt);
-  $('.meet-uwo-postdate').text(date);
-  $('.meet-uwo-postdate').attr("datetime", date);
-  $('.meet-uwo-url').attr("href", post.url);
-
-  if (post.custom_fields.youtube_id) {
-    var postHtml = '
-      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
-        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
-      </div><br>
-    ';
-    $('.meet-uwo-media').html(postHtml);
-  } else {
-    var postHtml = '
-      <a href="" class="studyAtUwoFullStory meet-uwo-url">
-        <div class="panel__video-wrapper">
-          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home meet-uwo-image" alt="' + post.title + '" />
-        </div><br>
-      </a>
-    ';
-    $('.meet-uwo-media').html(postHtml);
-  };
-
-  $('.fade--meet-uwo').addClass("in");
-};
-
-var poweringCommunityPanel = function(post) {
-  var excerpt = $.truncate(post.excerpt, { length: 170 });
-  //var excerpt = postExcerpt(post.excerpt);
-  var rawdate = moment(new Date(post.date)).format();
-  var date = moment(rawdate).fromNow();
-
-  $('.powering-community-title').html(post.title);
-  $('.powering-community-excerpt').html(excerpt);
-  $('.powering-community-postdate').text(date);
-  $('.powering-community-postdate').attr("datetime", date);
-  $('.powering-community-url').attr("href", post.url);
-
-  if (post.custom_fields.youtube_id) {
-    var postHtml = '
-      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
-        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
-      </div><br>
-    ';
-    $('.powering-community-media').html(postHtml);
-  } else {
-    var postHtml = '
-      <a href="" class="studyAtUwoFullStory powering-community-url">
-        <div class="panel__video-wrapper">
-          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home powering-community-image" alt="' + post.title + '" />
-        </div><br>
-      </a>
-    ';
-    $('.powering-community-media').html(postHtml);
-  };
-
-  $('.fade--powering-community').addClass("in");
-};
-
-var researchNewsPanel = function(post) {
-  var excerpt = $.truncate(post.excerpt, { length: 170 });
-  //var excerpt = postExcerpt(post.excerpt);
-  var rawdate = moment(new Date(post.date)).format();
-  var date = moment(rawdate).fromNow();
-
-  $('.research-news-title').html(post.title);
-  $('.research-news-excerpt').html(excerpt);
-  $('.research-news-postdate').text(date);
-  $('.research-news-postdate').attr("datetime", date);
-  $('.research-news-url').attr("href", post.url);
-
-  if (post.custom_fields.youtube_id) {
-    var postHtml = '
-      <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
-        <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
-      </div><br>
-    ';
-    $('.research-news-media').html(postHtml);
-  } else {
-    var postHtml = '
-      <a href="" class="studyAtUwoFullStory research-news-url">
-        <div class="panel__video-wrapper">
-          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home research-news-image" alt="' + post.title + '" />
-        </div><br>
-      </a>
-    ';
-    $('.research-news-media').html(postHtml);
-  };
-
-  $('.fade--research-news').addClass("in");
+  $('.fade--' + panelClass).addClass("in");
 };
 
 var tweetsLoad = function(tweets) {
