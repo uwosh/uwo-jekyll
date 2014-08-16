@@ -84,21 +84,79 @@ $( document ).ready(function() {
       dataType: 'json',
       success: function( data )
       {
-        pillarEducationLoad(data.pillarEducation.posts[0]);
-        pillarServiceLoad(data.pillarService.posts[0]);
-        pillarSustainabilityLoad(data.pillarSustainability.posts[0]);
-        pillarLeadershipLoad(data.pillarLeadership.posts[0]);
-        pillarResponsivenessLoad(data.pillarResponsiveness.posts[0]);
+        var pillars = {
+          education: {
+            feedEntry: data.pillarEducation.posts[0],
+            pillarClass: 'pillar-education'
+          },
+          service: {
+            feedEntry: data.pillarService.posts[0],
+            pillarClass: 'pillar-service'
+          },
+          sustainability: {
+            feedEntry: data.pillarSustainability.posts[0],
+            pillarClass: 'pillar-sustainability'
+          },
+          leadership: {
+            feedEntry: data.pillarLeadership.posts[0],
+            pillarClass: 'pillar-leadership'
+          },
+          responsiveness: {
+            feedEntry: data.pillarResponsiveness.posts[0],
+            pillarClass: 'pillar-responsiveness'
+          }
+        };
+
+        var panels = {
+          campusNews: {
+            feedEntry: data.campusNews.posts[0],
+            panelClass: 'campus-news'
+          },
+          researchNews: {
+            feedEntry: data.researchNews.posts[0],
+            panelClass: 'research-news'
+          },
+          poweringCommunity: {
+            feedEntry: data.poweringCommunity.posts[0],
+            panelClass: 'powering-community'
+          },
+          uwotw: {
+            feedEntry: data.uwotw.posts[0],
+            panelClass: 'uwotw'
+          },
+          studyUwo: {
+            feedEntry: data.admissions.posts[0],
+            panelClass: 'study-uwo'
+          },
+          iAmATitan: {
+            feedEntry: data.iAmATitan.posts[0],
+            panelClass: 'i-am-a-titan'
+          },
+          chancellor: {
+            feedEntry: data.chancellor.posts[0],
+            panelClass: 'chancellor'
+          },
+          meetUwo: {
+            feedEntry: data.meetUwo.posts[0],
+            panelClass: 'meet-uwo'
+          },
+          facultyFive: {
+            feedEntry: data.twif.posts[0],
+            panelClass: 'faculty-five'
+          }
+        };
+
+
+
+        $.each(pillars, function(index, pillar) {
+          pillarLoad(pillar.feedEntry, pillar.pillarClass);
+        });
+
+        $.each(panels, function(index, panel) {
+          panelLoad(panel.feedEntry, panel.panelClass);
+        });
+
         eventsLoad(data.events.value.items);
-        panelLoad(data.admissions.posts[0], 'study-uwo');
-        panelLoad(data.uwotw.posts[0], 'uwotw');
-        panelLoad(data.campusNews.posts[0], 'campus-news');
-        panelLoad(data.twif.posts[0], 'faculty-five');
-        panelLoad(data.chancellor.posts[0], 'chancellor');
-        panelLoad(data.iAmATitan.posts[0], 'i-am-a-titan');
-        panelLoad(data.meetUwo.posts[0], 'meet-uwo');
-        panelLoad(data.poweringCommunity.posts[0], 'powering-community');
-        panelLoad(data.researchNews.posts[0], 'research-news');
         tweetsLoad(data.twitter);
         facebookLoad(data.facebook.data);
         youtubeLoad(data.youtube.data.items);
@@ -139,6 +197,17 @@ var postExcerpt = function(rawString, chars) {
   var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
   var truncstring = $.trim(strippedstr).substring(0,chars).split(" ").slice(0, -1).join(" ") + "...";
   return truncstring;
+};
+
+var pillarLoad = function(post, pillarClass) {
+  var excerpt = postExcerpt(post.excerpt, 60);
+  //var excerpt = $.truncate(post.excerpt, { length: 60 });
+
+  $('.' + pillarClass + '-title').html(post.title);
+  $('.' + pillarClass + '-excerpt').html(excerpt);
+  $('.' + pillarClass + '-url').attr("href", post.url);
+  $('.' + pillarClass + '-image').attr("data-lazy", post.custom_fields.pillar_image);
+
 };
 
 var eventsLoad = function(events) {
@@ -312,59 +381,4 @@ var emergencyLoad = function(posts) {
   });
   $('#emergency-alert').html(postHtml);
   $('.fade--emergency').addClass("in");
-};
-
-var pillarEducationLoad = function(post) {
-  var excerpt = postExcerpt(post.excerpt, 60);
-  //var excerpt = $.truncate(post.excerpt, { length: 60 });
-
-  $('.pillar-education-title').html(post.title);
-  $('.pillar-education-excerpt').html(excerpt);
-  $('.pillar-education-url').attr("href", post.url);
-  $('.pillar-education-image').attr("data-lazy", post.custom_fields.pillar_image);
-
-};
-
-var pillarServiceLoad = function(post) {
-  var excerpt = postExcerpt(post.excerpt, 60);
-  //var excerpt = $.truncate(post.excerpt, { length: 60 });
-
-  $('.pillar-service-title').html(post.title);
-  $('.pillar-service-excerpt').html(excerpt);
-  $('.pillar-service-url').attr("href", post.url);
-  $('.pillar-service-image').attr("data-lazy", post.custom_fields.pillar_image);
-
-};
-
-var pillarSustainabilityLoad = function(post) {
-  var excerpt = postExcerpt(post.excerpt, 60);
-  //var excerpt = $.truncate(post.excerpt, { length: 60 });
-
-  $('.pillar-sustainability-title').html(post.title);
-  $('.pillar-sustainability-excerpt').html(excerpt);
-  $('.pillar-sustainability-url').attr("href", post.url);
-  $('.pillar-sustainability-image').attr("data-lazy", post.custom_fields.pillar_image);
-
-};
-
-var pillarLeadershipLoad = function(post) {
-  var excerpt = postExcerpt(post.excerpt, 60);
-  //var excerpt = $.truncate(post.excerpt, { length: 60 });
-
-  $('.pillar-leadership-title').html(post.title);
-  $('.pillar-leadership-excerpt').html(excerpt);
-  $('.pillar-leadership-url').attr("href", post.url);
-  $('.pillar-leadership-image').attr("data-lazy", post.custom_fields.pillar_image);
-
-};
-
-var pillarResponsivenessLoad = function(post) {
-  var excerpt = postExcerpt(post.excerpt, 60);
-  //var excerpt = $.truncate(post.excerpt, { length: 60 });
-
-  $('.pillar-responsiveness-title').html(post.title);
-  $('.pillar-responsiveness-excerpt').html(excerpt);
-  $('.pillar-responsiveness-url').attr("href", post.url);
-  $('.pillar-responsiveness-image').attr("data-lazy", post.custom_fields.pillar_image);
-
 };
