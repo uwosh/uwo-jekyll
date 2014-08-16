@@ -153,7 +153,12 @@ $( document ).ready(function() {
         });
 
         $.each(panels, function(index, panel) {
-          panelLoad(panel.feedEntry, panel.panelClass);
+          try {
+            panelLoad(panel.feedEntry, panel.panelClass);
+          }
+          catch(err) {
+            return;
+          }
         });
 
         eventsLoad(data.events.value.items);
