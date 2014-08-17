@@ -261,8 +261,8 @@ var eventsLoad = function(events) {
       </div>
     ';
   });
+  
   $('.event-list').html(eventHtml);
-  $('.fade--events').addClass("in");
 };
 
 var panelLoad = function(post, panelClass, panelTitle, panelUrl) {
