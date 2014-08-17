@@ -80,6 +80,7 @@ $( document ).ready(function() {
   if ($('html').hasClass('page--home')) {
 
     $.ajax({
+      type: 'GET',
       url: "http://feeds2.uwosh.edu/api/v2/index.php/uwo-api",
       dataType: 'json',
       success: function( data )
@@ -173,7 +174,7 @@ $( document ).ready(function() {
             panelLoad(panel.feedEntry, panel.panelClass, panel.panelTitle, panel.panelUrl);
           }
           catch(err) {
-            return;
+            console.log(err);
           }
         });
 
@@ -304,7 +305,6 @@ var panelLoad = function(post, panelClass, panelTitle, panelUrl) {
             <span class="study-uwo-excerpt">' + excerpt + '</span>
           </div>
         </div>
-        <span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time datetime="' + date + '" class="study-uwo-postdate">' + date + '</time></span>
       </div>
     </div>
   ';
