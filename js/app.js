@@ -85,6 +85,10 @@ $( document ).ready(function() {
       success: function( data )
       {
         var pillars = {
+          sustainability: {
+            feedEntry: data.pillarSustainability.posts[0],
+            pillarClass: 'pillar-sustainability'
+          },
           education: {
             feedEntry: data.pillarEducation.posts[0],
             pillarClass: 'pillar-education'
@@ -92,10 +96,6 @@ $( document ).ready(function() {
           service: {
             feedEntry: data.pillarService.posts[0],
             pillarClass: 'pillar-service'
-          },
-          sustainability: {
-            feedEntry: data.pillarSustainability.posts[0],
-            pillarClass: 'pillar-sustainability'
           },
           leadership: {
             feedEntry: data.pillarLeadership.posts[0],
@@ -233,11 +233,6 @@ var pillarLoad = function(post, pillarClass) {
   ';
 
   $('.pillar-slick').append(sliderHtml);
-
-  // $('.' + pillarClass + '-title').html(post.title);
-  // $('.' + pillarClass + '-excerpt').html(excerpt);
-  // $('.' + pillarClass + '-url').attr("href", post.url);
-  // $('.' + pillarClass + '-image').attr("data-lazy", post.custom_fields.pillar_image);
 
 };
 
