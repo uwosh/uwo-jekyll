@@ -16895,8 +16895,6 @@ $( document ).ready(function() {
           }
         };
 
-
-
         $.each(pillars, function(index, pillar) {
           pillarLoad(pillar.feedEntry, pillar.pillarClass);
         });
@@ -16928,7 +16926,6 @@ $( document ).ready(function() {
           slidesToScroll: 1
       	});
 
-        $('.fade--pillar-slick').addClass("in");
       }
     });
 
@@ -16957,10 +16954,24 @@ var pillarLoad = function(post, pillarClass) {
   var excerpt = postExcerpt(post.excerpt, 60);
   //var excerpt = $.truncate(post.excerpt, { length: 60 });
 
-  $('.' + pillarClass + '-title').html(post.title);
-  $('.' + pillarClass + '-excerpt').html(excerpt);
-  $('.' + pillarClass + '-url').attr("href", post.url);
-  $('.' + pillarClass + '-image').attr("data-lazy", post.custom_fields.pillar_image);
+  var sliderHtml = '
+    <div>
+      <a href="' + post.url + '" class="pillar-education-url"><img class="pillar-image img-responsive pillar-education-image" data-lazy="' + post.custom_fields.pillar_image + '" alt="" /></a>
+      <div class="home-slider__caption">
+        <div class="home-slider__caption__content">
+          <p class="banner-headline home-slider__caption__title pillar-education-title">' + post.title + '</p>
+          <p class="body-content"><span class="home-slider__caption__excerpt pillar-education-excerpt">' + excerpt + '</span><a href="' + post.url + '" class="pillarEducationMore pillar-education-url"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
+        </div>
+      </div>
+    </div>
+  ';
+
+  $('.pillar-slick').append(sliderHtml);
+
+  // $('.' + pillarClass + '-title').html(post.title);
+  // $('.' + pillarClass + '-excerpt').html(excerpt);
+  // $('.' + pillarClass + '-url').attr("href", post.url);
+  // $('.' + pillarClass + '-image').attr("data-lazy", post.custom_fields.pillar_image);
 
 };
 
@@ -16992,8 +17003,8 @@ var eventsLoad = function(events) {
       </div>
     ';
   });
+
   $('.event-list').html(eventHtml);
-  $('.fade--events').addClass("in");
 };
 
 var panelLoad = function(post, panelClass, panelTitle, panelUrl) {
