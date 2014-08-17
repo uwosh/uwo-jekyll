@@ -16920,10 +16920,7 @@ $( document ).ready(function() {
           speed: 500,
           fade: true,
           cssEase: 'linear',
-          arrows: false,
-          lazyLoad: 'ondemand',
-          slidesToShow: 1,
-          slidesToScroll: 1
+          arrows: false
       	});
 
       }
@@ -16956,7 +16953,7 @@ var pillarLoad = function(post, pillarClass) {
 
   var sliderHtml = '
     <div>
-      <a href="' + post.url + '" class="pillar-education-url"><img class="pillar-image img-responsive pillar-education-image" data-lazy="' + post.custom_fields.pillar_image + '" alt="" /></a>
+      <a href="' + post.url + '" class="pillar-education-url"><img class="pillar-image img-responsive pillar-education-image" src="' + post.custom_fields.pillar_image + '" alt="" /></a>
       <div class="home-slider__caption">
         <div class="home-slider__caption__content">
           <p class="banner-headline home-slider__caption__title pillar-education-title">' + post.title + '</p>
