@@ -110,39 +110,57 @@ $( document ).ready(function() {
         var panels = {
           campusNews: {
             feedEntry: data.campusNews.posts[0],
-            panelClass: 'campus-news'
+            panelClass: 'campus-news',
+            panelTitle: 'Campus News',
+            panelUrl: 'http://www.uwosh.edu/today/campus-news/'
           },
           researchNews: {
             feedEntry: data.researchNews.posts[0],
-            panelClass: 'research-news'
+            panelClass: 'research-news',
+            panelTitle: 'Research News',
+            panelUrl: 'http://www.uwosh.edu/today/research/'
           },
           poweringCommunity: {
             feedEntry: data.poweringCommunity.posts[0],
-            panelClass: 'powering-community'
+            panelClass: 'powering-community',
+            panelTitle: 'Powering Community',
+            panelUrl: 'http://www.uwosh.edu/today/knowledge-powers-community'
           },
           uwotw: {
             feedEntry: data.uwotw.posts[0],
-            panelClass: 'uwotw'
+            panelClass: 'uwotw',
+            panelTitle: 'UW&nbsp;Oshkosh This Week',
+            panelUrl: 'http://www.uwosh.edu/today/category/uwotw/'
           },
           studyUwo: {
             feedEntry: data.admissions.posts[0],
-            panelClass: 'study-uwo'
+            panelClass: 'study-uwo',
+            panelTitle: 'Study at UW&nbsp;Oshkosh',
+            panelUrl: 'http://www.uwosh.edu/today/category/admissions-2/'
           },
           iAmATitan: {
             feedEntry: data.iAmATitan.posts[0],
-            panelClass: 'i-am-a-titan'
+            panelClass: 'i-am-a-titan',
+            panelTitle: 'I am a Titan',
+            panelUrl: 'http://www.uwosh.edu/faces/category/i-am-a-titan/'
           },
           chancellor: {
             feedEntry: data.chancellor.posts[0],
-            panelClass: 'chancellor'
+            panelClass: 'chancellor',
+            panelTitle: 'From the Chancellor',
+            panelUrl: 'http://www.uwosh.edu/today/category/chancellor'
           },
           meetUwo: {
             feedEntry: data.meetUwo.posts[0],
-            panelClass: 'meet-uwo'
+            panelClass: 'meet-uwo',
+            panelTitle: 'Meet UW&nbsp;Oshkosh',
+            panelUrl: 'http://www.uwosh.edu/faces'
           },
           facultyFive: {
             feedEntry: data.twif.posts[0],
-            panelClass: 'faculty-five'
+            panelClass: 'faculty-five',
+            panelTitle: 'Faculty Five',
+            panelUrl: 'http://www.uwosh.edu/today/faculty-five/'
           }
         };
 
@@ -154,7 +172,7 @@ $( document ).ready(function() {
 
         $.each(panels, function(index, panel) {
           try {
-            panelLoad(panel.feedEntry, panel.panelClass);
+            panelLoad(panel.feedEntry, panel.panelClass, panel.panelTitle, panel.panelUrl);
           }
           catch(err) {
             return;
@@ -247,38 +265,48 @@ var eventsLoad = function(events) {
   $('.fade--events').addClass("in");
 };
 
-var panelLoad = function(post, panelClass) {
+var panelLoad = function(post, panelClass, panelTitle, panelUrl) {
   var excerpt = $.truncate(post.excerpt, { length: 170 });
   //var excerpt = postExcerpt(post.excerpt);
   var rawdate = moment(new Date(post.date)).format();
   var date = moment(rawdate).fromNow();
 
-  $('.' + panelClass + '-title').html(post.title);
-  $('.' + panelClass + '-excerpt').html(excerpt);
-  $('.' + panelClass + '-postdate').text(date);
-  $('.' + panelClass + '-postdate').attr("datetime", date);
-  $('.' + panelClass + '-url').attr("href", post.url);
+  var postHtml = '
+    <div class="large-8 medium-8 small-24 columns">
+      <div id="studyAtUwoPanel" class="panel panel--home panel--green">
+        <div class="panel__category uppercase"><a href="' + panelUrl + '" class="studyAtUwoCategory">' + panelTitle + ' <i class="fa fa-arrow-right"></i></a></div>
+        <div class="panel__equalizer" data-equalizer-watch>
+  ';
 
 
   if (post.custom_fields.youtube_id) {
-    var postHtml = '
+    postHtml = postHtml + '
       <div id="studyAtUwOshkoshVideo" class="panel__video-wrapper">
         <div class="youtube" id="' + post.custom_fields.youtube_id[0] + '" style="height:189px;"></div>
       </div><br>
     ';
-    $('.' + panelClass + '-media').html(postHtml);
   } else {
-    var postHtml = '
-      <a href="" class="studyAtUwoFullStory ' + panelClass + '-url">
+    postHtml = postHtml + '
+      <a href="' + post.url + '" class="studyAtUwoFullStory ' + panelClass + '-url">
         <div class="panel__video-wrapper">
           <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home ' + panelClass + '-image" alt="' + post.title + '" />
         </div><br>
       </a>
     ';
-    $('.' + panelClass + '-media').html(postHtml);
   };
 
-  $('.fade--' + panelClass).addClass("in");
+  postHtml = postHtml + '
+          <a href="' + post.url +'" class="studyAtUwoFullStory study-uwo-url"><h2 class="panel__news-heading study-uwo-title">' + post.title + '</h2></a>
+          <div class="panel__excerpt body-content">
+            <span class="study-uwo-excerpt">' + excerpt + '</span>
+          </div>
+        </div>
+        <span class="panel__posted-date uppercase"><i class="fa fa-clock-o datetime"></i> <time datetime="' + date + '" class="study-uwo-postdate">' + date + '</time></span>
+      </div>
+    </div>
+  ';
+
+  $('.' + panelClass).html(postHtml);
 };
 
 var tweetsLoad = function(tweets) {
