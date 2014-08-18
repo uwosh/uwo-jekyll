@@ -166,23 +166,58 @@ $( document ).ready(function() {
         };
 
         $.each(pillars, function(index, pillar) {
-          pillarLoad(pillar.feedEntry, pillar.pillarClass);
+          try {
+            pillarLoad(pillar.feedEntry, pillar.pillarClass);
+          }
+          catch(e) {
+
+          }
         });
 
         $.each(panels, function(index, panel) {
           try {
             panelLoad(panel.feedEntry, panel.panelClass, panel.panelTitle, panel.panelUrl);
           }
-          catch(err) {
+          catch(e) {
             console.log(err);
           }
         });
 
-        eventsLoad(data.events.value.items);
-        tweetsLoad(data.twitter);
-        facebookLoad(data.facebook.data);
-        youtubeLoad(data.youtube.data.items);
-        //flickrLoad(data.flickr.photosets.photoset);
+
+        try {
+          eventsLoad(data.events.value.items);
+        }
+        catch(e) {
+
+        }
+
+        try {
+          tweetsLoad(data.twitter);
+        }
+        catch(e) {
+
+        }
+
+        try {
+          facebookLoad(data.facebook.data);
+        }
+        catch(e) {
+
+        }
+
+        try {
+          youtubeLoad(data.youtube.data.items);
+        }
+        catch(e) {
+
+        }
+
+        try {
+          //flickrLoad(data.flickr.photosets.photoset);
+        }
+        catch(e) {
+
+        }
 
         $('#pillar-slick').slick({
           autoplay: true,
@@ -191,8 +226,7 @@ $( document ).ready(function() {
           fade: true,
           cssEase: 'linear',
           arrows: false
-      	});
-
+        });
       }
     });
 
@@ -221,7 +255,7 @@ var pillarLoad = function(post, pillarClass) {
   var title = post.title || 'Story Title';
   var excerpt = postExcerpt(post.excerpt, 60) || 'Story excerpt';
   //var excerpt = $.truncate(post.excerpt, { length: 60 });
-  var image = post.custom_fields.pillar_image || 'http://placehold.it/1136x400';
+  var image = post.custom_fields.pillar_image || 'http://placehold.it/1136x420';
   var url = post.url || '#';
 
   var sliderHtml = '
