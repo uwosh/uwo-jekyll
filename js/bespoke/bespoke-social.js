@@ -11,9 +11,9 @@
     bespoke.horizontal.from('#deck-youtube', {
         loop: true
     });
-    bespoke.horizontal.from('#deck-flickr', {
-        loop: true
-    });
+    // bespoke.horizontal.from('#deck-flickr', {
+    //     loop: true
+    // });
   }
 
 
