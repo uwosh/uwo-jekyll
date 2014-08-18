@@ -7821,8 +7821,8 @@ var eventsLoad = function(events) {
 var panelLoad = function(post, panelClass, panelTitle, panelUrl) {
   var excerpt = $.truncate(post.excerpt, { length: 170 });
   //var excerpt = postExcerpt(post.excerpt);
-  var rawdate = moment(new Date(post.date)).format();
-  var date = moment(rawdate).fromNow();
+  //var rawdate = moment(new Date(post.date)).format();
+  //var date = moment(rawdate).fromNow();
 
   var postHtml = '
     <div class="large-8 medium-8 small-24 columns">
