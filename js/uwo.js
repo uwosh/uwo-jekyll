@@ -16915,7 +16915,7 @@ $( document ).ready(function() {
         youtubeLoad(data.youtube.data.items);
         //flickrLoad(data.flickr.photosets.photoset);
 
-        $('.pillar-slick').slick({
+        $('#pillar-slick').slick({
           autoplay: true,
           autoplaySpeed: 6000,
           speed: 500,
@@ -16964,7 +16964,7 @@ var pillarLoad = function(post, pillarClass) {
     </div>
   ';
 
-  $('.pillar-slick').append(sliderHtml);
+  $('#pillar-slick').append(sliderHtml);
 
 };
 
@@ -16997,7 +16997,7 @@ var eventsLoad = function(events) {
     ';
   });
 
-  $('.event-list').html(eventHtml);
+  $('#event-list').html(eventHtml);
 };
 
 var panelLoad = function(post, panelClass, panelTitle, panelUrl) {
@@ -17040,7 +17040,7 @@ var panelLoad = function(post, panelClass, panelTitle, panelUrl) {
     </div>
   ';
 
-  $('.' + panelClass).html(postHtml);
+  $('#' + panelClass).html(postHtml);
 };
 
 var tweetsLoad = function(tweets) {
