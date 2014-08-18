@@ -7542,6 +7542,15 @@
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
 
+// Fix for offcanvas on mobile. Without it, toggle doesn't work.
+// Need to check docs to see if it has been fixed.
+$('a.left-off-canvas-toggle').on('click',function(){
+
+});
+$('a.right-off-canvas-toggle').on('click',function(){
+
+});
+
 //$(document).ready(function() {
 //  $('.clickable').click(function() {
 //    $('i.clickable').toggleClass('rotate180');
