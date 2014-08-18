@@ -7795,7 +7795,7 @@ var pillarLoad = function(post, pillarClass) {
   var title = post.title || 'Story Title';
   var excerpt = postExcerpt(post.excerpt, 60) || 'Story excerpt';
   //var excerpt = $.truncate(post.excerpt, { length: 60 });
-  var image = post.custom_fields.pillar_image || 'http://placehold.it/1136x400';
+  var image = post.custom_fields.pillar_image || 'http://placehold.it/1136x420';
   var url = post.url || '#';
 
   var sliderHtml = '
