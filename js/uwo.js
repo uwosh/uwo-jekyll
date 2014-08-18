@@ -7617,6 +7617,8 @@ setTimeout(function() {
 // jQuery Port
 $( document ).ready(function() {
 
+  $('#main').css('opacity', '0').fadeTo(1500, 1,'swing');
+
   if ($('html').hasClass('page--home')) {
 
     $.ajax({
