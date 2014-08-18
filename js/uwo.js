@@ -7758,16 +7758,19 @@ var postExcerpt = function(rawString, chars) {
 };
 
 var pillarLoad = function(post, pillarClass) {
-  var excerpt = postExcerpt(post.excerpt, 60);
+  var title = post.title || 'Story Title';
+  var excerpt = postExcerpt(post.excerpt, 60) || 'Story excerpt';
   //var excerpt = $.truncate(post.excerpt, { length: 60 });
+  var image = post.custom_fields.pillar_image || 'http://placehold.it/1136x400';
+  var url = post.url || '#';
 
   var sliderHtml = '
     <div>
-      <a href="' + post.url + '" class="pillar-education-url"><img class="pillar-image img-responsive pillar-education-image" src="' + post.custom_fields.pillar_image + '" alt="" /></a>
+      <a href="' + url + '" class="pillar-education-url"><img class="pillar-image img-responsive pillar-education-image" src="' + image + '" alt="" /></a>
       <div class="home-slider__caption">
         <div class="home-slider__caption__content">
-          <p class="banner-headline home-slider__caption__title pillar-education-title">' + post.title + '</p>
-          <p class="body-content"><span class="home-slider__caption__excerpt pillar-education-excerpt">' + excerpt + '</span><a href="' + post.url + '" class="pillarEducationMore pillar-education-url"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
+          <p class="banner-headline home-slider__caption__title pillar-education-title">' + title + '</p>
+          <p class="body-content"><span class="home-slider__caption__excerpt pillar-education-excerpt">' + excerpt + '</span><a href="' + url + '" class="pillarEducationMore pillar-education-url"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
         </div>
       </div>
     </div>
@@ -7781,23 +7784,25 @@ var eventsLoad = function(events) {
   var eventHtml = '';
 
   $.each(events, function(index, event) {
-    var eventMonth = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('MMM');
-    var eventDay = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('D');
-    var startTime = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('h a');
-    var endTime = moment(new Date(event['ev:tribe_event_meta']['ev:enddate'])).format('h a');
-    var description = $.trim(event.description).substring(0,130).split(" ").slice(0, -1).join(" ") + "...";
+    var eventMonth = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('MMM') || 'JAN';
+    var eventDay = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('D') || '00';
+    var startTime = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('h a') || '12 am';
+    var endTime = moment(new Date(event['ev:tribe_event_meta']['ev:enddate'])).format('h a') || '12 pm';
+    var description = $.trim(event.description).substring(0,130).split(" ").slice(0, -1).join(" ") + "..." || 'Event description';
+    var link = event.link || '#';
+    var title = event.title || 'Event Title';
 
     eventHtml = eventHtml + '
       <div class="large-8 medium-8 small-24 columns">
         <div class="media">
-          <a class="media__img viewEvent" href="' + event.link + '">
+          <a class="media__img viewEvent" href="' + link + '">
             <div class="event-item__calendar">
               <div class="event-item__calendar--month">' + eventMonth + '.</div>
               <div class="event-item__calendar--day">' + eventDay + '</div>
             </div>
           </a>
           <div class="media__body">
-            <a class="viewEvent" href="' + event.link + '"><h4 class="event-item__title body-content">' + event.title + '</h4></a>
+            <a class="viewEvent" href="' + link + '"><h4 class="event-item__title body-content">' + title + '</h4></a>
             <div class="event-item__time body-content">' + startTime + '&ndash;' +  endTime + '</div>
             <div class="event-item__location body-content">' + description + '</div>
           </div>
@@ -7810,7 +7815,16 @@ var eventsLoad = function(events) {
 };
 
 var panelLoad = function(post, panelClass, panelTitle, panelUrl) {
-  var excerpt = $.truncate(post.excerpt, { length: 170 });
+  var title = post.title || 'Story Title';
+  var excerpt = $.truncate(post.excerpt, { length: 170 }) || 'Story excerpt';
+  try {
+    var image = post.thumbnail_images.medium.url || 'http://placehold.it/334x189';
+  }
+  catch(e) {
+
+  }
+  var url = post.url || '#';
+
   //var excerpt = postExcerpt(post.excerpt);
   //var rawdate = moment(new Date(post.date)).format();
   //var date = moment(rawdate).fromNow();
@@ -7831,16 +7845,16 @@ var panelLoad = function(post, panelClass, panelTitle, panelUrl) {
     ';
   } else {
     postHtml = postHtml + '
-      <a href="' + post.url + '" class="studyAtUwoFullStory ' + panelClass + '-url">
+      <a href="' + url + '" class="studyAtUwoFullStory ' + panelClass + '-url">
         <div class="panel__video-wrapper">
-          <img src="' + post.thumbnail_images.medium.url + '" class="panel__image--home ' + panelClass + '-image" alt="' + post.title + '" />
+          <img src="' + image + '" class="panel__image--home ' + panelClass + '-image" alt="' + title + '" />
         </div><br>
       </a>
     ';
   };
 
   postHtml = postHtml + '
-          <a href="' + post.url +'" class="studyAtUwoFullStory study-uwo-url"><h2 class="panel__news-heading study-uwo-title">' + post.title + '</h2></a>
+          <a href="' + url +'" class="studyAtUwoFullStory study-uwo-url"><h2 class="panel__news-heading study-uwo-title">' + title + '</h2></a>
           <div class="panel__excerpt body-content">
             <span class="study-uwo-excerpt">' + excerpt + '</span>
           </div>
@@ -7856,28 +7870,34 @@ var tweetsLoad = function(tweets) {
   var tweetHtml = '';
 
   $.each(tweets, function(index, tweet) {
-    var rawdate = moment(new Date(tweet.created_at)).format();
-    var tweetDate = moment(rawdate).fromNow();
+    var rawdate = moment(new Date(tweet.created_at)).format() || 'Some Day';
+    var tweetDate = moment(rawdate).fromNow() || 'Some Day';
+    var screen_name = tweet.user.screen_name || '@uwoshkosh';
+    var profile_image_url = tweet.user.profile_image_url_https || 'twitter.png';
+    var name = tweet.user.name || 'UW Oshkosh';
+    var id_str = tweet.id_str || '1234';
+    var text = tweet.text || 'Tweet';
+
 
     tweetHtml = tweetHtml + '
       <slide>
         <div class="twitter-article social-article">
           <div class="media">
-            <a class="media__img" href="https://twitter.com/' + tweet.user.screen_name + '" target="_blank"><img class="media-object twitter-article__avatar" src="' +  tweet.user.profile_image_url_https + '" alt="UW Oshkosh Twitter profile image"></a>
+            <a class="media__img" href="https://twitter.com/' + screen_name + '" target="_blank"><img class="media-object twitter-article__avatar" src="' +  profile_image_url + '" alt="UW Oshkosh Twitter profile image"></a>
             <div class="media__body">
               <div class="media-heading">
                 <span class="tweetprofilelink">
-                  <strong>' + tweet.user.name + '</strong> <a href="https://twitter.com/' +  tweet.user.screen_name + '" target="_blank">@' + tweet.user.screen_name + '</a>
+                  <strong>' + name + '</strong> <a href="https://twitter.com/' +  screen_name + '" target="_blank">@' + screen_name + '</a>
                 </span><br>
                 <span class="tweet-time">
-                  <a href="https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id_str + '" target="_blank"><i class="fa fa-clock-o datetime"></i> <time class="datetime" datetime="' + tweet.created_at + '">' + tweetDate + '</time></a>
+                  <a href="https://twitter.com/' + screen_name + '/status/' + id_str + '" target="_blank"><i class="fa fa-clock-o datetime"></i> <time class="datetime" datetime="' + rawdate + '">' + tweetDate + '</time></a>
                 </span>
               </div>
-              <p>' + tweet.text + '</p>
+              <p>' + text + '</p>
               <p class="twitter-intents">
-                <a href="https://twitter.com/intent/tweet?in_reply_to=' + tweet.id_str + '" target="_blank"><i class="fa fa-fw fa-reply"></i> Reply &nbsp;</a>
-                <a ng-href="https://twitter.com/intent/retweet?tweet_id=' + tweet.id_str + '" target="_blank"><i class="fa fa-fw fa-retweet"></i> Retweet &nbsp;</a>
-                <a ng-href="https://twitter.com/intent/favorite?tweet_id=' + tweet.id_str + '" target="_blank"><i class="fa fa-fw fa-star"></i> Favorite</a></p>
+                <a href="https://twitter.com/intent/tweet?in_reply_to=' + id_str + '" target="_blank"><i class="fa fa-fw fa-reply"></i> Reply &nbsp;</a>
+                <a ng-href="https://twitter.com/intent/retweet?tweet_id=' + id_str + '" target="_blank"><i class="fa fa-fw fa-retweet"></i> Retweet &nbsp;</a>
+                <a ng-href="https://twitter.com/intent/favorite?tweet_id=' + id_str + '" target="_blank"><i class="fa fa-fw fa-star"></i> Favorite</a></p>
             </div>
           </div>
         </div>
@@ -7892,8 +7912,11 @@ var facebookLoad = function(fbposts) {
 
   $.each(fbposts, function(index, fbpost) {
     if (fbpost.message) {
-      var rawdate = moment(new Date(fbpost.created_time)).format();
-      var fbpostDate = moment(rawdate).fromNow();
+      var rawdate = moment(new Date(fbpost.created_time)).format() || 'Some day';
+      var fbpostDate = moment(rawdate).fromNow() || 'Some day';
+      var link = fbpost.link || '#';
+      var message = fbpost.message || 'Post excerpt';
+      var likes = fbpost.likes.data.length || '10';
 
       facebookHtml = facebookHtml + '
         <slide>
@@ -7907,10 +7930,10 @@ var facebookLoad = function(fbposts) {
               </div>
             </div>
             <p>
-              <!-- <img ng-src="{{ fbpost.picture }}" class="right" alt=""> --><span>' + fbpost.message + '</span>&hellip; <a ng-href="' + fbpost.link + '" target="_blank" alt="" >Read more</a>
+              <!-- <img ng-src="{{ fbpost.picture }}" class="right" alt=""> --><span>' + message + '</span>&hellip; <a href="' + link + '" target="_blank" alt="" >Read more</a>
             </p>
             <div>
-              <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="' + fbpost.updated_time + '">' + fbpostDate + '</time></span><span class="datetime social-feed-likes">' + fbpost.likes.data.length + ' people like this</span>
+              <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="' + rawdate + '">' + fbpostDate + '</time></span><span class="datetime social-feed-likes">' + likes + ' people like this</span>
             </div>
           </div>
         </slide>
@@ -7924,15 +7947,17 @@ var youtubeLoad = function(videos) {
   var youtubeHtml = '';
 
   $.each(videos, function(index, video) {
-    var rawdate = moment(new Date(video.updated)).format();
-    var videoDate = moment(rawdate).fromNow();
+    var rawdate = moment(new Date(video.updated)).format() || 'Some day';
+    var videoDate = moment(rawdate).fromNow() || 'Some day';
+    var id = video.id || '1234';
+    var title = video.title || 'Video Title';
 
     youtubeHtml = youtubeHtml + '
       <slide>
         <div class="twitter-article social-article">
-          <div class="youtube" id="' + video.id + '" style="height:160px;"></div>
-          <p class="body-content">' + video.title + '</p>
-          <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="' + video.updated + '">' + videoDate + '</time></span>
+          <div class="youtube" id="' + id + '" style="height:160px;"></div>
+          <p class="body-content">' + title + '</p>
+          <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="' + rawdate + '">' + videoDate + '</time></span>
         </div>
       </slide>
     ';
