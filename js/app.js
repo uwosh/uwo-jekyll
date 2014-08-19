@@ -6,11 +6,6 @@ setTimeout(function() {
   $(document).foundation('equalizer','reflow');
 }, 1001);
 
-// Fix orbit height issue
-setTimeout(function() {
-  $(document).resize();
-}, 1000);
-
 // Reflow Equalizer after content is loaded
 setTimeout(function() {
   $(document).foundation('equalizer','reflow');
