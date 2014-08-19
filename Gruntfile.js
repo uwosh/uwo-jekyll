@@ -21,14 +21,14 @@ module.exports = function(grunt){
           'js/bespoke/bespoke-loop.js',
           'js/bespoke/bespoke-social.js'
         ],
-        dest: 'js/uwo.js'
+        dest: 'js/uwosh.js'
       }
     },
 
     uglify: {
       build: {
-        src: 'js/uwo.js',
-        dest: 'js/uwo.min.js'
+        src: 'js/uwosh.js',
+        dest: 'js/uwosh.min.js'
       }
     },
 
@@ -38,7 +38,7 @@ module.exports = function(grunt){
           style: 'compressed'
         },
         files: {
-          'css/app.css': 'css/app.scss'
+          'css/uwosh.css': 'css/uwosh.scss'
         }
       }
     }
