@@ -137,6 +137,9 @@ $( document ).ready(function() {
 
         try {
           tweetsLoad(data.twitter);
+          bespoke.horizontal.from('#deck-twitter', {
+              loop: true
+          });
         }
         catch(e) {
 
@@ -144,6 +147,9 @@ $( document ).ready(function() {
 
         try {
           facebookLoad(data.facebook.data);
+          bespoke.horizontal.from('#deck-facebook', {
+              loop: true
+          });
         }
         catch(e) {
 
@@ -151,6 +157,9 @@ $( document ).ready(function() {
 
         try {
           youtubeLoad(data.youtube.data.items);
+          bespoke.horizontal.from('#deck-youtube', {
+              loop: true
+          });
         }
         catch(e) {
 
@@ -158,6 +167,9 @@ $( document ).ready(function() {
 
         try {
           //flickrLoad(data.flickr.photosets.photoset);
+          // bespoke.horizontal.from('#deck-flickr', {
+          //     loop: true
+          // });
         }
         catch(e) {
 

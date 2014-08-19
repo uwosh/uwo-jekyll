@@ -12,15 +12,14 @@ module.exports = function(grunt){
           'bower_components/foundation/js/foundation/foundation.equalizer.js',
           'js/slick.js',
           'js/jquery.truncate.js',
+          'js/bespoke/bespoke.js',
+          'js/bespoke/bespoke-loop.js',
           'js/app.js',
           'js/jquery.hoverIntent.js',
           'js/showHide.js',
           'js/moment.js',
           'js/eventTracking.js',
-          'js/classList.js',
-          'js/bespoke/bespoke.js',
-          'js/bespoke/bespoke-loop.js',
-          'js/bespoke/bespoke-social.js'
+          'js/classList.js'
         ],
         dest: 'js/uwosh.js'
       }
