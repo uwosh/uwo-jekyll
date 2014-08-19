@@ -7962,7 +7962,7 @@ var pillarLoad = function(post, pillarClass) {
 
   var sliderHtml = '
     <div>
-      <a href="' + url + '" class="pillar-education-url"><img class="pillar-image img-responsive pillar-education-image" src="' + image + '" alt="" /></a>
+      <a href="' + url + '" class="pillar-education-url"><img class="pillar-image img-responsive pillar-education-image" src="http://src.sencha.io/' + image + '" alt="" /></a>
       <div class="home-slider__caption">
         <div class="home-slider__caption__content">
           <p class="banner-headline home-slider__caption__title pillar-education-title">' + title + '</p>
