@@ -17,6 +17,7 @@ module.exports = function(grunt){
           'js/showHide.js',
           'js/moment.js',
           'js/eventTracking.js',
+          'js/classList.js',
           'js/bespoke/bespoke.js',
           'js/bespoke/bespoke-loop.js',
           'js/bespoke/bespoke-social.js'
@@ -29,10 +30,6 @@ module.exports = function(grunt){
       build: {
         src: 'js/uwosh.js',
         dest: 'js/uwosh.min.js'
-      },
-      build: {
-        src: 'js/modernizr.js',
-        dest: 'js/modernizr.min.js'
       }
     },
 
