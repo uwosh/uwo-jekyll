@@ -29,6 +29,10 @@ module.exports = function(grunt){
       build: {
         src: 'js/uwosh.js',
         dest: 'js/uwosh.min.js'
+      },
+      build: {
+        src: 'js/modernizr.js',
+        dest: 'js/modernizr.min.js'
       }
     },
 
