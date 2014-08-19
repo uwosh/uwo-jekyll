@@ -8,6 +8,7 @@ module.exports = function(grunt){
     concat: {
       dist: {
         src: [
+          'bower_components/fastclick/lib/fastclick.js',
           'bower_components/foundation/js/foundation.js',
           'bower_components/foundation/js/foundation/foundation.equalizer.js',
           'js/slick.js',
