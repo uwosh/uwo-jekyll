@@ -7752,6 +7752,9 @@ setTimeout(function() {
   $(document).foundation('equalizer','reflow');
 }, 8001);
 
+// Declare social slider vars
+var twitterDeck, facebookDeck, youtubeDeck;
+
 // jQuery Port
 $( document ).ready(function() {
 
@@ -7873,7 +7876,7 @@ $( document ).ready(function() {
 
         try {
           tweetsLoad(data.twitter);
-          bespoke.horizontal.from('#deck-twitter', {
+          twitterDeck = bespoke.horizontal.from('#deck-twitter', {
               loop: true
           });
         }
@@ -7883,7 +7886,7 @@ $( document ).ready(function() {
 
         try {
           facebookLoad(data.facebook.data);
-          bespoke.horizontal.from('#deck-facebook', {
+          facebookDeck = bespoke.horizontal.from('#deck-facebook', {
               loop: true
           });
         }
@@ -7893,7 +7896,7 @@ $( document ).ready(function() {
 
         try {
           youtubeLoad(data.youtube.data.items);
-          bespoke.horizontal.from('#deck-youtube', {
+          youtubeDeck = bespoke.horizontal.from('#deck-youtube', {
               loop: true
           });
         }
