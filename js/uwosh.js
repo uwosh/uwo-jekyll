@@ -8691,45 +8691,49 @@ $( document ).ready(function() {
 
         }
 
-        try {
-          tweetsLoad(data.twitter);
-          twitterDeck = bespoke.horizontal.from('#deck-twitter', {
-              loop: true
-          });
-        }
-        catch(e) {
+        if (screen.width > 1023) {
 
-        }
+          try {
+            tweetsLoad(data.twitter);
+            twitterDeck = bespoke.horizontal.from('#deck-twitter', {
+                loop: true
+            });
+          }
+          catch(e) {
 
-        try {
-          facebookLoad(data.facebook.data);
-          facebookDeck = bespoke.horizontal.from('#deck-facebook', {
-              loop: true
-          });
-        }
-        catch(e) {
+          }
 
-        }
+          try {
+            facebookLoad(data.facebook.data);
+            facebookDeck = bespoke.horizontal.from('#deck-facebook', {
+                loop: true
+            });
+          }
+          catch(e) {
 
-        try {
-          youtubeLoad(data.youtube.data.items);
-          youtubeDeck = bespoke.horizontal.from('#deck-youtube', {
-              loop: true
-          });
-        }
-        catch(e) {
+          }
 
-        }
+          try {
+            youtubeLoad(data.youtube.data.items);
+            youtubeDeck = bespoke.horizontal.from('#deck-youtube', {
+                loop: true
+            });
+          }
+          catch(e) {
 
-        try {
-          //flickrLoad(data.flickr.photosets.photoset);
-          // bespoke.horizontal.from('#deck-flickr', {
-          //     loop: true
-          // });
-        }
-        catch(e) {
+          }
 
-        }
+          try {
+            //flickrLoad(data.flickr.photosets.photoset);
+            // bespoke.horizontal.from('#deck-flickr', {
+            //     loop: true
+            // });
+          }
+          catch(e) {
+
+          }
+
+        };
 
         try {
           youtube_thumb();
