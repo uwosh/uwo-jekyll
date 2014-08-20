@@ -9,6 +9,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
+  - config.codekit
+  - codekit-cache
 
 # URLs
 facebook: https://www.facebook.com/uwoshkosh

@@ -8,32 +8,44 @@ module.exports = function(grunt){
     concat: {
       dist: {
         src: [
-          'bower_components/jquery/jquery.js',
-          'js/angular-app.js',
+          'bower_components/fastclick/lib/fastclick.js',
           'bower_components/foundation/js/foundation.js',
           'bower_components/foundation/js/foundation/foundation.equalizer.js',
+          'js/slick.js',
+          'js/jquery.truncate.js',
+          'js/bespoke/bespoke.js',
+          'js/bespoke/bespoke-loop.js',
           'js/app.js',
           'js/jquery.hoverIntent.js',
           'js/showHide.js',
           'js/moment.js',
           'js/eventTracking.js',
-          'js/bespoke/bespoke.js',
-          'js/bespoke/bespoke-loop.js',
-          'js/bespoke/bespoke-social.js'
+          'js/classList.js'
         ],
-        dest: 'js/uwo.js'
+        dest: 'js/uwosh.js'
       }
     },
 
     uglify: {
       build: {
-        src: 'js/uwo.js',
-        dest: 'js/uwo.min.js'
+        src: 'js/uwosh.js',
+        dest: 'js/uwosh.min.js'
+      }
+    },
+
+    sass: {
+      dist: {
+        options: {
+          style: 'compressed'
+        },
+        files: {
+          'css/uwosh.css': 'css/uwosh.scss'
+        }
       }
     }
 
   });
 
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['sass', 'concat', 'uglify']);
 
 };

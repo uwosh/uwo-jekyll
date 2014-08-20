@@ -7,100 +7,44 @@
         <dd class="active"><a href="#twitter"><i class="fa fa-lg fa-fw fa-twitter"></i> Twitter</a></dd>
         <dd><a href="#facebook"><i class="fa fa-lg fa-fw fa-facebook-square"></i> Facebook</a></dd>
         <dd><a href="#youtube"><i class="fa fa-lg fa-fw fa-youtube-square"></i> YouTube</a></dd>
-        <dd><a href="#flickr"><i class="fa fa-lg fa-fw fa-flickr"></i> Flickr</a></dd>
+        <!-- <dd><a href="#flickr"><i class="fa fa-lg fa-fw fa-flickr"></i> Flickr</a></dd> -->
       </dl>
 
       <div class="tabs-content vertical tabs-social-content">
         <div class="content active" id="twitter">
           <div class="deck-container">
-            <deck id="deck-twitter" ng-controller="TwitterCtrl">
-              {% raw %}
-                <slide ng-repeat="tweet in tweets|limitTo:12">
-                  <div class="twitter-article social-article">
-                    <div class="media">
-                      <a class="media__img" ng-href="https://twitter.com/{{ tweet.user.screen_name }}" target="_blank"><img class="media-object twitter-article__avatar" ng-src="{{ tweet.user.profile_image_url_https }}" alt="UW Oshkosh Twitter profile image"></a>
-                      <div class="media__body">
-                        <div class="media-heading">
-                          <span class="tweetprofilelink">
-                            <strong>{{ tweet.user.name }}</strong> <a ng-href="https://twitter.com/{{ tweet.user.screen_name }}" target="_blank">@{{ tweet.user.screen_name }}</a>
-                          </span><br>
-                          <span class="tweet-time">
-                            <a ng-href="https://twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id_str }}" target="_blank"><i class="fa fa-clock-o datetime"></i> <time class="datetime" datetime="{{ tweet.created_at }}">{{ tweet.created_at | fromNow }}</time></a>
-                          </span>
-                        </div>
-                        <p ng-bind-html="tweet.text | linky | tweetLinky:'_blank'"></p>
-                        <p class="twitter-intents">
-                          <a ng-href="https://twitter.com/intent/tweet?in_reply_to={{ tweet.id_str }}" target="_blank"><i class="fa fa-fw fa-reply"></i> Reply &nbsp;</a>
-                          <a ng-href="https://twitter.com/intent/retweet?tweet_id={{ tweet.id_str }}" target="_blank"><i class="fa fa-fw fa-retweet"></i> Retweet &nbsp;</a>
-                          <a ng-href="https://twitter.com/intent/favorite?tweet_id={{ tweet.id_str }}" target="_blank"><i class="fa fa-fw fa-star"></i> Favorite</a></p>
-                      </div>
-                    </div>
-                  </div>
-                </slide>
-              {% endraw %}
-            </deck>
+            <deck id="deck-twitter"></deck>
           </div><!-- /.deck-container -->
           <div class="social-controls">
             <ul class="no-bullet">
-              <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
-              <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
+              <li onClick="twitterDeck.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
+              <li onClick="twitterDeck.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
             </ul>
           </div>
         </div><!-- /#twitter -->
         <div class="content" id="facebook">
           <div class="deck-container">
-            <deck id="deck-facebook" ng-controller="FacebookCtrl">
-              {% raw %}
-                <slide ng-repeat="fbpost in fbposts |limitTo:12 | filter:filterEmpties">
-                  <div class="twitter-article facebook-article social-article">
-                    <div class="media">
-                      <a class="media__img" href="https://www.facebook.com/uwoshkosh">
-                        <img src="http://www.uwosh.edu/img/facebook-wordmark.jpg" alt="UW Oshkosh wordmark">
-                      </a>
-                      <div class="media__body">
-                        <strong>UW Oshkosh</strong>
-                      </div>
-                    </div>
-                    <p>
-                      <img ng-src="{{ fbpost.picture }}" class="right" alt=""><span ng-bind-html="fbpost.message | linky"></span>&hellip; <a ng-href="{{ fbpost.link }}" target="_blank" alt="" >Read more</a>
-                    </p>
-                    <div>
-                      <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ fbpost.updated_time}}">{{ fbpost.created_time | fromNow }}</time></span><span class="datetime social-feed-likes">{{ fbpost.likes.data.length }} people like this</span>
-                    </div>
-                  </div>
-                </slide>
-              {% endraw %}
-            </deck>
+            <deck id="deck-facebook"></deck>
           </div><!-- /.deck-container -->
           <div class="social-controls">
             <ul class="no-bullet">
-              <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
-              <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
+              <li onClick="facebookDeck.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
+              <li onClick="facebookDeck.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
             </ul>
           </div>
         </div>
         <div class="content" id="youtube">
           <div class="deck-container">
-            <deck id="deck-youtube" ng-controller="YouTubeCtrl">
-              {% raw %}
-                <slide ng-repeat="video in videos|limitTo:12">
-                  <div class="twitter-article social-article">
-                    <div class="youtube" id="{{video.id}}" style="height:160px;"></div>
-                    <p class="body-content">{{ video.title }}</p>
-                    <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ video.updated }}">{{ video.updated | fromNow }}</time></span>
-                  </div>
-                </slide>
-              {% endraw %}
-            </deck>
+            <deck id="deck-youtube"></deck>
           </div><!-- /.deck-container -->
           <div class="social-controls">
             <ul class="no-bullet">
-              <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
-              <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
+              <li onClick="youtubeDeck.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
+              <li onClick="youtubeDeck.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
             </ul>
           </div>
         </div>
-        <div class="content" id="flickr">
+        <!-- <div class="content" id="flickr">
           <div class="deck-container">
             <deck id="deck-flickr" ng-controller="FlickrCtrl">
               {% raw %}
@@ -115,14 +59,14 @@
                 </slide>
               {% endraw %}
             </deck>
-          </div><!-- /.deck-container -->
+          </div>
           <div class="social-controls">
             <ul class="no-bullet">
               <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
               <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
             </ul>
           </div>
-        </div>
+        </div> -->
       </div>
 
     </div><!-- /.col-lg-12 -->
