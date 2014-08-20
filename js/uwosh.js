@@ -8562,12 +8562,12 @@ $(document).foundation();
 // Reflow Equalizer after content is loaded
 setTimeout(function() {
   $(document).foundation('equalizer','reflow');
-}, 1001);
+}, 4001);
 
 // Reflow Equalizer after content is loaded
 setTimeout(function() {
   $(document).foundation('equalizer','reflow');
-}, 8001);
+}, 11001);
 
 // Declare social slider vars
 var twitterDeck, facebookDeck, youtubeDeck;
