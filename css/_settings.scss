@@ -483,7 +483,7 @@ $crumb-slash: "»";
 // Off-canvas
 
 $tabbar-bg: #444;
-// $tabbar-height: rem-calc(45);
+$tabbar-height: rem-calc(48);
 // $tabbar-line-height: $tabbar-height;
 // $tabbar-color: #FFF;
 // $tabbar-middle-padding: 0 rem-calc(10);
@@ -932,10 +932,10 @@ $tabs-navigation-bg-color: #fff  ;
 
 // Background color for the top bar
 $topbar-bg-color: #444;
-$topbar-bg: linear-gradient(to bottom, #444444 0%,#444444 70%,#1c1c1c 100%);
+//$topbar-bg: linear-gradient(to bottom, #444444 0%,#444444 70%,#1c1c1c 100%);
 
 // Height and margin
-$topbar-height: 32px;
+$topbar-height: 48px;
 // $topbar-margin-bottom: 0;
 
 // Control Input height for top bar
