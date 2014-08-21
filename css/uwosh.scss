@@ -230,6 +230,21 @@ abbr {
     font-size: 1.2vw;
   }
 }
+.hide-top-bar {
+  @media (max-width: 930px) {
+    display: none;
+  }
+}
+.hide-tab-bar {
+  @media (min-width: 931px) {
+    display: none;
+  }
+}
+.middle.tab-bar-section {
+  @media (min-width: 641px) {
+    text-align: right;
+  }
+}
 
 .school-title {
   position: absolute;
@@ -248,7 +263,7 @@ abbr {
 }
 .wordmark-wrapper {
   z-index: 9;
-  @media #{$medium-up} {
+  @media (min-width: 931px) {
     position: absolute;
   }
   @media #{$small-only} {
@@ -1525,6 +1540,9 @@ GOOGLE SEARCH STYLES
       height: 40px;
       background: url("../img/parts/google-cse.gif") no-repeat 8px 13px #fff;
     }
+    @media (max-width: 640px) {
+      border-radius: 3px 0 0 3px;
+    }
   }
   input[type="text"]:focus {
     background-image: none;
@@ -1540,6 +1558,9 @@ GOOGLE SEARCH STYLES
     display: inline;
     @media #{$small-only} {
       height: 40px;
+    }
+    @media (max-width: 640px) {
+      border-radius: 0 3px 3px 0;
     }
   }
 }
