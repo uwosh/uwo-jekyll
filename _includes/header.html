@@ -8,7 +8,21 @@
           <h1 class="school-title">{{page.title}}</h1>
           <a href="{{site.baseurl}}" id="wordmarkLink"><img src="{{site.baseurl}}/img/parts/wordmark.png" class="wordmark" alt="University of Wisconsin Oshkosh wordmark. Links to home page." /></a>
         </div>
-        <div class="large-12 medium-19 medium-offset-1 large-offset-0 columns audience-nav show-for-medium-up">
+
+        <div class="small-24 columns quicklinks text-right show-for-small-up">
+          <div class="quicklinks-wrapper">
+            <ul class="inline-list show-for-medium-up quicklinks">
+              <li class="bump"><a href="https://www.gmail.com" target="_blank" class="quicklinksEmail">Email</a></li>
+              <li class="bump"><a href="http://www.uwosh.edu/library" class="quicklinksLibrary">Polk Library</a></li>
+              <li class="bump"><a href="http://www.uwosh.edu/directory" class="quicklinksDirectory">Directory</a></li>
+              <li class="bump"><a href="http://www.uwosh.edu/d2l/" class="quicklinksD2L">D2L</a></li>
+              <li class="bump"><a href="https://my.wisconsin.edu/" class="quicklinksMyUwSystem">My UW System</a></li>
+              <li class="has-form">{% include search.html %}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="small-24 columns audience-nav show-for-medium-up">
           <ul id="audienceNavLinksDesktop" class="inline-list">
             <li><a href="{{site.baseurl}}/future-students/" class="audienceFutureStudents">Future Students</a></li>
             <li><a href="{{site.baseurl}}/parents-family-friends/" class="audienceParents">Parents</a></li>
@@ -17,18 +31,7 @@
             <li><a href="{{site.baseurl}}/community-and-visitors" class="audienceCommunity">Community and Visitors</a></li>
           </ul>
         </div>
-        <div class="large-8 medium-19 small-23 small-offset-1 medium-offset-1 large-offset-0 columns uwo-search show-for-small-up">
-          <ul is="quickLinksDesktop" class="inline-list show-for-medium-up">
-            <li><a href="https://www.gmail.com" target="_blank" class="quicklinksEmail">Email</a></li>
-            <li><a href="http://www.uwosh.edu/library" class="quicklinksLibrary">Polk Library</a></li>
-            <li><a href="http://www.uwosh.edu/directory" class="quicklinksDirectory">Directory</a></li>
-            <li><a href="http://www.uwosh.edu/d2l/" class="quicklinksD2L">D2L</a></li>
-            <li><a href="https://my.wisconsin.edu/" class="quicklinksMyUwSystem">My UW System</a></li>
-          </ul>
 
-          {% include search.html %}
-
-        </div>
       </div><!-- /.row -->
     </div><!-- /.audience-row -->
 
