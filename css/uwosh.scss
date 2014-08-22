@@ -829,6 +829,23 @@ END NAV DRAWERS
 /******************************************************************
 HOME
 ******************************************************************/
+#pillar-slick {
+  .slick-prev:before, .slick-next:before {
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 4px;
+  }
+  .slick-prev {
+    content: "<";
+    left: 0;
+  }
+  .slick-next {
+    content: ">";
+    right: 18px;
+  }
+  .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus { color: #fff; }
+}
 .home-slider__caption {
   background-color: transparent !important;
   bottom: 10px !important;
