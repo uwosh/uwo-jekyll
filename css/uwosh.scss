@@ -147,6 +147,12 @@ a:visited {
 .page--home {
   #main {
     margin-top: -15px;
+    @media #{$medium-only} {
+      margin-top: 0;
+    }
+    @media #{$small-only} {
+      margin-top: 0;
+    }
   }
 }
 .custom-bullets {
