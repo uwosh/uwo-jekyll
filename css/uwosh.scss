@@ -144,6 +144,11 @@ a {
 a:visited {
   color: $dark-blue-accessible;
 }
+.page--home {
+  #main {
+    margin-top: -15px;
+  }
+}
 .custom-bullets {
   list-style: none;
   padding:0;
@@ -303,6 +308,7 @@ abbr {
   font-weight: normal;
   .bump { margin-top: 10px; }
   .quicklinks-wrapper { display: inline-block; }
+  .fa-search { font-size: 18px; }
 }
 /* .uwo-search {
   margin-top: 18px;
@@ -837,8 +843,13 @@ HOME
   @media #{$small-only} {
     width: 100% !important;
   }
-  @media #{$medium-only} {
-    width: 65% !important;
+  .body-content {
+    @media #{$medium-only} {
+      display: none;
+    }
+    @media #{$small-only} {
+      display: none;
+    }
   }
 }
 .home-slider__caption__title {
@@ -1534,7 +1545,7 @@ GOOGLE SEARCH STYLES
     box-shadow: none;
     height: 46px;
     margin-bottom: 0;
-    width: 126px;
+    width: 128px;
     display: inline;
     @media #{$small-only} {
       height: 40px;
@@ -1553,7 +1564,7 @@ GOOGLE SEARCH STYLES
     border: none;
     height: 46px;
     margin-bottom: 0;
-    margin-left: -4px;
+    margin-left: -5px;
     width: 46px;
     display: inline;
     @media #{$small-only} {
