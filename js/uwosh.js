@@ -8586,6 +8586,10 @@ $( document ).ready(function() {
       success: function( data )
       {
         var pillars = {
+          leadership: {
+            feedEntry: data.pillarLeadership.posts[0],
+            pillarClass: 'pillar-leadership'
+          },
           sustainability: {
             feedEntry: data.pillarSustainability.posts[0],
             pillarClass: 'pillar-sustainability'
@@ -8597,10 +8601,6 @@ $( document ).ready(function() {
           service: {
             feedEntry: data.pillarService.posts[0],
             pillarClass: 'pillar-service'
-          },
-          leadership: {
-            feedEntry: data.pillarLeadership.posts[0],
-            pillarClass: 'pillar-leadership'
           },
           responsiveness: {
             feedEntry: data.pillarResponsiveness.posts[0],
