@@ -772,7 +772,7 @@ CURRENT STUDENTS
   padding-right: 10px;
 }
 .my-uwo-paragraph {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 .slider--campus-life__wrapper--outer {
   .orbit-timer {
@@ -1100,6 +1100,10 @@ CTAs
   font-size: 18px;
   font-weight: 600;
 }
+.btn--small-text {
+  font-size: 13px;
+  font-weight: normal;
+}
 .btn--with-icon {
   text-align: left;
   padding: 14px;
@@ -1126,6 +1130,13 @@ CTAs
   background-color: $orange-dark;
 }
 .btn--orange-dark:hover { background-color: darken($orange-dark, 5%); }
+
+.btn--gray-light,
+.btn--gray-light:visited {
+  color: $gray-medium;;
+  background-color: $gray-light;
+}
+.btn--gray-light:hover { background-color: darken($blue-light, 5%); }
 
 
 .cta {
