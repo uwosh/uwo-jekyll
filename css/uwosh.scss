@@ -1107,6 +1107,8 @@ CTAs
 .btn--with-icon {
   text-align: left;
   padding: 14px;
+}
+.btn--half-margin {
   margin-bottom: 8px;
 }
 
@@ -1116,6 +1118,13 @@ CTAs
   background-color: $blue-light;
 }
 .btn--blue-light:hover { background-color: darken($blue-light, 5%); }
+
+.btn--blue-dark,
+.btn--blue-dark:visited {
+  color: #fff;
+  background-color: $blue-dark;
+}
+.btn--blue-dark:hover { background-color: darken($blue-dark, 5%); }
 
 .btn--orange-light,
 .btn--orange-light:visited {
