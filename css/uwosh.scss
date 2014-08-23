@@ -1096,27 +1096,36 @@ CTAs
   font-size: 28px;
   font-weight: 600;
 }
+.btn--medium-text {
+  font-size: 18px;
+  font-weight: 600;
+}
+.btn--with-icon {
+  text-align: left;
+  padding: 14px;
+  margin-bottom: 8px;
+}
 
 .btn--blue-light,
 .btn--blue-light:visited {
   color: #fff;
   background-color: $blue-light;
 }
-.btn--blue-light:hover { background-color: darken($blue-light, 15%); }
+.btn--blue-light:hover { background-color: darken($blue-light, 5%); }
 
 .btn--orange-light,
 .btn--orange-light:visited {
   color: #fff;
   background-color: $orange-light;
 }
-.btn--orange-light:hover { background-color: lighten($orange-light, 15%); }
+.btn--orange-light:hover { background-color: darken($orange-light, 5%); }
 
 .btn--orange-dark,
 .btn--orange-dark:visited {
   color: #fff;
   background-color: $orange-dark;
 }
-.btn--orange-dark:hover { background-color: lighten($orange-dark, 15%); }
+.btn--orange-dark:hover { background-color: darken($orange-dark, 5%); }
 
 
 .cta {
