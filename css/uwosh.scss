@@ -1070,6 +1070,55 @@ END PAGE BANNERS
 /******************************************************************
 CTAs
 ******************************************************************/
+.btn {
+  display: inline-block;
+  text-align: center;
+  padding: 16px 8px;
+  margin-bottom: 16px;
+  transition: background-color 300ms ease-out;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 0;
+  position: relative;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+.btn:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.btn--full {
+  padding-right: 0;
+  padding-left: 0;
+  width: 100%;
+}
+.btn--large-text {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.btn--blue-light,
+.btn--blue-light:visited {
+  color: #fff;
+  background-color: $blue-light;
+}
+.btn--blue-light:hover { background-color: darken($blue-light, 15%); }
+
+.btn--orange-light,
+.btn--orange-light:visited {
+  color: #fff;
+  background-color: $orange-light;
+}
+.btn--orange-light:hover { background-color: lighten($orange-light, 15%); }
+
+.btn--orange-dark,
+.btn--orange-dark:visited {
+  color: #fff;
+  background-color: $orange-dark;
+}
+.btn--orange-dark:hover { background-color: lighten($orange-dark, 15%); }
+
+
 .cta {
   min-height: 48px;
   padding-left: 10px;
