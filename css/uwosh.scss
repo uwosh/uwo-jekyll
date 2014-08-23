@@ -1140,6 +1140,13 @@ CTAs
 }
 .btn--orange-dark:hover { background-color: darken($orange-dark, 5%); }
 
+.btn--green-dark,
+.btn--green-dark:visited {
+  color: #fff;
+  background-color: $green-dark;
+}
+.btn--green-dark:hover { background-color: darken($green-dark, 5%); }
+
 .btn--gray-light,
 .btn--gray-light:visited {
   color: $gray-medium;;
