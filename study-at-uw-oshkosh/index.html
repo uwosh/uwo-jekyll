@@ -29,22 +29,19 @@ responsive-nav: '
   <div class="medium-8 small-24 columns">
     <div class="row">
       <div class="small-24 columns">
-        <a href="http://www.uwosh.edu/goto/admissions/requestform.html">
-          <div class="cta cta--dark-green">
-            <img src="{{ site.baseurl }}/img/icons/icon-question.png" class="cta__icon" alt="Ask a question icon"> <span class="cta__text">Request More Information</span>
-          </div>
+
+        <a class="btn btn--full btn--medium-text btn--green-dark btn--with-icon" href="http://www.uwosh.edu/goto/admissions/requestform.html">
+          <i class="fa fa-lg fa-question-circle fa-fw"></i> Request More Information
         </a>
-      </div>
-      <div class="small-24 columns">
-        <a href="http://www.uwosh.edu/admissions/visit">
-          <div class="cta cta--orange">
-            <img src="{{ site.baseurl }}/img/icons/icon-pointer-star.png" class="cta__icon cta__icon--pointer-star"> <span class="cta__text">Visit Campus</span>
-          </div>
+
+        <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon" href="http://www.uwosh.edu/admissions/visit">
+          <i class="fa fa-lg fa-map-marker fa-fw"></i> Visit Campus
         </a>
+
         <div class="cta cta--dark-blue cta--contact-us">
           <div class="media">
             <a class="media__img">
-              <img src="{{site.baseurl}}/img/icons/icon-directory.png" class="cta__icon" alt="Contact Us icon">
+              <i class="fa fa-lg fa-phone fa-fw"></i>
             </a>
             <div class="media__body">
               <span class="cta__text">Contact Us</span><br><br>
@@ -54,6 +51,9 @@ responsive-nav: '
             </div>
           </div>
         </div>
+
+      </div>
+      <div class="small-24 columns">
         {% include social-icons.html %}
       </div>
     </div>
