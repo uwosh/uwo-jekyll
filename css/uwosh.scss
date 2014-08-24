@@ -1892,6 +1892,12 @@ FIXES/HACKS
   padding: 12px;
   margin-bottom: 8px;
 }
+
+.slick-slider {
+  @media #{$small-only} {
+    margin-bottom: -30px;
+  }
+}
 /******************************************************************
 END FIXES/HACKS
 ******************************************************************/
