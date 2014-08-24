@@ -830,21 +830,12 @@ END NAV DRAWERS
 HOME
 ******************************************************************/
 #pillar-slick {
-  .slick-prev:before, .slick-next:before {
-    font-family: "Open Sans", sans-serif;
-    font-size: 30px;
-    font-weight: 600;
-    padding: 4px;
-  }
   .slick-prev {
-    content: "<";
-    left: 0;
+    left: 4px;
   }
   .slick-next {
-    content: ">";
-    right: 18px;
+    right: 4px;
   }
-  .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus { color: #fff; }
 }
 .home-slider__caption {
   background-color: transparent !important;
@@ -1828,25 +1819,6 @@ END EFFECTS
 /******************************************************************
 FIXES/HACKS
 ******************************************************************/
-.slideshow-wrapper {
-  //margin-left: 1px;
-  .orbit-prev {
-    @media #{$small-only} {
-      top: 15%;
-    }
-    @media #{$medium-only} {
-      top: 25%;
-    }
-  }
-  .orbit-next {
-    @media #{$small-only} {
-      top: 15%;
-    }
-    @media #{$medium-only} {
-      top: 25%;
-    }
-  }
-}
 .tabs-social-content.vertical {
   margin-left: -21px !important;
 }

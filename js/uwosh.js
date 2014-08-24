@@ -8748,7 +8748,8 @@ $( document ).ready(function() {
           speed: 500,
           fade: true,
           cssEase: 'linear',
-          arrows: true
+          arrows: true,
+          dots: true
         });
       }
     });
