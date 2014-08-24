@@ -11,6 +11,7 @@ Setting up variables. Bringing in Colors and Spacing.
 @import "modules/bits";
 
 /* Custom Styles */
+html { -webkit-font-smoothing: antialiased; }
 .uppercase { text-transform: uppercase; }
 .media {margin:10px;}
 .media, .media__body {overflow:hidden; _overflow:visible; zoom:1;}
