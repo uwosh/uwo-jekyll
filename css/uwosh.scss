@@ -1433,10 +1433,8 @@ EVENTS
   color: #fff;
   text-align: center;
   text-transform: uppercase;
-  padding-top: 5px;
-  @media #{$small-only} {
-    padding-top: 0;
-  }
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 .event-item__calendar--day {
   height: 40px;
@@ -1444,10 +1442,8 @@ EVENTS
   text-align: center;
   font-size: 28px;
   font-weight: $semibold;
-  padding-top: 6px;
-  @media #{$small-only} {
-    padding-top: 0;
-  }
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 .events__slider {
   margin-bottom: 16px;
