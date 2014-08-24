@@ -1162,10 +1162,24 @@ CTAs
 
 .btn--gray-light,
 .btn--gray-light:visited {
-  color: $gray-medium;;
+  color: $gray-medium;
   background-color: $gray-light;
 }
 .btn--gray-light:hover { background-color: darken($blue-light, 5%); }
+
+.btn--gray-dark,
+.btn--gray-dark:visited {
+  color: #fff;
+  background-color: $gray-dark;
+}
+.btn--gray-dark:hover { background-color: lighten($gray-dark, 5%); }
+
+.btn--gray-medium-dark,
+.btn--gray-medium-dark:visited {
+  color: #fff;
+  background-color: $gray-medium-dark;
+}
+.btn--gray-medium-dark:hover { background-color: darken($gray-medium-dark, 5%); }
 
 
 .cta {

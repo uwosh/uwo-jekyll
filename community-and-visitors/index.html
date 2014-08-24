@@ -15,64 +15,71 @@ responsive-nav: '
 '
 ---
 
-<div class="row content">
-  <div class="small-24 columns page-banner__column">
-    <div class="page-banner page-banner--dark-gray">
-      <h2 class="page-banner__title">Community and Visitors</h2>
-    </div>
-    <br>
-  </div>
-  <div class="medium-16 small-24 columns">
-    <img src="{{ site.baseurl }}/img/community-and-visitors/aerial-banner.jpg" class="img-responsive" alt="Arial view of UW Oshkosh campus">
-  </div>
-  <div class="medium-8 small-24 columns">
-    <div class="row">
-      <div class="small-24 columns">
+<div class="row">
+  <div class="small-24 columns">
+    <div class="content">
+      <div class="row">
 
-        <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon" href="http://www.uwosh.edu/go/directions/">
-          <i class="fa fa-lg fa-map-marker fa-fw"></i> Directions to Campus
-        </a>
+        <div class="small-24 columns">
+          <a class="btn btn--full btn--large-text btn--gray-dark btn--page-banner"href="{{ site.baseurl }}/community-and-visitors">
+            Community and Visitors
+          </a>
+        </div>
 
-        <a class="btn btn--full btn--medium-text btn--green-dark btn--with-icon" href="http://www.uwosh.edu/directory">
-          <i class="fa fa-lg fa-phone fa-fw"></i> Campus Directory
-        </a>
+        <div class="medium-16 small-24 columns">
+          <img src="{{ site.baseurl }}/img/community-and-visitors/aerial-banner.jpg" class="img-responsive" alt="Arial view of UW Oshkosh campus">
+        </div>
 
-        <a class="btn btn--full btn--medium-text btn--orange-dark btn--with-icon" href="{{ site.baseurl }}/community-and-visitors/ask-us.html">
-          <i class="fa fa-lg fa-question fa-fw"></i> Ask a Question
-        </a>
+        <div class="medium-8 small-24 columns">
+          <div class="row">
+            <div class="small-24 columns">
 
-      </div>
-    </div>
-  </div>
-</div>
+              <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon" href="http://www.uwosh.edu/go/directions/">
+                <i class="fa fa-lg fa-map-marker fa-fw"></i> Directions to Campus
+              </a>
 
-<div class="row content">
-  <div class="medium-16 columns">
-    <nav class="breadcrumbs">
-      <a href="{{site.baseurl}}">Home</a>
-      <a href="#" class="current">Community and Visitors</a>
-    </nav>
-    {% include community-and-visitors/lead-content.html %}
+              <a class="btn btn--full btn--medium-text btn--green-dark btn--with-icon" href="http://www.uwosh.edu/directory">
+                <i class="fa fa-lg fa-phone fa-fw"></i> Campus Directory
+              </a>
 
-    <div class="row">
-      <div class="small-24 columns">
-        <ul class="small-block-grid-1 medium-block-grid-3">
-			    <li>{% include community-and-visitors/panel-attend-a-campus-event.html %}</li>
-          <li>{% include community-and-visitors/panel-hire-a-titan.html %}</li>
-          <li>{% include community-and-visitors/panel-conference-and-catering-services.html %}</li>
-          <li>{% include community-and-visitors/panel-explore-educational-opportunities.html %}</li>
-          <li>{% include community-and-visitors/panel-support-and-resources.html %}</li>
-          <li>{% include community-and-visitors/panel-start-a-business.html %}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+              <a class="btn btn--full btn--medium-text btn--orange-dark btn--with-icon" href="{{ site.baseurl }}/community-and-visitors/ask-us.html">
+                <i class="fa fa-lg fa-question fa-fw"></i> Ask a Question
+              </a>
 
-  <div class="medium-8 columns">
-    <div class="row">
-      <div class="medium-24 columns">
-        {% include social-icons.html %}
-        {% include community-and-visitors/audience-banners.html %}
+            </div>
+          </div>
+        </div>
+
+        <div class="medium-16 columns">
+          <nav class="breadcrumbs">
+            <a href="{{site.baseurl}}">Home</a>
+            <a href="#" class="current">Community and Visitors</a>
+          </nav>
+          {% include community-and-visitors/lead-content.html %}
+
+          <div class="row">
+            <div class="small-24 columns">
+              <ul class="small-block-grid-1 medium-block-grid-3">
+                <li>{% include community-and-visitors/panel-attend-a-campus-event.html %}</li>
+                <li>{% include community-and-visitors/panel-hire-a-titan.html %}</li>
+                <li>{% include community-and-visitors/panel-conference-and-catering-services.html %}</li>
+                <li>{% include community-and-visitors/panel-explore-educational-opportunities.html %}</li>
+                <li>{% include community-and-visitors/panel-support-and-resources.html %}</li>
+                <li>{% include community-and-visitors/panel-start-a-business.html %}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="medium-8 columns">
+          <div class="row">
+            <div class="medium-24 columns">
+              {% include social-icons.html %}
+              {% include community-and-visitors/audience-banners.html %}
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

@@ -27,103 +27,100 @@ responsive-nav: '
 '
 ---
 
-<div class="row content">
-  <div class="small-24 columns page-banner__column">
+<div class="row">
+  <div class="small-24 columns">
+    <div class="content">
+      <div class="row">
 
-    <div class="page-banner page-banner--medium-dark-gray">
-      <h2 class="page-banner__title">Academics</h2>
-    </div>
+        <div class="small-24 columns">
+          <a class="btn btn--full btn--large-text btn--gray-medium-dark btn--page-banner"href="{{ site.baseurl }}/academics">
+            Academics
+          </a>
+        </div>
 
-    <div class="medium-16 large-16 columns">
-      <nav class="breadcrumbs">
-        <a href="{{site.baseurl}}">Home</a>
-        <a href="" class="current">Academics</a>
-      </nav>
-      {% include academics/lead-content.html %}
-    </div>
+        <div class="medium-16 large-16 columns">
+          <nav class="breadcrumbs">
+            <a href="{{site.baseurl}}">Home</a>
+            <a href="" class="current">Academics</a>
+          </nav>
+          {% include academics/lead-content.html %}
+        </div>
 
-    <div class="medium-8 large-8 columns">
-      <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon" href="{{ site.baseurl }}/academics/majors-minors-emphases.html">
-        <i class="fa fa-lg fa-institution fa-fw"></i> All Majors and Minors
-      </a>
-      <!--<form>
-        <div class="row collapse">
-          <div class="large-20 columns">
-            <input type="text" placeholder="What do I want to study?">
-          </div>
-          <div class="large-4 columns">
-            <a href="" class="button postfix radius"><i class="fa fa-lg fa-search"></i></a>
+        <div class="medium-8 large-8 columns">
+          <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon" href="{{ site.baseurl }}/academics/majors-minors-emphases.html">
+            <i class="fa fa-lg fa-institution fa-fw"></i> All Majors and Minors
+          </a>
+          {% include social-icons.html %}
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="medium-6 large-5 columns show-for-medium-up right-rule padding-right-0">
+          {% include academics/side-nav.html %}
+          <a href="http://www.uwosh.edu/admissions/visit">
+            <div class="cta cta--no-icon cta--blue">
+              <span class="cta__text">Visit Campus</span>
+            </div>
+          </a>
+          <a href="https://apply.wisconsin.edu/">
+            <div class="cta cta--no-icon cta--dark-orange">
+              <span class="cta__text">Apply Now</span>
+            </div>
+          </a><br>
+          <dl class="accordion" data-accordion>
+            <dd>
+              <a href="#panelRelatedLinks"><div class="title-gradient side-nav__title"><div class="side-nav__title__contents">Related Links <i class="fa fa-plus right clickable"></i></div></div></a>
+              <div id="panelRelatedLinks" class="content">
+                <ul class="side-nav">
+                  <li><a href="http://www.housing.uwosh.edu/new-students/specialty-programs/life">First-Year Experience</a></li>
+                  <li><a href="http://www.uwosh.edu/registrar/titanweb/">Titan Web (schedule classes)</a></li>
+                  <li><a href="http://www.uwosh.edu/provost/Main%20Highlight/calendars/academic-calendars">Academic Calendar</a></li>
+                  <li><a href="https://uwosh.collegiatelink.net/">Student Organizations</a></li>
+                  <li><a href="http://reeve.uwosh.edu/involvement/greek-life">Greek Life</a></li>
+                  <li><a href="http://recreation.uwosh.edu/">Student Recreation and Wellness Center</a></li>
+                  <li><a href="http://reeve.uwosh.edu/">Reeve Memorial Union</a></li>
+                  <li><a href="http://www.uwoshkoshtitans.com/">UW Oshkosh Athletics</a></li>
+                  <li><a href="http://bookstore.uwosh.edu/home.aspx">University Books &amp; More</a></li>
+                  <li><a href="http://www.uwosh.edu/childrens_center/">Children's Learning and Care Center</a></li>
+                  <li><a href="http://www.uwosh.edu/library">Polk Library</a></li>
+                  <li><a href="http://www.uwosh.edu/deanofstudents/disability-services">Disability Services</a></li>
+                  <li><a href="{{ site.baseurl }}/current-students/health-wellness-safety">Campus Safety Resources</a></li>
+                  <li><a href="http://www.uwosh.edu/veterans">Veterans Resource Center</a></li>
+                  <li><a href="http://www.uwosh.edu/today">UW Oshkosh Today (campus&nbsp;news)</a></li>
+                  <li><a href="http://www.advancetitan.com/">Advance-Titan (student&nbsp;newspaper)</a></li>
+                  <li><a href="http://www.uwosh.edu/summer">Summer Session</a></li>
+                </ul>
+              </div>
+            </dd>
+          </dl>
+        </div>
+
+        <div class="medium-18 large-19 columns">
+
+          <a class="btn btn--full btn--small-text btn--blue-dark btn--with-icon" href="{{ site.baseurl }}/academics/learning-assistance-services.html">
+            View free learning assistance opportunities available to UW&nbsp;Oshkosh students <i class="fa fa-lg fa-caret-right"></i>
+          </a>
+
+          <div class="row academics-row">
+
+            <div class="small-24 columns">
+              <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+                <li>{% include academics/panel-cob.html %}</li>
+                <li>{% include academics/panel-coehs.html %}</li>
+                <li>{% include academics/panel-cols.html %}</li>
+                <li>{% include academics/panel-con.html %}</li>
+                <li>{% include academics/panel-llce.html %}</li>
+                <li>{% include academics/panel-continuing-education.html %}</li>
+                <li>{% include academics/panel-undergraduate.html %}</li>
+                <li>{% include academics/panel-graduate.html %}</li>
+              </ul>
+            </div>
+
           </div>
         </div>
-      </form>-->
-      {% include social-icons.html %}
-    </div>
 
-  </div>
-</div>
-
-<div class="row content">
-  <div class="medium-6 large-5 columns show-for-medium-up right-rule padding-right-0">
-    {% include academics/side-nav.html %}
-    <a href="http://www.uwosh.edu/admissions/visit">
-      <div class="cta cta--no-icon cta--blue">
-        <span class="cta__text">Visit Campus</span>
       </div>
-    </a>
-    <a href="https://apply.wisconsin.edu/">
-      <div class="cta cta--no-icon cta--dark-orange">
-        <span class="cta__text">Apply Now</span>
-      </div>
-    </a><br>
-    <dl class="accordion" data-accordion>
-      <dd>
-        <a href="#panelRelatedLinks"><div class="title-gradient side-nav__title"><div class="side-nav__title__contents">Related Links <i class="fa fa-plus right clickable"></i></div></div></a>
-        <div id="panelRelatedLinks" class="content">
-          <ul class="side-nav">
-            <li><a href="http://www.housing.uwosh.edu/new-students/specialty-programs/life">First-Year Experience</a></li>
-            <li><a href="http://www.uwosh.edu/registrar/titanweb/">Titan Web (schedule classes)</a></li>
-            <li><a href="http://www.uwosh.edu/provost/Main%20Highlight/calendars/academic-calendars">Academic Calendar</a></li>
-            <li><a href="https://uwosh.collegiatelink.net/">Student Organizations</a></li>
-            <li><a href="http://reeve.uwosh.edu/involvement/greek-life">Greek Life</a></li>
-            <li><a href="http://recreation.uwosh.edu/">Student Recreation and Wellness Center</a></li>
-            <li><a href="http://reeve.uwosh.edu/">Reeve Memorial Union</a></li>
-            <li><a href="http://www.uwoshkoshtitans.com/">UW Oshkosh Athletics</a></li>
-            <li><a href="http://bookstore.uwosh.edu/home.aspx">University Books &amp; More</a></li>
-            <li><a href="http://www.uwosh.edu/childrens_center/">Children's Learning and Care Center</a></li>
-            <li><a href="http://www.uwosh.edu/library">Polk Library</a></li>
-            <li><a href="http://www.uwosh.edu/deanofstudents/disability-services">Disability Services</a></li>
-            <li><a href="{{ site.baseurl }}/current-students/health-wellness-safety">Campus Safety Resources</a></li>
-            <li><a href="http://www.uwosh.edu/veterans">Veterans Resource Center</a></li>
-            <li><a href="http://www.uwosh.edu/today">UW Oshkosh Today (campus&nbsp;news)</a></li>
-            <li><a href="http://www.advancetitan.com/">Advance-Titan (student&nbsp;newspaper)</a></li>
-            <li><a href="http://www.uwosh.edu/summer">Summer Session</a></li>
-          </ul>
-        </div>
-      </dd>
-    </dl>
-  </div>
-
-  <div class="medium-18 large-19 columns">
-
-    <a class="btn btn--full btn--small-text btn--blue-dark btn--with-icon" href="{{ site.baseurl }}/academics/learning-assistance-services.html">
-      View free learning assistance opportunities available to UW&nbsp;Oshkosh students <i class="fa fa-lg fa-caret-right"></i>
-    </a>
-
-    <div class="row academics-row">
-
-      <div class="small-24 columns">
-        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
-          <li>{% include academics/panel-cob.html %}</li>
-          <li>{% include academics/panel-coehs.html %}</li>
-          <li>{% include academics/panel-cols.html %}</li>
-          <li>{% include academics/panel-con.html %}</li>
-          <li>{% include academics/panel-llce.html %}</li>
-          <li>{% include academics/panel-continuing-education.html %}</li>
-          <li>{% include academics/panel-undergraduate.html %}</li>
-          <li>{% include academics/panel-graduate.html %}</li>
-        </ul>
-      </div>
-
     </div>
   </div>
 </div>

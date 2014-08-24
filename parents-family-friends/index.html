@@ -24,63 +24,67 @@ responsive-nav: '
 '
 ---
 
-<div class="row content">
-  <div class="small-24 columns page-banner__column">
-    <div class="page-banner page-banner--dark-blue">
-      <h2 class="page-banner__title">Parents, Family and Friends</h2>
-    </div>
-    <br>
-  </div>
-  <div class="small-24 medium-16 columns">
-    {% include parents-family-friends/lead-content.html %}
-  </div>
-  <div class="small-24 medium-8 columns">
-    <div class="row">
-      <div class="small-24 columns">
-        
-        <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon" href="http://www.uwosh.edu/go/directions">
-          <i class="fa fa-lg fa-map-marker fa-fw"></i> Directions to Campus
-        </a>
+<div class="row">
+  <div class="small-24 columns">
+    <div class="content">
+      <div class="row">
 
-        <a class="btn btn--full btn--medium-text btn--blue-light btn--with-icon" href="{{ site.baseurl }}/parents-family-friends/resources-for-parents-and-family.html">
-          <i class="fa fa-lg fa-gear fa-fw"></i> Resources
-        </a>
+        <div class="small-24 columns">
+          <a class="btn btn--full btn--large-text btn--blue-dark btn--page-banner"href="{{ site.baseurl }}/parents-family-friends">
+            Parents, Family and Friends
+          </a>
+        </div>
 
-        <a class="btn btn--full btn--medium-text btn--orange-dark btn--with-icon" href="{{ site.baseurl }}/parents-family-friends/faqs.html">
-          <i class="fa fa-lg fa-question fa-fw"></i> Frequently Asked Questions
-        </a>
+        <div class="small-24 medium-16 columns">
+          {% include parents-family-friends/lead-content.html %}
+        </div>
+
+        <div class="small-24 medium-8 columns">
+          <div class="row">
+            <div class="small-24 columns">
+
+              <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon" href="http://www.uwosh.edu/go/directions">
+                <i class="fa fa-lg fa-map-marker fa-fw"></i> Directions to Campus
+              </a>
+
+              <a class="btn btn--full btn--medium-text btn--blue-light btn--with-icon" href="{{ site.baseurl }}/parents-family-friends/resources-for-parents-and-family.html">
+                <i class="fa fa-lg fa-gear fa-fw"></i> Resources
+              </a>
+
+              <a class="btn btn--full btn--medium-text btn--orange-dark btn--with-icon" href="{{ site.baseurl }}/parents-family-friends/faqs.html">
+                <i class="fa fa-lg fa-question fa-fw"></i> Frequently Asked Questions
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="small-24 columns show-for-medium-up">
+          <ul class="inline-list no-bullet cta cta--parents cta--light-yellow">
+            <li><a href="{{ site.baseurl }}/parents-family-friends">Parents</a></li>
+            <li><a href="{{ site.baseurl }}/about-uw-oshkosh">About UW&nbsp;Oshkosh</a></li>
+            <li><a href="{{ site.baseurl }}/parents-family-friends/resources-for-parents-and-family.html">Resources for Parents</a></li>
+            <li><a href="{{ site.baseurl }}/parents-family-friends/tips.html">Tips</a></li>
+            <li><a href="{{ site.baseurl }}/parents-family-friends/recommended-reading.html">Recommended Reading</a></li>
+            <li><a href="{{ site.baseurl }}/parents-family-friends/faqs.html">FAQs</li>
+            <li><a href="http://www.uwosh.edu/fin_aid">Costs and Financial Aid</a></li>
+            <li><a href="{{ site.baseurl }}/current-students/health-wellness-safety.html">Campus Health, Wellness and Safety Resources</a></li>
+          </ul>
+        </div>
+
+        <div class="small-24 medium-8 columns">
+          {% include parents-family-friends/panel-parent-odyssey-orientation.html %}
+        </div>
+
+        <div class="small-24 medium-8 columns">
+          {% include parents-family-friends/panel-family-weekends.html %}
+        </div>
+
+        <div class="small-24 medium-8 columns">
+          {% include parents-family-friends/panel-move-in-weekend.html %}
+        </div>
 
       </div>
     </div>
-  </div>
-</div>
-
-<div class="row show-for-medium-up content">
-  <div class="small-24 columns">
-    <ul class="inline-list no-bullet cta cta--parents cta--light-yellow">
-      <li><a href="{{ site.baseurl }}/parents-family-friends">Parents</a></li>
-      <li><a href="{{ site.baseurl }}/about-uw-oshkosh">About UW&nbsp;Oshkosh</a></li>
-      <li><a href="{{ site.baseurl }}/parents-family-friends/resources-for-parents-and-family.html">Resources for Parents</a></li>
-      <li><a href="{{ site.baseurl }}/parents-family-friends/tips.html">Tips</a></li>
-      <li><a href="{{ site.baseurl }}/parents-family-friends/recommended-reading.html">Recommended Reading</a></li>
-      <li><a href="{{ site.baseurl }}/parents-family-friends/faqs.html">FAQs</li>
-      <li><a href="http://www.uwosh.edu/fin_aid">Costs and Financial Aid</a></li>
-      <li><a href="{{ site.baseurl }}/current-students/health-wellness-safety.html">Campus Health, Wellness and Safety Resources</a></li>
-    </ul>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="small-24 medium-8 columns">
-		{% include parents-family-friends/panel-parent-odyssey-orientation.html %}
-  </div>
-
-  <div class="small-24 medium-8 columns">
-    {% include parents-family-friends/panel-family-weekends.html %}
-  </div>
-
-  <div class="small-24 medium-8 columns">
-    {% include parents-family-friends/panel-move-in-weekend.html %}
   </div>
 </div>

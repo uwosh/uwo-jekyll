@@ -26,84 +26,92 @@ responsive-nav: '
 ---
 
 
-<div class="row content">
-  <div class="small-24 columns page-banner__column">
-    <div class="page-banner page-banner--blue">
-      <h2 class="page-banner__title">Current Students</h2>
-    </div>
-  </div>
-  <div class="medium-16 columns">
-    <img src="{{ site.baseurl }}/img/current-students/main-image.jpg" class="img-responsive current-students__main-image" alt="Student in lab">
-  </div>
-  <div class="medium-8 columns">
-    <p class="my-uwo-paragraph">
-      <a href="http://www.uwosh.edu/myuwo/"><img src="{{ site.baseurl }}/img/current-students/my-uwo-portal.jpg" class="left my-uwo" alt="MyUWO Portal"></a>
-      Discover what <a href="http://www.uwosh.edu/myuwo/">MyUWO</a> can do for you &mdash; everything from downloading the latest anti-virus to keeping up to date with road conditions &mdash; use your UW Oshkosh NetID to start getting involved in campus life!
-    </p>
-    <div class="row">
-      <div class="medium-8 columns">
-        <a class="btn btn--full btn--small-text btn--gray-light" href="https://www.gmail.com">
-          EMAIL
-        </a>
-      </div>
-      <div class="medium-8 columns">
-        <a class="btn btn--full btn--small-text btn--gray-light" href="http://www.uwosh.edu/d2l/">
-          <abbr title="Desire 2 Learn">D2L</abbr>
-        </a>
-      </div>
-      <div class="medium-8 columns">
-        <a class="btn btn--full btn--small-text btn--gray-light" href="http://www.uwosh.edu/registrar/titanweb/">
-          TITANWEB
-        </a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="medium-24 columns">
-
-        <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon btn--half-margin" href="http://www.uwosh.edu/stuaff/policies-procedures">
-          <i class="fa fa-lg fa-book fa-fw"></i> Student Policies
-        </a>
-
-        <a class="btn btn--full btn--medium-text btn--orange-dark btn--with-icon btn--half-margin" href="http://www.uwosh.edu/usp">
-          <i class="fa fa-lg fa-pencil fa-fw"></i> General Education
-        </a>
-
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="row">
-  <div class="medium-16 columns">
-    <nav class="breadcrumbs">
-      <a href="{{site.baseurl}}">Home</a>
-      <a href="#" class="current">Current Students</a>
-    </nav>
-		{% include current-students/lead-content.html %}
+  <div class="small-24 columns">
+    <div class="content">
+      <div class="row">
 
-    <div class="row">
-      <div class="small-24 columns current-students">
-        <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
-					<li>{% include current-students/panel-academic-support.html %}</li>
-          <li>{% include current-students/panel-health-and-wellness.html %}</li>
-          <li>{% include current-students/panel-student-services.html %}</li>
-          <li>{% include current-students/panel-financial-aid-and-scholarships.html %}</li>
-          <li>{% include current-students/panel-registrar.html %}</li>
-          <li>{% include current-students/panel-adult-nontraditional-students.html %}</li>
-          <li>{% include current-students/panel-campus-life.html %}</li>
-          <li>{% include current-students/panel-technology.html %}</li>
-					<li>{% include current-students/panel-graduate-students.html %}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+        <div class="small-24 columns">
+          <a class="btn btn--full btn--large-text btn--blue-light btn--page-banner"href="{{ site.baseurl }}/current-students">
+            Current Students
+          </a>
+        </div>
 
-  <div class="medium-8 columns">
-    <div class="row">
-      <div class="medium-24 columns">
-        {% include social-icons.html %}
-				{% include titan-alert.html %}
-				{% include current-students/audience-banners.html %}
+        <div class="medium-16 columns">
+          <img src="{{ site.baseurl }}/img/current-students/main-image.jpg" class="img-responsive current-students__main-image" alt="Student in lab">
+        </div>
+
+        <div class="medium-8 columns">
+          <p class="my-uwo-paragraph">
+            <a href="http://www.uwosh.edu/myuwo/"><img src="{{ site.baseurl }}/img/current-students/my-uwo-portal.jpg" class="left my-uwo" alt="MyUWO Portal"></a>
+            Discover what <a href="http://www.uwosh.edu/myuwo/">MyUWO</a> can do for you &mdash; everything from downloading the latest anti-virus to keeping up to date with road conditions &mdash; use your UW Oshkosh NetID to start getting involved in campus life!
+          </p>
+          <div class="row">
+            <div class="medium-8 columns">
+              <a class="btn btn--full btn--small-text btn--gray-light" href="https://www.gmail.com">
+                EMAIL
+              </a>
+            </div>
+            <div class="medium-8 columns">
+              <a class="btn btn--full btn--small-text btn--gray-light" href="http://www.uwosh.edu/d2l/">
+                <abbr title="Desire 2 Learn">D2L</abbr>
+              </a>
+            </div>
+            <div class="medium-8 columns">
+              <a class="btn btn--full btn--small-text btn--gray-light" href="http://www.uwosh.edu/registrar/titanweb/">
+                TITANWEB
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-24 columns">
+
+              <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon btn--half-margin" href="http://www.uwosh.edu/stuaff/policies-procedures">
+                <i class="fa fa-lg fa-book fa-fw"></i> Student Policies
+              </a>
+
+              <a class="btn btn--full btn--medium-text btn--orange-dark btn--with-icon btn--half-margin" href="http://www.uwosh.edu/usp">
+                <i class="fa fa-lg fa-pencil fa-fw"></i> General Education
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="medium-16 columns">
+          <nav class="breadcrumbs">
+            <a href="{{site.baseurl}}">Home</a>
+            <a href="#" class="current">Current Students</a>
+          </nav>
+          {% include current-students/lead-content.html %}
+
+          <div class="row">
+            <div class="small-24 columns current-students">
+              <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+                <li>{% include current-students/panel-academic-support.html %}</li>
+                <li>{% include current-students/panel-health-and-wellness.html %}</li>
+                <li>{% include current-students/panel-student-services.html %}</li>
+                <li>{% include current-students/panel-financial-aid-and-scholarships.html %}</li>
+                <li>{% include current-students/panel-registrar.html %}</li>
+                <li>{% include current-students/panel-adult-nontraditional-students.html %}</li>
+                <li>{% include current-students/panel-campus-life.html %}</li>
+                <li>{% include current-students/panel-technology.html %}</li>
+                <li>{% include current-students/panel-graduate-students.html %}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="medium-8 columns">
+          <div class="row">
+            <div class="medium-24 columns">
+              {% include social-icons.html %}
+              {% include titan-alert.html %}
+              {% include current-students/audience-banners.html %}
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
