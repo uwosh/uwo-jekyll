@@ -27,68 +27,70 @@ responsive-nav: '
 
 
 
-<div class="row content">
-  <div class="small-24 columns page-banner__column">
-    <div class="page-banner page-banner--dark-green">
-      <h2 class="page-banner__title">Future Students</h2>
-    </div>
-    <br>
-  </div>
-  <div class="medium-16 columns">
-    <nav class="breadcrumbs">
-      <a href="{{site.baseurl}}">Home</a>
-      <a href="#" class="current">Future Students</a>
-    </nav>
-    {% include future-students/lead-content.html %}
-  </div>
-  <div class="medium-8 columns">
-    <div class="row">
-      <div class="small-24 columns">
-        <a class="btn btn--full btn--medium-text btn--orange-dark btn--with-icon" href="http://apply.wisconsin.edu">
-          <i class="fa fa-lg fa-laptop fa-fw"></i> Apply Online
-        </a>
+<div class="row">
+  <div class="small-24 columns">
+    <div class="content">
+      <div class="row">
+
+        <div class="small-24 columns">
+          <a class="btn btn--full btn--large-text btn--green-dark btn--page-banner"href="{ site.baseurl/future-students}">
+            Future Students
+          </a>
+        </div>
+
+        <div class="medium-16 columns">
+          <nav class="breadcrumbs">
+            <a href="{{site.baseurl}}">Home</a>
+            <a href="#" class="current">Future Students</a>
+          </nav>
+          {% include future-students/lead-content.html %}
+        </div>
+
+        <div class="medium-8 columns">
+          <div class="row">
+            <div class="small-24 columns">
+
+              <a class="btn btn--full btn--medium-text btn--orange-dark btn--with-icon" href="http://apply.wisconsin.edu">
+                <i class="fa fa-lg fa-laptop fa-fw hide-for-medium"></i> Apply Online
+              </a>
+
+              <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon" href="http://www.uwosh.edu/map/main">
+                <i class="fa fa-lg fa-map-marker fa-fw hide-for-medium"></i> Take an Online Tour
+              </a>
+
+              <a class="btn btn--full btn--medium-text btn--blue-dark btn--with-icon" href="{{ site.baseurl }}/about-uw-oshkosh">
+                <i class="fa fa-lg fa-lightbulb-o fa-fw hide-for-medium"></i> Learn More about UWO
+              </a>
+
+              <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon" href="{{ site.baseurl }}/academics/majors-minors-emphases.html">
+                <i class="fa fa-lg fa-institution fa-fw hide-for-medium"></i> All Majors and Minors
+              </a>
+
+            </div>
+          </div>
+          {% include social-icons.html %}
+        </div>
+
+        <div class="small-24 columns future-students">
+          <ul class="small-block-grid-1 medium-block-grid-3">
+            <li>{% include future-students/panel-undergraduate.html %}</li>
+            <li>{% include future-students/panel-graduate.html %}</li>
+            <li>{% include future-students/panel-certificate-programs.html %}</li>
+            <li>{% include future-students/panel-continuing-education.html %}</li>
+            <li>{% include future-students/panel-youth-programs.html %}</li>
+            <li>{% include future-students/panel-online-degree-programs.html %}</li>
+          </ul>
+        </div>
+
+        <div class="medium-8 columns show-for-medium-up">
+          {% include future-students/related-links.html %}
+        </div>
+
+        <div class="medium-16 columns">
+          {% include fast-facts.html %}
+        </div>
+
       </div>
     </div>
-    <div class="row">
-      <div class="small-24 columns">
-        
-        <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon" href="http://www.uwosh.edu/map/main">
-          <i class="fa fa-lg fa-map-marker fa-fw"></i> Take an Online Tour
-        </a>
-
-        <a class="btn btn--full btn--medium-text btn--blue-dark btn--with-icon" href="{{ site.baseurl }}/about-uw-oshkosh">
-          <i class="fa fa-lg fa-lightbulb-o fa-fw"></i> Learn More about UWO
-        </a>
-
-        <a class="btn btn--full btn--medium-text btn--orange-light btn--with-icon" href="{{ site.baseurl }}/academics/majors-minors-emphases.html">
-          <i class="fa fa-lg fa-institution fa-fw"></i> All Majors and Minors
-        </a>
-
-      </div>
-    </div>
-    {% include social-icons.html %}
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="small-24 columns future-students">
-    <ul class="small-block-grid-1 medium-block-grid-3">
-      <li>{% include future-students/panel-undergraduate.html %}</li>
-      <li>{% include future-students/panel-graduate.html %}</li>
-      <li>{% include future-students/panel-certificate-programs.html %}</li>
-      <li>{% include future-students/panel-continuing-education.html %}</li>
-      <li>{% include future-students/panel-youth-programs.html %}</li>
-      <li>{% include future-students/panel-online-degree-programs.html %}</li>
-    </ul>
-  </div>
-</div>
-
-<div class="row">
-  <div class="medium-8 columns show-for-medium-up">
-    {% include future-students/related-links.html %}
-  </div>
-  <div class="medium-16 columns">
-    {% include fast-facts.html %}
   </div>
 </div>
