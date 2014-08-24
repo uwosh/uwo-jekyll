@@ -8913,8 +8913,8 @@ var tweetsLoad = function(tweets) {
               <p>' + text + '</p>
               <p class="twitter-intents">
                 <a href="https://twitter.com/intent/tweet?in_reply_to=' + id_str + '" target="_blank"><i class="fa fa-fw fa-reply"></i> Reply &nbsp;</a>
-                <a ng-href="https://twitter.com/intent/retweet?tweet_id=' + id_str + '" target="_blank"><i class="fa fa-fw fa-retweet"></i> Retweet &nbsp;</a>
-                <a ng-href="https://twitter.com/intent/favorite?tweet_id=' + id_str + '" target="_blank"><i class="fa fa-fw fa-star"></i> Favorite</a></p>
+                <a href="https://twitter.com/intent/retweet?tweet_id=' + id_str + '" target="_blank"><i class="fa fa-fw fa-retweet"></i> Retweet &nbsp;</a>
+                <a href="https://twitter.com/intent/favorite?tweet_id=' + id_str + '" target="_blank"><i class="fa fa-fw fa-star"></i> Favorite</a></p>
             </div>
           </div>
         </div>
