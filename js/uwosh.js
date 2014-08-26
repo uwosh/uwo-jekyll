@@ -8579,16 +8579,9 @@ $( document ).ready(function() {
 
   if ($('html').hasClass('page--home')) {
 
-    getUwoApi();
+    fetchUwoApi();
 
-    $.ajax({
-      url: "http://feeds2.uwosh.edu/api/v2/index.php/emergency/broadcast",
-      dataType: 'json',
-      success: function( data )
-      {
-        emergencyLoad(data.posts);
-      }
-    });
+    fetchEmergency();
 
   };
 
@@ -8830,7 +8823,7 @@ var emergencyLoad = function(posts) {
 };
 
 // YouTube Thumbnail and Video Replacement
-var youtube_thumb = function() {
+function youtube_thumb() {
   var i, c, y, v, s, n;
   v = document.getElementsByClassName("youtube");
   for (n = 0; n < v.length; n++) {
@@ -8853,7 +8846,7 @@ var youtube_thumb = function() {
   };
 };
 
-function getUwoApi() {
+function fetchUwoApi() {
   $.ajax({
     type: 'GET',
     url: "http://feeds2.uwosh.edu/api/v2/index.php/uwo-api",
@@ -9032,6 +9025,17 @@ function getUwoApi() {
         arrows: true,
         dots: true
       });
+    }
+  });
+};
+
+function fetchEmergency() {
+  $.ajax({
+    url: "http://feeds2.uwosh.edu/api/v2/index.php/emergency/broadcast",
+    dataType: 'json',
+    success: function( data )
+    {
+      emergencyLoad(data.posts);
     }
   });
 };
