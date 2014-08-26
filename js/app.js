@@ -69,11 +69,17 @@ $( document ).ready(function() {
             panelTitle: 'Powering Community',
             panelUrl: 'http://www.uwosh.edu/today/knowledge-powers-community'
           },
-          uwotw: {
-            feedEntry: data.uwotw.posts[0],
-            panelClass: 'uwotw',
-            panelTitle: 'UW&nbsp;Oshkosh This Week',
-            panelUrl: 'http://www.uwosh.edu/today/category/uwotw/'
+          // uwotw: {
+          //   feedEntry: data.uwotw.posts[0],
+          //   panelClass: 'uwotw',
+          //   panelTitle: 'UW&nbsp;Oshkosh This Week',
+          //   panelUrl: 'http://www.uwosh.edu/today/category/uwotw/'
+          // },
+          onCampus: {
+            feedEntry: data.onCampus.posts[0],
+            panelClass: 'on-campus',
+            panelTitle: 'On Campus',
+            panelUrl: 'http://www.uwosh.edu/today/category/on-campus-home/'
           },
           studyUwo: {
             feedEntry: data.admissions.posts[0],
