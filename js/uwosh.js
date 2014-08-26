@@ -8629,7 +8629,7 @@ $( document ).ready(function() {
           },
           // uwotw: {
           //   feedEntry: data.uwotw.posts[0],
-          //   panelClass: 'uwotw',
+          //   panelClass: 'on-campus',
           //   panelTitle: 'UW&nbsp;Oshkosh This Week',
           //   panelUrl: 'http://www.uwosh.edu/today/category/uwotw/'
           // },
