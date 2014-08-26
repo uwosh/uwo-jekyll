@@ -21,186 +21,7 @@ $( document ).ready(function() {
 
   if ($('html').hasClass('page--home')) {
 
-    $.ajax({
-      type: 'GET',
-      url: "http://feeds2.uwosh.edu/api/v2/index.php/uwo-api",
-      dataType: 'json',
-      success: function( data )
-      {
-        var pillars = {
-          leadership: {
-            feedEntry: data.pillarLeadership.posts[0],
-            pillarClass: 'pillar-leadership'
-          },
-          sustainability: {
-            feedEntry: data.pillarSustainability.posts[0],
-            pillarClass: 'pillar-sustainability'
-          },
-          education: {
-            feedEntry: data.pillarEducation.posts[0],
-            pillarClass: 'pillar-education'
-          },
-          service: {
-            feedEntry: data.pillarService.posts[0],
-            pillarClass: 'pillar-service'
-          },
-          responsiveness: {
-            feedEntry: data.pillarResponsiveness.posts[0],
-            pillarClass: 'pillar-responsiveness'
-          }
-        };
-
-        var panels = {
-          campusNews: {
-            feedEntry: data.campusNews.posts[0],
-            panelClass: 'campus-news',
-            panelTitle: 'Campus News',
-            panelUrl: 'http://www.uwosh.edu/today/campus-news/'
-          },
-          researchNews: {
-            feedEntry: data.researchNews.posts[0],
-            panelClass: 'research-news',
-            panelTitle: 'Research News',
-            panelUrl: 'http://www.uwosh.edu/today/research/'
-          },
-          poweringCommunity: {
-            feedEntry: data.poweringCommunity.posts[0],
-            panelClass: 'powering-community',
-            panelTitle: 'Powering Community',
-            panelUrl: 'http://www.uwosh.edu/today/knowledge-powers-community'
-          },
-          // uwotw: {
-          //   feedEntry: data.uwotw.posts[0],
-          //   panelClass: 'on-campus',
-          //   panelTitle: 'UW&nbsp;Oshkosh This Week',
-          //   panelUrl: 'http://www.uwosh.edu/today/category/uwotw/'
-          // },
-          onCampus: {
-            feedEntry: data.onCampus.posts[0],
-            panelClass: 'on-campus',
-            panelTitle: 'On Campus',
-            panelUrl: 'http://www.uwosh.edu/today/category/on-campus-home/'
-          },
-          studyUwo: {
-            feedEntry: data.admissions.posts[0],
-            panelClass: 'study-uwo',
-            panelTitle: 'Study at UW&nbsp;Oshkosh',
-            panelUrl: 'http://www.uwosh.edu/today/category/admissions-2/'
-          },
-          iAmATitan: {
-            feedEntry: data.iAmATitan.posts[0],
-            panelClass: 'i-am-a-titan',
-            panelTitle: 'I am a Titan',
-            panelUrl: 'http://www.uwosh.edu/faces/category/i-am-a-titan/'
-          },
-          chancellor: {
-            feedEntry: data.chancellor.posts[0],
-            panelClass: 'chancellor',
-            panelTitle: 'From the Chancellor',
-            panelUrl: 'http://www.uwosh.edu/today/category/chancellor'
-          },
-          meetUwo: {
-            feedEntry: data.meetUwo.posts[0],
-            panelClass: 'meet-uwo',
-            panelTitle: 'Meet UW&nbsp;Oshkosh',
-            panelUrl: 'http://www.uwosh.edu/faces'
-          },
-          facultyFive: {
-            feedEntry: data.twif.posts[0],
-            panelClass: 'faculty-five',
-            panelTitle: 'Faculty Five',
-            panelUrl: 'http://www.uwosh.edu/today/faculty-five/'
-          }
-        };
-
-        $.each(pillars, function(index, pillar) {
-          try {
-            pillarLoad(pillar.feedEntry, pillar.pillarClass);
-          }
-          catch(e) {
-
-          }
-        });
-
-        $.each(panels, function(index, panel) {
-          try {
-            panelLoad(panel.feedEntry, panel.panelClass, panel.panelTitle, panel.panelUrl);
-          }
-          catch(e) {
-            console.log(e);
-          }
-        });
-
-
-        try {
-          eventsLoad(data.events.value.items);
-        }
-        catch(e) {
-
-        }
-
-        if (screen.width > 1023) {
-
-          try {
-            tweetsLoad(data.twitter);
-            twitterDeck = bespoke.horizontal.from('#deck-twitter', {
-                loop: true
-            });
-          }
-          catch(e) {
-
-          }
-
-          try {
-            facebookLoad(data.facebook.data);
-            facebookDeck = bespoke.horizontal.from('#deck-facebook', {
-                loop: true
-            });
-          }
-          catch(e) {
-
-          }
-
-          try {
-            youtubeLoad(data.youtube.data.items);
-            youtubeDeck = bespoke.horizontal.from('#deck-youtube', {
-                loop: true
-            });
-          }
-          catch(e) {
-
-          }
-
-          try {
-            //flickrLoad(data.flickr.photosets.photoset);
-            // bespoke.horizontal.from('#deck-flickr', {
-            //     loop: true
-            // });
-          }
-          catch(e) {
-
-          }
-
-        };
-
-        try {
-          youtube_thumb();
-        }
-        catch(e) {
-
-        }
-
-        $('#pillar-slick').slick({
-          autoplay: true,
-          autoplaySpeed: 6000,
-          speed: 500,
-          fade: true,
-          cssEase: 'linear',
-          arrows: true,
-          dots: true
-        });
-      }
-    });
+    getUwoApi();
 
     $.ajax({
       url: "http://feeds2.uwosh.edu/api/v2/index.php/emergency/broadcast",
@@ -472,4 +293,187 @@ var youtube_thumb = function() {
           this.parentNode.replaceChild(a, this)
       }
   };
+};
+
+function getUwoApi() {
+  $.ajax({
+    type: 'GET',
+    url: "http://feeds2.uwosh.edu/api/v2/index.php/uwo-api",
+    dataType: 'json',
+    success: function( data )
+    {
+      var pillars = {
+        leadership: {
+          feedEntry: data.pillarLeadership.posts[0],
+          pillarClass: 'pillar-leadership'
+        },
+        sustainability: {
+          feedEntry: data.pillarSustainability.posts[0],
+          pillarClass: 'pillar-sustainability'
+        },
+        education: {
+          feedEntry: data.pillarEducation.posts[0],
+          pillarClass: 'pillar-education'
+        },
+        service: {
+          feedEntry: data.pillarService.posts[0],
+          pillarClass: 'pillar-service'
+        },
+        responsiveness: {
+          feedEntry: data.pillarResponsiveness.posts[0],
+          pillarClass: 'pillar-responsiveness'
+        }
+      };
+
+      var panels = {
+        campusNews: {
+          feedEntry: data.campusNews.posts[0],
+          panelClass: 'campus-news',
+          panelTitle: 'Campus News',
+          panelUrl: 'http://www.uwosh.edu/today/campus-news/'
+        },
+        researchNews: {
+          feedEntry: data.researchNews.posts[0],
+          panelClass: 'research-news',
+          panelTitle: 'Research News',
+          panelUrl: 'http://www.uwosh.edu/today/research/'
+        },
+        poweringCommunity: {
+          feedEntry: data.poweringCommunity.posts[0],
+          panelClass: 'powering-community',
+          panelTitle: 'Powering Community',
+          panelUrl: 'http://www.uwosh.edu/today/knowledge-powers-community'
+        },
+        // uwotw: {
+        //   feedEntry: data.uwotw.posts[0],
+        //   panelClass: 'on-campus',
+        //   panelTitle: 'UW&nbsp;Oshkosh This Week',
+        //   panelUrl: 'http://www.uwosh.edu/today/category/uwotw/'
+        // },
+        onCampus: {
+          feedEntry: data.onCampus.posts[0],
+          panelClass: 'on-campus',
+          panelTitle: 'On Campus',
+          panelUrl: 'http://www.uwosh.edu/today/category/on-campus-home/'
+        },
+        studyUwo: {
+          feedEntry: data.admissions.posts[0],
+          panelClass: 'study-uwo',
+          panelTitle: 'Study at UW&nbsp;Oshkosh',
+          panelUrl: 'http://www.uwosh.edu/today/category/admissions-2/'
+        },
+        iAmATitan: {
+          feedEntry: data.iAmATitan.posts[0],
+          panelClass: 'i-am-a-titan',
+          panelTitle: 'I am a Titan',
+          panelUrl: 'http://www.uwosh.edu/faces/category/i-am-a-titan/'
+        },
+        chancellor: {
+          feedEntry: data.chancellor.posts[0],
+          panelClass: 'chancellor',
+          panelTitle: 'From the Chancellor',
+          panelUrl: 'http://www.uwosh.edu/today/category/chancellor'
+        },
+        meetUwo: {
+          feedEntry: data.meetUwo.posts[0],
+          panelClass: 'meet-uwo',
+          panelTitle: 'Meet UW&nbsp;Oshkosh',
+          panelUrl: 'http://www.uwosh.edu/faces'
+        },
+        facultyFive: {
+          feedEntry: data.twif.posts[0],
+          panelClass: 'faculty-five',
+          panelTitle: 'Faculty Five',
+          panelUrl: 'http://www.uwosh.edu/today/faculty-five/'
+        }
+      };
+
+      $.each(pillars, function(index, pillar) {
+        try {
+          pillarLoad(pillar.feedEntry, pillar.pillarClass);
+        }
+        catch(e) {
+
+        }
+      });
+
+      $.each(panels, function(index, panel) {
+        try {
+          panelLoad(panel.feedEntry, panel.panelClass, panel.panelTitle, panel.panelUrl);
+        }
+        catch(e) {
+          console.log(e);
+        }
+      });
+
+
+      try {
+        eventsLoad(data.events.value.items);
+      }
+      catch(e) {
+
+      }
+
+      if (screen.width > 1023) {
+
+        try {
+          tweetsLoad(data.twitter);
+          twitterDeck = bespoke.horizontal.from('#deck-twitter', {
+              loop: true
+          });
+        }
+        catch(e) {
+
+        }
+
+        try {
+          facebookLoad(data.facebook.data);
+          facebookDeck = bespoke.horizontal.from('#deck-facebook', {
+              loop: true
+          });
+        }
+        catch(e) {
+
+        }
+
+        try {
+          youtubeLoad(data.youtube.data.items);
+          youtubeDeck = bespoke.horizontal.from('#deck-youtube', {
+              loop: true
+          });
+        }
+        catch(e) {
+
+        }
+
+        try {
+          //flickrLoad(data.flickr.photosets.photoset);
+          // bespoke.horizontal.from('#deck-flickr', {
+          //     loop: true
+          // });
+        }
+        catch(e) {
+
+        }
+
+      };
+
+      try {
+        youtube_thumb();
+      }
+      catch(e) {
+
+      }
+
+      $('#pillar-slick').slick({
+        autoplay: true,
+        autoplaySpeed: 6000,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear',
+        arrows: true,
+        dots: true
+      });
+    }
+  });
 };
