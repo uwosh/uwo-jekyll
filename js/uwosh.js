@@ -8685,7 +8685,7 @@ $( document ).ready(function() {
             panelLoad(panel.feedEntry, panel.panelClass, panel.panelTitle, panel.panelUrl);
           }
           catch(e) {
-            console.log(err);
+            console.log(e);
           }
         });
 
