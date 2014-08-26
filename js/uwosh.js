@@ -8587,7 +8587,7 @@ $( document ).ready(function() {
 
 });
 
-var postExcerpt = function(rawString, chars) {
+function postExcerpt(rawString, chars) {
   chars = chars || 170;
   var presubstr = rawString;
   var strippedstr = presubstr.replace(/(<([^>]+)>)/ig,'');
@@ -8595,7 +8595,7 @@ var postExcerpt = function(rawString, chars) {
   return truncstring;
 };
 
-var pillarLoad = function(post, pillarClass) {
+function pillarLoad(post, pillarClass) {
   var title = post.title || 'Story Title';
   var excerpt = postExcerpt(post.excerpt, 60) || 'Story excerpt';
   //var excerpt = $.truncate(post.excerpt, { length: 60 });
@@ -8618,7 +8618,7 @@ var pillarLoad = function(post, pillarClass) {
 
 };
 
-var eventsLoad = function(events) {
+function eventsLoad(events) {
   var eventHtml = '';
 
   $.each(events, function(index, event) {
@@ -8652,7 +8652,7 @@ var eventsLoad = function(events) {
   $('#event-list').html(eventHtml);
 };
 
-var panelLoad = function(post, panelClass, panelTitle, panelUrl) {
+function panelLoad(post, panelClass, panelTitle, panelUrl) {
   var title = post.title || 'Story Title';
   var excerpt = $.truncate(post.excerpt, { length: 170 }) || 'Story excerpt';
   try {
@@ -8704,7 +8704,7 @@ var panelLoad = function(post, panelClass, panelTitle, panelUrl) {
   $('#' + panelClass).html(postHtml);
 };
 
-var tweetsLoad = function(tweets) {
+function tweetsLoad(tweets) {
   var tweetHtml = '';
 
   $.each(tweets, function(index, tweet) {
@@ -8745,7 +8745,7 @@ var tweetsLoad = function(tweets) {
   $('#deck-twitter').html(tweetHtml);
 };
 
-var facebookLoad = function(fbposts) {
+function facebookLoad(fbposts) {
   var facebookHtml = '';
 
   $.each(fbposts, function(index, fbpost) {
@@ -8781,7 +8781,7 @@ var facebookLoad = function(fbposts) {
   $('#deck-facebook').html(facebookHtml);
 };
 
-var youtubeLoad = function(videos) {
+function youtubeLoad(videos) {
   var youtubeHtml = '';
 
   $.each(videos, function(index, video) {
@@ -8803,7 +8803,7 @@ var youtubeLoad = function(videos) {
   $('#deck-youtube').html(youtubeHtml);
 };
 
-var emergencyLoad = function(posts) {
+function emergencyLoad(posts) {
   var postHtml = '';
 
   $.each(posts, function(index, post) {
