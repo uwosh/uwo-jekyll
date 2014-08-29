@@ -377,7 +377,7 @@ function fetchUwoApi() {
           feedEntry: data.twif.posts[0],
           panelClass: 'faculty-five',
           panelTitle: 'Faculty Five',
-          panelUrl: 'http://www.uwosh.edu/today/faculty-five/'
+          panelUrl: 'http://www.uwosh.edu/today/category/faculty-five/'
         }
       };
 
