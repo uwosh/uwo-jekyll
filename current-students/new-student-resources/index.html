@@ -1,0 +1,70 @@
+---
+layout: default
+title: New Student Resources
+responsive-nav: '
+<aside class="right-off-canvas-menu hide-tab-bar" role="navigation">
+  <ul class="off-canvas-list">
+    <li class="off-canvas__label">UW Oshkosh</li>
+    <li><a href="http://www.uwosh.edu/future-students/">Future Students</a></li>
+    <li><a href="http://www.uwosh.edu/parents-family-friends/">Parents</a></li>
+    <li><a href="http://www.uwosh.edu/faculty-and-staff/">Faculty and Staff</a></li>
+    <li><a href="http://www.uwosh.edu/current-students/">Current Students</a></li>
+    <li><a href="http://www.uwosh.edu/community-and-visitors">Community and Visitors</a></li>
+    <li class="off-canvas__label">Current Students</li>
+    <li><a href="http://www.uwosh.edu/current-students/campus-life.html">Campus Life</a></li>
+    <li><a href="http://www.housing.uwosh.edu">Residence Life</a></li>
+    <li><a href="http://reeve.uwosh.edu">Reeve Union</a></li>
+    <li><a href="http://reeve.uwosh.edu/dining">Dining</a></li>
+    <li><a href="http://www.uwosh.edu/current-students/campus-extras.html">Campus Extras</a></li>
+    <li><a href="https://www.housing.uwosh.edu/new-students/specialty-programs/life">Learning in a First-Year Environment</a></li>
+    <li><a href="http://www.uwosh.edu/acs/">Computer Services</a></li>
+    <li><a href="http://recreation.uwosh.edu/intramural-sports">Intramural Sports</a></li>
+    <li><a href="http://www.uwosh.edu/current-students/traveling-around-campus.html">Traveling Around Campus</a></li>
+  </ul>
+</aside>
+'
+---
+
+<div class="row content">
+  <div class="small-24 columns page-banner__column">
+
+    <a href="{{ site.baseurl }}/current-students">
+      <div class="page-banner page-banner--blue">
+        <h2 class="page-banner__title">Current Students</h2>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="row content">
+
+  <div class="medium-6 large-5 columns show-for-medium-up right-rule padding-right-0">
+    {% include current-students/side-nav.html %}
+    {% include social-icons-internal.html %}
+    {% include news-announcements-cta.html %}
+  </div>
+
+  <div class="medium-13 large-14 columns">
+    <nav class="breadcrumbs breadcrumbs--internal">
+      <a href="{{site.baseurl}}">Home</a>
+      <a href="{{site.baseurl}}/current-students">Current Students</a>
+      <a href="#" class="current">{{ page.title }}</a>
+    </nav>
+    {% include current-students/new-student-resources/lead-content.html %}
+  </div>
+
+  <div class="medium-5 large-5 columns">
+    <a class="btn btn--full btn--medium-text btn--orange-light" href="http://www.uwosh.edu/stuaff/policies-procedures">
+      Student Policies
+    </a>
+    <a class="btn btn--full btn--medium-text btn--orange-dark" href="http://www.uwosh.edu/usp">
+      General Education
+    </a>
+    {% include my-uwo.html %}
+    <br>
+    {% include titan-alert-internal.html %}
+    {% include current-students/audience-banners.html %}
+  </div>
+
+</div>
