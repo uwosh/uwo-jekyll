@@ -10,7 +10,6 @@ module.exports = function(grunt){
         src: [
           'bower_components/fastclick/lib/fastclick.js',
           'bower_components/foundation/js/foundation.js',
-          'bower_components/foundation/js/foundation/foundation.equalizer.js',
           'js/slick.js',
           'js/jquery.truncate.js',
           'js/bespoke/bespoke.js',
