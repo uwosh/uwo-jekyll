@@ -8969,13 +8969,13 @@ function fetchUwoApi() {
     success: function( data )
     {
       var pillars = {
-        responsiveness: {
-          feedEntry: data.pillarResponsiveness.posts[0],
-          pillarClass: 'pillar-responsiveness'
-        },
         leadership: {
           feedEntry: data.pillarLeadership.posts[0],
           pillarClass: 'pillar-leadership'
+        },
+        responsiveness: {
+          feedEntry: data.pillarResponsiveness.posts[0],
+          pillarClass: 'pillar-responsiveness'
         },
         service: {
           feedEntry: data.pillarService.posts[0],
