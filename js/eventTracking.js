@@ -171,121 +171,67 @@ setTimeout(function() {
   // END EVENTS
 
   // HOME PAGE CARDS
-  $('.campusNewsCategory').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'click', 'Campus News Category');
-  });
-  $('#campusNewsPanel').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'Campus News');
-  });
-  $('.campusNewsFullStory').on('click', function() {
+  $('#campus-news').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'Campus News');
   });
-  $('#campusNewsVideo').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'play', 'Campus News');
+  $('#campus-news').on('mouseenter', function() {
+    ga('send', 'event', 'Home Page Cards', 'hover', 'Campus News');
   });
 
-  $('.researchNewsCategory').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'click', 'Research News Category');
-  });
-  $('#researchNewsPanel').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'Research News');
-  });
-  $('.researchNewsFullStory').on('click', function() {
+  $('#research-news').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'Research News');
   });
-  $('#researchNewsVideo').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'play', 'Research News');
+  $('#research-news').on('mouseenter', function() {
+    ga('send', 'event', 'Home Page Cards', 'hover', 'Research News');
   });
 
-  $('.poweringCommunityCategory').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'click', 'Powering Community Category');
-  });
-  $('#poweringCommunityPanel').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'Powering Community');
-  });
-  $('.poweringCommunityFullStory').on('click', function() {
+  $('#powering-community').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'Powering Community');
   });
-  $('#poweringCommunityVideo').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'play', 'Powering Community');
+  $('#powering-community').on('mouseenter', function() {
+    ga('send', 'event', 'Home Page Cards', 'hover', 'Powering Community');
   });
 
-  $('.uwotwCategory').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'click', 'UW Oshkosh This Week Category');
+  $('#on-campus').on('click', function() {
+    ga('send', 'event', 'Home Page Cards', 'click', 'On Campus');
   });
-  $('#uwotwPanel').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'UW Oshkosh This Week');
-  });
-  $('.uwotwFullStory').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'click', 'UW Oshkosh This Week');
-  });
-  $('#uwotwVideo').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'play', 'UW Oshkosh This Week');
+  $('#on-campus').on('mouseenter', function() {
+    ga('send', 'event', 'Home Page Cards', 'hover', 'On Campus');
   });
 
-  $('.studyAtUwoCategory').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'click', 'Study at UW Oshkosh Category');
-  });
-  $('#studyAtUwoPanel').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'Study at UW Oshkosh');
-  });
-  $('.studyAtUwoFullStory').on('click', function() {
+  $('#study-uwo').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'Study at UW Oshkosh');
   });
-  $('#studyAtUwoVideo').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'play', 'Study at UW Oshkosh');
+  $('#study-uwo').on('mouseenter', function() {
+    ga('send', 'event', 'Home Page Cards', 'hover', 'Study at UW Oshkosh');
   });
 
-  $('.iAmATitanCategory').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'click', 'I Am A Titan Category');
-  });
-  $('#iAmATitanPanel').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'I Am A Titan');
-  });
-  $('.iAmATitanFullStory').on('click', function() {
+  $('#i-am-a-titan').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'I Am A Titan');
   });
-  $('#iAmATitanVideo').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'play', 'I Am A Titan');
+  $('#i-am-a-titan').on('mouseenter', function() {
+    ga('send', 'event', 'Home Page Cards', 'hover', 'I Am A Titan');
   });
 
-  $('.fromTheChancellorCategory').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'click', 'From the Chancellor Category');
-  });
-  $('#fromTheChancellorPanel').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'From the Chancellor');
-  });
-  $('.fromTheChancellorFullStory').on('click', function() {
+  $('#chancellor').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'From the Chancellor');
   });
-  $('#fromTheChancellorVideo').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'play', 'From the Chancellor');
+  $('#chancellor').on('mouseenter', function() {
+    ga('send', 'event', 'Home Page Cards', 'hover', 'From the Chancellor');
   });
 
-  $('.meetUwOshkoshCategory').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'click', 'Meet UW Oshkosh Category');
-  });
-  $('#meetUwOshkoshPanel').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'Meet UW Oshkosh');
-  });
-  $('.meetUwOshkoshFullStory').on('click', function() {
+  $('#meet-uwo').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'Meet UW Oshkosh');
   });
-  $('#meetUwOshkoshVideo').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'play', 'Meet UW Oshkosh');
+  $('#meet-uwo').on('mouseenter', function() {
+    ga('send', 'event', 'Home Page Cards', 'hover', 'Meet UW Oshkosh');
   });
 
-  $('.facultyFiveCategory').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'click', 'Faculty Five Category');
-  });
-  $('#facultyFivePanel').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'Faculty Five');
-  });
-  $('.facultyFiveFullStory').on('click', function() {
+  $('#faculty-five').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'Faculty Five');
   });
-  $('#facultyFiveVideo').on('click', function() {
-    ga('send', 'event', 'Home Page Cards', 'play', 'Faculty Five');
+  $('#faculty-five').on('mouseenter', function() {
+    ga('send', 'event', 'Home Page Cards', 'hover', 'Faculty Five');
   });
   // END HOME PAGE CARDS
 
