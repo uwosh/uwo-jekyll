@@ -66,8 +66,8 @@ function eventsLoad(events) {
   $.each(events, function(index, event) {
     var eventMonth = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('MMM') || 'JAN';
     var eventDay = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('D') || '00';
-    var startTime = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('h a') || '12 am';
-    var endTime = moment(new Date(event['ev:tribe_event_meta']['ev:enddate'])).format('h a') || '12 pm';
+    var startTime = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('h:mm a') || '12 am';
+    var endTime = moment(new Date(event['ev:tribe_event_meta']['ev:enddate'])).format('h:mm a') || '12 pm';
     var description = $.trim(event.description).substring(0,130).split(" ").slice(0, -1).join(" ") + "..." || 'Event description';
     var link = event.link || '#';
     var title = event.title || 'Event Title';
