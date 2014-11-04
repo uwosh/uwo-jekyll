@@ -7,7 +7,7 @@
         <dd class="active"><a href="#twitter"><i class="fa fa-lg fa-fw fa-twitter"></i> Twitter</a></dd>
         <dd><a href="#facebook"><i class="fa fa-lg fa-fw fa-facebook-square"></i> Facebook</a></dd>
         <dd><a href="#youtube"><i class="fa fa-lg fa-fw fa-youtube-square"></i> YouTube</a></dd>
-        <!-- <dd><a href="#flickr"><i class="fa fa-lg fa-fw fa-flickr"></i> Flickr</a></dd> -->
+        <dd><a href="#flickr"><i class="fa fa-lg fa-fw fa-flickr"></i> Flickr</a></dd>
       </dl>
 
       <div class="tabs-content vertical tabs-social-content">
@@ -44,29 +44,17 @@
             </ul>
           </div>
         </div>
-        <!-- <div class="content" id="flickr">
+        <div class="content" id="flickr">
           <div class="deck-container">
-            <deck id="deck-flickr" ng-controller="FlickrCtrl">
-              {% raw %}
-                <slide ng-repeat="photoset in photosets|limitTo:12">
-                  <div class="twitter-article social-article">
-                    <div class="text-center">
-                      <a ng-href="http://www.flickr.com/photos/37901018@N05/sets/{{ photoset.id }}"><img ng-src="http://farm{{ photoset.farm }}.static.flickr.com/{{ photoset.server }}/{{ photoset.primary }}_{{ photoset.secret }}_m.jpg" class="social-feed-flickr-image" alt="{{ photoset.title._content }}" ></a>
-                    </div>
-                    <p class="body-content">{{ photoset.title._content }}</p>
-                    <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="{{ photoset.date_update * 1000 | date:'yyyy-MM-dd HH:mm:ss Z' }}">{{ photoset.date_update * 1000 | date:'yyyy-MM-dd HH:mm:ss Z' | fromNow }}</time></span>
-                  </div>
-                </slide>
-              {% endraw %}
-            </deck>
+            <deck id="deck-flickr"></deck>
           </div>
           <div class="social-controls">
             <ul class="no-bullet">
-              <li onClick="bespoke.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
-              <li onClick="bespoke.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
+              <li onClick="flickrDeck.prev()" class="previous"><i class="fa fa-lg fa-fw fa-arrow-left"></i></li>
+              <li onClick="flickrDeck.next()" class="next"><i class="fa fa-lg fa-fw fa-arrow-right pull-right"></i></li>
             </ul>
           </div>
-        </div> -->
+        </div>
       </div>
 
     </div><!-- /.col-lg-12 -->

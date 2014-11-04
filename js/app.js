@@ -245,6 +245,33 @@ function youtubeLoad(videos) {
   $('#deck-youtube').html(youtubeHtml);
 };
 
+function flickrLoad(photosets) {
+  var flickrHtml = '';
+
+  $.each(photosets, function(index, photoset) {
+    var rawdate = moment(new Date(photoset.date_update * 1000)).format() || 'Some day';
+    var photosetDate = moment(rawdate).fromNow() || 'Some day';
+    var id = photoset.id || '1234';
+    var title = photoset.title || 'Video Title';
+    var link = 'http://www.flickr.com/photos/37901018@N05/sets/' + photoset.id || '#';
+    var imgSrc = 'http://farm' + photoset.farm + '.static.flickr.com/' + photoset.server + '/' + photoset.primary + '_' + photoset.secret + '_m.jpg' || '#';
+    var imgAlt = photoset.title._content || 'Image alt';
+
+    flickrHtml = flickrHtml + '
+      <slide>
+        <div class="twitter-article social-article">
+          <div class="text-center">
+            <a href="' + link + '"><img src="' + imgSrc + '" class="social-feed-flickr-image" alt="' + imgAlt + '" ></a>
+          </div>
+          <p class="body-content">' + imgAlt + '</p>
+          <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="' + rawdate + '">' + photosetDate + '</time></span>
+        </div>
+      </slide>
+    ';
+  });
+  $('#deck-flickr').html(flickrHtml);
+};
+
 function emergencyLoad(posts) {
   var postHtml = '';
 
@@ -440,10 +467,10 @@ function fetchUwoApi() {
         }
 
         try {
-          //flickrLoad(data.flickr.photosets.photoset);
-          // bespoke.horizontal.from('#deck-flickr', {
-          //     loop: true
-          // });
+          flickrLoad(data.flickr.photosets.photoset);
+          flickrDeck = bespoke.horizontal.from('#deck-flickr', {
+              loop: true
+          });
         }
         catch(e) {
 
