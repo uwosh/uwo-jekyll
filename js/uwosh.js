@@ -9126,7 +9126,7 @@ function fetchUwoApi() {
           });
         }
         catch(e) {
-
+          console.log(e);
         }
 
         try {
