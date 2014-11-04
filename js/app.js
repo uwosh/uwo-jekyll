@@ -196,7 +196,7 @@ function facebookLoad(fbposts) {
       var fbpostDate = moment(rawdate).fromNow() || 'Some day';
       var link = fbpost.link || '#';
       var message = fbpost.message || 'Post excerpt';
-      var likes = fbpost.likes.data.length || '10';
+      //var likes = fbpost.likes[data].length || '10';
 
       facebookHtml = facebookHtml + '
         <slide>
@@ -213,7 +213,7 @@ function facebookLoad(fbposts) {
               <!-- <img ng-src="{{ fbpost.picture }}" class="right" alt=""> --><span>' + message + '</span>&hellip; <a href="' + link + '" target="_blank" alt="" >Read more</a>
             </p>
             <div>
-              <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="' + rawdate + '">' + fbpostDate + '</time></span><span class="datetime social-feed-likes">' + likes + ' people like this</span>
+              <span class="social-feed-date posted-date uppercase datetime"><i class="fa fa-clock-o"></i> <time class="datetime" datetime="' + rawdate + '">' + fbpostDate + '</time></span>
             </div>
           </div>
         </slide>
