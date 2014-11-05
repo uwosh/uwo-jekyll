@@ -9018,6 +9018,18 @@ function fetchUwoApi() {
         }
       };
 
+      // Find newest Powering Community Post
+      var poweringCommunityUwot = data.poweringCommunity.posts[0];
+      var poweringCommunityEngage = data.poweringCommunityEngage.posts[0];
+      var poweringCommunityNewest = '';
+      var pcUwotDate = moment(new Date(poweringCommunityUwot.date)).format();
+      var pcEngageDate = moment(new Date(poweringCommunityEngage.date)).format();
+      if (pcUwotDate > pcEngageDate) {
+        poweringCommunityNewest = poweringCommunityUwot;
+      } else {
+        poweringCommunityNewest = poweringCommunityEngage;
+      }
+
       var panels = {
         campusNews: {
           feedEntry: data.campusNews.posts[0],
@@ -9032,7 +9044,7 @@ function fetchUwoApi() {
           panelUrl: 'http://www.uwosh.edu/today/research/'
         },
         poweringCommunity: {
-          feedEntry: data.poweringCommunity.posts[0],
+          feedEntry: poweringCommunityNewest,
           panelClass: 'powering-community',
           panelTitle: 'Powering Community',
           panelUrl: 'http://www.uwosh.edu/today/knowledge-powers-community'
