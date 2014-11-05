@@ -323,6 +323,10 @@ function fetchUwoApi() {
     success: function( data )
     {
       var pillars = {
+        education: {
+          feedEntry: data.pillarEducation.posts[0],
+          pillarClass: 'pillar-education'
+        },
         leadership: {
           feedEntry: data.pillarLeadership.posts[0],
           pillarClass: 'pillar-leadership'
@@ -330,10 +334,6 @@ function fetchUwoApi() {
         service: {
           feedEntry: data.pillarService.posts[0],
           pillarClass: 'pillar-service'
-        },
-        education: {
-          feedEntry: data.pillarEducation.posts[0],
-          pillarClass: 'pillar-education'
         },
         responsiveness: {
           feedEntry: data.pillarResponsiveness.posts[0],
