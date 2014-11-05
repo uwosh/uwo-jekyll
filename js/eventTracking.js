@@ -141,6 +141,9 @@ setTimeout(function() {
   $('.quicklinksMyUwSystem').on('click', function() {
     ga('send', 'event', 'Quicklinks', 'click', 'My UW System');
   });
+  $('.quicklinksSafety').on('click', function() {
+    ga('send', 'event', 'Quicklinks', 'click', 'Safety');
+  });
   // END QUICKLINKS
 
   // PILLAR STORIES
