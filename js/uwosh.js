@@ -8996,21 +8996,21 @@ function fetchUwoApi() {
     success: function( data )
     {
       var pillars = {
-        education: {
-          feedEntry: data.pillarEducation.posts[0],
-          pillarClass: 'pillar-education'
-        },
         responsiveness: {
           feedEntry: data.pillarResponsiveness.posts[0],
           pillarClass: 'pillar-responsiveness'
         },
-        leadership: {
-          feedEntry: data.pillarLeadership.posts[0],
-          pillarClass: 'pillar-leadership'
-        },
         service: {
           feedEntry: data.pillarService.posts[0],
           pillarClass: 'pillar-service'
+        },
+        education: {
+          feedEntry: data.pillarEducation.posts[0],
+          pillarClass: 'pillar-education'
+        },
+        leadership: {
+          feedEntry: data.pillarLeadership.posts[0],
+          pillarClass: 'pillar-leadership'
         },
         sustainability: {
           feedEntry: data.pillarSustainability.posts[0],
