@@ -1443,8 +1443,6 @@ EVENTS
   text-align: center;
   font-size: 28px;
   font-weight: $semibold;
-  padding-top: 8px;
-  padding-bottom: 8px;
 }
 .events__slider {
   margin-bottom: 16px;
@@ -1840,6 +1838,11 @@ FIXES/HACKS
 }
 .accordion dd.active a {
   background: none;
+}
+.accordion .accordion-navigation>a {
+  padding: 0;
+  background-color: #fff;
+  &:hover { background-color: #fff; }
 }
 .preloader {
   @media #{$small-only} {
