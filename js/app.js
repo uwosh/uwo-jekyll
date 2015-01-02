@@ -323,13 +323,13 @@ function fetchUwoApi() {
     success: function( data )
     {
       var pillars = {
-        education: {
-          feedEntry: data.pillarEducation.posts[0],
-          pillarClass: 'pillar-education'
-        },
         service: {
           feedEntry: data.pillarService.posts[0],
           pillarClass: 'pillar-service'
+        },
+        education: {
+          feedEntry: data.pillarEducation.posts[0],
+          pillarClass: 'pillar-education'
         },
         sustainability: {
           feedEntry: data.pillarSustainability.posts[0],
