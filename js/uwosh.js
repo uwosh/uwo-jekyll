@@ -9268,6 +9268,18 @@ function fetchUwoApi() {
         poweringCommunityNewest = poweringCommunityEngage;
       }
 
+      // Find newest I Am A Titan Post
+      var iAmATitanFaces = data.iAmATitan.posts[0];
+      var iAmATitanUwot = data.iAmATitanUwot.posts[0];
+      var iAmATitanNewest = '';
+      var iAmATitanFacesDate = moment(new Date(poweringCommunityFaces.date)).format();
+      var iAmATitanUwotDate = moment(new Date(poweringCommunityUwot.date)).format();
+      if (iAmATitanFacesDate > iAmATitanUwotDate) {
+        iAmATitanNewest = iAmATitanFaces;
+      } else {
+        iAmATitanNewest = iAmATitanUwot;
+      }
+
       var panels = {
         campusNews: {
           feedEntry: data.campusNews.posts[0],
@@ -9306,7 +9318,7 @@ function fetchUwoApi() {
           panelUrl: 'http://www.uwosh.edu/today/category/admissions-2/'
         },
         iAmATitan: {
-          feedEntry: data.iAmATitan.posts[0],
+          feedEntry: iAmATitanNewest,
           panelClass: 'i-am-a-titan',
           panelTitle: 'I am a Titan',
           panelUrl: 'http://www.uwosh.edu/faces/category/i-am-a-titan/'
