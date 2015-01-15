@@ -9272,8 +9272,8 @@ function fetchUwoApi() {
       var iAmATitanFaces = data.iAmATitan.posts[0];
       var iAmATitanUwot = data.iAmATitanUwot.posts[0];
       var iAmATitanNewest = '';
-      var iAmATitanFacesDate = moment(new Date(poweringCommunityFaces.date)).format();
-      var iAmATitanUwotDate = moment(new Date(poweringCommunityUwot.date)).format();
+      var iAmATitanFacesDate = moment(new Date(iAmATitanFaces.date)).format();
+      var iAmATitanUwotDate = moment(new Date(iAmATitanUwot.date)).format();
       if (iAmATitanFacesDate > iAmATitanUwotDate) {
         iAmATitanNewest = iAmATitanFaces;
       } else {
