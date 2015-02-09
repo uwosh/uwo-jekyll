@@ -5,38 +5,5 @@
 </p>
 
 <p class="drop-down-nav intro-text">
-  This page requires Flash. If you do not have Flash installed, please visit <a href="{{site.baseurl}}/live-ios">http://{{site.baseurl}}/live-ios</a> to view this live stream.
+  This live stream requires Flash. You can install Flash at <a href="http://get.adobe.com/flashplayer/">http://get.adobe.com/flashplayer/</a>.
 </p>
-
-<script>
-  var isMobile = {
-        Android: function() {
-            return navigator.userAgent.match(/Android/i);
-        },
-        BlackBerry: function() {
-            return navigator.userAgent.match(/BlackBerry/i);
-        },
-        iOS: function() {
-            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        },
-        Opera: function() {
-            return navigator.userAgent.match(/Opera Mini/i);
-        },
-        Windows: function() {
-            return navigator.userAgent.match(/IEMobile/i);
-        },
-        any: function() {
-            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-        }
-
-    };
-
-
-
-  if ( isMobile.Android() ) {
-    document.location.href = "{{site.baseurl}}/live-ios";
-  }
-  else if( isMobile.iOS() ) {
-    document.location.href = "{{site.baseurl}}/live-ios";
-  }
-</script>
