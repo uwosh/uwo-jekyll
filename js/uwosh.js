@@ -9268,6 +9268,18 @@ function fetchUwoApi() {
         poweringCommunityNewest = poweringCommunityEngage;
       }
 
+      // Find newest Research News Post
+      var researchNewsUwot = data.researchNews.posts[0];
+      var researchNewsEngage = data.researchNewsEngage.posts[0];
+      var researchNewsNewest = '';
+      var rnUwotDate = moment(new Date(researchNewsUwot.date)).format();
+      var rnEngageDate = moment(new Date(researchNewsEngage.date)).format();
+      if (rnUwotDate > rnEngageDate) {
+        researchNewsNewest = researchNewsUwot;
+      } else {
+        researchNewsNewest = researchNewsEngage;
+      }
+
       // Find newest I Am A Titan Post
       var iAmATitanFaces = data.iAmATitan.posts[0];
       var iAmATitanUwot = data.iAmATitanUwot.posts[0];
@@ -9288,7 +9300,7 @@ function fetchUwoApi() {
           panelUrl: 'http://www.uwosh.edu/today/campus-news/'
         },
         researchNews: {
-          feedEntry: data.researchNews.posts[0],
+          feedEntry: researchNewsNewest,
           panelClass: 'research-news',
           panelTitle: 'Research News',
           panelUrl: 'http://www.uwosh.edu/today/research/'
