@@ -521,6 +521,10 @@ function fetchUwoApi() {
 
       }
 
+      // Add Chancellor CTA - Move UW Oshkosh Forward
+      $('#chancellor .panel__equalizer').append('<div class="chancellor-cta"><a href="http://www.uwosh.edu/forward"><img class="img-responsive" src="img/parts/chancellor-cta.png" alt="Help us move UW Oshkosh Forward"></a></div>');
+      $(document).foundation('equalizer','reflow');
+
       $('#pillar-slick').slick({
         autoplay: true,
         autoplaySpeed: 6000,

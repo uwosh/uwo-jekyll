@@ -1887,6 +1887,14 @@ FIXES/HACKS
 #queries a { margin-right: 8px; }
 
 .alert-cta .datetime { display: none; }
+
+.chancellor-cta {
+  margin-left: -16px;
+  margin-right: -16px;
+}
+#chancellor .panel,
+#meet-uwo .panel,
+#faculty-five .panel { padding-bottom: 0; }
 /******************************************************************
 END FIXES/HACKS
 ******************************************************************/
