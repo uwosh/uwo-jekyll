@@ -144,6 +144,9 @@ setTimeout(function() {
   $('.quicklinksSafety').on('click', function() {
     ga('send', 'event', 'Quicklinks', 'click', 'Safety');
   });
+  $('.quicklinksLeadershipCouncil').on('click', function() {
+    ga('send', 'event', 'Quicklinks', 'click', 'Leadership Council');
+  });
   // END QUICKLINKS
 
   // PILLAR STORIES
