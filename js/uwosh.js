@@ -8975,10 +8975,12 @@ function eventsLoad(events) {
   var eventHtml = '';
 
   $.each(events, function(index, event) {
-    var eventMonth = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('MMM') || 'JAN';
-    var eventDay = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('D') || '00';
-    var startTime = moment(new Date(event['ev:tribe_event_meta']['ev:startdate'])).format('h:mm a') || '12 am';
-    var endTime = moment(new Date(event['ev:tribe_event_meta']['ev:enddate'])).format('h:mm a') || '12 pm';
+    var startDate = moment(event['ev:tribe_event_meta']['ev:startdate'], "MMMM DD hh:mm a");
+    var endDate = moment(event['ev:tribe_event_meta']['ev:enddate'], "MMMM DD hh:mm a");
+    var eventMonth = startDate.format('MMM') || 'JAN';
+    var eventDay = startDate.format('D') || '00';
+    var startTime = startDate.format('h:mm a') || '12 am';
+    var endTime = endDate.format('h:mm a') || '12 pm';
     var description = $.trim(event.description).substring(0,130).split(" ").slice(0, -1).join(" ") + "..." || 'Event description';
     var link = event.link || '#';
     var title = event.title || 'Event Title';
