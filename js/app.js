@@ -351,8 +351,8 @@ function fetchUwoApi() {
       var poweringCommunityUwot = data.poweringCommunity.posts[0];
       var poweringCommunityEngage = data.poweringCommunityEngage.posts[0];
       var poweringCommunityNewest = '';
-      var pcUwotDate = moment(new Date(poweringCommunityUwot.date)).format();
-      var pcEngageDate = moment(new Date(poweringCommunityEngage.date)).format();
+      var pcUwotDate = moment(poweringCommunityUwot.date, "YYYY-MM-DD hh:mm:ss");
+      var pcEngageDate = moment(poweringCommunityEngage.date, "YYYY-MM-DD hh:mm:ss");
       if (pcUwotDate > pcEngageDate) {
         poweringCommunityNewest = poweringCommunityUwot;
       } else {
@@ -363,8 +363,8 @@ function fetchUwoApi() {
       var researchNewsUwot = data.researchNews.posts[0];
       var researchNewsEngage = data.researchNewsEngage.posts[0];
       var researchNewsNewest = '';
-      var rnUwotDate = moment(new Date(researchNewsUwot.date)).format();
-      var rnEngageDate = moment(new Date(researchNewsEngage.date)).format();
+      var rnUwotDate = moment(researchNewsUwot.date, "YYYY-MM-DD hh:mm:ss");
+      var rnEngageDate = moment(researchNewsEngage.date, "YYYY-MM-DD hh:mm:ss");
       if (rnUwotDate > rnEngageDate) {
         researchNewsNewest = researchNewsUwot;
       } else {
@@ -375,8 +375,8 @@ function fetchUwoApi() {
       var iAmATitanFaces = data.iAmATitan.posts[0];
       var iAmATitanUwot = data.iAmATitanUwot.posts[0];
       var iAmATitanNewest = '';
-      var iAmATitanFacesDate = moment(new Date(iAmATitanFaces.date)).format();
-      var iAmATitanUwotDate = moment(new Date(iAmATitanUwot.date)).format();
+      var iAmATitanFacesDate = moment(iAmATitanFaces.date, "YYYY-MM-DD hh:mm:ss");
+      var iAmATitanUwotDate = moment(iAmATitanUwot.date, "YYYY-MM-DD hh:mm:ss");
       if (iAmATitanFacesDate > iAmATitanUwotDate) {
         iAmATitanNewest = iAmATitanFaces;
       } else {
