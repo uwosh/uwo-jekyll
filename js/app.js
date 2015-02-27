@@ -17,8 +17,6 @@ var twitterDeck, facebookDeck, youtubeDeck;
 // jQuery Port
 $( document ).ready(function() {
 
-  $('#main').css('opacity', '0').fadeTo(1000, 1,'swing');
-
   if ($('html').hasClass('page--home')) {
 
     fetchUwoApi();
