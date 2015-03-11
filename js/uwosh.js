@@ -12333,6 +12333,42 @@ setTimeout(function() {
     ga('send', 'event', 'Footer', 'click', 'University of Wisconsin System');
   });
   // END FOOTER
+
+  // CALL TO ACTIONS
+  $('#cta--visitCampus-homepage').on('click', function() {
+    ga('send', 'event', 'Call to Actions', 'click', 'Visit Campus - Homepage');
+  });
+  $('#cta--visitCampus-homepage').on('mouseenter', function() {
+    ga('send', 'event', 'Call to Actions', 'hover', 'Visit Campus - Homepage');
+  });
+  $('#cta--visitCampus-studypage').on('click', function() {
+    ga('send', 'event', 'Call to Actions', 'click', 'Visit Campus - Study at UW Oshkosh');
+  });
+  $('#cta--visitCampus-studypage').on('mouseenter', function() {
+    ga('send', 'event', 'Call to Actions', 'hover', 'Visit Campus - Study at UW Oshkosh');
+  });
+
+  $('#cta--virtualTour-homepage').on('click', function() {
+    ga('send', 'event', 'Call to Actions', 'click', 'Virtual Tour - Homepage');
+  });
+  $('#cta--virtualTour-homepage').on('mouseenter', function() {
+    ga('send', 'event', 'Call to Actions', 'hover', 'Virtual Tour - Homepage');
+  });
+
+  $('#cta--applyNow-homepage').on('click', function() {
+    ga('send', 'event', 'Call to Actions', 'click', 'Apply Now - Homepage');
+  });
+  $('#cta--applyNow-homepage').on('mouseenter', function() {
+    ga('send', 'event', 'Call to Actions', 'hover', 'Apply Now - Homepage');
+  });
+
+  $('#cta--requestMoreInformation-studypage').on('click', function() {
+    ga('send', 'event', 'Call to Actions', 'click', 'Request More Information - Study at UW Oshkosh');
+  });
+  $('#cta--requestMoreInformation-studypage').on('mouseenter', function() {
+    ga('send', 'event', 'Call to Actions', 'hover', 'Request More Information - Study at UW Oshkosh');
+  });
+  // END CALL TO ACTIONS
 }, 3010);
 
 /*
