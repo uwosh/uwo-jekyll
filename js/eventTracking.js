@@ -4,71 +4,41 @@ setTimeout(function() {
     ga('send', 'event', 'University Navigation', 'click', 'Wordmark');
   });
 
-  $('#aboutToggle').on('mouseenter', function() {
-    ga('send', 'event', 'University Navigation', 'hover', 'About');
-  });
   $('.aboutLink').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'About');
   });
   $('.meetUwoLink').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'About / Meet UW Oshkosh');
   });
-  $('#forecast_embed').on('mouseenter', function() {
-    ga('send', 'event', 'University Navigation', 'hover', 'About / Weather');
-  });
 
-  $('#academicsToggle').on('mouseenter', function() {
-    ga('send', 'event', 'University Navigation', 'hover', 'Academics');
-  });
   $('.academicsLink').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Academics');
   });
 
-  $('#athleticsToggle').on('mouseenter', function() {
-    ga('send', 'event', 'University Navigation', 'hover', 'Athletics');
-  });
   $('.athleticsLink').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Athletics');
   });
 
-  $('#alumniToggle').on('mouseenter', function() {
-    ga('send', 'event', 'University Navigation', 'hover', 'Alumni');
-  });
   $('.alumniLink').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Alumni');
   });
 
-  $('#admissionsToggle').on('mouseenter', function() {
-    ga('send', 'event', 'University Navigation', 'hover', 'Admissions');
-  });
   $('.admissionsLink').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Admissions');
   });
 
-  $('#administrationToggle').on('mouseenter', function() {
-    ga('send', 'event', 'University Navigation', 'hover', 'Administration');
-  });
   $('.administrationLink').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Administration');
   });
 
-  $('#resourcesToggle').on('mouseenter', function() {
-    ga('send', 'event', 'University Navigation', 'hover', 'Resources');
-  });
   $('.resourcesLink').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Resources');
   });
 
-  $('#calendarsToggle').on('mouseenter', function() {
-    ga('send', 'event', 'University Navigation', 'hover', 'Calendars');
-  });
   $('.calendarsLink').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Calendars');
   });
 
-  $('#titanServicesToggle').on('mouseenter', function() {
-    ga('send', 'event', 'University Navigation', 'hover', 'Titan Services');
-  });
   $('.titanServicesLink').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Titan Services');
   });
@@ -180,64 +150,37 @@ setTimeout(function() {
   $('#campus-news').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'Campus News');
   });
-  $('#campus-news').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'Campus News');
-  });
 
   $('#research-news').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'Research News');
-  });
-  $('#research-news').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'Research News');
   });
 
   $('#powering-community').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'Powering Community');
   });
-  $('#powering-community').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'Powering Community');
-  });
 
   $('#on-campus').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'On Campus');
-  });
-  $('#on-campus').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'On Campus');
   });
 
   $('#study-uwo').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'Study at UW Oshkosh');
   });
-  $('#study-uwo').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'Study at UW Oshkosh');
-  });
 
   $('#i-am-a-titan').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'I Am A Titan');
-  });
-  $('#i-am-a-titan').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'I Am A Titan');
   });
 
   $('#chancellor').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'From the Chancellor');
   });
-  $('#chancellor').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'From the Chancellor');
-  });
 
   $('#meet-uwo').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'Meet UW Oshkosh');
   });
-  $('#meet-uwo').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'Meet UW Oshkosh');
-  });
 
   $('#faculty-five').on('click', function() {
     ga('send', 'event', 'Home Page Cards', 'click', 'Faculty Five');
-  });
-  $('#faculty-five').on('mouseenter', function() {
-    ga('send', 'event', 'Home Page Cards', 'hover', 'Faculty Five');
   });
   // END HOME PAGE CARDS
 
@@ -311,35 +254,21 @@ setTimeout(function() {
   $('#cta--visitCampus-homepage').on('click', function() {
     ga('send', 'event', 'Call to Actions', 'click', 'Visit Campus - Homepage');
   });
-  $('#cta--visitCampus-homepage').on('mouseenter', function() {
-    ga('send', 'event', 'Call to Actions', 'hover', 'Visit Campus - Homepage');
-  });
+  
   $('#cta--visitCampus-studypage').on('click', function() {
     ga('send', 'event', 'Call to Actions', 'click', 'Visit Campus - Study at UW Oshkosh');
-  });
-  $('#cta--visitCampus-studypage').on('mouseenter', function() {
-    ga('send', 'event', 'Call to Actions', 'hover', 'Visit Campus - Study at UW Oshkosh');
   });
 
   $('#cta--virtualTour-homepage').on('click', function() {
     ga('send', 'event', 'Call to Actions', 'click', 'Virtual Tour - Homepage');
   });
-  $('#cta--virtualTour-homepage').on('mouseenter', function() {
-    ga('send', 'event', 'Call to Actions', 'hover', 'Virtual Tour - Homepage');
-  });
 
   $('#cta--applyNow-homepage').on('click', function() {
     ga('send', 'event', 'Call to Actions', 'click', 'Apply Now - Homepage');
   });
-  $('#cta--applyNow-homepage').on('mouseenter', function() {
-    ga('send', 'event', 'Call to Actions', 'hover', 'Apply Now - Homepage');
-  });
 
   $('#cta--requestMoreInformation-studypage').on('click', function() {
     ga('send', 'event', 'Call to Actions', 'click', 'Request More Information - Study at UW Oshkosh');
-  });
-  $('#cta--requestMoreInformation-studypage').on('mouseenter', function() {
-    ga('send', 'event', 'Call to Actions', 'hover', 'Request More Information - Study at UW Oshkosh');
   });
   // END CALL TO ACTIONS
 }, 3010);
