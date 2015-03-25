@@ -12239,6 +12239,9 @@ setTimeout(function() {
   $('.footerWork').on('click', function() {
     ga('send', 'event', 'Footer', 'click', 'Work at UW Oshkosh');
   });
+  $('.footerNon').on('click', function() {
+    ga('send', 'event', 'Footer', 'click', 'Notice of Nondiscrimination');
+  });
   $('.footerMobile').on('click', function() {
     ga('send', 'event', 'Footer', 'click', 'Download Mobile App');
   });
@@ -12281,7 +12284,7 @@ setTimeout(function() {
   $('#cta--visitCampus-homepage').on('click', function() {
     ga('send', 'event', 'Call to Actions', 'click', 'Visit Campus - Homepage');
   });
-  
+
   $('#cta--visitCampus-studypage').on('click', function() {
     ga('send', 'event', 'Call to Actions', 'click', 'Visit Campus - Study at UW Oshkosh');
   });
