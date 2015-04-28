@@ -323,6 +323,10 @@ function fetchUwoApi() {
     success: function( data )
     {
       var pillars = {
+        responsiveness: {
+          feedEntry: data.pillarResponsiveness.posts[0],
+          pillarClass: 'pillar-responsiveness'
+        },
         education: {
           feedEntry: data.pillarEducation.posts[0],
           pillarClass: 'pillar-education'
@@ -330,10 +334,6 @@ function fetchUwoApi() {
         sustainability: {
           feedEntry: data.pillarSustainability.posts[0],
           pillarClass: 'pillar-sustainability'
-        },
-        responsiveness: {
-          feedEntry: data.pillarResponsiveness.posts[0],
-          pillarClass: 'pillar-responsiveness'
         },
         service: {
           feedEntry: data.pillarService.posts[0],
