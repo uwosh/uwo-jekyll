@@ -323,13 +323,17 @@ function fetchUwoApi() {
     success: function( data )
     {
       var pillars = {
-        responsiveness: {
-          feedEntry: data.pillarResponsiveness.posts[0],
-          pillarClass: 'pillar-responsiveness'
-        },
         education: {
           feedEntry: data.pillarEducation.posts[0],
           pillarClass: 'pillar-education'
+        },
+        leadership: {
+          feedEntry: data.pillarLeadership.posts[0],
+          pillarClass: 'pillar-leadership'
+        },
+        responsiveness: {
+          feedEntry: data.pillarResponsiveness.posts[0],
+          pillarClass: 'pillar-responsiveness'
         },
         sustainability: {
           feedEntry: data.pillarSustainability.posts[0],
@@ -338,10 +342,6 @@ function fetchUwoApi() {
         service: {
           feedEntry: data.pillarService.posts[0],
           pillarClass: 'pillar-service'
-        },
-        leadership: {
-          feedEntry: data.pillarLeadership.posts[0],
-          pillarClass: 'pillar-leadership'
         }
       };
 
