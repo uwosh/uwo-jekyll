@@ -9238,6 +9238,10 @@ function fetchUwoApi() {
           feedEntry: data.pillarEducation.posts[0],
           pillarClass: 'pillar-education'
         },
+        service: {
+          feedEntry: data.pillarService.posts[0],
+          pillarClass: 'pillar-service'
+        },
         leadership: {
           feedEntry: data.pillarLeadership.posts[0],
           pillarClass: 'pillar-leadership'
@@ -9249,10 +9253,6 @@ function fetchUwoApi() {
         sustainability: {
           feedEntry: data.pillarSustainability.posts[0],
           pillarClass: 'pillar-sustainability'
-        },
-        service: {
-          feedEntry: data.pillarService.posts[0],
-          pillarClass: 'pillar-service'
         }
       };
 
