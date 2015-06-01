@@ -9238,13 +9238,13 @@ function fetchUwoApi() {
           feedEntry: data.pillarSustainability.posts[0],
           pillarClass: 'pillar-sustainability'
         },
-        education: {
-          feedEntry: data.pillarEducation.posts[0],
-          pillarClass: 'pillar-education'
-        },
         service: {
           feedEntry: data.pillarService.posts[0],
           pillarClass: 'pillar-service'
+        },
+        education: {
+          feedEntry: data.pillarEducation.posts[0],
+          pillarClass: 'pillar-education'
         },
         leadership: {
           feedEntry: data.pillarLeadership.posts[0],
