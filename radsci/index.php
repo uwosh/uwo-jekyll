@@ -1,3 +1,3 @@
 <?php
-  header('Location: http://www.uwosh.edu/admissions');
+  header('Location: http://admissions.uwosh.edu/radiologic-science/');
 ?>
