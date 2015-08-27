@@ -87,5 +87,16 @@ responsive-nav: '
   <div class="show-for-large-up">
     {% include social-feed.html %}
   </div>
-
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "http://www.uwosh.edu",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "http://www.uwosh.edu/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </div>
