@@ -13,6 +13,7 @@
     "grunt-contrib-watch": "*",
     "grunt-cssc": "*",
     "grunt-htmlhint": "*",
+    "load-grunt-tasks": "^3.3.0",
     "matchdep": "*"
   }
 }
