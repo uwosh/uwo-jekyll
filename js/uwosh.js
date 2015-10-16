@@ -9140,8 +9140,8 @@ function youtubeLoad(videos) {
   $.each(videos, function(index, video) {
     var rawdate = moment(new Date(video.updated)).format() || 'Some day';
     var videoDate = moment(rawdate).fromNow() || 'Some day';
-    var id = video.id || '1234';
-    var title = video.title || 'Video Title';
+    var id = video.snippet.resourceId.videoId || '1234';
+    var title = video.snippet.title || 'Video Title';
 
     youtubeHtml = youtubeHtml + '
       <slide>
@@ -9404,7 +9404,7 @@ function fetchUwoApi() {
         }
 
         try {
-          youtubeLoad(data.youtube.data.items);
+          youtubeLoad(data.youtube.items);
           youtubeDeck = bespoke.horizontal.from('#deck-youtube', {
               loop: true
           });
