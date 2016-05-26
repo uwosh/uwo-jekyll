@@ -1,3 +1,3 @@
 <?php
-  header('Location: http://www.uwosh.edu/affirm-act/notice-of-nondiscrimination');
+  header('Location: http://equity.uwosh.edu/notice-of-nondiscrimination/');
 ?>

@@ -23,6 +23,10 @@ html { -webkit-font-smoothing: antialiased; }
   font-weight: $normal;
   color: $dark-gray;
 }
+.footerUwSystem img {
+  height:84px;
+  width:auto;
+}
 .img-responsive {
   width: 100%;
   height: auto;
