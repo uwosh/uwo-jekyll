@@ -322,6 +322,11 @@ abbr {
   .fa-search { font-size: 18px; }
   > li { margin-left: 14px; }
 }
+// Collapsible Panel Rules
+.collapsed-content {
+  display: none;
+}
+
 /* .uwo-search {
   margin-top: 18px;
   @media #{\$medium-only} {
