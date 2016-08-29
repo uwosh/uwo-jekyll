@@ -1174,6 +1174,14 @@ CTAs
 }
 .btn--gray-light:hover { background-color: darken($blue-light, 5%); }
 
+.btn--titans-are-grey{
+  color: #fff;
+  background-color: #666666;
+}
+.btn--titans-are-grey:visited{
+  color: white;
+}
+
 .btn--gray-dark,
 .btn--gray-dark:visited {
   color: #fff;
@@ -1398,6 +1406,9 @@ CTAs
 }
 .cta--yellow {
   background-color: $yellow;
+}
+.cta--titans-are-grey{
+  background-color: #666666;
 }
 /******************************************************************
 END CTAs
