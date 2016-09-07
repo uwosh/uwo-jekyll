@@ -1960,7 +1960,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
 
       // comma delimited list of selectors that, on click, will close clearing,
       // add 'div.clearing-blackout, div.visible-img' to close on background click
-      close_selectors : '.clearing-close, div.clearing-blackout',
+      close_selectors : '.clearing-close, div.clearing-blackout', 
 
       // Default to the entire li element.
       open_selectors : '',
@@ -2104,7 +2104,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
       if ($el.parent().hasClass('carousel')) {
         return;
       }
-
+      
       $el.after('<div id="foundationClearingHolder"></div>');
 
       var grid = $el.detach(),
@@ -2115,7 +2115,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
       } else {
         grid_outerHTML = grid[0].outerHTML;
       }
-
+      
       var holder = this.S('#foundationClearingHolder'),
           settings = $el.data(this.attr_name(true) + '-init'),
           data = {
@@ -2216,7 +2216,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
           .removeClass('clearing-blackout');
         container.removeClass('clearing-container');
         visible_image.hide();
-        visible_image.trigger('closed.fndtn.clearing');
+        visible_image.trigger('closed.fndtn.clearing');        
       }
 
       // Event to re-enable scrolling on touch devices
@@ -2380,7 +2380,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
           .hide();
       }
       return this;
-    },
+    }, 
 
     // directional methods
 
@@ -2572,7 +2572,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
 
           if ($this.data(self.data_attr())) {
               settings = $this.data(self.data_attr(true) + '-init') || self.settings;
-          }
+          } 
           else {
               var target   = S('[' + self.attr_name() + '="' + S(this).attr('id') + '"]'),
                   settings = target.data(self.attr_name(true) + '-init') || self.settings;
@@ -2743,13 +2743,13 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
 
         p.top -= o.top;
         p.left -= o.left;
-
+        
         //set some flags on the p object to pass along
         p.missRight = false;
         p.missTop = false;
         p.missLeft = false;
         p.leftRightFlag = false;
-
+    
         //lets see if the panel will be off the screen
         //get the actual width of the page and store it
         var actualBodyWidth;
@@ -2761,7 +2761,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
 
         var actualMarginWidth = (window.outerWidth - actualBodyWidth) / 2;
         var actualBoundary = actualBodyWidth;
-
+    
         if (!this.hasClass('mega')) {
           //miss top
           if (t.offset().top <= this.outerHeight()) {
@@ -2769,13 +2769,13 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
             actualBoundary = window.outerWidth - actualMarginWidth;
             p.leftRightFlag = true;
           }
-
+          
           //miss right
           if (t.offset().left + this.outerWidth() > t.offset().left + actualMarginWidth && t.offset().left - actualMarginWidth > this.outerWidth()) {
             p.missRight = true;
             p.missLeft = false;
           }
-
+          
           //miss left
           if (t.offset().left - this.outerWidth() <= 0) {
             p.missLeft = true;
@@ -2791,12 +2791,12 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
             p = self.dirs._base.call(this, t);
 
         this.addClass('drop-top');
-
+        
         if (p.missTop == true) {
           p.top = p.top + t.outerHeight() + this.outerHeight();
           this.removeClass('drop-top');
         }
-
+    
         if (p.missRight == true) {
           p.left = p.left - this.outerWidth() + t.outerWidth();
         }
@@ -2836,7 +2836,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
         var p = Foundation.libs.dropdown.dirs._base.call(this, t);
 
         this.addClass('drop-left');
-
+        
         if (p.missLeft == true) {
           p.left =  p.left + this.outerWidth();
           p.top = p.top + t.outerHeight();
@@ -2850,7 +2850,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
         var p = Foundation.libs.dropdown.dirs._base.call(this, t);
 
         this.addClass('drop-right');
-
+        
         if (p.missRight == true) {
           p.left = p.left - this.outerWidth();
           p.top = p.top + t.outerHeight();
@@ -2858,7 +2858,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
         } else {
           p.triggeredRight = true;
         }
-
+    
         var self = Foundation.libs.dropdown;
 
         if (t.outerWidth() < this.outerWidth() || self.small() || this.hasClass(s.mega_menu)) {
@@ -2888,7 +2888,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
           sel_after  = '.f-dropdown.open:after',
           css_before = 'left: ' + pip_offset_base + 'px;',
           css_after  = 'left: ' + (pip_offset_base - 1) + 'px;';
-
+        
       if (position.missRight == true) {
         pip_offset_base = dropdown.outerWidth() - 23;
         sel_before = '.f-dropdown.open:before',
@@ -2896,7 +2896,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
         css_before = 'left: ' + pip_offset_base + 'px;',
         css_after  = 'left: ' + (pip_offset_base - 1) + 'px;';
       }
-
+    
       //just a case where right is fired, but its not missing right
       if (position.triggeredRight == true) {
         sel_before = '.f-dropdown.open:before',
@@ -3144,9 +3144,9 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
           if (passed) {
             this.settings.directives[passed
               .scenario[1]].call(this, passed.el, passed.scenario[0], function () {
-                if (arguments[0] instanceof Array) {
+                if (arguments[0] instanceof Array) { 
                   var args = arguments[0];
-                } else {
+                } else { 
                   var args = Array.prototype.slice.call(arguments, 0);
                 }
 
@@ -3280,7 +3280,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
       else {
         var cached_split = scenario[0].split(/,\s*$/),
         path             = cached_split[0],
-        directive        = '';
+        directive        = '';               
       }
 
       return [this.trim(path), this.convert_directive(directive), this.trim(media_query)];
@@ -3288,7 +3288,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
 
     object : function(el) {
       var raw_arr = this.parse_data_attr(el),
-          scenarios = [],
+          scenarios = [], 
           i = raw_arr.length;
 
       if (i > 0) {
@@ -3343,7 +3343,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
 
     parse_data_attr : function (el) {
       var raw = el.attr(this.attr_name()).split(/\[(.*?)\]/),
-          i = raw.length,
+          i = raw.length, 
           output = [];
 
       while (i--) {
@@ -4304,7 +4304,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
       throttle_delay: 30, // calculation throttling to increase framerate
       fixed_top: 0, // top distance in pixels assigend to the fixed element on scroll
       offset_by_height: true,  // whether to offset the destination by the expedition height. Usually you want this to be true, unless your expedition is on the side.
-      duration: 700, // animation duration time
+      duration: 700, // animation duration time 
       easing: 'swing' // animation easing
     },
 
@@ -5165,7 +5165,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
         .off('.reveal')
         .on('click.fndtn.reveal', '[' + this.add_namespace('data-reveal-id') + ']:not([disabled])', function (e) {
           e.preventDefault();
-
+        
           if (!self.locked) {
             var element = S(this),
                 ajax = element.data(self.data_attr('reveal-ajax'));
@@ -5358,7 +5358,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
     toggle_bg : function (el, modal, state) {
       var settings = el.data(this.attr_name(true) + '-init') || this.settings,
             bg_root_element = settings.bg_root_element; // Adding option to specify the background root element fixes scrolling issue
-
+      
       if (this.S('.' + this.settings.bg_class).length === 0) {
         this.settings.bg = $('<div />', {'class': this.settings.bg_class})
           .appendTo(bg_root_element).hide();
@@ -7386,7 +7386,7 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
         _.$list.off('.slick');
         $(window).off('.slick-' + _.instanceUid);
         $(document).off('.slick-' + _.instanceUid);
-
+        
     };
 
     Slick.prototype.disableTransition = function(slide) {
@@ -7929,11 +7929,11 @@ if (typeof define == 'function' && typeof define.amd == 'object' && define.amd) 
         if(_.options.vertical === false) {
             _.slideWidth = Math.ceil(_.listWidth / _.options.slidesToShow);
             _.$slideTrack.width(Math.ceil((_.slideWidth * _.$slideTrack.children('.slick-slide').length)));
-
+        
         } else {
             _.slideWidth = Math.ceil(_.listWidth);
             _.$slideTrack.height(Math.ceil((_.$slides.first().outerHeight(true) * _.$slideTrack.children('.slick-slide').length)));
-
+        
         }
 
         var offset = _.$slides.first().outerWidth(true) - _.$slides.first().width();
@@ -9468,7 +9468,7 @@ function fetchEmergency() {
  * means you are free to use hoverIntent as long as this header is left intact.
  * Copyright 2007, 2013 Brian Cherne
  */
-
+ 
 /* hoverIntent is similar to jQuery's built-in "hover" method except that
  * instead of firing the handlerIn function immediately, hoverIntent checks
  * to see if the user's mouse has slowed down (beneath the sensitivity
@@ -12540,3 +12540,4 @@ if (objCtr.defineProperty) {
 }
 
 }
+
