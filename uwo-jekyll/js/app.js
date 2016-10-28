@@ -37,7 +37,7 @@ function postExcerpt(rawString, chars) {
 
 function pillarLoad(post, pillarClass) {
   var title = post.title || 'Story Title';
-  var excerpt = postExcerpt(post.excerpt, 60) || 'Story excerpt';
+  //var excerpt = postExcerpt(post.excerpt, 60) || 'Story excerpt';
   //var excerpt = $.truncate(post.excerpt, { length: 60 });
   var image = post.custom_fields.pillar_image || 'http://placehold.it/1136x420';
   var url = post.url || '#';
@@ -48,7 +48,7 @@ function pillarLoad(post, pillarClass) {
       <div class="home-slider__caption">
         <div class="home-slider__caption__content">
           <p class="banner-headline home-slider__caption__title pillar-education-title">' + title + '</p>
-          <p class="body-content"><span class="home-slider__caption__excerpt pillar-education-excerpt">' + excerpt + '</span><a href="' + url + '" class="pillarEducationMore pillar-education-url"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
+          <p class="body-content"><a href="' + url + '" class="pillarEducationMore pillar-education-url"><span class="home-slider__caption__read-more">Read more &hellip;</span></a></p>
         </div>
       </div>
     </div>
