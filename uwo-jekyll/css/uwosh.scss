@@ -137,7 +137,7 @@ abbr, acronym {
   margin-left: 5px;
 }
 body {
-  background-image: url('../img/parts/bg-gradient.jpg');
+  background-image: url('../img/parts/titans-are-bg.png');
   background-repeat: repeat-x;
   background-position: 0 14px;
   color: $dark-gray;
@@ -870,7 +870,7 @@ HOME
   }
 }
 .home-slider__caption__content {
-  background-color: rgba(230, 134, 0, 0.9);
+  background-color: $titans-are-yellow;
   width: 50%;
   padding: 8px 10px 8px 10px;
   @media #{$small-only} {
@@ -903,7 +903,7 @@ HOME
   }
 }
 .home-slider__caption__read-more {
-  background-color: $dark-orange;
+  background-color: $titans-are-dark-grey;
   color: #fff;
   padding: 8px 10px 8px 10px;
   @media #{$small-only} {
@@ -1215,6 +1215,18 @@ CTAs
 .btn--forest-green{
   color: #fff !important;
   background-color: $forest-green;
+}
+.btn--titans-are-dark-grey{
+  color: #fff !important;
+  background-color: $titans-are-dark-grey;
+}
+.btn--titans-are-medium-grey{
+  color: #fff !important;
+  background-color: $titans-are-medium-grey;
+}
+.btn--titans-are-yellow{
+  color: #fff !important;
+  background-color: $titans-are-yellow;
 }
 
 .cta {
