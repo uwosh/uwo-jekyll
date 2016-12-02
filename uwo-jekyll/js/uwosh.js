@@ -8946,13 +8946,27 @@ function postExcerpt(rawString, chars) {
   return truncstring;
 };
 
+function titansArePillarLoad(imgSrc){
+  // forming the image on the banner
+  var html = '
+    <div>
+      <img class="pillar-image img-responsive pillar-education-image" src="' + imgSrc + '" alt="Titans Are Banner" /></a>
+    </div>
+  ';
+
+  // adding this html to the page
+  $('#pillar-slick').append(html);
+}
+
 function pillarLoad(post, pillarClass) {
+  // arranging the post elements
   var title = post.title || 'Story Title';
   //var excerpt = postExcerpt(post.excerpt, 60) || 'Story excerpt';
   //var excerpt = $.truncate(post.excerpt, { length: 60 });
   var image = post.custom_fields.pillar_image || 'http://placehold.it/1136x420';
   var url = post.url || '#';
 
+  // forming the post elements into HTML
   var sliderHtml = '
     <div>
       <a href="' + url + '" class="pillar-education-url"><img class="pillar-image img-responsive pillar-education-image" src="' + image + '" alt="" /></a>
@@ -8965,6 +8979,7 @@ function pillarLoad(post, pillarClass) {
     </div>
   ';
 
+  // adding the HTML to the page
   $('#pillar-slick').append(sliderHtml);
 
 };
@@ -9355,12 +9370,19 @@ function fetchUwoApi() {
         }
       };
 
+      try{
+        titansArePillarLoad("/img/home/Slider_Main.png");
+      }
+      catch(e){
+        console.log(e);
+      }
+
       $.each(pillars, function(index, pillar) {
         try {
           pillarLoad(pillar.feedEntry, pillar.pillarClass);
         }
         catch(e) {
-
+          console.log(e);
         }
       });
 
@@ -9378,7 +9400,7 @@ function fetchUwoApi() {
         eventsLoad(data.events.value.items);
       }
       catch(e) {
-
+        console.log(e);
       }
 
       if (screen.width > 1023) {
@@ -9390,7 +9412,7 @@ function fetchUwoApi() {
           });
         }
         catch(e) {
-
+          console.log(e);
         }
 
         try {
@@ -9410,7 +9432,7 @@ function fetchUwoApi() {
           });
         }
         catch(e) {
-
+          console.log(e);
         }
 
         try {
@@ -9420,16 +9442,15 @@ function fetchUwoApi() {
           });
         }
         catch(e) {
-
+          console.log(e);
         }
-
       };
 
       try {
         youtube_thumb();
       }
       catch(e) {
-
+        console.log(e);
       }
 
       // Add Chancellor CTA - Move UW Oshkosh Forward
