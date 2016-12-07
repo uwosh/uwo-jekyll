@@ -8950,7 +8950,7 @@ function titansArePillarLoad(imgSrc){
   // forming the image on the banner
   var html = '
     <div>
-      <img class="pillar-image img-responsive pillar-education-image" src="' + imgSrc + '" alt="Titans Are Banner" /></a>
+      <a href="/academics/majors-minors-emphases.html"><img class="pillar-image img-responsive pillar-education-image" src="' + imgSrc + '" alt="Titans Are Banner" /></a>
     </div>
   ';
 
