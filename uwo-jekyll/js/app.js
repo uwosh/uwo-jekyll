@@ -47,7 +47,7 @@ function titansArePillarLoad(imgSrc){
   $('#pillar-slick').append(html);
 }
 
-function pillarLoad(post, pillarClass) {
+function pillarLoad(post) {
   // arranging the post elements
   var title = post.title || 'Story Title';
   //var excerpt = postExcerpt(post.excerpt, 60) || 'Story excerpt';
@@ -340,23 +340,18 @@ function fetchUwoApi() {
       var pillars = {
         education: {
           feedEntry: data.pillarEducation.posts[0],
-          pillarClass: 'pillar-education'
         },
         leadership: {
           feedEntry: data.pillarLeadership.posts[0],
-          pillarClass: 'pillar-leadership'
         },
         service: {
           feedEntry: data.pillarService.posts[0],
-          pillarClass: 'pillar-service'
         },
         responsiveness: {
           feedEntry: data.pillarResponsiveness.posts[0],
-          pillarClass: 'pillar-responsiveness'
         },
         sustainability: {
           feedEntry: data.pillarSustainability.posts[0],
-          pillarClass: 'pillar-sustainability'
         }
       };
 
@@ -468,7 +463,7 @@ function fetchUwoApi() {
 
       $.each(pillars, function(index, pillar) {
         try {
-          pillarLoad(pillar.feedEntry, pillar.pillarClass);
+          pillarLoad(pillar.feedEntry);
         }
         catch(e) {
           console.log(e);
