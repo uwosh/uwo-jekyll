@@ -9249,25 +9249,14 @@ function fetchUwoApi() {
     success: function( data )
     {
       var pillars = {
-        education: {
-          feedEntry: data.pillarEducation.posts[0],
-          // pillarClass: 'pillar-education'
+        leaders: {
+          feedEntry: data.pillarLeaders.posts[0]
         },
-        leadership: {
-          feedEntry: data.pillarLeadership.posts[0],
-          // pillarClass: 'pillar-leadership'
+        researchers: {
+          feedEntry: data.pillarResearchers.posts[0]
         },
-        service: {
-          feedEntry: data.pillarService.posts[0],
-          // pillarClass: 'pillar-service'
-        },
-        responsiveness: {
-          feedEntry: data.pillarResponsiveness.posts[0],
-          // pillarClass: 'pillar-responsiveness'
-        },
-        sustainability: {
-          feedEntry: data.pillarSustainability.posts[0],
-          // pillarClass: 'pillar-sustainability'
+        champions: {
+          feedEntry: data.pillarChampions.posts[0]
         }
       };
 
