@@ -9121,7 +9121,7 @@ function facebookLoad(fbposts) {
       var rawdate = moment(new Date(fbpost.created_time)).format() || 'Some day';
       var fbpostDate = moment(rawdate).fromNow() || 'Some day';
       var link = fbpost.link || '#';
-      var message = fbpost.message || 'Post excerpt';
+      var message = $.truncate(fbpost.message, { length: 170 }) || 'Post excerpt';
       //var likes = fbpost.likes[data].length || '10';
 
       facebookHtml = facebookHtml + '
@@ -9297,6 +9297,12 @@ function fetchUwoApi() {
       }
 
       var panels = {
+        studyUwo: {
+          feedEntry: data.admissions.posts[0],
+          panelClass: 'study-uwo',
+          panelTitle: 'Study at UW&nbsp;Oshkosh',
+          panelUrl: 'http://www.uwosh.edu/today/category/admissions-2/'
+        },
         campusNews: {
           feedEntry: data.campusNews.posts[0],
           panelClass: 'campus-news',
@@ -9326,12 +9332,6 @@ function fetchUwoApi() {
           panelClass: 'on-campus',
           panelTitle: 'On Campus',
           panelUrl: 'http://www.uwosh.edu/today/category/on-campus-home/'
-        },
-        studyUwo: {
-          feedEntry: data.admissions.posts[0],
-          panelClass: 'study-uwo',
-          panelTitle: 'Study at UW&nbsp;Oshkosh',
-          panelUrl: 'http://www.uwosh.edu/today/category/admissions-2/'
         },
         iAmATitan: {
           feedEntry: iAmATitanNewest,
