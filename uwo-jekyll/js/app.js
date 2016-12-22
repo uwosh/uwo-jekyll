@@ -361,90 +361,61 @@ function fetchUwoApi() {
         poweringCommunityNewest = poweringCommunityEngage;
       }
 
-      // Find newest Research News Post
-      var researchNewsUwot = data.researchNews.posts[0];
-      var researchNewsEngage = data.researchNewsEngage.posts[0];
-      var researchNewsNewest = '';
-      var rnUwotDate = moment(researchNewsUwot.date, "YYYY-MM-DD hh:mm:ss");
-      var rnEngageDate = moment(researchNewsEngage.date, "YYYY-MM-DD hh:mm:ss");
-      if (rnUwotDate > rnEngageDate) {
-        researchNewsNewest = researchNewsUwot;
-      } else {
-        researchNewsNewest = researchNewsEngage;
-      }
-
-      // Find newest I Am A Titan Post
-      var iAmATitanFaces = data.iAmATitan.posts[0];
-      var iAmATitanUwot = data.iAmATitanUwot.posts[0];
-      var iAmATitanNewest = '';
-      var iAmATitanFacesDate = moment(iAmATitanFaces.date, "YYYY-MM-DD hh:mm:ss");
-      var iAmATitanUwotDate = moment(iAmATitanUwot.date, "YYYY-MM-DD hh:mm:ss");
-      if (iAmATitanFacesDate > iAmATitanUwotDate) {
-        iAmATitanNewest = iAmATitanFaces;
-      } else {
-        iAmATitanNewest = iAmATitanUwot;
-      }
-
+      // UWO homepage news panels
       var panels = {
-        studyUwo: {
+        studyAtUWOshkosh: {
           feedEntry: data.admissions.posts[0],
-          panelClass: 'study-uwo',
-          panelTitle: 'Study at UW&nbsp;Oshkosh',
-          panelUrl: 'http://www.uwosh.edu/today/category/admissions-2/'
+          panelClass: 'study-at-uw-oshkosh',
+          panelTitle: 'Study at UW Oshkosh',
+          panelUrl: 'http://www.uwosh.edu/today/category/admissions-home/'
         },
-        campusNews: {
+        UWOshkoshNews: {
           feedEntry: data.campusNews.posts[0],
-          panelClass: 'campus-news',
-          panelTitle: 'Campus News',
-          panelUrl: 'http://www.uwosh.edu/today/campus-news/'
+          panelClass: 'uw-oshkosh-news',
+          panelTitle: 'UW Oshkosh News',
+          panelUrl: 'http://www.uwosh.edu/today/category/campus-news-home/'
         },
-        researchNews: {
-          feedEntry: researchNewsNewest,
-          panelClass: 'research-news',
-          panelTitle: 'Research News',
-          panelUrl: 'http://www.uwosh.edu/today/research/'
+        OpportunityOfPlace: {
+          feedEntry: data.opportunityOfPlace.posts[0],
+          panelClass: 'opportunity-of-place',
+          panelTitle: 'Opportunity of Place',
+          panelUrl: 'http://www.uwosh.edu/today/category/opportunity-of-place-home/'
         },
-        poweringCommunity: {
-          feedEntry: poweringCommunityNewest,
-          panelClass: 'powering-community',
-          panelTitle: 'Powering Community',
-          panelUrl: 'http://www.uwosh.edu/today/knowledge-powers-community'
-        },
-        // uwotw: {
-        //   feedEntry: data.uwotw.posts[0],
-        //   panelClass: 'on-campus',
-        //   panelTitle: 'UW&nbsp;Oshkosh This Week',
-        //   panelUrl: 'http://www.uwosh.edu/today/category/uwotw/'
-        // },
         onCampus: {
           feedEntry: data.onCampus.posts[0],
           panelClass: 'on-campus',
           panelTitle: 'On Campus',
           panelUrl: 'http://www.uwosh.edu/today/category/on-campus-home/'
         },
-        iAmATitan: {
-          feedEntry: iAmATitanNewest,
-          panelClass: 'i-am-a-titan',
-          panelTitle: 'I am a Titan',
+        sustainability: {
+          feedEntry: data.sustainability.posts[0],
+          panelClass: 'sustainability',
+          panelTitle: 'Sustainability',
+          panelUrl: 'http://www.uwosh.edu/today/category/sustainability/'
+        },
+        athletics: {
+          feedEntry: data.iAmATitan.posts[0],
+          panelClass: 'athletics',
+          panelTitle: 'Athletics',
           panelUrl: 'http://www.uwosh.edu/faces/category/i-am-a-titan/'
         },
         chancellor: {
           feedEntry: data.chancellor.posts[0],
-          panelClass: 'chancellor',
+          panelClass: 'from-the-chancellor',
           panelTitle: 'From the Chancellor',
-          panelUrl: 'http://www.uwosh.edu/today/category/chancellor'
+          panelUrl: 'http://www.uwosh.edu/today/category/chancellor-home/'
         },
-        meetUwo: {
-          feedEntry: data.meetUwo.posts[0],
-          panelClass: 'meet-uwo',
-          panelTitle: 'Meet UW&nbsp;Oshkosh',
-          panelUrl: 'http://www.uwosh.edu/faces'
+        community: {
+          feedEntry: data.poweringCommunity.posts[0],
+          panelClass: 'community',
+          panelTitle: 'Community',
+          panelUrl: 'http://www.uwosh.edu/today/category/powering-community-home/'
         },
-        facultyFive: {
-          feedEntry: data.twif.posts[0],
-          panelClass: 'faculty-five',
-          panelTitle: 'Faculty Five',
-          panelUrl: 'http://www.uwosh.edu/today/category/faculty-five/'
+        UWOInVideo: {
+          feedEntry: data.uwoInVideo.posts[0],
+          panelClass: 'uw-oshkosh-in-video',
+          panelTitle: 'UW Oshkosh In Video',
+          panelUrl: 'http://www.uwosh.edu/today/category/uw-oshkosh-in-video/'
         }
       };
 
