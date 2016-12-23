@@ -9272,30 +9272,6 @@ function fetchUwoApi() {
         poweringCommunityNewest = poweringCommunityEngage;
       }
 
-      // // Find newest Research News Post
-      // var researchNewsUwot = data.researchNews.posts[0];
-      // var researchNewsEngage = data.researchNewsEngage.posts[0];
-      // var researchNewsNewest = '';
-      // var rnUwotDate = moment(researchNewsUwot.date, "YYYY-MM-DD hh:mm:ss");
-      // var rnEngageDate = moment(researchNewsEngage.date, "YYYY-MM-DD hh:mm:ss");
-      // if (rnUwotDate > rnEngageDate) {
-      //   researchNewsNewest = researchNewsUwot;
-      // } else {
-      //   researchNewsNewest = researchNewsEngage;
-      // }
-      //
-      // // Find newest I Am A Titan Post
-      // var iAmATitanFaces = data.iAmATitan.posts[0];
-      // var iAmATitanUwot = data.iAmATitanUwot.posts[0];
-      // var iAmATitanNewest = '';
-      // var iAmATitanFacesDate = moment(iAmATitanFaces.date, "YYYY-MM-DD hh:mm:ss");
-      // var iAmATitanUwotDate = moment(iAmATitanUwot.date, "YYYY-MM-DD hh:mm:ss");
-      // if (iAmATitanFacesDate > iAmATitanUwotDate) {
-      //   iAmATitanNewest = iAmATitanFaces;
-      // } else {
-      //   iAmATitanNewest = iAmATitanUwot;
-      // }
-
       // UWO homepage news panels
       var panels = {
         studyAtUWOshkosh: {
