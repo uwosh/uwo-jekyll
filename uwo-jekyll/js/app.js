@@ -394,10 +394,10 @@ function fetchUwoApi() {
           panelUrl: 'http://www.uwosh.edu/today/category/sustainability/'
         },
         athletics: {
-          feedEntry: data.iAmATitan.posts[0],
+          feedEntry: data.athletics.posts[0],
           panelClass: 'athletics',
           panelTitle: 'Athletics',
-          panelUrl: 'http://www.uwosh.edu/faces/category/i-am-a-titan/'
+          panelUrl: 'http://www.uwosh.edu/today/category/athletics-home/'
         },
         chancellor: {
           feedEntry: data.chancellor.posts[0],
