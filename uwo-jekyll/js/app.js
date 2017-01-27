@@ -350,16 +350,16 @@ function fetchUwoApi() {
       };
 
       // Find newest Powering Community Post
-      var poweringCommunityUwot = data.poweringCommunity.posts[0];
-      var poweringCommunityEngage = data.poweringCommunityEngage.posts[0];
-      var poweringCommunityNewest = '';
-      var pcUwotDate = moment(poweringCommunityUwot.date, "YYYY-MM-DD hh:mm:ss");
-      var pcEngageDate = moment(poweringCommunityEngage.date, "YYYY-MM-DD hh:mm:ss");
-      if (pcUwotDate > pcEngageDate) {
-        poweringCommunityNewest = poweringCommunityUwot;
-      } else {
-        poweringCommunityNewest = poweringCommunityEngage;
-      }
+      // var poweringCommunityUwot = data.poweringCommunity.posts[0];
+      // var poweringCommunityEngage = data.poweringCommunityEngage.posts[0];
+      // var poweringCommunityNewest = '';
+      // var pcUwotDate = moment(poweringCommunityUwot.date, "YYYY-MM-DD hh:mm:ss");
+      // var pcEngageDate = moment(poweringCommunityEngage.date, "YYYY-MM-DD hh:mm:ss");
+      // if (pcUwotDate > pcEngageDate) {
+      //   poweringCommunityNewest = poweringCommunityUwot;
+      // } else {
+      //   poweringCommunityNewest = poweringCommunityEngage;
+      // }
 
       // UWO homepage news panels
       var panels = {
