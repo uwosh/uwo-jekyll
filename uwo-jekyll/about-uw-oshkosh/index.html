@@ -48,18 +48,18 @@ responsive-nav: '
   <div class="medium-24 columns about-pillar__container hide-for-small">
 
     <ul class="inline-list no-bullet about-pillar">
-      <li class="about-pillar__title about-pillar--education"><a href="#" id="educationToggle">Education.</a></li>
-      <li class="about-pillar__title about-pillar--leadership"><a href="#" id="leadershipToggle">Leadership.</a></li>
-      <li class="about-pillar__title about-pillar--responsiveness"><a href="#" id="responsivenessToggle">Responsiveness.</a></li>
-      <li class="about-pillar__title about-pillar--service"><a href="#" id="serviceToggle">Service.</a></li>
+      <li class="about-pillar__title about-pillar--opportunity-of-place"><a href="#" id="opportunityOfPlaceToggle">Opportunity of place.</a></li>
       <li class="about-pillar__title about-pillar--sustainability"><a href="#" id="sustainabilityToggle">Sustainability.</a></li>
+      <li class="about-pillar__title about-pillar--research"><a href="#" id="researchToggle">Research.</a></li>
+      <li class="about-pillar__title about-pillar--education"><a href="#" id="educationToggle">Education.</a></li>
+      <li class="about-pillar__title about-pillar--heart"><a href="#" id="heartToggle">Heart.</a></li>
     </ul>
 
-    {% include about-uw-oshkosh/drawer-education.html %}
-    {% include about-uw-oshkosh/drawer-leadership.html %}
-    {% include about-uw-oshkosh/drawer-responsiveness.html %}
-    {% include about-uw-oshkosh/drawer-service.html %}
+    {% include about-uw-oshkosh/drawer-opportunity-of-place.html %}
     {% include about-uw-oshkosh/drawer-sustainability.html %}
+    {% include about-uw-oshkosh/drawer-research.html %}
+    {% include about-uw-oshkosh/drawer-education.html %}
+    {% include about-uw-oshkosh/drawer-heart.html %}
 
   </div>
 
@@ -135,7 +135,7 @@ responsive-nav: '
       <a href="#" class="current">About</a>
     </nav>
     <div class="row">
-      <div class="medium-12 columns">
+      <!-- <div class="medium-12 columns">
         <div class="youtube" id="4rqxUXoGs04"></div>
         <div class="flex-video">
           <iframe width="640" height="390" src="//www.youtube.com/embed/4rqxUXoGs04" frameborder="0" allowfullscreen></iframe>
@@ -143,6 +143,10 @@ responsive-nav: '
       </div>
       <div class="medium-12 columns">
         {% include about-uw-oshkosh/lead-content.html %}
+      </div> -->
+      <div class="medium-24 columns">
+        {% include about-uw-oshkosh/lead-content.html %}
+        <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/4rqxUXoGs04?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
       </div>
     </div>
   </div>

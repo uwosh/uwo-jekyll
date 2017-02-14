@@ -9565,7 +9565,7 @@ function fetchEmergency() {
 
 $(function() {
   if (screen.width > 767) {
-    var allDrawers = $('#aboutDrawer,#academicsDrawer,#athleticsDrawer,#alumniDrawer,#admissionsDrawer,#administrationDrawer,#resourcesDrawer,#calendarsDrawer,#educationDrawer,#leadershipDrawer,#responsivenessDrawer,#serviceDrawer,#sustainabilityDrawer');
+    var allDrawers = $('#aboutDrawer,#academicsDrawer,#athleticsDrawer,#alumniDrawer,#admissionsDrawer,#administrationDrawer,#resourcesDrawer,#calendarsDrawer,#opportunityOfPlaceDrawer,#sustainabilityDrawer,#researchDrawer,#educationDrawer,#heartDrawer');
 
     // About
     $('#aboutToggle').hoverIntent(function() {
@@ -9644,38 +9644,11 @@ $(function() {
       $('#aboutDrawer,#academicsDrawer,#athleticsDrawer,#alumniDrawer,#admissionsDrawer,#administrationDrawer,#resourcesDrawer,#calendarsDrawer').fadeOut(450);
     });
 
-    // Education
-    $('#educationToggle').hoverIntent(function() {
-      $('#educationDrawer').fadeIn(200);
-      $('#leadershipDrawer,#responsivenessDrawer,#serviceDrawer,#sustainabilityDrawer').fadeOut(450);
-      $('#educationDrawer').mouseleave(function() {
-        allDrawers.fadeOut(500);
-      });
-    });
-
-    // Leadership
-    $('#leadershipToggle').hoverIntent(function() {
-      $('#leadershipDrawer').fadeIn(200);
-      $('#educationDrawer,#responsivenessDrawer,#serviceDrawer,#sustainabilityDrawer').fadeOut(450);
-      $('#leadershipDrawer').mouseleave(function() {
-        allDrawers.fadeOut(500);
-      });
-    });
-
-    // Responsiveness
-    $('#responsivenessToggle').hoverIntent(function() {
-      $('#responsivenessDrawer').fadeIn(200);
-      $('#leadershipDrawer,#educationDrawer,#serviceDrawer,#sustainabilityDrawer').fadeOut(450);
-      $('#responsivenessDrawer').mouseleave(function() {
-        allDrawers.fadeOut(500);
-      });
-    });
-
-    // Service
-    $('#serviceToggle').hoverIntent(function() {
-      $('#serviceDrawer').fadeIn(200);
-      $('#leadershipDrawer,#responsivenessDrawer,#educationDrawer,#sustainabilityDrawer').fadeOut(450);
-      $('#serviceDrawer').mouseleave(function() {
+    // Opportunity of place
+    $('#opportunityOfPlaceToggle').hoverIntent(function() {
+      $('#opportunityOfPlaceDrawer').fadeIn(200);
+      $('#sustainabilityDrawer,#researchDrawer,#educationDrawer,#heartDrawer').fadeOut(450);
+      $('#opportunityOfPlaceDrawer').mouseleave(function() {
         allDrawers.fadeOut(500);
       });
     });
@@ -9683,8 +9656,35 @@ $(function() {
     // Sustainability
     $('#sustainabilityToggle').hoverIntent(function() {
       $('#sustainabilityDrawer').fadeIn(200);
-      $('#leadershipDrawer,#responsivenessDrawer,#serviceDrawer,#educationDrawer').fadeOut(450);
+      $('#opportunityOfPlaceDrawer,#researchDrawer,#educationDrawer,#heartDrawer').fadeOut(450);
       $('#sustainabilityDrawer').mouseleave(function() {
+        allDrawers.fadeOut(500);
+      });
+    });
+
+    // Research
+    $('#researchToggle').hoverIntent(function() {
+      $('#researchDrawer').fadeIn(200);
+      $('#opportunityOfPlaceDrawer,#sustainabilityDrawer,#educationDrawer,#heartDrawer').fadeOut(450);
+      $('#researchDrawer').mouseleave(function() {
+        allDrawers.fadeOut(500);
+      });
+    });
+
+    // Education
+    $('#educationToggle').hoverIntent(function() {
+      $('#educationDrawer').fadeIn(200);
+      $('#opportunityOfPlaceDrawer,#sustainabilityDrawer,#researchDrawer,#heartDrawer').fadeOut(450);
+      $('#educationDrawer').mouseleave(function() {
+        allDrawers.fadeOut(500);
+      });
+    });
+
+    // Heart
+    $('#heartToggle').hoverIntent(function() {
+      $('#heartDrawer').fadeIn(200);
+      $('#opportunityOfPlaceDrawer,#sustainabilityDrawer,#researchDrawer,#educationDrawer').fadeOut(450);
+      $('#heartDrawer').mouseleave(function() {
         allDrawers.fadeOut(500);
       });
     });

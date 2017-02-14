@@ -581,7 +581,7 @@ ABOUT UW OSHKOSH STYLES
   background-color: #fff;
   height: 54px;
   li {
-    margin-left: 0;
+    // margin-left: 0;
   }
 }
 .about-pillar__main-text {
@@ -609,56 +609,47 @@ ABOUT UW OSHKOSH STYLES
     color: $dark-gray;
   }
 }
-.about-pillar--education {
-  width: 210px;
+.about-pillar--opportunity-of-place {
+  margin-left: 0 !important;
   padding-left: 36px;
-  background-image: url("../img/about-uw-oshkosh/about-pillar--education.png");
 }
-.about-pillar--education:hover, .about-pillar--education:focus, .about-pillar--education:active {
+.about-pillar--opportunity-of-place:hover, .about-pillar--opportunity-of-place:focus, .about-pillar--opportunity-of-place:active {
   background-position-y: 53px;
   a {
     color: #0077ac !important;
   }
 }
-.about-pillar--leadership {
-  width: 200px;
+.about-pillar--sustainability {
   padding-left: 11px;
-  background-image: url("../img/about-uw-oshkosh/about-pillar--leadership.png");
 }
-.about-pillar--leadership:hover, .about-pillar--leadership:focus, .about-pillar--leadership:active {
+.about-pillar--sustainability:hover, .about-pillar--sustainability:focus, .about-pillar--sustainability:active {
   background-position-y: 53px;
   a {
     color: #c05500 !important;
   }
 }
-.about-pillar--responsiveness {
-  width: 230px;
+.about-pillar--research {
   padding-left: 11px;
-  background-image: url("../img/about-uw-oshkosh/about-pillar--responsiveness.png");
 }
-.about-pillar--responsiveness:hover, .about-pillar--responsiveness:focus, .about-pillar--responsiveness:active {
+.about-pillar--research:hover, .about-pillar--research:focus, .about-pillar--research:active {
   background-position-y: 53px;
   a {
     color: #e68500 !important;
   }
 }
-.about-pillar--service {
-  width: 170px;
+.about-pillar--education {
   padding-left: 11px;
-  background-image: url("../img/about-uw-oshkosh/about-pillar--service.png");
 }
-.about-pillar--service:hover, .about-pillar--service:focus, .about-pillar--service:active {
+.about-pillar--education:hover, .about-pillar--education:focus, .about-pillar--education:active {
   background-position-y: 53px;
   a {
     color: #69b9d9 !important;
   }
 }
-.about-pillar--sustainability {
-  width: 220px;
+.about-pillar--heart {
   padding-left: 11px;
-  background-image: url("../img/about-uw-oshkosh/about-pillar--sustainability.png");
 }
-.about-pillar--sustainability:hover, .about-pillar--sustainability:focus, .about-pillar--sustainability:active {
+.about-pillar--heart:hover, .about-pillar--heart:focus, .about-pillar--heart:active {
   background-position-y: 53px;
   a {
     color: #5a9563 !important;
@@ -692,44 +683,44 @@ ABOUT UW OSHKOSH STYLES
   font-size: 67px;
   font-weight: 700;
 }
-.about-pillar__dropdown--education {
+.about-pillar__dropdown--opportunity-of-place {
   background-color: #3b5282;
   background-image: url('../img/about-uw-oshkosh/education-hover-corner.png');
   background-repeat: no-repeat;
 }
-.about-pillar__dropdown--education--zebra {
+.about-pillar__dropdown--opportunity-of-place--zebra {
   background-color: #3a77b0;
 }
-.about-pillar__dropdown--leadership {
+.about-pillar__dropdown--sustainability {
   background-color: #b95413;
   background-image: url('../img/about-uw-oshkosh/leadership-hover-corner.png');
   background-repeat: no-repeat;
 }
-.about-pillar__dropdown--leadership--zebra {
+.about-pillar__dropdown--sustainability--zebra {
   background-color: #cb6300;
 }
-.about-pillar__dropdown--responsiveness {
+.about-pillar__dropdown--research {
   background-color: #de861c;
   background-image: url('../img/about-uw-oshkosh/responsiveness-hover-corner.png');
   background-repeat: no-repeat;
 }
-.about-pillar__dropdown--responsiveness--zebra {
+.about-pillar__dropdown--research--zebra {
   background-color: #ed980b;
 }
-.about-pillar__dropdown--service {
+.about-pillar__dropdown--education {
   background-color: #75bad8;
   background-image: url('../img/about-uw-oshkosh/service-hover-corner.png');
   background-repeat: no-repeat;
 }
-.about-pillar__dropdown--service--zebra {
+.about-pillar__dropdown--education--zebra {
   background-color: #49a5cf;
 }
-.about-pillar__dropdown--sustainability {
+.about-pillar__dropdown--heart {
   background-color: #5f9865;
   background-image: url('../img/about-uw-oshkosh/sustainability-hover-corner.png');
   background-repeat: no-repeat;
 }
-.about-pillar__dropdown--sustainability--zebra {
+.about-pillar__dropdown--heart--zebra {
   background-color: #7ab063;
 }
 .about-slider {
@@ -741,19 +732,19 @@ ABOUT UW OSHKOSH STYLES
       font-size: 28px;
     }
   }
-  .caption--education {
+  .caption--opportunity-of-place {
     background-color: rgba(59, 82, 130, 0.8) !important;
   }
-  .caption--leadership {
+  .caption--sustainability {
     background-color: rgba(185, 84, 19, 0.8) !important;
   }
-  .caption--responsiveness {
+  .caption--research {
     background-color: rgba(222, 134, 28, 0.8) !important;
   }
-  .caption--service {
+  .caption--education {
     background-color: rgba(117, 186, 216, 0.8) !important;
   }
-  .caption--sustainability {
+  .caption--heart {
     background-color: rgba(95, 152, 101, 0.8) !important;
   }
 }
