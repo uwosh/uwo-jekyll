@@ -298,6 +298,8 @@ abbr {
 }
 
 .audience-nav {
+  z-index: 9;
+  
   ul {
     background-color: rgba(255, 255, 255, .3);
     padding-left: 180px;
