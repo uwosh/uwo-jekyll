@@ -12081,7 +12081,7 @@ setTimeout(function() {
     ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Student Clubs & Orgs');
   });
   $('.tsTitanJobs').on('click', function() {
-    ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Titan Jobs');
+    ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Handshake');
   });
   // END UNIVERSITY NAVIGATION
 
