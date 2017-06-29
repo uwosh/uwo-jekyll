@@ -67,7 +67,7 @@ setTimeout(function() {
     ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Polk Library');
   });
   $('.tsMyUwo').on('click', function() {
-    ga('send', 'event', 'University Navigation', 'click', 'Titan Services / MyUWO');
+    ga('send', 'event', 'University Navigation', 'click', 'Titan Services / MyUWO Portal');
   });
   $('.tsStudentClubs').on('click', function() {
     ga('send', 'event', 'University Navigation', 'click', 'Titan Services / Student Clubs & Orgs');
