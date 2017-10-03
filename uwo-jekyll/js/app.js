@@ -83,7 +83,8 @@ function eventsLoad(events) {
     var eventDay = startDate.format('D') || '00';
     var startTime = startDate.format('h:mm a') || '12 am';
     var endTime = endDate.format('h:mm a') || '12 pm';
-    var description = $.trim(event.description).substring(0,130).split(" ").slice(0, -1).join(" ") + "..." || 'Event description';
+    var description = $(event.description).text(); // sanatizing the HTML out of the description
+    description = $.trim(description).substring(0,130).split(" ").slice(0, -1).join(" ") + "..." || 'Event description';
     var link = event.link || '#';
     var title = event.title || 'Event Title';
 
